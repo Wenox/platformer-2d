@@ -13,7 +13,12 @@ set(SFML_DIR "${CMAKE_CURRENT_LIST_DIR}/${EXTERNAL_LIBRARIES_DIR}/SFML-2.5.1/lib
 set(TGUI_DIR "${CMAKE_CURRENT_LIST_DIR}/${EXTERNAL_LIBRARIES_DIR}/TGUI-0.8/lib/cmake/TGUI")
 
 
-set(SOURCE_FILES main.cpp)
+include_directories(include
+        googletest/googletest/include
+        googletest/googlemock/include)
+
+set(SOURCE_FILES
+        src/main.cpp)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)
@@ -35,3 +40,5 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory
                    "${CMAKE_CURRENT_LIST_DIR}/${SHARED_LIBRARIES_DIR}/"
                    $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+
+add_subdirectory(test)

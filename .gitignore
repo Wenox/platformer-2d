@@ -1,6 +1,9 @@
 # External libraries e.g. SFML or TGUI
 lib/
 
+# External test libraries e.g. Googletest
+test/lib/
+
 # Build directory
 /cmake-build-debug
 
