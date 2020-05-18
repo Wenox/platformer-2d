@@ -19,7 +19,7 @@ include_directories(include
 
 set(SOURCE_FILES
         src/main.cpp
-        )
+        include/Game.cpp include/Game.h include/Window.cpp include/Window.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)
