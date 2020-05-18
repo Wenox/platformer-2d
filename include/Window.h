@@ -9,7 +9,9 @@ public:
 
     void update();
 
+    void beginDraw();
     void draw(const sf::Drawable& drawable);
+    void endDraw();
 
     auto& getWindow() const {
         return window;

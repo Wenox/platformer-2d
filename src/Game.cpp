@@ -14,7 +14,9 @@ void Game::update() {
 }
 
 void Game::draw() {
-
+    window.beginDraw();
+    // window.draw(drawable_obj);
+    window.endDraw();
 }
 
 void Game::run() {
@@ -23,9 +25,6 @@ void Game::run() {
         this->update();
         this->draw();
     }
-
-    window.update();
-    //window.draw();
 }
 
 bool Game::isRunning() const {

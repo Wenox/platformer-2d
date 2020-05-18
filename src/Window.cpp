@@ -16,9 +16,15 @@ void Window::update() {
     }
 }
 
-void Window::draw(const sf::Drawable& drawable) {
+void Window::beginDraw() {
     window.clear(sf::Color::Cyan);
+}
+
+void Window::draw(const sf::Drawable& drawable) {
     window.draw(drawable);
+}
+
+void Window::endDraw() {
     window.display();
 }
 
