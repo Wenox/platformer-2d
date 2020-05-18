@@ -15,10 +15,10 @@ public:
         return window;
     }
 
-private:
-    sf::RenderWindow window;
-
     bool isOpen() const;
+private:
+
+    sf::RenderWindow window;
 };
 
 
