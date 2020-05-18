@@ -18,7 +18,8 @@ include_directories(include
         googletest/googlemock/include)
 
 set(SOURCE_FILES
-        src/main.cpp)
+        src/main.cpp
+        )
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)
