@@ -14,13 +14,14 @@ set(TGUI_DIR "${CMAKE_CURRENT_LIST_DIR}/${EXTERNAL_LIBRARIES_DIR}/TGUI-0.8/lib/c
 
 
 include_directories(include
+        include/States
         googletest/googletest/include
         googletest/googlemock/include)
 
 set(SOURCE_FILES
         src/main.cpp
         src/Game.cpp
-        src/Window.cpp)
+        src/Window.cpp src/States/StateMachine.cpp include/States/StateMachine.h src/States/StateGame.cpp include/States/StateGame.h src/States/StateMenu.cpp include/States/StateMenu.h src/States/StateInitializer.cpp include/States/StateInitializer.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

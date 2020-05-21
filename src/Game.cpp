@@ -1,26 +1,42 @@
+#include <States/StateGame.h>
+#include <States/StateInitializer.h>
+#include <States/StateMenu.h>
 #include "Game.h"
 
 Game::Game()
-    : window{"Platformer"} {
+    : window{"Platformer"},
+      stateMachine{} {
+
     this->init();
 }
 
-void Game::processInput() {
+void Game::init() {
+    auto stateMenuID = stateMachine.insert(std::make_shared<StateMenu>());
+    auto stateGameID = stateMachine.insert(std::make_shared<StateGame>());
+    auto stateInitializerID = stateMachine.insert(std::make_shared<StateInitializer>());
+    std::cout << "stateMenuID: " << stateMenuID << std::endl;
+    std::cout << "stateGameID: " << stateGameID << std::endl;
+    std::cout << "stateInitializerID: " << stateInitializerID << std::endl;
+}
 
+void Game::processInput() {
+    stateMachine.processInput();
 }
 
 void Game::update() {
     window.update();
+    stateMachine.update(dt);
 }
 
 void Game::draw() {
     window.beginDraw();
-    // window.draw(drawable_obj);
+    stateMachine.draw(window);
     window.endDraw();
 }
 
 void Game::run() {
     while (this->isRunning()) {
+        computeDeltaTime();
         this->processInput();
         this->update();
         this->draw();
@@ -29,4 +45,8 @@ void Game::run() {
 
 bool Game::isRunning() const {
     return window.isOpen();
+}
+
+void Game::computeDeltaTime() {
+    dt = clock.restart().asSeconds();
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "Window.h"
+#include <States/StateMachine.h>
 
 class Game {
 public:
@@ -10,8 +10,13 @@ public:
     void run();
 private:
     Window window;
+    StateMachine stateMachine;
 
-    void init() {}
+    sf::Clock clock;
+    float dt;
+
+    void computeDeltaTime();
+    void init();
 
     void processInput();
     void update();
