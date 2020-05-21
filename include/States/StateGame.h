@@ -6,7 +6,8 @@
 
 class StateGame : public State {
 public:
-    StateGame() {
+    StateGame(StateMachine& stateMachine, Window& window)
+            : stateMachine{stateMachine}, window{window} {
         std::cout << "StateGame::StateGame()" << std::endl;
     }
 
@@ -18,9 +19,26 @@ public:
 
     }
 
+    void onActivate() override {
+        std::cout << "State Game activated" << std::endl;
+    }
+
+    void processInput() override {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+            stateMachine.switchTo(3);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+            stateMachine.switchTo(1);
+        }
+    }
+
     void update(float dt) override {
 
     }
+
+private:
+    StateMachine& stateMachine;
+    Window& window;
 };
 
 

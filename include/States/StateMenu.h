@@ -1,12 +1,13 @@
 #pragma once
 
 #include <iostream>
-#include "State.h"
+#include "StateMachine.h"
 
 
 class StateMenu : public State {
 public:
-    StateMenu() {
+    StateMenu(StateMachine& stateMachine, Window& window)
+            : stateMachine{stateMachine}, window{window} {
         std::cout << "StateMenu::StateMenu()\n";
     }
 
@@ -18,9 +19,26 @@ public:
 
     }
 
+    void onActivate() override {
+        std::cout << "State Menu activated" << std::endl;
+    }
+
+    void processInput() override {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+            stateMachine.switchTo(2);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+            stateMachine.switchTo(3);
+        }
+    }
+
     void update(float dt) override {
 
     }
+
+private:
+    StateMachine& stateMachine;
+    Window& window;
 };
 
 
