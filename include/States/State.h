@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "Window.h"
 
 class State {
 public:
@@ -14,5 +15,5 @@ public:
 
     virtual void processInput() {};
     virtual void update(float dt) {};
-    virtual void draw(sf::Window& window) {};
+    virtual void draw(Window& window) {};
 };
