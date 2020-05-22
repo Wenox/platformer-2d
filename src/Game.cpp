@@ -1,5 +1,5 @@
 #include <States/StateGame.h>
-#include <States/StateInitializer.h>
+#include <States/StateInit.h>
 #include <States/StateMenu.h>
 #include "Game.h"
 
@@ -11,16 +11,15 @@ Game::Game()
 }
 
 void Game::init() {
-    auto stateMenuID = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window));
-    auto stateGameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, window));
-    auto stateInitializerID = stateMachine.insert(std::make_shared<StateInitializer>(stateMachine, window));
+    state::initID = stateMachine.insert(std::make_shared<StateInit>(stateMachine, window));
+    state::menuID = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window));
+    state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine));
 
 
-
-    std::cout << "stateMenuID: " << stateMenuID << std::endl;
-    std::cout << "stateGameID: " << stateGameID << std::endl;
-    std::cout << "stateInitializerID: " << stateInitializerID << std::endl;
-    stateMachine.switchTo(1);
+    std::cout << "stateInitializerID: " << state::initID << std::endl;
+    std::cout << "stateMenuID: " << state::menuID << std::endl;
+    std::cout << "stateGameID: " << state::gameID << std::endl;
+    stateMachine.switchTo(state::gameID);
 }
 
 void Game::processInput() {

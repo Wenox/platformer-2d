@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-Wall")
 
 set(PROJECT_NAME "platformer-2d")
@@ -21,7 +21,7 @@ include_directories(include
 set(SOURCE_FILES
         src/main.cpp
         src/Game.cpp
-        src/Window.cpp src/States/StateMachine.cpp include/States/StateMachine.h src/States/StateGame.cpp include/States/StateGame.h src/States/StateMenu.cpp include/States/StateMenu.h src/States/StateInitializer.cpp include/States/StateInitializer.h)
+        src/Window.cpp src/States/StateMachine.cpp include/States/StateMachine.h src/States/StateGame.cpp include/States/StateGame.h src/States/StateMenu.cpp include/States/StateMenu.h src/States/StateInit.cpp include/States/StateInit.h include/States/StateID.h src/States/StateID.cpp)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

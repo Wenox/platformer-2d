@@ -8,6 +8,7 @@ public:
     Game();
 
     void run();
+
 private:
     Window window;
     StateMachine stateMachine;

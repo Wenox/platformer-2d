@@ -6,9 +6,9 @@
 #include "StateMachine.h"
 
 
-class StateGame : public State {
+class StateInit : public State {
 public:
-    explicit StateGame(StateMachine& stateMachine);
+    StateInit(StateMachine& stateMachine, Window& window);
 
     void onCreate() override;
     void onDestroy() override;
@@ -21,6 +21,7 @@ public:
 
 private:
     StateMachine& stateMachine;
+    Window& window;
 };
 
 

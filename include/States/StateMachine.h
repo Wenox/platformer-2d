@@ -4,6 +4,8 @@
 #include <memory>
 #include <Window.h>
 #include "State.h"
+#include "StateID.h"
+#include <iostream>
 
 
 class StateMachine {
@@ -25,7 +27,7 @@ public:
 private:
     std::unordered_map<int, std::shared_ptr<State>> states{};
     std::shared_ptr<State> currentState{nullptr};
-    int currentStateID{1};
+    int currentStateID{1}; ///* todo: rename me */
 };
 
 
