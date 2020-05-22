@@ -3,6 +3,7 @@
 #include <string>
 #include <SFML/Graphics/RenderWindow.hpp>
 
+
 class Window {
 public:
     explicit Window(const std::string& windowName);
@@ -13,7 +14,7 @@ public:
     void draw(const sf::Drawable& drawable);
     void endDraw();
 
-    auto& getWindow() const {
+    auto& getWindow() {
         return window;
     }
 

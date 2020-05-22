@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <TGUI/Widgets/Label.hpp>
+#include <TGUI/Gui.hpp>
 #include "StateMachine.h"
 
 
@@ -37,11 +39,17 @@ public:
     }
 
     void draw(Window& window) override {
-        sf::Text text;
-        text.setString("State Initializer");
-        window.draw(text);
-    }
+        sf::RectangleShape shape({400, 400});
+        shape.setFillColor(sf::Color::Yellow);
+        window.draw(shape);
 
+        static tgui::Gui gui{window.getWindow()};
+        static tgui::Label::Ptr label = tgui::Label::create("State Initializer");
+        label->setTextSize(72);
+
+        gui.add(label);
+        gui.draw();
+    }
 
 
 private:

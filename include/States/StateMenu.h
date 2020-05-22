@@ -2,7 +2,8 @@
 
 #include <iostream>
 #include "StateMachine.h"
-
+#include "TGUI/Gui.hpp"
+#include "TGUI/Widgets/Label.hpp"
 
 class StateMenu : public State {
 public:
@@ -34,6 +35,20 @@ public:
 
     void update(float dt) override {
 
+    }
+
+    void draw(Window& window) override {
+        sf::RectangleShape shape({400, 400});
+        shape.setFillColor(sf::Color::Blue);
+
+        window.draw(shape);
+
+        static tgui::Gui gui{window.getWindow()};
+        static tgui::Label::Ptr label = tgui::Label::create("State Menu");
+        label->setTextSize(72);
+
+        gui.add(label);
+        gui.draw();
     }
 
 private:
