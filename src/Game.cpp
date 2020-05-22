@@ -15,6 +15,10 @@ void Game::init() {
     state::menuID = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window));
     state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine));
 
+    stateMachine += std::make_shared<StateGame>(stateMachine);
+    stateMachine += std::make_shared<StateMenu>(stateMachine, window);
+    stateMachine += std::make_shared<StateInit>(stateMachine, window);
+
 
     std::cout << "stateInitializerID: " << state::initID << std::endl;
     std::cout << "stateMenuID: " << state::menuID << std::endl;

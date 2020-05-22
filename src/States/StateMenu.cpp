@@ -21,10 +21,10 @@ void StateMenu::onActivate() {
 
 void StateMenu::processInput() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
-        stateMachine.switchTo(state::initID);
+        stateMachine = state::initID;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-        stateMachine.switchTo(state::gameID);
+        stateMachine = state::gameID;
     }
 }
 
