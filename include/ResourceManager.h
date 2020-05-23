@@ -1,47 +1,42 @@
 #pragma once
 
-
 #include <map>
 #include <string>
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
 #include <memory>
 
+
+template <typename Key, typename Resource>
 class ResourceManager {
 public:
     ResourceManager() {
-        this->insert("../resources/wizard.png");
-        this->insert("../resources/gray.png");
-        this->insert("../resources/orange.png");
-
-        auto res1 = this->get("../resources/wizard.png");
-        auto res2 = this->get("../resources/gray.png");
-        auto res3 = this->get("../resources/orange.png");
     }
 
-    void insert(const std::string& s) {
-        std::unique_ptr<sf::Texture> t(new sf::Texture);
-        if (!t->loadFromFile(s)) {
-            std::cerr << "Cannot load: " << s << std::endl;
+    void insert(const Key& key) {
+        std::unique_ptr<Resource> resPtr(new Resource);
+        if (!resPtr->loadFromFile(key)) {
+            std::cerr << "Cannot load: " << key << std::endl;
+            ///* todo: default texture */
         }
-        textures.emplace(s, move(t));
+        resources.emplace(key, std::move(resPtr));
     }
 
-    sf::Texture& get(const std::string& id) {
-        if (auto resource = textures.find(id); resource != std::end(textures)) {
+    Resource& get(const Key& key) const {
+        if (auto resource = resources.find(key); resource != std::end(resources)) {
             return *(resource->second);
-        } throw std::invalid_argument{"No such resource id: " + id};
+        } throw std::invalid_argument{"No such resource id: " + key};
     }
 
 
     void print() {
-        for (const auto& resource : textures) {
+        for (const auto& resource : resources) {
             std::cout << "Resource: " << resource.first << std::endl;
         }
     }
 
 private:
-    std::unordered_map<std::string, std::unique_ptr<sf::Texture>> textures;
+    std::unordered_map<Key, std::unique_ptr<Resource>> resources;
 };
 
 

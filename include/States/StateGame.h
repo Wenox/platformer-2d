@@ -9,22 +9,25 @@
 
 class StateGame : public State {
 public:
-    explicit StateGame(StateMachine& stateMachine,
-                       ResourceManager& resourceManager);
+
+    StateGame(StateMachine& stateMachine,
+              ResourceManager<std::string, sf::Texture>& textures);
 
     void onCreate() override;
+
     void onDestroy() override;
 
     void onActivate() override;
-
     void processInput() override;
     void update(float dt) override;
+
     void draw(Window& window) override;
 
 private:
     int c{0};
+    const int velocity = 200;
     StateMachine& stateMachine;
-    ResourceManager& resourceManager;
+    ResourceManager<std::string, sf::Texture>& textures;
     sf::Texture texture;
     sf::Sprite sprite;
 };
