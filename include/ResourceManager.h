@@ -10,18 +10,14 @@
 template <typename Key, typename Resource>
 class ResourceManager {
 public:
-    ResourceManager() {
-    }
-
     template <typename ... Args>
     void insert(const Key& key, Args&& ... args) {
         std::unique_ptr<Resource> resPtr(new Resource);
-        if (not resPtr->loadFromFile(std::forward<Args>(args)...)) {
-            std::cerr << "Cannot load a resource: " << typeid(Key).name() << std::endl;
-            ///* todo: default texture */
+        if (!resPtr->loadFromFile(std::forward<Args>(args)...)) {
+            errorLoading(std::forward<Args>(args)...);
         }
         resources.emplace(key, std::move(resPtr));
-    }
+    } ///* todo: use default resource(?) or throw exception */
 
     Resource& get(const Key& key) const {
         if (auto resource = resources.find(key); resource != std::end(resources)) {
@@ -31,4 +27,10 @@ public:
 
 private:
     std::unordered_map<Key, std::unique_ptr<Resource>> resources;
+
+    template <typename ... Args>
+    void errorLoading(Args ... args) {
+         std::cerr << "Failed loading resource: { Type: \"" << typeid(Resource).name()<< "\", File name: \"";
+        (std::cerr << ... << args) << "\" }" << std::endl;
+    }
 };
