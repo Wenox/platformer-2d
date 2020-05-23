@@ -4,6 +4,7 @@
 #include <TGUI/Widgets/Label.hpp>
 #include <TGUI/Gui.hpp>
 #include <ResourceManager.h>
+#include <ResourcesPool.h>
 #include "StateMachine.h"
 
 
@@ -11,7 +12,7 @@ class StateGame : public State {
 public:
 
     StateGame(StateMachine& stateMachine,
-              ResourceManager<std::string, sf::Texture>& textures);
+              ResourceManager<obj::Texture, sf::Texture>& textures);
 
     void onCreate() override;
 
@@ -27,7 +28,7 @@ private:
     int c{0};
     const int velocity = 200;
     StateMachine& stateMachine;
-    ResourceManager<std::string, sf::Texture>& textures;
+    ResourceManager<obj::Texture, sf::Texture>& textures;
     sf::Texture texture;
     sf::Sprite sprite;
 };

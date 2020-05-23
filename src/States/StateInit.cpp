@@ -33,10 +33,6 @@ void StateInit::update(float dt) {
 }
 
 void StateInit::draw(Window& window) {
-    sf::RectangleShape shape({400, 400});
-    shape.setFillColor(sf::Color::Yellow);
-    window.draw(shape);
-
     static tgui::Gui gui{window.getWindow()};
     static tgui::Label::Ptr label = tgui::Label::create("State Initializer");
     label->setTextSize(72);

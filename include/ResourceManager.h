@@ -13,10 +13,11 @@ public:
     ResourceManager() {
     }
 
-    void insert(const Key& key) {
+    template <typename ... Args>
+    void insert(const Key& key, Args&& ... args) {
         std::unique_ptr<Resource> resPtr(new Resource);
-        if (!resPtr->loadFromFile(key)) {
-            std::cerr << "Cannot load: " << key << std::endl;
+        if (not resPtr->loadFromFile(std::forward<Args>(args)...)) {
+            std::cerr << "Cannot load a resource: " << typeid(Key).name() << std::endl;
             ///* todo: default texture */
         }
         resources.emplace(key, std::move(resPtr));
@@ -25,18 +26,9 @@ public:
     Resource& get(const Key& key) const {
         if (auto resource = resources.find(key); resource != std::end(resources)) {
             return *(resource->second);
-        } throw std::invalid_argument{"No such resource id: " + key};
-    }
-
-
-    void print() {
-        for (const auto& resource : resources) {
-            std::cout << "Resource: " << resource.first << std::endl;
-        }
+        } throw std::invalid_argument{"No such resource id."};
     }
 
 private:
     std::unordered_map<Key, std::unique_ptr<Resource>> resources;
 };
-
-

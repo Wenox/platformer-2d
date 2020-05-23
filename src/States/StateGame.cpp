@@ -1,15 +1,13 @@
 #include "StateGame.h"
 
-StateGame::StateGame(StateMachine &stateMachine, ResourceManager<std::string, sf::Texture>& textures)
+StateGame::StateGame(StateMachine &stateMachine, ResourceManager<obj::Texture, sf::Texture>& textures)
         : stateMachine{stateMachine}, textures{textures}
 {
     std::cout << "StateGame::StateGame()" << std::endl;
 }
 
 void StateGame::onCreate() {
-    std::cout << "MY MANAGER:\n";
-    textures.print();
-    texture = textures.get("../resources/wizard.png");
+    texture = textures.get(obj::Texture::Wizard);
     sprite.setTexture(texture);
 }
 
@@ -20,13 +18,13 @@ void StateGame::onDestroy() {
 void StateGame::onActivate() {
     switch (c++) {
         case 0:
-            sprite.setTexture(textures.get("../resources/wizard.png"));
+            sprite.setTexture(textures.get(obj::Texture::Wizard));
             break;
         case 1:
-            sprite.setTexture(textures.get("../resources/gray.png"));
+            sprite.setTexture(textures.get(obj::Texture::Orange));
             break;
         case 2:
-            sprite.setTexture(textures.get("../resources/orange.png"));
+            sprite.setTexture(textures.get(obj::Texture::Green));
             c = 0;
             break;
     }
@@ -57,16 +55,13 @@ void StateGame::update(float dt) {
 }
 
 void StateGame::draw(Window &window) {
-    sf::RectangleShape shape({400, 400});
-    shape.setFillColor(sf::Color::Red);
-    window.draw(shape);
-
-
     static tgui::Gui gui{window.getWindow()};
     static tgui::Label::Ptr label = tgui::Label::create("State Game");
     label->setTextSize(72);
-
     gui.add(label);
     gui.draw();
+
+
+
     window.draw(sprite);
 }

@@ -2,6 +2,14 @@
 
 #include "ResourceManager.h"
 
+namespace obj {
+    enum class Texture {
+        Gray,
+        Green,
+        Orange,
+        Wizard
+    };
+}
 
 class ResourcesPool {
 public:
@@ -13,12 +21,16 @@ public:
         return textures;
     }
 
+    auto& getTextures() const {
+        return textures;
+    }
+
 private:
-    ResourceManager<std::string, sf::Texture> textures;
+    ResourceManager<obj::Texture, sf::Texture> textures;
     void loadTextures() {
-        textures.insert("../resources/wizard.png");
-        textures.insert("../resources/orange.png");
-        textures.insert("../resources/green.png");
+        textures.insert(obj::Texture::Wizard, "../resources/wizard.png");
+        textures.insert(obj::Texture::Orange, "../resources/gray.png");
+        textures.insert(obj::Texture::Green, "../resources/green.png");
     }
 };
 
