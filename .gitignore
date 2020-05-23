@@ -10,6 +10,9 @@ test/lib/
 # CLion IDE config
 /.idea
 
+# Resources
+resources/
+
 
 # Basic C++ .gitignore:
 # Prerequisites
