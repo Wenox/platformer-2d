@@ -5,6 +5,7 @@
 #include <string>
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
+#include <memory>
 
 class ResourceManager {
 public:
@@ -19,28 +20,28 @@ public:
     }
 
     void insert(const std::string& s) {
-        sf::Texture t;
-        if (!t.loadFromFile(s)) {
+        std::unique_ptr<sf::Texture> t(new sf::Texture);
+        if (!t->loadFromFile(s)) {
             std::cerr << "Cannot load: " << s << std::endl;
         }
-        textures.emplace(s, t);
+        textures.emplace(s, move(t));
     }
 
     sf::Texture& get(const std::string& id) {
         if (auto resource = textures.find(id); resource != std::end(textures)) {
-            return (*resource).second;
+            return *(resource->second);
         } throw std::invalid_argument{"No such resource id: " + id};
     }
 
 
     void print() {
-        for (auto [key, val] : textures) {
-            std::cout << "Resource: " << key << std::endl;
+        for (const auto& resource : textures) {
+            std::cout << "Resource: " << resource.first << std::endl;
         }
     }
 
 private:
-    std::unordered_map<std::string, sf::Texture> textures;
+    std::unordered_map<std::string, std::unique_ptr<sf::Texture>> textures;
 };
 
 
