@@ -8,14 +8,16 @@ Game::Game()
       stateMachine{} {
 
     this->init();
+
+    //this->testResources();
 }
 
 void Game::init() {
     state::initID = stateMachine.insert(std::make_shared<StateInit>(stateMachine, window));
     state::menuID = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window));
-    state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine));
+    state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, rm));
 
-    stateMachine += std::make_shared<StateGame>(stateMachine);
+    stateMachine += std::make_shared<StateGame>(stateMachine, rm);
     stateMachine += std::make_shared<StateMenu>(stateMachine, window);
     stateMachine += std::make_shared<StateInit>(stateMachine, window);
 

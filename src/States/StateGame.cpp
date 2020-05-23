@@ -1,13 +1,16 @@
 #include "StateGame.h"
 
-StateGame::StateGame(StateMachine &stateMachine)
-        : stateMachine{stateMachine}
+StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resourceManager)
+        : stateMachine{stateMachine}, resourceManager{resourceManager}
 {
     std::cout << "StateGame::StateGame()" << std::endl;
 }
 
 void StateGame::onCreate() {
-
+    std::cout << "MY MANAGER:\n";
+    resourceManager.print();
+    texture = resourceManager.get("../resources/wizard.png");
+    sprite.setTexture(texture);
 }
 
 void StateGame::onDestroy() {
@@ -15,7 +18,18 @@ void StateGame::onDestroy() {
 }
 
 void StateGame::onActivate() {
-
+    switch (c++) {
+        case 0:
+            sprite.setTexture(resourceManager.get("../resources/wizard.png"));
+            break;
+        case 1:
+            sprite.setTexture(resourceManager.get("../resources/gray.png"));
+            break;
+        case 2:
+            sprite.setTexture(resourceManager.get("../resources/orange.png"));
+            c = 0;
+            break;
+    }
 }
 
 void StateGame::processInput() {
@@ -24,6 +38,19 @@ void StateGame::processInput() {
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
         stateMachine.switchTo(state::menuID);
+    }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+        sprite.move({-5, 0});
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+        sprite.move({5, 0});
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+        sprite.move({0, -5});
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+        sprite.move({0, 5});
     }
 }
 
@@ -43,4 +70,5 @@ void StateGame::draw(Window &window) {
 
     gui.add(label);
     gui.draw();
+    window.draw(sprite);
 }

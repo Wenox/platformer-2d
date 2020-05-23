@@ -3,12 +3,14 @@
 #include <iostream>
 #include <TGUI/Widgets/Label.hpp>
 #include <TGUI/Gui.hpp>
+#include <ResourceManager.h>
 #include "StateMachine.h"
 
 
 class StateGame : public State {
 public:
-    explicit StateGame(StateMachine& stateMachine);
+    explicit StateGame(StateMachine& stateMachine,
+                       ResourceManager& resourceManager);
 
     void onCreate() override;
     void onDestroy() override;
@@ -20,7 +22,11 @@ public:
     void draw(Window& window) override;
 
 private:
+    int c{0};
     StateMachine& stateMachine;
+    ResourceManager& resourceManager;
+    sf::Texture texture;
+    sf::Sprite sprite;
 };
 
 
