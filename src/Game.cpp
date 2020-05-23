@@ -4,20 +4,17 @@
 #include "Game.h"
 
 Game::Game()
-    : window{"Platformer"},
-      stateMachine{} {
-
+    : window{"Platformer"}
+{
     this->init();
-
-    //this->testResources();
 }
 
 void Game::init() {
     state::initID = stateMachine.insert(std::make_shared<StateInit>(stateMachine, window));
     state::menuID = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window));
-    state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, rm));
+    state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resourcesPool.getTextures()));
 
-    stateMachine += std::make_shared<StateGame>(stateMachine, rm);
+    stateMachine += std::make_shared<StateGame>(stateMachine, resourcesPool.getTextures());
     stateMachine += std::make_shared<StateMenu>(stateMachine, window);
     stateMachine += std::make_shared<StateInit>(stateMachine, window);
 
