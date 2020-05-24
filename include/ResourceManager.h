@@ -31,6 +31,6 @@ private:
     template <typename... Args>
     void errorLoading(Args&&... args) {
          std::cerr << "Failed loading resource: { Type: \"" << typeid(Resource).name()<< "\", File name: \"";
-        (std::cerr << ... << std::forward<Args>(args)) << "\" }" << std::endl;
+        (std::cerr << ... << args) << "\" }" << std::endl;
     }
 };
