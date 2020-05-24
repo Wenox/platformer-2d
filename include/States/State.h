@@ -5,10 +5,10 @@
 
 class State {
 public:
+    virtual ~State() = default;
+
     virtual void onCreate() = 0;
     virtual void onDestroy() = 0;
-
-    virtual ~State() = default;
 
     virtual void onActivate() {};
     virtual void onDeactivate() {};

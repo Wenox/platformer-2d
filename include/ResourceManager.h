@@ -10,10 +10,14 @@
 template <typename Key, typename Resource>
 class ResourceManager {
 public:
-    template <typename ... Args>
-    void insert(const Key& key, Args&& ... args) {
+    explicit ResourceManager(std::string resourcesPath = "../resources/")
+        : resourcesPath{std::move(resourcesPath)}
+    {}
+
+    template <typename... Args>
+    void insert(const Key& key, Args&&... args) {
         std::unique_ptr<Resource> resPtr(new Resource);
-        if (!resPtr->loadFromFile(std::forward<Args>(args)...)) {
+        if (!resPtr->loadFromFile(resourcesPath + std::forward<Args>(args)...)) {
             errorLoading(std::forward<Args>(args)...);
         }
         resources.emplace(key, std::move(resPtr));
@@ -26,6 +30,7 @@ public:
     }
 
 private:
+    std::string resourcesPath;
     std::unordered_map<Key, std::unique_ptr<Resource>> resources;
 
     template <typename ... Args>

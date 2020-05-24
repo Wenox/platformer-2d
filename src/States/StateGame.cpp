@@ -1,13 +1,13 @@
 #include "StateGame.h"
 
-StateGame::StateGame(StateMachine &stateMachine, ResourceManager<obj::Texture, sf::Texture>& textures)
+StateGame::StateGame(StateMachine &stateMachine, ResourceManager<res::Texture, sf::Texture>& textures)
         : stateMachine{stateMachine}, textures{textures}
 {
     std::cout << "StateGame::StateGame()" << std::endl;
 }
 
 void StateGame::onCreate() {
-    texture = textures.get(obj::Texture::Wizard);
+    texture = textures.get(res::Texture::Wizard);
     sprite.setTexture(texture);
 }
 
@@ -18,13 +18,13 @@ void StateGame::onDestroy() {
 void StateGame::onActivate() {
     switch (c++) {
         case 0:
-            sprite.setTexture(textures.get(obj::Texture::Wizard));
+            sprite.setTexture(textures.get(res::Texture::Wizard));
             break;
         case 1:
-            sprite.setTexture(textures.get(obj::Texture::Orange));
+            sprite.setTexture(textures.get(res::Texture::Orange));
             break;
         case 2:
-            sprite.setTexture(textures.get(obj::Texture::Green));
+            sprite.setTexture(textures.get(res::Texture::Green));
             c = 0;
             break;
     }
