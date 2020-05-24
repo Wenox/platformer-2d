@@ -2,21 +2,9 @@
 
 #include <SFML/Audio/SoundBuffer.hpp>
 #include "ResourceManager.h"
+#include "DefinedResources.h"
+#include "ResourceInserter.h"
 
-namespace res {
-    enum class Texture {
-        Gray,
-        Green,
-        Orange,
-        Wizard
-    };
-
-    enum class Sound {
-        Bullet,
-        Poof,
-        Bing
-    };
-}
 
 class ResourcesPool {
 public:
@@ -39,9 +27,9 @@ private:
     ResourceManager<res::Sound, sf::SoundBuffer> sounds{"../resources/sound/"};
 
     void loadTextures() {
-        textures.insert(res::Texture::Wizard, "wizard.png");
-        textures.insert(res::Texture::Orange, "gray.png");
-        textures.insert(res::Texture::Green,  "green.png");
+        textures += ResourceInserter(res::Texture::Wizard, "wizard.png");
+        textures.insert(res::Texture::Gray, "gray.png");
+        textures.insert(res::Texture::Orange,  "orange.png");
     }
 
     void loadSounds() {

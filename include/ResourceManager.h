@@ -5,6 +5,8 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
 #include <memory>
+#include "DefinedResources.h"
+#include "ResourceInserter.h"
 
 
 template <typename Key, typename Resource>
@@ -18,10 +20,17 @@ public:
     void insert(const Key& key, Args&&... args) {
         std::unique_ptr<Resource> resPtr(new Resource);
         if (!resPtr->loadFromFile(resourcesPath + std::forward<Args>(args)...)) {
-            errorLoading(std::forward<Args>(args)...);
+            msgErrorLoading(std::forward<Args>(args)...);
+            ///* todo: should I e.g. "throw ErrorLoadingResource" here? */
         }
         resources.emplace(key, std::move(resPtr));
-    } ///* todo: use default resource(?) or throw exception */
+    }
+
+    template <typename... Args>
+    ResourceManager& operator+=(const ResourceInserter<Key, Args...>& inserter) {
+        insert(std::move(inserter.key), std::move(std::get<Args>(inserter.args)...));
+        return *this;
+    }
 
     Resource& get(const Key& key) const {
         if (auto resource = resources.find(key); resource != std::end(resources)) {
@@ -36,8 +45,6 @@ public:
     inline Resource& operator[](const Key& key) {
         return get(std::move(key));
     }
-
-
 
     void erase(const Key& key) noexcept {
         if (auto found = resources.find(key); found != std::end(resources)) {
@@ -61,14 +68,12 @@ public:
         resourcesPath = std::move(newPath);
     }
 
-
-
 private:
     std::string resourcesPath;
     std::unordered_map<Key, std::unique_ptr<Resource>> resources;
 
     template <typename ... Args>
-    void errorLoading(Args ... args) {
+    void msgErrorLoading(Args ... args) {
          std::cerr << "Failed loading resource: { Type: \"" << typeid(Resource).name()<< "\", File name: \"";
         (std::cerr << ... << args) << "\" }" << std::endl;
     }
