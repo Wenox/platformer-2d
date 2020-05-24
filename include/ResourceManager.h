@@ -10,8 +10,8 @@
 template <typename Key, typename Resource>
 class ResourceManager {
 public:
-    template <typename... Args>
-    void insert(const Key& key, Args&&... args) {
+    template <typename ... Args>
+    void insert(const Key& key, Args&& ... args) {
         std::unique_ptr<Resource> resPtr(new Resource);
         if (!resPtr->loadFromFile(std::forward<Args>(args)...)) {
             errorLoading(std::forward<Args>(args)...);
@@ -28,8 +28,8 @@ public:
 private:
     std::unordered_map<Key, std::unique_ptr<Resource>> resources;
 
-    template <typename... Args>
-    void errorLoading(Args&&... args) {
+    template <typename ... Args>
+    void errorLoading(Args ... args) {
          std::cerr << "Failed loading resource: { Type: \"" << typeid(Resource).name()<< "\", File name: \"";
         (std::cerr << ... << args) << "\" }" << std::endl;
     }
