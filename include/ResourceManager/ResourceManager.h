@@ -1,15 +1,15 @@
 #pragma once
 
 #include <SFML/Audio/SoundBuffer.hpp>
-#include "ResourceManager.h"
-#include "DefinedResources.h"
+#include "ResourceHolder.h"
+#include "Resources.h"
 #include "ResourceInserter.h"
 
 
-class ResourcesPool {
+class ResourceManager {
 public:
 
-    ResourcesPool() {
+    ResourceManager() {
         loadTextures();
         loadSounds();
     }
@@ -23,8 +23,8 @@ public:
     }
 
 private:
-    ResourceManager<res::Texture, sf::Texture> textures;
-    ResourceManager<res::Sound, sf::SoundBuffer> sounds{"../resources/sound/"};
+    ResourceHolder<res::Texture, sf::Texture> textures;
+    ResourceHolder<res::Sound, sf::SoundBuffer> sounds{"../resources/sound/"};
 
     void loadTextures() {
         textures += ResourceInserter(res::Texture::Wizard, "wizard.png");

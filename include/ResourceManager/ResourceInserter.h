@@ -1,10 +1,10 @@
 #pragma once
 
-#include "DefinedResources.h"
+#include "Resources.h"
 #include <utility>
 
 /** There are two ways to insert new resources into:
- *  ResourceManager<Key, Resource> resources;
+ *  ResourceHolder<Key, Resource> resources;
  *
  *  1:
  *  resources.insert(key, args...);

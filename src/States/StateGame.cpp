@@ -1,6 +1,6 @@
 #include "StateGame.h"
 
-StateGame::StateGame(StateMachine &stateMachine, ResourceManager<res::Texture, sf::Texture>& textures)
+StateGame::StateGame(StateMachine &stateMachine, ResourceHolder<res::Texture, sf::Texture>& textures)
         : stateMachine{stateMachine}, textures{textures}
 {
     std::cout << "StateGame::StateGame()" << std::endl;

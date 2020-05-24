@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "ResourcesPool.h"
+#include "ResourceManager/ResourceManager.h"
 #include <States/StateMachine.h>
 
 class Game {
@@ -12,7 +12,7 @@ public:
 
 private:
     Window window;
-    ResourcesPool resourcesPool;
+    ResourceManager resourcesPool;
     StateMachine stateMachine;
 
     sf::Clock clock;

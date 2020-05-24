@@ -5,14 +5,14 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
 #include <memory>
-#include "DefinedResources.h"
+#include "Resources.h"
 #include "ResourceInserter.h"
 
 
 template <typename Key, typename Resource>
-class ResourceManager {
+class ResourceHolder {
 public:
-    explicit ResourceManager(std::string resourcesPath = "../resources/")
+    explicit ResourceHolder(std::string resourcesPath = "../resources/")
         : resourcesPath{std::move(resourcesPath)}
     {}
 
@@ -27,7 +27,7 @@ public:
     }
 
     template <typename... Args>
-    ResourceManager& operator+=(const ResourceInserter<Key, Args...>& inserter) {
+    ResourceHolder& operator+=(const ResourceInserter<Key, Args...>& inserter) {
         insert(std::move(inserter.key), std::move(std::get<Args>(inserter.args)...));
         return *this;
     }
