@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Resources.h"
 #include <utility>
 
 /** There are two ways to insert new resources into:
@@ -16,6 +15,7 @@
  *
  *  */
 
+
 template <typename Key, typename... Args>
 class ResourceInserter {
 public:
@@ -27,7 +27,6 @@ public:
     Key key;
     std::tuple<Args...> args;
 };
-
 
 template <typename T, typename... Args>
 ResourceInserter(T&&, Args&&... args) -> ResourceInserter<T, Args...>;
