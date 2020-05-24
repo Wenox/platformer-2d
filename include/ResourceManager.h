@@ -29,6 +29,26 @@ public:
         } throw std::invalid_argument{"No such resource id."};
     }
 
+    inline const Resource& operator[](const Key& key) const {
+        return get(std::move(key));
+    }
+
+    inline Resource& operator[](const Key& key) {
+        return get(std::move(key));
+    }
+
+
+
+    void erase(const Key& key) noexcept {
+        if (auto found = resources.find(key); found != std::end(resources)) {
+            resources.erase(key);
+        }
+    }
+
+    void eraseAll() {
+        resources.clear();
+    }
+
     auto& getResourcesPath() const {
         return resourcesPath;
     }
@@ -40,6 +60,8 @@ public:
     void setResourcesPath(std::string newPath) {
         resourcesPath = std::move(newPath);
     }
+
+
 
 private:
     std::string resourcesPath;

@@ -18,13 +18,13 @@ void StateGame::onDestroy() {
 void StateGame::onActivate() {
     switch (c++) {
         case 0:
-            sprite.setTexture(textures.get(res::Texture::Wizard));
+            sprite.setTexture(textures[res::Texture::Wizard]);
             break;
         case 1:
-            sprite.setTexture(textures.get(res::Texture::Orange));
+            sprite.setTexture(textures[res::Texture::Orange]);
             break;
         case 2:
-            sprite.setTexture(textures.get(res::Texture::Green));
+            sprite.setTexture(textures[res::Texture::Gray]);
             c = 0;
             break;
     }
