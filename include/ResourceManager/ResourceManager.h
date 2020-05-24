@@ -4,6 +4,7 @@
 #include "Resources.h"
 #include <SFML/Audio/SoundBuffer.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include <thread>
 
 
 class ResourceManager {
@@ -13,6 +14,8 @@ public:
 private:
     ResourceHolder<res::Texture, sf::Texture> textures;
     ResourceHolder<res::Sound, sf::SoundBuffer> sounds{"../resources/sound/"};
+
+    void loadResources();
 
     void loadTextures();
     void loadSounds();
