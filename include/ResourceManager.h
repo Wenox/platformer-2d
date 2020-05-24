@@ -29,6 +29,18 @@ public:
         } throw std::invalid_argument{"No such resource id."};
     }
 
+    auto& getResourcesPath() const {
+        return resourcesPath;
+    }
+
+    auto& getResources() const {
+        return resources;
+    }
+
+    void setResourcesPath(std::string newPath) {
+        resourcesPath = std::move(newPath);
+    }
+
 private:
     std::string resourcesPath;
     std::unordered_map<Key, std::unique_ptr<Resource>> resources;
