@@ -1,21 +1,29 @@
 #pragma once
 
 #include <TGUI/TGUI.hpp>
+#include <iostream>
 #include "Window.h"
+#include "GraphicItems.h"
 
 
 class GUI {
 public:
     GUI(Window& window) {
         gui.setTarget(window.getWindow());
+        map_init(buttonNames)
+                (Menu::Btn::newGame,  "New Game")
+                (Menu::Btn::loadGame, "Load Game")
+                (Menu::Btn::options,  "Options")
+                (Menu::Btn::about,    "About")
+                (Menu::Btn::exit, "Exit");
+
         gui.add(tgui::Picture::create("../resources/background.jpg"));
 
-        this->loadButton(gui, newGameBtn);
-        this->loadButton(gui, loadGameBtn);
-        this->loadButton(gui, optionsBtn);
-        this->loadButton(gui, aboutBtn);
-        this->loadButton(gui, exitBtn);
-
+        for (auto i{0u}; auto btn : Menu::Buttons) {
+            buttons.emplace_back(tgui::Button::create(buttonNames[btn]));
+            this->loadButton(gui, buttons[i]);
+            ++i;
+        }
     }
 
     void handleEvent(sf::Event e) {
@@ -27,6 +35,8 @@ public:
     }
 
 private:
+    std::map<Menu::Btn, const char*> buttonNames;
+
     int btnCounter = 0;
 
     constexpr static auto btnWidth    = 250;
@@ -37,11 +47,13 @@ private:
 
     tgui::Gui gui;
 public:
-    tgui::Button::Ptr newGameBtn  = tgui::Button::create("New Game");
-    tgui::Button::Ptr loadGameBtn = tgui::Button::create("Load Game");
-    tgui::Button::Ptr optionsBtn  = tgui::Button::create("Options");
-    tgui::Button::Ptr aboutBtn    = tgui::Button::create("About");
-    tgui::Button::Ptr exitBtn     = tgui::Button::create("Exit");
+    std::vector<tgui::Button::Ptr> buttons;
+
+//    tgui::Button::Ptr newGameBtn  = tgui::Button::create("New Game");
+//    tgui::Button::Ptr loadGameBtn = tgui::Button::create("Load Game");
+//    tgui::Button::Ptr optionsBtn  = tgui::Button::create("Options");
+//    tgui::Button::Ptr aboutBtn    = tgui::Button::create("About");
+//    tgui::Button::Ptr exitBtn     = tgui::Button::create("Exit");
 
 private:
     void setButton(tgui::Button::Ptr button) {
@@ -58,6 +70,7 @@ private:
     void loadButton(tgui::Gui& _gui, tgui::Button::Ptr button) {
         setButton(button);
         _gui.add(button);
+        std::cout << "Now the size is: " << buttons.size() << std::endl;
     }
 };
 

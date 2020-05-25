@@ -9,11 +9,11 @@ StateMenu::StateMenu(StateMachine& stateMachine, Window& window)
 }
 
 void StateMenu::onCreate() {
-    gui.newGameBtn->connect("pressed", [&]() {
+    gui.buttons[static_cast<unsigned long long int>(Menu::Btn::newGame)]->connect("pressed", [&]() {
         stateMachine = state::gameID;
     });
 
-    gui.loadGameBtn->connect("pressed", [&]() {
+    gui.buttons[static_cast<unsigned long long int>(Menu::Btn::options)]->connect("pressed", [&]() {
         stateMachine = state::initID;
     });
 }
