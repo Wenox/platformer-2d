@@ -5,12 +5,12 @@
 
 namespace Menu {
     enum class Btn {
-        newGame,
-        loadGame,
-        options,
-        about,
-        exit,
-        SIZE
+            newGame,
+            loadGame,
+            options,
+            about,
+            exit,
+            SIZE
     };
 
     constexpr std::initializer_list<Btn> Buttons = {
@@ -22,20 +22,32 @@ namespace Menu {
     };
 }
 
-template<typename T> struct map_init_helper
+#include <type_traits>
+
+template <typename E>
+constexpr auto to_underlying(E e) noexcept {
+    return static_cast<std::underlying_type_t<E>>(e);
+}
+
+template <typename E>
+constexpr auto toInt(E e) noexcept {
+    if constexpr (std::is_enum<E>::value)
+        return static_cast<int>(e);
+}
+
+template<typename T>
+struct mapListOfHelper
 {
     T& data;
-    explicit map_init_helper(T& d) : data(d) {}
-    map_init_helper& operator() (typename T::key_type const& key, typename T::mapped_type const& value)
-    {
+    explicit mapListOfHelper(T& d) : data(d) {}
+    mapListOfHelper& operator()(typename T::key_type    const& key,
+                                typename T::mapped_type const& value) {
         data[key] = value;
         return *this;
     }
 };
 
-template<typename T> map_init_helper<T> map_init(T& item)
-{
-    std::cout << "map_init()\n";
-    return map_init_helper<T>(item);
+template<typename T> mapListOfHelper<T> mapListOf(T& item) {
+    return mapListOfHelper<T>(item);
 }
 

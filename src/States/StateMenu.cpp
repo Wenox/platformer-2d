@@ -1,5 +1,7 @@
 #include "StateMenu.h"
 
+
+
 StateMenu::StateMenu(StateMachine& stateMachine, Window& window)
         : stateMachine{stateMachine},
           window{window},
@@ -9,11 +11,11 @@ StateMenu::StateMenu(StateMachine& stateMachine, Window& window)
 }
 
 void StateMenu::onCreate() {
-    gui.buttons[static_cast<unsigned long long int>(Menu::Btn::newGame)]->connect("pressed", [&]() {
+    gui.widgets[to_underlying(Menu::Btn::newGame)]->connect("pressed", [&]() {
         stateMachine = state::gameID;
     });
 
-    gui.buttons[static_cast<unsigned long long int>(Menu::Btn::options)]->connect("pressed", [&]() {
+    gui.widgets[to_underlying(Menu::Btn::options)]->connect("pressed", [&]() {
         stateMachine = state::initID;
     });
 }

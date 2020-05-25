@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <GUI.h>
+#include <MenuGUI.h>
 #include "StateMachine.h"
 #include "TGUI/Gui.hpp"
 #include "TGUI/TGUI.hpp"
@@ -25,7 +25,7 @@ public:
 private:
     StateMachine& stateMachine;
     Window& window;
-    GUI gui;
+    MenuGUI gui;
 };
 
 
