@@ -1,9 +1,12 @@
 #pragma once
 
 #include <iostream>
+#include <GUI.h>
 #include "StateMachine.h"
 #include "TGUI/Gui.hpp"
-#include "TGUI/Widgets/Label.hpp"
+#include "TGUI/TGUI.hpp"
+
+#include <SFML/Audio.hpp>
 
 class StateMenu : public State {
 public:
@@ -13,14 +16,16 @@ public:
     void onDestroy() override;
 
     void onActivate() override;
+    void onDeactivate() override;
 
     void processInput() override;
     void update(float dt) override;
-    void draw(Window& window) override;
+    void draw(Window&) override;
 
 private:
     StateMachine& stateMachine;
     Window& window;
+    GUI gui;
 };
 
 

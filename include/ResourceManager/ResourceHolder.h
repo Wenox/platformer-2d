@@ -9,6 +9,7 @@
 template <typename Key, typename Resource>
 class ResourceHolder {
 public:
+
     explicit ResourceHolder(std::string resourcesDir = "../resources/")
             : resourcesDir{std::move(resourcesDir)}
     {}
@@ -27,6 +28,10 @@ public:
         if (auto resource = resources.find(key); resource != std::end(resources)) {
             return *(resource->second);
         } throw std::invalid_argument{"No such resource id."};
+    }
+
+    bool has(const Key& key) const {
+        return get(key) != nullptr;
     }
 
     void erase(const Key& key) noexcept {
@@ -51,11 +56,11 @@ public:
     }
 
     inline const Resource& operator[](const Key& key) const {
-        return get(std::move(key));
+        return get(key);
     }
 
     inline Resource& operator[](const Key& key) {
-        return get(std::move(key));
+        return get(key);
     }
 
     auto& getResources() const {

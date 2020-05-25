@@ -8,7 +8,6 @@ Window::Window(const std::string& windowName)
 }
 
 void Window::update() {
-    sf::Event event{};
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
             window.close();

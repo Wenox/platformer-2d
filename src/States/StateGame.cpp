@@ -1,13 +1,14 @@
+#include <SFML/Audio/Sound.hpp>
 #include "StateGame.h"
 
-StateGame::StateGame(StateMachine &stateMachine, ResourceHolder<res::Texture, sf::Texture>& textures)
-        : stateMachine{stateMachine}, textures{textures}
+StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources)
+        : stateMachine{stateMachine}, resources{resources}
 {
     std::cout << "StateGame::StateGame()" << std::endl;
 }
 
 void StateGame::onCreate() {
-    texture = textures.get(res::Texture::Wizard);
+    texture = resources.getTextures().get(res::Texture::Wizard);
     sprite.setTexture(texture);
 }
 
@@ -18,16 +19,17 @@ void StateGame::onDestroy() {
 void StateGame::onActivate() {
     switch (c++) {
         case 0:
-            sprite.setTexture(textures[res::Texture::Wizard]);
+            sprite.setTexture(resources.getTextures()[res::Texture::Wizard]);
             break;
         case 1:
-            sprite.setTexture(textures[res::Texture::Orange]);
+            sprite.setTexture(resources.getTextures()[res::Texture::Orange]);
             break;
         case 2:
-            sprite.setTexture(textures[res::Texture::Gray]);
+            sprite.setTexture(resources.getTextures()[res::Texture::Gray]);
             c = 0;
             break;
     }
+
 }
 
 void StateGame::processInput() {
@@ -60,8 +62,6 @@ void StateGame::draw(Window &window) {
     label->setTextSize(72);
     gui.add(label);
     gui.draw();
-
-
 
     window.draw(sprite);
 }

@@ -12,7 +12,7 @@ Game::Game()
 void Game::init() {
     state::initID = stateMachine.insert(std::make_shared<StateInit>(stateMachine, window));
     state::menuID = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window));
-    state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resourcesPool.getTextures()));
+    state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources));
 
     std::cout << "stateInitializerID: " << state::initID << std::endl;
     std::cout << "stateMenuID: " << state::menuID << std::endl;

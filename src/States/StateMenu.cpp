@@ -2,13 +2,20 @@
 
 StateMenu::StateMenu(StateMachine& stateMachine, Window& window)
         : stateMachine{stateMachine},
-          window{window}
+          window{window},
+          gui{window}
 {
     std::cout << "StateMenu::StateMenu()\n";
 }
 
 void StateMenu::onCreate() {
+    gui.newGameBtn->connect("pressed", [&]() {
+        stateMachine = state::gameID;
+    });
 
+    gui.loadGameBtn->connect("pressed", [&]() {
+        stateMachine = state::initID;
+    });
 }
 
 void StateMenu::onDestroy() {
@@ -17,6 +24,10 @@ void StateMenu::onDestroy() {
 
 void StateMenu::onActivate() {
     std::cout << "State Menu activated" << std::endl;
+}
+
+void StateMenu::onDeactivate() {
+
 }
 
 void StateMenu::processInput() {
@@ -29,14 +40,9 @@ void StateMenu::processInput() {
 }
 
 void StateMenu::update(float dt) {
-
+    gui.handleEvent(window.getEvent());
 }
 
-void StateMenu::draw(Window& window) {
-    static tgui::Gui gui{window.getWindow()};
-    static tgui::Label::Ptr label = tgui::Label::create("State Menu");
-    label->setTextSize(72);
-
-    gui.add(label);
+void StateMenu::draw(Window&) {
     gui.draw();
 }

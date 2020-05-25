@@ -12,7 +12,7 @@ class StateGame : public State {
 public:
 
     StateGame(StateMachine& stateMachine,
-              ResourceHolder<res::Texture, sf::Texture>& textures);
+              ResourceManager& resources);
 
     void onCreate() override;
     void onDestroy() override;
@@ -27,7 +27,7 @@ private:
     int c{0};
     const int velocity = 200;
     StateMachine& stateMachine;
-    ResourceHolder<res::Texture, sf::Texture>& textures;
+    ResourceManager& resources;
     sf::Texture texture;
     sf::Sprite sprite;
 };

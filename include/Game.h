@@ -12,7 +12,7 @@ public:
 
 private:
     Window window;
-    ResourceManager resourcesPool;
+    ResourceManager resources;
     StateMachine stateMachine;
 
     sf::Clock clock;
