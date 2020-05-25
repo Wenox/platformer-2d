@@ -1,13 +1,14 @@
 #pragma once
 
 #include <type_traits>
+#include <optional>
+
 
 template <typename E>
 constexpr auto to_underlying(E e) noexcept {
     return static_cast<std::underlying_type_t<E>>(e);
 }
 
-#include <optional>
 
 template <typename E>
 constexpr std::optional<int> toInt(E e) noexcept {
@@ -20,8 +21,8 @@ template<typename T>
 struct mapListOfHelper
 {
     T& data;
-    explicit mapListOfHelper(T& d) : data(d) {}
-    mapListOfHelper& operator()(typename T::key_type    const& key,
+    constexpr explicit mapListOfHelper(T& d) : data(d) {}
+    constexpr mapListOfHelper& operator()(typename T::key_type    const& key,
                                 typename T::mapped_type const& value) {
         data[key] = value;
         return *this;
@@ -29,6 +30,6 @@ struct mapListOfHelper
 };
 
 template<typename T>
-mapListOfHelper<T> mapListOf(T& item) {
+constexpr mapListOfHelper<T> mapListOf(T& item) {
     return mapListOfHelper<T>(item);
 }
