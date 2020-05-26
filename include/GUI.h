@@ -3,6 +3,7 @@
 #include <TGUI/TGUI.hpp>
 
 
+template <typename TWidgetPtr = tgui::Widget::Ptr>
 class GUI {
 protected:
     tgui::Gui gui;
@@ -10,6 +11,8 @@ protected:
     virtual void buildGUI() = 0;
 
 public:
+    std::vector<TWidgetPtr> widgets;
+
     explicit GUI(Window& window)
     : gui{window.getWindow()}
     {}

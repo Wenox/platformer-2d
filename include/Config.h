@@ -2,9 +2,10 @@
 
 #include <type_traits>
 #include <TGUI/TGUI.hpp>
+#include <iostream>
 
 namespace Gui {
-    template <typename Widget>
+    template <typename Widget = tgui::Widget::Ptr>
     struct Config {
         constexpr static auto width       = 250;
         constexpr static auto height      = 50;
@@ -13,7 +14,8 @@ namespace Gui {
         constexpr static auto offsetY     = 45;
 
         const tgui::Color borderColor     = {209, 153, 48};
-        const tgui::Color backgroundColor = {255, 250, 245};
+        const tgui::Color backgroundColor = {255, 50, 245};
+
 
         void setWidget(Widget widget) {
             widget->setSize(tgui::Layout2d{width, height});
