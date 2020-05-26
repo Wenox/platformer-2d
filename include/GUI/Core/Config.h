@@ -1,8 +1,5 @@
 #pragma once
 
-#include <type_traits>
-#include <TGUI/TGUI.hpp>
-#include <iostream>
 
 namespace Gui {
     template <typename Widget = tgui::Widget::Ptr>
@@ -11,13 +8,12 @@ namespace Gui {
         constexpr static auto height      = 50;
         constexpr static auto textSize    = 24;
         constexpr static auto opacity     = 0.95;
-        constexpr static auto offsetY     = 45;
 
         const tgui::Color borderColor     = {209, 153, 48};
         const tgui::Color backgroundColor = {255, 50, 245};
 
 
-        void setWidget(Widget widget) {
+        void prepare(Widget widget) {
             widget->setSize(tgui::Layout2d{width, height});
             widget->setInheritedOpacity(opacity);
             widget->setTextSize(textSize);

@@ -25,13 +25,6 @@ public:
         gui.draw();
     }
 
-
-
-
-
-
-
-
     virtual ~GUI() = default;
     ///* todo: consider Ro5 */
 };

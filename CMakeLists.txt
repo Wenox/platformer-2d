@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++2a")
 
 set(PROJECT_NAME "platformer-2d")
 project(${PROJECT_NAME})
@@ -15,13 +15,16 @@ set(TGUI_DIR "${CMAKE_CURRENT_LIST_DIR}/${EXTERNAL_LIBRARIES_DIR}/TGUI-0.8/lib/c
 
 include_directories(include
         include/States
+        include/GUI
+        include/GUI/Core
+        include/ResourceManager
         googletest/googletest/include
         googletest/googlemock/include)
 
 set(SOURCE_FILES
         src/main.cpp
         src/Game.cpp
-        src/Window.cpp src/States/StateMachine.cpp include/States/StateMachine.h src/States/StateGame.cpp include/States/StateGame.h src/States/StateMenu.cpp include/States/StateMenu.h src/States/StateInit.cpp include/States/StateInit.h include/States/StateID.h src/States/StateID.cpp src/ResourceManager/ResourceHolder.cpp include/ResourceManager/ResourceHolder.h src/ResourceManager/ResourceManager.cpp include/ResourceManager/ResourceManager.h include/ResourceManager/Resources.h include/ResourceManager/ResourceInserter.h src/MenuGUI.cpp include/MenuGUI.h include/MenuItems.h src/MenuItems.cpp include/GUI.h include/Config.h include/Utility.h)
+        src/Window.cpp src/States/StateMachine.cpp include/States/StateMachine.h src/States/StateGame.cpp include/States/StateGame.h src/States/StateMenu.cpp include/States/StateMenu.h src/States/StateInit.cpp include/States/StateInit.h include/States/StateID.h src/States/StateID.cpp src/ResourceManager/ResourceHolder.cpp include/ResourceManager/ResourceHolder.h src/ResourceManager/ResourceManager.cpp include/ResourceManager/ResourceManager.h include/ResourceManager/Resources.h include/ResourceManager/ResourceInserter.h src/MenuGUI.cpp include/GUI/MenuGUI.h include/GUI/MenuConfig.h src/MenuConfig.cpp include/GUI/Core/GUI.h include/GUI/Core/Config.h include/GUI/Core/Utility.h include/GUI/Core/IConfig.h src/GUI/MenuConfig.cpp src/GUI/MenuGUI.cpp)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)
