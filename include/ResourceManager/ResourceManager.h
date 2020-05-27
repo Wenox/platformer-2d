@@ -12,7 +12,7 @@ public:
     ResourceManager();
 
 private:
-    ResourceHolder<res::Texture, sf::Texture>   textures;
+    ResourceHolder<res::Texture, sf::Texture> textures;
     ResourceHolder<res::Sound, sf::SoundBuffer> sounds{"../resources/sound/"};
     ResourceHolder<res::Music, sf::Music> music;
 

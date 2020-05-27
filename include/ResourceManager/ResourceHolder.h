@@ -8,6 +8,7 @@
 #include <concepts>
 #include <type_traits>
 #include <SFML/Audio/Music.hpp>
+#include <iomanip>
 
 
 template <typename Key, typename Resource>
@@ -119,6 +120,7 @@ public:
 private:
     void msgErrorLoading(std::string_view fileName) {
          std::cerr << "Failed loading resource: "
-                      "{ Type: \""  << typeid(Resource).name()<< "\", File name: \"" << fileName << "\" }\n";
+                      "{ Type: "    << std::quoted(typeid(Resource).name()) << ", "
+                      "File name: " << std::quoted(fileName)                << " }" << std::endl;
     }
 };
