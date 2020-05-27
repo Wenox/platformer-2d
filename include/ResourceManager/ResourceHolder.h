@@ -56,20 +56,6 @@ private:
     std::unordered_map<Key, std::unique_ptr<Resource>> resources;
 
 public:
-    template <typename... Args>
-    ResourceHolder& operator+=(const ResourceInserter<Key, Args...>& inserter) {
-
-        if constexpr (sizeof...(Args) == 0) {
-            insert(std::move(inserter.key),
-                   std::move(inserter.fileName));
-        } else {
-            insert(std::move(inserter.key),
-                   std::move(inserter.fileName),
-                   std::move(std::get<Args...>(inserter.args)));
-        }
-
-        return *this;
-    }
 
     const Resource& operator[](const Key& key) const {
         return get(key);
@@ -89,6 +75,36 @@ public:
 
     void setResourcesDir(std::string newPath) {
         resourcesDir = std::move(newPath);
+    }
+
+    template <typename... Args>
+    ResourceHolder& operator+=(const ResourceInserter<Key, Args...>& inserter) {
+
+        if constexpr (sizeof...(Args) == 0) {
+            insert(std::move(inserter.key),
+                   std::move(inserter.fileName));
+        } else {
+            insert(std::move(inserter.key),
+                   std::move(inserter.fileName),
+                   std::move(std::get<Args...>(inserter.args)));
+        }
+
+        return *this;
+    }
+
+    template <typename... Args>
+    ResourceHolder& operator+=(ResourceInserter<Key, Args...>&& inserter) {
+
+        if constexpr (sizeof...(Args) == 0) {
+            insert(std::move(inserter.key),
+                   std::move(inserter.fileName));
+        } else {
+            insert(std::move(inserter.key),
+                   std::move(inserter.fileName),
+                   std::move(std::get<Args...>(inserter.args)));
+        }
+
+        return *this;
     }
 
 private:
