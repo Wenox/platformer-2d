@@ -7,7 +7,7 @@
 
 #include <concepts>
 #include <type_traits>
-#include <synchapi.h>
+#include <SFML/Audio/Music.hpp>
 
 
 template <typename Key, typename Resource>
@@ -24,9 +24,18 @@ public:
     template <typename... Args>
     void insert(const Key& key, std::string_view fileName, Args&&... args) {
         auto resPtr = std::make_unique<Resource>();
-        if (!resPtr->loadFromFile(resourcesDir + fileName.data(), std::forward<Args>(args)...)) {
+
+        bool loaded{};
+        if constexpr (std::is_same<Resource, sf::Music>::value) {
+            loaded = resPtr->openFromFile(resourcesDir + fileName.data(), std::forward<Args>(args)...);
+        } else {
+            loaded = resPtr->loadFromFile(resourcesDir + fileName.data(), std::forward<Args>(args)...);
+        }
+
+        if (!loaded) {
             msgErrorLoading(fileName);
-            ///* todo: should I e.g. "throw ErrorLoadingResource" here? */
+            ///* todo: possibly "throw ErrorLoadingResource" here */
+            return;
         }
         resources.emplace(key, std::move(resPtr));
     }
