@@ -4,7 +4,7 @@
 #include <string>
 
 
-int main()
+int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 {
     Game game;
     game.run();

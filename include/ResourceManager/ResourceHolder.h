@@ -26,7 +26,7 @@ public:
         auto resPtr = std::make_unique<Resource>();
 
         bool loaded{};
-        if constexpr (std::is_same<Resource, sf::Music>::value) {
+        if constexpr (std::is_same<Resource, sf::Music>()) {
             loaded = resPtr->openFromFile(resourcesDir + fileName.data(), std::forward<Args>(args)...);
         } else {
             loaded = resPtr->loadFromFile(resourcesDir + fileName.data(), std::forward<Args>(args)...);

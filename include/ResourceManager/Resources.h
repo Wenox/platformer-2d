@@ -13,4 +13,8 @@ namespace res {
         Poof,
         Bing
     };
+
+    enum class Music {
+        Ambient
+    };
 }

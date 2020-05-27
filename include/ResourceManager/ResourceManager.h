@@ -14,11 +14,13 @@ public:
 private:
     ResourceHolder<res::Texture, sf::Texture>   textures;
     ResourceHolder<res::Sound, sf::SoundBuffer> sounds{"../resources/sound/"};
+    ResourceHolder<res::Music, sf::Music> music;
 
     void loadResources();
 
     void loadTextures();
     void loadSounds();
+    void loadMusic();
 
 public:
     auto& getTextures() {
@@ -27,6 +29,10 @@ public:
 
     auto& getSounds() {
         return sounds;
+    }
+
+    auto& getMusic() {
+        return music;
     }
 };
 
