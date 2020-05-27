@@ -27,10 +27,10 @@ public:
     {}
 
     template <typename... Args>
-    void insert(const Key& key, Args&&... args) {
+    void insert(const Key& key, std::string_view fileName, Args&&... args) {
         auto resPtr = std::make_unique<Resource>();
-        if (!resPtr->loadFromFile(resourcesDir + std::forward<Args>(args)...)) {
-            msgErrorLoading(args...);
+        if (!resPtr->loadFromFile(resourcesDir + fileName.data(), std::forward<Args>(args)...)) {
+            msgErrorLoading(fileName);
             ///* todo: should I e.g. "throw ErrorLoadingResource" here? */
         }
         resources.emplace(key, std::move(resPtr));
@@ -52,7 +52,7 @@ public:
         }
     }
 
-    void eraseAll() {
+    void eraseAll() noexcept {
         resources.clear();
     }
 
@@ -88,9 +88,8 @@ public:
     }
 
 private:
-    template <typename... Args>
-    void msgErrorLoading(const Args&... args) {
-         std::cerr << "Failed loading resource: { Type: \"" << typeid(Resource).name()<< "\", File name: \"";
-        (std::cerr << ... << args) << "\" }" << std::endl;
+    void msgErrorLoading(std::string_view fileName) {
+         std::cerr << "Failed loading resource: "
+                      "{ Type: \""  << typeid(Resource).name()<< "\", File name: \"" << fileName << "\" }\n";
     }
 };

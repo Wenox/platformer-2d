@@ -14,7 +14,7 @@ void ResourceManager::loadResources() {
 void ResourceManager::loadTextures() {
     textures.insert(res::Texture::Wizard, "wizard.png");
     textures.insert(res::Texture::Wizard, "wizard.png");
-    textures.insert(res::Texture::Wizard, "wizard.png");
+    textures.insert(res::Texture::Wizard, "wizard.pngg");
     textures.insert(res::Texture::Gray,   "gray.png");
     textures.insert(res::Texture::Gray,   "gray.png");
     textures.insert(res::Texture::Orange, "orange.png");
