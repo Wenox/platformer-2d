@@ -7,17 +7,12 @@
 
 #include <concepts>
 #include <type_traits>
-
-
-#if (__cplusplus == 202002L)
-    template <typename T>
-    concept Mappable = std::strict_weak_order<std::less<T>, T, T>;
-#endif
+#include <synchapi.h>
 
 
 template <typename Key, typename Resource>
 #if (__cplusplus == 202002L)
-    requires Mappable<T>
+    requires Mappable<Key>
 #endif
 class ResourceHolder {
 public:
@@ -63,15 +58,24 @@ private:
 public:
     template <typename... Args>
     ResourceHolder& operator+=(const ResourceInserter<Key, Args...>& inserter) {
-        insert(std::move(inserter.key), std::move(std::get<Args>(inserter.args)...));
+
+        if constexpr (sizeof...(Args) == 0) {
+            insert(std::move(inserter.key),
+                   std::move(inserter.fileName));
+        } else {
+            insert(std::move(inserter.key),
+                   std::move(inserter.fileName),
+                   std::move(std::get<Args...>(inserter.args)));
+        }
+
         return *this;
     }
 
-    inline const Resource& operator[](const Key& key) const {
+    const Resource& operator[](const Key& key) const {
         return get(key);
     }
 
-    inline Resource& operator[](const Key& key) {
+    Resource& operator[](const Key& key) {
         return get(key);
     }
 

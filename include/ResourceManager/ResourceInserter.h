@@ -15,18 +15,29 @@
  *
  *  */
 
+#if (__cplusplus == 202002L)
+template <typename T>
+    concept Mappable = std::strict_weak_order<std::less<T>, T, T>;
+#endif
+
+#if (__cplusplus == 202002L)
+  requires Mappable<Key>
+#endif
+
 
 template <typename Key, typename... Args>
 class ResourceInserter {
 public:
-    explicit ResourceInserter(Key&& key, Args&&... args)
-            : key{std::forward<Key>(key)}
-            , args{std::forward<Args>(args)...}
-    {}
-
+    explicit ResourceInserter(Key key, std::string_view fileName, Args... args)
+            : key{std::move(key)}
+            , fileName{fileName}
+            , args{std::move<Args>(args)...}
+    {
+    }
     Key key;
+    std::string fileName;
     std::tuple<Args...> args;
 };
 
 template <typename T, typename... Args>
-ResourceInserter(T&&, Args&&... args) -> ResourceInserter<T, Args...>;
+ResourceInserter(T&&, std::string_view, Args&&... args) -> ResourceInserter<T, Args...>;
