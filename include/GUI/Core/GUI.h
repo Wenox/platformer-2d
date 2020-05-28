@@ -1,7 +1,7 @@
 #pragma once
 
 #include <TGUI/TGUI.hpp>
-
+#include <iostream>
 
 template <typename TWidgetPtr = tgui::Widget::Ptr>
 class GUI {
@@ -17,8 +17,11 @@ public:
     : gui{window.getWindow()}
     {}
 
-    virtual void handleEvent(sf::Event e) {
-        gui.handleEvent(e);
+    virtual void handleEvent(std::queue<sf::Event>& events) {
+        while (!events.empty()) {
+            gui.handleEvent(events.front());
+            events.pop();
+        }
     }
 
     virtual void draw() {

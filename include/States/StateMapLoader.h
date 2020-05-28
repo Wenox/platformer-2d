@@ -29,6 +29,10 @@ public:
 
     }
 
+    void processInput() override {
+
+    }
+
     void update(float) override {
         gui.handleEvent(window.getEvent());
     }
@@ -41,8 +45,6 @@ private:
     StateMachine& stateMachine;
     Window& window;
     MapLoaderGUI gui;
-
-
 };
 
 

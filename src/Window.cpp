@@ -8,8 +8,11 @@ Window::Window(const std::string& windowName)
 }
 
 void Window::update() {
-    while (window.pollEvent(event)) {
-        if (event.type == sf::Event::Closed) {
+    sf::Event e{};
+    while (window.pollEvent(e)) {
+        events.emplace(e);
+
+        if (e.type == sf::Event::Closed) {
             window.close();
         }
     }

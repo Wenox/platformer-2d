@@ -2,7 +2,7 @@
 
 #include <string>
 #include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Window/Event.hpp>
+#include <queue>
 
 
 class Window {
@@ -15,8 +15,8 @@ public:
     void draw(const sf::Drawable& drawable);
     void endDraw();
 
-    sf::Event& getEvent() {
-        return event;
+    auto& getEvent() {
+        return events;
     }
 
     auto& getWindow() {
@@ -26,7 +26,7 @@ public:
     bool isOpen() const;
 private:
     sf::RenderWindow window;
-    sf::Event event;
+    std::queue<sf::Event> events;
 };
 
 
