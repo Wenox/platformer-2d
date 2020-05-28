@@ -1,18 +1,28 @@
+#include <GUI/MenuConfig.h>
 #include "StateMenu.h"
 
 
 
-StateMenu::StateMenu(StateMachine& stateMachine, Window& window)
+StateMenu::StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager)
         : stateMachine{stateMachine},
           window{window},
-          gui{window}
+          gui{window},
+          resources{resourceManager}
 {
+    sound.setBuffer(resources.getSounds().get(res::Sound::Bing));
     std::cout << "StateMenu::StateMenu()\n";
 }
 
 void StateMenu::onCreate() {
+    for (auto& widget : gui.widgets) {
+        widget->connect("MouseEntered", [&]() {
+            sound.play();
+        });
+    }
+
+
     gui.widgets[to_underlying(Menu::Btn::newGame)]->connect("pressed", [&]() {
-        stateMachine = state::gameID;
+        stateMachine = state::loaderID;
     });
 
     gui.widgets[to_underlying(Menu::Btn::options)]->connect("pressed", [&]() {
@@ -26,6 +36,7 @@ void StateMenu::onDestroy() {
 
 void StateMenu::onActivate() {
     std::cout << "State Menu activated" << std::endl;
+
 }
 
 void StateMenu::onDeactivate() {

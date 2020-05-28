@@ -38,5 +38,6 @@ void ResourceManager::loadSounds() {
 }
 
 void ResourceManager::loadMusic() {
-    music.insert(res::Music::Ambient, "error.ogg");
+//    music.insert(res::Music::Ambient, "boing.wav");
+//    music.insert(res::Music::Ambient, "boing_bad.wav");
 }

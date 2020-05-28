@@ -7,10 +7,11 @@
 #include "TGUI/TGUI.hpp"
 
 #include <SFML/Audio.hpp>
+#include <ResourceManager/ResourceManager.h>
 
 class StateMenu : public State {
 public:
-    StateMenu(StateMachine& stateMachine, Window& window);
+    StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager);
 
     void onCreate() override;
     void onDestroy() override;
@@ -26,6 +27,8 @@ private:
     StateMachine& stateMachine;
     Window& window;
     MenuGUI gui;
+    ResourceManager& resources;
+    sf::Sound sound;
 };
 
 

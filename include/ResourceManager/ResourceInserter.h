@@ -17,8 +17,8 @@
 
 
 #if (__cplusplus == 202002L)
-template <typename T>
-    concept Mappable = std::strict_weak_order<std::less<T>, T, T>;
+    template <typename Key>
+    concept Mappable = std::strict_weak_order<std::less<Key>, Key, Key>;
 #endif
 
 

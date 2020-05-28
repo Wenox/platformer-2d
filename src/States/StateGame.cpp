@@ -22,6 +22,7 @@ void StateGame::onActivate() {
             sprite.setTexture(resources.getTextures()[res::Texture::Wizard]);
             break;
         case 1:
+            std::cout << resources.getMusic().getResources().size() << std::endl;
             sprite.setTexture(resources.getTextures()[res::Texture::Orange]);
             break;
         case 2:

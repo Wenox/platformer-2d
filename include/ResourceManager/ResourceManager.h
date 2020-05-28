@@ -14,7 +14,7 @@ public:
 private:
     ResourceHolder<res::Texture, sf::Texture> textures;
     ResourceHolder<res::Sound, sf::SoundBuffer> sounds{"../resources/sound/"};
-    ResourceHolder<res::Music, sf::Music> music;
+    ResourceHolder<res::Music, sf::Music> music{"../resources/sound/"};
 
     void loadResources();
 

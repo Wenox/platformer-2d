@@ -16,9 +16,12 @@ template <typename Key, typename Resource>
     requires Mappable<Key>
 #endif
 class ResourceHolder {
+    std::unordered_map<Key, std::unique_ptr<Resource>> resources;
+    std::string resourcesDir;
+
 public:
 
-    explicit ResourceHolder(std::string resourcesDir = "../resources/")
+    explicit ResourceHolder(std::string_view resourcesDir = "../resources/")
             : resourcesDir{std::move(resourcesDir)}
     {}
 
@@ -28,7 +31,9 @@ public:
 
         bool loaded{};
         if constexpr (std::is_same<Resource, sf::Music>()) {
+//            std::cout << "x\n";
             loaded = resPtr->openFromFile(resourcesDir + fileName.data(), std::forward<Args>(args)...);
+//            std::cout << "d\n";
         } else {
             loaded = resPtr->loadFromFile(resourcesDir + fileName.data(), std::forward<Args>(args)...);
         }
@@ -60,10 +65,6 @@ public:
     void eraseAll() noexcept {
         resources.clear();
     }
-
-private:
-    std::string resourcesDir;
-    std::unordered_map<Key, std::unique_ptr<Resource>> resources;
 
 public:
 
