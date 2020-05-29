@@ -40,7 +40,7 @@ set(SOURCE_FILES
         src/GUI/MapLoaderConfig.cpp
         src/Encoder/FileReader.cpp
         src/Encoder/BmpReader.cpp
-        include/Encoder/PixelColor.h include/Encoder/TxtReader.h src/Encoder/TxtReader.cpp)
+        include/Encoder/PixelColor.h include/Encoder/TxtReader.h src/Encoder/TxtReader.cpp include/Encoder/Encoder.cpp include/Encoder/Encoder.h include/Encoder/BmpEncoder.cpp include/Encoder/BmpEncoder.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

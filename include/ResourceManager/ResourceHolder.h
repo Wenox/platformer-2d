@@ -31,9 +31,7 @@ public:
 
         bool loaded{};
         if constexpr (std::is_same<Resource, sf::Music>()) {
-//            std::cout << "x\n";
             loaded = resPtr->openFromFile(resourcesDir + fileName.data(), std::forward<Args>(args)...);
-//            std::cout << "d\n";
         } else {
             loaded = resPtr->loadFromFile(resourcesDir + fileName.data(), std::forward<Args>(args)...);
         }
