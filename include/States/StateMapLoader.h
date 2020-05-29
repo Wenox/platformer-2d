@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GUI/MapLoaderGUI.h>
+#include <Encoder/BMPReader.h>
 #include "State.h"
 #include "StateMachine.h"
 
@@ -30,6 +31,18 @@ public:
             gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->getRenderer()->setTextColor(tgui::Color{255, 0, 0});
             gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->setText("No such file");
             gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(300));
+
+            /** todo: to be cleaned up */
+
+            if (this->editBoxContent == "hello.bmp") {
+                try {
+                    bmpReader = std::make_optional<BmpReader>(editBoxContent);
+                    std::cout << "Is Opened: " << bmpReader->isOpened() << std::endl;
+                    bmpReader->debugPrint();
+                } catch(const std::exception& e) {
+                    std::cout << "e.what(): " << e.what() << std::endl;
+                }
+            }
         });
     }
 
@@ -43,14 +56,7 @@ public:
 
     void update(float) override {
         gui.handleEvent(window.getEvent());
-        if (this->editBoxContent == "jd.bmp") {
-            const auto& dis = gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel");
-            dis->setVisible(true);
-            dis->getRenderer()->setTextColor(tgui::Color{255, 255, 0});
-            dis->setText("OK! :)");
-            dis->setTextSize(32);
-            dis->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(1600));
-        }
+
     }
 
     void draw(Window&) override {
@@ -63,6 +69,21 @@ private:
     MapLoaderGUI gui;
 
     std::string editBoxContent{};
+
+    std::optional<BmpReader> bmpReader;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
