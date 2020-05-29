@@ -1,35 +1,10 @@
 #pragma once
 
 #include "FileReader.h"
-
-struct Color {
-    uint8_t blue;
-    uint8_t green;
-    uint8_t red;
-
-    Color() = default;
-
-    Color(uint8_t blue, uint8_t green, uint8_t red)
-            :blue{blue},
-             green{green},
-             red{red}
-    {
-    }
-
-    friend std::istream& operator>>(std::istream& input, Color& color) {
-        input >> color.blue;
-        input >> color.green;
-        input >> color.red;
-        return input;
-    }
-
-    bool operator<(const Color& other) const {
-        return std::tie(blue, green, red) < std::tie(other.blue, other.green, other.red);
-    }
-};
+#include "PixelColor.h"
 
 
-class BmpReader final : public FileReader<Color>
+class BmpReader final : public FileReader<PixelColor>
 {
 public:
     explicit BmpReader(const std::string& name,

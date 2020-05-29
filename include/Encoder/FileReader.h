@@ -1,8 +1,8 @@
 #pragma once
 
-#include <memory>
 #include <fstream>
 #include <iostream>
+#include <vector>
 
 
 template <typename T>
@@ -53,17 +53,10 @@ protected:
         std::cout << "Opening: " << fileName << std::endl;
     }
 
-    bool openSuccess() const {
-        if (file) {
-            return true;
-        }
-    }
-
-
     std::string  fileName;
     std::ifstream file;
 
-    std::unique_ptr<T[]> data{};
-    unsigned     dataSize{};
+    std::vector<T> data{};
+    unsigned       dataSize{};
 };
 

@@ -2,6 +2,8 @@
 
 #include <GUI/MapLoaderGUI.h>
 #include <Encoder/BmpReader.h>
+#include <Encoder/TxtReader.h>
+#include <variant>
 #include "State.h"
 #include "StateMachine.h"
 
@@ -36,9 +38,20 @@ public:
 
             if (this->editBoxContent == "hello.bmp") {
                 try {
-                    bmpReader = std::make_optional<BmpReader>(editBoxContent);
-                    std::cout << "Is Opened: " << bmpReader->isOpened() << std::endl;
-                    bmpReader->debugPrint();
+                    mapReader = std::make_optional<BmpReader>(editBoxContent);
+                    const auto& ref = std::get<BmpReader>(mapReader.value());
+                    std::cout << "Is Opened: " << ref.isOpened() << std::endl;
+                    ref.debugPrint();
+                } catch(const std::exception& e) {
+                    std::cout << "e.what(): " << e.what() << std::endl;
+                }
+            }
+            if (this->editBoxContent == "data.txt") {
+                try {
+                    mapReader = std::make_optional<TxtReader>(editBoxContent);
+                    const auto& ref = std::get<TxtReader>(mapReader.value());
+                    std::cout << "Is Opened: " << ref.isOpened() << std::endl;
+                    ref.debugPrint();
                 } catch(const std::exception& e) {
                     std::cout << "e.what(): " << e.what() << std::endl;
                 }
@@ -70,7 +83,7 @@ private:
 
     std::string editBoxContent{};
 
-    std::optional<BmpReader> bmpReader;
+    std::optional<std::variant<BmpReader, TxtReader>> mapReader;
 };
 
 

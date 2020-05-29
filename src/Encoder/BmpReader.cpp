@@ -1,5 +1,4 @@
 #include <Consts.h>
-#include <iostream>
 #include "BmpReader.h"
 
 
@@ -10,10 +9,8 @@ BmpReader::BmpReader(const std::string& name,
     readFile();
 }
 
-void BmpReader::readFile()
-{
-    std::cout << "OpenSuccess: " << this->openSuccess() << std::endl;
-    if (openSuccess()) {
+void BmpReader::readFile() {
+    if (isOpened()) {
         if constexpr (consts::blocksCountWidth % 4 != 0) {
             throw std::runtime_error("Width has to be a multiple of 4");
         }
@@ -48,8 +45,12 @@ void BmpReader::readPixels() {
 
     file.seekg(dataOffset);
 
-    data = std::make_unique<Color[]>(static_cast<size_t>(pixelsCount));
-    file.read(reinterpret_cast<char*>(data.get()), dataSize);
+
+
+    PixelColor pixelColor{};
+    while (file >> pixelColor) {
+        data.emplace_back(pixelColor);
+    }
 }
 
 int BmpReader::getPixelsCount() const {
