@@ -7,10 +7,10 @@ BmpReader::BmpReader(const std::string& name,
                      const std::ios_base::openmode& mode)
         : FileReader{name, mode}
 {
-    readData();
+    readFile();
 }
 
-void BmpReader::readData()
+void BmpReader::readFile()
 {
     std::cout << "OpenSuccess: " << this->openSuccess() << std::endl;
     if (openSuccess()) {

@@ -35,10 +35,11 @@ public:
     explicit BmpReader(const std::string& name,
                        const std::ios_base::openmode& mode = std::ifstream::ate | std::ifstream::binary);
 
-    virtual void readData();
+    virtual void readFile();
 
     int getPixelsCount() const;
 
+    virtual ~BmpReader() = default;
     BmpReader(const BmpReader&) = default;
     BmpReader(BmpReader&&) = default;
     BmpReader& operator=(const BmpReader&) = default;

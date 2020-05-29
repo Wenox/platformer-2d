@@ -1,7 +1,7 @@
 #pragma once
 
 #include <GUI/MapLoaderGUI.h>
-#include <Encoder/BMPReader.h>
+#include <Encoder/BmpReader.h>
 #include "State.h"
 #include "StateMachine.h"
 

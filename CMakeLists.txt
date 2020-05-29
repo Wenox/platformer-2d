@@ -25,7 +25,22 @@ include_directories(include
 set(SOURCE_FILES
         src/main.cpp
         src/Game.cpp
-        src/Window.cpp src/States/StateMachine.cpp include/States/StateMachine.h src/States/StateGame.cpp include/States/StateGame.h src/States/StateMenu.cpp include/States/StateMenu.h src/States/StateInit.cpp include/States/StateInit.h include/States/StateID.h src/States/StateID.cpp src/ResourceManager/ResourceHolder.cpp include/ResourceManager/ResourceHolder.h src/ResourceManager/ResourceManager.cpp include/ResourceManager/ResourceManager.h include/ResourceManager/Resources.h include/ResourceManager/ResourceInserter.h include/GUI/MenuGUI.h include/GUI/MenuConfig.h include/GUI/Core/GUI.h include/GUI/Core/Config.h include/GUI/Core/Utility.h include/GUI/Core/IConfig.h src/GUI/MenuConfig.cpp src/GUI/MenuGUI.cpp src/StateMapLoader.cpp include/States/StateMapLoader.h src/GUI/MapLoaderGUI.cpp include/GUI/MapLoaderGUI.h src/GUI/MapLoaderConfig.cpp include/GUI/MapLoaderConfig.h include/Encoder/FileReader.cpp include/Encoder/FileReader.h include/Encoder/BMPReader.cpp include/Encoder/BMPReader.h include/Consts.h)
+        src/Window.cpp
+        src/States/StateMachine.cpp
+        src/States/StateGame.cpp
+        src/States/StateMenu.cpp
+        src/States/StateInit.cpp
+        src/States/StateID.cpp
+        src/ResourceManager/ResourceHolder.cpp
+        src/ResourceManager/ResourceManager.cpp
+        src/GUI/MenuConfig.cpp
+        src/GUI/MenuGUI.cpp
+        src/StateMapLoader.cpp
+        src/GUI/MapLoaderGUI.cpp
+        src/GUI/MapLoaderConfig.cpp
+        src/Encoder/FileReader.cpp
+        src/Encoder/BmpReader.cpp
+   )
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

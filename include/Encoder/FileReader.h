@@ -8,7 +8,7 @@
 template <typename T>
 class FileReader {
 public:
-    virtual void readData() = 0;
+    virtual void readFile() = 0;
 
     auto& getData() {
         return data;
