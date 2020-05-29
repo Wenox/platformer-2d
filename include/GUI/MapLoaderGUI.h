@@ -12,8 +12,8 @@ public:
         this->init();
     }
 
-private:
     Gui::Config<> config;
+private:
     Loader::Config loaderConfig;
     int btnIndex{};
 
@@ -34,19 +34,31 @@ private:
             ++i;
         }
 
-        /** field */
-        auto textBox = tgui::EditBox::create();
-        textBox->setSize(config.width, config.height);
-        textBox->setTextSize(config.textSize);
-        textBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
+        /** file name editBox */
+        auto editBox = tgui::EditBox::create();
+        editBox->setSize(config.width, config.height);
+        editBox->setTextSize(config.textSize);
+        editBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
                              tgui::bindBottom(widgets[to_underlying(Loader::Btn::loadMap)]) + 10);
-        gui.add(textBox);
+        gui.add(editBox, "editBox");
+
+
+        /** label editBox */
+        auto editBoxLabel = tgui::Label::create("No such file!");
+        editBoxLabel->setTextSize(config.textSize - 5);
+        editBoxLabel->setPosition(tgui::bindLeft(editBox) - editBoxLabel->getSize().x - 10, tgui::bindTop(editBox) + 12);
+        editBoxLabel->getRenderer()->setTextColor(tgui::Color{255, 0, 0});
+        editBoxLabel->setVisible(false);
+        gui.add(editBoxLabel, "editBoxLabel");
+
     }
 
     void loadWidget(tgui::Widget::Ptr& widget) {
+        if (btnIndex == 2) ++btnIndex;
+
         config.prepare(widget);
         widget->setPosition(gui.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
-                            240 + 60 * btnIndex);
+                            180 + 60 * btnIndex);
         btnIndex++;
         gui.add(widget);
     }

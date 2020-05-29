@@ -8,12 +8,14 @@ namespace Loader {
     enum class Btn {
         newMap,
         loadMap,
+        loadConfirm,
         SIZE
     };
 
     constexpr std::initializer_list<Loader::Btn> Buttons = {
             Btn::newMap,
-            Btn::loadMap
+            Btn::loadMap,
+            Btn::loadConfirm
     };
 
     static_assert(Buttons.size() == toInt(Btn::SIZE));
@@ -36,7 +38,8 @@ namespace Loader {
         void encode() override {
             mapListOf(widgetsNames)
                     (Loader::Btn::newMap, "New map")
-                    (Loader::Btn::loadMap, "Load map");
+                    (Loader::Btn::loadMap, "Load map")
+                    (Loader::Btn::loadConfirm, "Load");
         }
     };
 };

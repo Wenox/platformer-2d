@@ -28,6 +28,10 @@ public:
         gui.draw();
     }
 
+    auto& getGui() {
+        return gui;
+    }
+
     virtual ~GUI() = default;
     ///* todo: consider Ro5 */
 };
