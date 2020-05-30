@@ -22,9 +22,9 @@ template <typename ReaderKey>
     requires Mappable<Key>
 #endif
 class Encoder {
+public:
     std::map<ReaderKey, Obj::Entity> encodedObjects;
 
-public:
     constexpr Encoder() {
         static_assert(std::is_same<ReaderKey, PixelColor>()
                    or std::is_same<ReaderKey, int>());
@@ -35,7 +35,7 @@ public:
 private:
     void encodeAll() {
         if constexpr (std::is_same<ReaderKey, PixelColor>()) {
-            encode(PixelColor{255, 255, 255}, Obj::Entity::Block);
+            encode(PixelColor{36, 28, 237}, Obj::Entity::Block);
             encode(PixelColor{0, 0, 0},       Obj::Entity::Empty);
             encode(PixelColor{255, 0, 0},     Obj::Entity::Player);
             std::cout << "Using BMP Encoder\n";
@@ -51,6 +51,18 @@ private:
     void encode(const ReaderKey& key, Obj::Entity entity) {
         static_assert(std::is_same<typename std::decay<decltype(key)>::type , ReaderKey>());
         encodedObjects.insert(std::make_pair(key, entity));
+    }
+
+    void printDebug() {
+        std::cout << "Detected encoded colors:\n";
+        for (auto it = encodedObjects.begin(); it != encodedObjects.end(); it++) {
+            int index = std::distance(encodedObjects.begin(), it);
+            std::cout << "Encoded color: " << index + 1 << ": "
+                      << (uint16_t) it->first.blue << " "
+                      << (uint16_t) it->first.green << " "
+                      << (uint16_t) it->first.red
+                      << " encoded to Object::Type: " << it->second << std::endl;
+        }
     }
 };
 

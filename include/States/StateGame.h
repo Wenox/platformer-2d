@@ -12,7 +12,8 @@ class StateGame : public State {
 public:
 
     StateGame(StateMachine& stateMachine,
-              ResourceManager& resources);
+              ResourceManager& resources,
+              int blocksNum);
 
     void onCreate() override;
     void onDestroy() override;
@@ -30,6 +31,7 @@ private:
     ResourceManager& resources;
     sf::Texture texture;
     sf::Sprite sprite;
+    int blocksNum;
 };
 
 

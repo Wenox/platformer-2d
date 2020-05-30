@@ -1,10 +1,11 @@
 #include <SFML/Audio/Sound.hpp>
 #include "StateGame.h"
 
-StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources)
-        : stateMachine{stateMachine}, resources{resources}
+StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, int blocksNum)
+        : stateMachine{stateMachine}, resources{resources}, blocksNum{blocksNum}
 {
     std::cout << "StateGame::StateGame()" << std::endl;
+    std::cout << "StateGame blocksNum: " << this->blocksNum << std::endl;
 }
 
 void StateGame::onCreate() {
