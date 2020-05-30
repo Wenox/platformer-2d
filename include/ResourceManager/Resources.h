@@ -2,6 +2,7 @@
 
 namespace res {
     enum class Texture {
+        Block,
         Gray,
         Green,
         Orange,

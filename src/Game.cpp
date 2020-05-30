@@ -13,14 +13,14 @@ Game::Game()
 void Game::init() {
     state::initID = stateMachine.insert(std::make_shared<StateInit>(stateMachine, window));
     state::menuID = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window, resources));
-    state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources));
-    state::loaderID = stateMachine.insert(std::make_shared<StateMapLoader>(stateMachine, window));
+//    state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources));
+    state::loaderID = stateMachine.insert(std::make_shared<StateMapLoader>(*this));
 
     std::cout << "stateInitializerID: " << state::initID << std::endl;
     std::cout << "stateMenuID: " << state::menuID << std::endl;
-    std::cout << "stateGameID: " << state::gameID << std::endl;
+//    std::cout << "stateGameID: " << state::gameID << std::endl;
 
-    stateMachine.switchTo(state::gameID);
+    stateMachine.switchTo(state::menuID);
 }
 
 void Game::processInput() {

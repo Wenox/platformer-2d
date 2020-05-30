@@ -1,15 +1,44 @@
 #include <SFML/Audio/Sound.hpp>
+#include <Consts.h>
 #include "StateGame.h"
 
-StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources)
-        : stateMachine{stateMachine}, resources{resources}
+StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, int blocksNum, std::map<PixelColor, Obj::Entity>& encodedObjects, std::vector<PixelColor>& data)
+        : stateMachine{stateMachine}, resources{resources}, blocksNum{blocksNum}, encodedObjects{encodedObjects}, data{data}
 {
     std::cout << "StateGame::StateGame()" << std::endl;
+    std::cout << "StateGame blocksNum: " << this->blocksNum << std::endl;
 }
 
 void StateGame::onCreate() {
+    blocks.resize(blocksNum);
+    for (auto& block : blocks) {
+        block.setTexture(resources.getTextures().get(res::Texture::Block));
+    }
     texture = resources.getTextures().get(res::Texture::Wizard);
     sprite.setTexture(texture);
+
+    std::cout << "u\n";
+    int u = 0;
+    auto j = consts::blocksCountHeight;
+    constexpr auto entitiesNum = consts::blocksCountHeight * consts::blocksCountHeight;
+    for (int k = 0; k < entitiesNum; k++) {
+        if (k % consts::blocksCountWidth == 0) {
+            j--;
+        }
+        int i = k % consts::blocksCountWidth;
+
+        auto curID = encodedObjects.find(data[k]);
+        switch (curID->second) {
+            case Obj::Entity::Empty:
+                break;
+            case Obj::Entity::Block:
+                blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                u++;
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 void StateGame::onDestroy() {
@@ -17,20 +46,7 @@ void StateGame::onDestroy() {
 }
 
 void StateGame::onActivate() {
-    switch (c++) {
-        case 0:
-            sprite.setTexture(resources.getTextures()[res::Texture::Wizard]);
-            break;
-        case 1:
-            std::cout << resources.getMusic().getResources().size() << std::endl;
-            sprite.setTexture(resources.getTextures()[res::Texture::Orange]);
-            break;
-        case 2:
-            sprite.setTexture(resources.getTextures()[res::Texture::Gray]);
-            c = 0;
-            break;
-    }
-
+    sprite.setTexture(resources.getTextures()[res::Texture::Wizard]);
 }
 
 void StateGame::processInput() {
@@ -58,11 +74,8 @@ void StateGame::update(float dt) {
 }
 
 void StateGame::draw(Window &window) {
-    static tgui::Gui gui{window.getWindow()};
-    static tgui::Label::Ptr label = tgui::Label::create("State Game");
-    label->setTextSize(72);
-    gui.add(label);
-    gui.draw();
-
     window.draw(sprite);
+    for (const auto& block : blocks) {
+        window.draw(block);
+    }
 }

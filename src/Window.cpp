@@ -2,7 +2,7 @@
 #include <SFML/Window/Event.hpp>
 
 Window::Window(const std::string& windowName)
-    : window{sf::VideoMode{600, 600}, windowName}
+    : window{sf::VideoMode{608, 608}, windowName}
 {
     window.setFramerateLimit(60);
 }

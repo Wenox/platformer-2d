@@ -10,6 +10,15 @@ public:
 
     void run();
 
+    auto& getWindow()  {
+        return window;
+    }
+    auto& getResources()  {
+        return resources;
+    }
+    auto& getStateMachine()  {
+        return stateMachine;
+    }
 private:
     Window window;
     ResourceManager resources;

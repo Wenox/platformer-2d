@@ -5,18 +5,23 @@
 #include <Encoder/TxtReader.h>
 #include <variant>
 #include <Encoder/Encoder.h>
+#include <Game.h>
 #include "State.h"
 #include "StateMachine.h"
+#include "StateGame.h"
+
 
 template<class... Ts> struct overload : Ts... { using Ts::operator()...; };
 template<class... Ts> overload(Ts...) -> overload<Ts...>;
 
+
 class StateMapLoader : public State {
 public:
 
-    StateMapLoader(StateMachine& stateMachine, Window& window)
-        : stateMachine{stateMachine}
-        , window{window}
+    StateMapLoader(Game& game)
+        : stateMachine{game.getStateMachine()}
+        , window{game.getWindow()}
+        , resources{game.getResources()}
         , gui{window}
     {
         std::cout << "StateMapLoader::StateMapLoader()\n";
@@ -65,7 +70,23 @@ public:
 
         gui.widgets[to_underlying(Loader::Btn::loadConfirm)]->connect("Pressed", [&]() {
                 std::visit(overload{
-                        [&](BmpReader &) { encoder = std::make_optional<Encoder<PixelColor>>(); },
+                        [&](BmpReader &) {
+                            encoder = std::make_optional<Encoder<PixelColor>>();
+                            auto& data = std::get<BmpReader>(mapReader.value()).getData();
+                            auto& encodedObjs = std::get<Encoder<PixelColor>>(encoder.value()).encodedObjects;
+                            for (blocksNum = 0; const auto& item : data) {
+                                switch (encodedObjs.find(item)->second) {
+                                    case Obj::Entity::Block:
+                                        ++blocksNum;
+                                        break;
+                                }
+                            }
+                            std::cout << "Creaing class game with blocksNum: " << blocksNum << std::endl;
+                            /** todo: pass in Config file with blocks num, encoder etc */
+                            state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, blocksNum, encodedObjs, data));
+                            stateMachine = state::gameID;
+
+                            },
                         [&](TxtReader &) { encoder = std::make_optional<Encoder<int>>(); }
                 }, mapReader.value());
         });
@@ -89,28 +110,17 @@ public:
         gui.draw();
     }
 
+
 private:
     StateMachine& stateMachine;
     Window& window;
+    ResourceManager& resources;
+
     MapLoaderGUI gui;
 
     std::string editBoxContent{};
+    int blocksNum{};
 
     std::optional<std::variant<BmpReader, TxtReader>> mapReader;
     std::optional<std::variant<Encoder<PixelColor>, Encoder<int>>> encoder;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
