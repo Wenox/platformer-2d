@@ -9,10 +9,10 @@
 #include "State.h"
 #include "StateMachine.h"
 #include "StateGame.h"
+#include "MapLoader.h"
 
-
-template<class... Ts> struct overload : Ts... { using Ts::operator()...; };
-template<class... Ts> overload(Ts...) -> overload<Ts...>;
+//template<class... Ts> struct overload : Ts... { using Ts::operator()...; };
+//template<class... Ts> overload(Ts...) -> overload<Ts...>;
 
 
 class StateMapLoader : public State {
@@ -45,52 +45,18 @@ public:
                     tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(300));
 
             /** todo: to be cleaned up */
-
-            if (this->editBoxContent == "hello.bmp") {
-                try {
-                    mapReader = std::make_optional<BmpReader>(editBoxContent);
-                    const auto &ref = std::get<BmpReader>(mapReader.value());
-                    std::cout << "Is Opened: " << ref.isOpened() << std::endl;
-                    ref.debugPrint();
-                } catch (const std::exception &e) {
-                    std::cout << "e.what(): " << e.what() << std::endl;
-                }
-            }
-            if (this->editBoxContent == "data.txt") {
-                try {
-                    mapReader = std::make_optional<TxtReader>(editBoxContent);
-                    const auto &ref = std::get<TxtReader>(mapReader.value());
-                    std::cout << "Is Opened: " << ref.isOpened() << std::endl;
-                    ref.debugPrint();
-                } catch (const std::exception &e) {
-                    std::cout << "e.what(): " << e.what() << std::endl;
-                }
-            }
         });
 
         gui.widgets[to_underlying(Loader::Btn::loadConfirm)]->connect("Pressed", [&]() {
-                std::visit(overload{
-                        [&](BmpReader &) {
-                            encoder = std::make_optional<Encoder<PixelColor>>();
-                            auto& data = std::get<BmpReader>(mapReader.value()).getData();
-                            auto& encodedObjs = std::get<Encoder<PixelColor>>(encoder.value()).encodedObjects;
-                            for (blocksNum = 0; const auto& item : data) {
-                                switch (encodedObjs.find(item)->second) {
-                                    case Obj::Entity::Block:
-                                        ++blocksNum;
-                                        break;
-                                }
-                            }
-                            std::cout << "Creaing class game with blocksNum: " << blocksNum << std::endl;
-                            /** todo: pass in Config file with blocks num, encoder etc */
-                            state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, blocksNum, encodedObjs, data));
-                            stateMachine = state::gameID;
-
-                            },
-                        [&](TxtReader &) { encoder = std::make_optional<Encoder<int>>(); }
-                }, mapReader.value());
+            if (this->editBoxContent == "hello.bmp") {
+                mapLoader = std::make_optional<MapLoader<Bmp>>(editBoxContent);
+            }
+            if (this->editBoxContent == "data.txt") {
+                mapLoader = std::make_optional<MapLoader<Txt>>(editBoxContent);
+            }
+            state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, mapLoader.value()));
+            stateMachine = state::gameID;
         });
-
     }
 
     void onDestroy() override {
@@ -117,10 +83,8 @@ private:
     ResourceManager& resources;
 
     MapLoaderGUI gui;
-
     std::string editBoxContent{};
-    int blocksNum{};
 
-    std::optional<std::variant<BmpReader, TxtReader>> mapReader;
-    std::optional<std::variant<Encoder<PixelColor>, Encoder<int>>> encoder;
+
+    std::optional<std::variant<MapLoader<Bmp>, MapLoader<Txt>>> mapLoader;
 };

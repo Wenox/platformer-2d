@@ -55,5 +55,6 @@ private:
         {
             std::cout << "Match " << ++dataSize << ": " <<  (*it)[0] << std::endl;
         }
+        return true;
     }
 };
