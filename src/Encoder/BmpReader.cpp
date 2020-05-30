@@ -14,8 +14,7 @@ void BmpReader::readFile() {
         if constexpr (consts::blocksCountWidth % 4 != 0) {
             throw std::runtime_error("Width has to be a multiple of 4");
         }
-//        readWidth();
-//        readHeight();
+
         readPixels();
     }
     else {

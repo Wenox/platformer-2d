@@ -26,30 +26,23 @@ public:
     std::map<ReaderKey, Obj::Entity> encodedObjects;
 
     constexpr Encoder() {
-        std::cout << "Encoder consutrctor 1\n";
         static_assert(std::is_same<ReaderKey, PixelColor>()
                    or std::is_same<ReaderKey, int>());
-        std::cout << "Encoder consutrctor 2\n";
 
         this->encodeAll();
     }
 
 private:
     void encodeAll() {
-        std::cout << "EncodeAll start\n";
         if constexpr (std::is_same<ReaderKey, PixelColor>()) {
-            std::cout << "EncodeAll PixeLColor branch\n";
             encode(PixelColor{36, 28, 237}, Obj::Entity::Block);
             encode(PixelColor{0, 0, 0},       Obj::Entity::Empty);
             encode(PixelColor{255, 0, 0},     Obj::Entity::Player);
-            std::cout << "Using BMP Encoder\n";
         }
         if constexpr (std::is_same<ReaderKey, int>()) {
-            std::cout << "EncodeAll TxtReader branch\n";
-            encode(0, Obj::Entity::Block);
-            encode(1, Obj::Entity::Empty);
+            encode(0, Obj::Entity::Empty);
+            encode(1, Obj::Entity::Block);
             encode(2, Obj::Entity::Player);
-            std::cout << "Using TXT Encoder\n";
         }
     }
 
@@ -58,7 +51,7 @@ private:
         encodedObjects.insert(std::make_pair(key, entity));
     }
 
-    void printDebug() {
+    void printDebug() { /** todo: add support for txt */
         std::cout << "Detected encoded colors:\n";
         for (auto it = encodedObjects.begin(); it != encodedObjects.end(); it++) {
             int index = std::distance(encodedObjects.begin(), it);

@@ -26,8 +26,6 @@ private:
     std::string rawTxtData{};
 
     bool isValidTxt() {
-        std::cout << "isOpened?: " << isOpened() << std::endl;
-
         /** Allocate the memory for raw txt data */
         file.seekg(0, std::ios::end);
         rawTxtData.reserve(file.tellg());

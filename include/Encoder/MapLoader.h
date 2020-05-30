@@ -43,11 +43,10 @@ public:
     void load() override {
         std::visit(overload{
             [&](BmpReader&) {
-                std::cout << std::get<BmpReader>(mapReader).isOpened() << std::endl;
-
                 /** Analyzer */
                 auto& data        = std::get<BmpReader>(mapReader).getData();
                 auto& encodedObjs = std::get<Encoder<PixelColor>>(encoder).encodedObjects;
+
                 for (blocksNum = 0; const auto& item : data) {
                     switch (encodedObjs.find(item)->second) {
                         case Obj::Entity::Block:
@@ -56,7 +55,19 @@ public:
                     }
                 }
             },
-            [&](TxtReader&) { std::cout << "Txt reader\n"; },
+            [&](TxtReader&) {
+                /** Analyzer */
+                auto& data        = std::get<TxtReader>(mapReader).getData();
+                auto& encodedObjs = std::get<Encoder<int>>(encoder).encodedObjects;
+
+                for (blocksNum = 0; const auto& item : data) {
+                switch (encodedObjs.find(item)->second) {
+                    case Obj::Entity::Block:
+                        ++blocksNum;
+                        break;
+                }
+            }
+            },
             [&](std::monostate&) { std::cout << "Not yet constructed\n"; }
         }, mapReader);
 
@@ -79,14 +90,6 @@ public:
             [this](std::monostate&) { return std::nullopt; }
         }, mapReader);
     }
-
-    /*auto& getEncodedObjects()  {
-        std::visit(overload{
-            [this](Encoder<PixelColor>&) { return std::get<Encoder<PixelColor>>(encoder).encodedObjects; },
-            [this](Encoder<int>&)        { return std::get<Encoder<int>       >(encoder).encodedObjects; },
-            [this](std::monostate&)      { return std::nullopt; }
-        }, mapReader);
-    }*/
 
 public:
     int blocksNum{};

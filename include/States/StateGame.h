@@ -15,53 +15,82 @@
 class StateGame : public State {
 public:
     StateGame(StateMachine &stateMachine, ResourceManager& resources, std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader)
-            : stateMachine{stateMachine}, resources{resources}, mapLoader{mapLoader}  // encodedObjects{mapLoader.getEncodedObjects()}
-            //data{mapLoader.getData()}, blocksNum{mapLoader.getBlocksNum()}
+            : stateMachine{stateMachine}, resources{resources}, mapLoader{mapLoader}
     {
-        std::cout << "INDEX: " << mapLoader.index() << std::endl;
         std::cout << "StateGame::StateGame()" << std::endl;
-        std::cout << "StateGame blocksNum: " << this->blocksNum << std::endl;
     }
 
     void onCreate() override {
-
-        std::cout << "u\n";
         int u = 0;
         auto j = consts::blocksCountHeight;
         constexpr auto entitiesNum = consts::blocksCountHeight * consts::blocksCountHeight;
 
-        std::visit(overload{
-                [&](MapLoader<Bmp>&) {
-                    auto& mapLoaderRef = std::get<MapLoader<Bmp>>(mapLoader);
-                    auto& mapReaderRef = std::get<BmpReader>(mapLoaderRef.mapReader);
-                    auto& encoderRef = std::get<Encoder<PixelColor>>(mapLoaderRef.encoder);
-                    auto& theData = mapReaderRef.getData();
-                    auto& theEncoded = encoderRef.encodedObjects;
-                    blocksNum = mapLoaderRef.getBlocksNum();
-                    blocks.resize(blocksNum);
-                    std::cout << "BLOCKS NUM: " << blocksNum << std::endl;
-                    for (int k = 0; k < entitiesNum; k++) {
-                        if (k % consts::blocksCountWidth == 0) {
-                            j--;
-                        }
-                        int i = k % consts::blocksCountWidth;
+        std::visit(
+                overload{ [&](MapLoader<Bmp>&)
+                          {
+                              auto& mapLoaderRef = std::get<MapLoader<Bmp> >(mapLoader);
+                              auto& theData = std::get<BmpReader>(mapLoaderRef.mapReader).getData();
+                              auto& theEncoded = std::get<Encoder<PixelColor> >(mapLoaderRef.encoder).encodedObjects;
+                              blocksNum = mapLoaderRef.getBlocksNum();
+                              blocks.resize(blocksNum);
+                              for (int k = 0; k < entitiesNum; k++)
+                              {
+                                  if (k % consts::blocksCountWidth == 0)
+                                  {
+                                      j--;
+                                  }
+                                  int i = k % consts::blocksCountWidth;
 
-                        auto curID = theEncoded.find(theData[k]);
-                        switch (curID->second) {
-                            case Obj::Entity::Empty:
-                                break;
-                            case Obj::Entity::Block:
-                                blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
-                                u++;
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                    },
-                [](MapLoader<Txt>&){  }
-        }, mapLoader);
+                                  auto curID = theEncoded.find(theData[k]);
+                                  switch (curID->second)
+                                  {
+                                      case Obj::Entity::Empty:
+                                          break;
+                                      case Obj::Entity::Block:
+                                          blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                                          u++;
+                                          break;
+                                      default:
+                                          break;
+                                  }
+                              }
+                          },
+                          [&](MapLoader<Txt>&)
+                          {
+                              {
+                                  auto& mapLoaderRef = std::get<MapLoader<Txt> >(mapLoader);
+                                  auto& theData = std::get<TxtReader>(mapLoaderRef.mapReader).getData();
+                                  auto& theEncoded = std::get<Encoder<int> >(mapLoaderRef.encoder).encodedObjects;
 
+                                  blocksNum = mapLoaderRef.getBlocksNum();
+                                  blocks.resize(blocksNum);
+
+                                  for (int k = 0; k < entitiesNum; k++)
+                                  {
+                                      if (k % consts::blocksCountWidth == 0)
+                                      {
+                                          j--;
+                                      }
+                                      int i = k % consts::blocksCountWidth;
+
+                                      auto curID = theEncoded.find(theData[k]);
+                                      switch (curID->second)
+                                      {
+                                          case Obj::Entity::Empty:
+                                              break;
+                                          case Obj::Entity::Block:
+                                              blocks[u].setPosition(
+                                                      i * consts::entityWidth, j * consts::entityHeight);
+                                              u++;
+                                              break;
+                                          default:
+                                              break;
+                                      }
+                                  }
+                              }
+                          } },
+                mapLoader);
+1
 
 
         for (auto& block : blocks) {

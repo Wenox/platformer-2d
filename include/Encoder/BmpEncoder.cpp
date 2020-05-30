@@ -1,1 +1,0 @@
-#include "BmpEncoder.h"
