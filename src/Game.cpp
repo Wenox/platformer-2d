@@ -4,6 +4,7 @@
 #include <States/StateMapLoader.h>
 #include "Game.h"
 
+
 Game::Game()
     : window{"Platformer"}
 {

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "FileReader.h"
-#include "PixelColor.h"
 #include <regex>
+
 
 class TxtReader final : public FileReader<int>
 {

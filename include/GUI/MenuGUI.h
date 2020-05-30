@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Window.h"
-#include "GUI/MenuConfig.h"
-#include "GUI/Core/GUI.h"
-#include "GUI/Core/Config.h"
+#include "MenuConfig.h"
+#include "GUI.h"
+#include "Config.h"
 
 
 class MenuGUI : public GUI<> {

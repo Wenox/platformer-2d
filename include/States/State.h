@@ -1,7 +1,8 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp> ///< (!)
 #include "Window.h"
+
 
 class State {
 public:

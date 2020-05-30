@@ -3,7 +3,8 @@
 #include <variant>
 #include "BmpReader.h"
 #include "TxtReader.h"
-#include "Encoder/Encoder.h"
+#include "Encoder.h"
+
 
 class ILoader {
 public:
@@ -21,8 +22,10 @@ public:
 struct Bmp {};
 struct Txt {};
 
+
 template<class... Ts> struct overload : Ts... { using Ts::operator()...; };
 template<class... Ts> overload(Ts...) -> overload<Ts...>;
+
 
 template <typename FileType>
 class MapLoader : public ILoader {
@@ -85,8 +88,8 @@ public:
 
     auto& getData() const {
         std::visit(overload{
-            [this](BmpReader&) { return std::get<BmpReader>(mapReader).getData(); },
-            [this](TxtReader&) { return std::get<TxtReader>(mapReader).getData(); },
+            [this](BmpReader&)      { return std::get<BmpReader>(mapReader).getData(); },
+            [this](TxtReader&)      { return std::get<TxtReader>(mapReader).getData(); },
             [this](std::monostate&) { return std::nullopt; }
         }, mapReader);
     }
@@ -96,5 +99,3 @@ public:
     std::variant<std::monostate, BmpReader, TxtReader>                  mapReader;
     std::variant<std::monostate, Encoder<PixelColor>, Encoder<int>>     encoder;
 };
-
-

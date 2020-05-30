@@ -1,6 +1,7 @@
 #include "Window.h"
 #include <SFML/Window/Event.hpp>
 
+
 Window::Window(const std::string& windowName)
     : window{sf::VideoMode{640, 576}, windowName}
 {

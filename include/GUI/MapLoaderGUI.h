@@ -3,7 +3,7 @@
 #include <Window.h>
 #include "MapLoaderConfig.h"
 #include "GUI.h"
-#include <GUI/Core/Config.h>
+#include "Config.h"
 
 
 class MapLoaderGUI : public GUI<> {

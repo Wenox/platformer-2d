@@ -1,13 +1,10 @@
 #pragma once
 
-#include <iostream>
 #include <GUI/MenuGUI.h>
 #include "StateMachine.h"
-#include "TGUI/Gui.hpp"
-#include "TGUI/TGUI.hpp"
-
 #include <SFML/Audio.hpp>
-#include <ResourceManager/ResourceManager.h>
+#include "ResourceManager.h"
+
 
 class StateMenu : public State {
 public:

@@ -2,13 +2,10 @@
 
 #include <iostream>
 #include <memory>
-#include <unordered_map>
 #include "ResourceInserter.h"
-
-#include <concepts>
-#include <type_traits>
 #include <SFML/Audio/Music.hpp>
 #include <iomanip>
+#include <concepts>
 
 
 template <typename Key, typename Resource>

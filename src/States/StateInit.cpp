@@ -1,4 +1,8 @@
+#include <TGUI/Gui.hpp>
+#include <iostream>
+#include "StateID.h"
 #include "StateInit.h"
+
 
 StateInit::StateInit(StateMachine& stateMachine, Window& window)
         : stateMachine{stateMachine},
@@ -32,11 +36,7 @@ void StateInit::update(float dt) {
 
 }
 
-void StateInit::draw(Window& window) {
+void StateInit::draw(Window&) {
     static tgui::Gui gui{window.getWindow()};
-    static tgui::Label::Ptr label = tgui::Label::create("State Initializer");
-    label->setTextSize(72);
-
-    gui.add(label);
     gui.draw();
 }

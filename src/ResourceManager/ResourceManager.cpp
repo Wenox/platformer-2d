@@ -1,4 +1,5 @@
-#include "ResourceManager/ResourceManager.h"
+#include "ResourceManager.h"
+
 
 ResourceManager::ResourceManager() {
     loadResources();

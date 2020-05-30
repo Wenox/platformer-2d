@@ -1,11 +1,8 @@
 #pragma once
 
-#include <unordered_map>
-#include <memory>
-#include <Window.h>
 #include "State.h"
-#include "StateID.h"
-#include <iostream>
+#include <memory>
+#include "Window.h"
 
 
 class StateMachine {

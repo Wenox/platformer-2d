@@ -1,5 +1,6 @@
 #include "MenuGUI.h"
 
+
 MenuGUI::MenuGUI(Window& window)
         : GUI{window}
 {

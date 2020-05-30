@@ -1,6 +1,5 @@
 #pragma once
 
-#include <istream>
 #include <tuple>
 
 /** Bear in mind .bmp image format uses BGR color format, not RGB */

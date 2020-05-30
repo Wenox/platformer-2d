@@ -1,7 +1,7 @@
 #pragma once
 
 #include <TGUI/TGUI.hpp>
-#include <iostream>
+
 
 template <typename TWidgetPtr = tgui::Widget::Ptr>
 class GUI {

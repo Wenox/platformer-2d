@@ -1,15 +1,9 @@
 #pragma once
 
-#include <GUI/MapLoaderGUI.h>
-#include <Encoder/BmpReader.h>
-#include <Encoder/TxtReader.h>
-#include <variant>
-#include <Encoder/Encoder.h>
-#include <Game.h>
-#include "State.h"
-#include "StateMachine.h"
+#include "MapLoaderGUI.h"
+#include "Game.h"
 #include "StateGame.h"
-#include "MapLoader.h"
+#include "StateID.h"
 
 //template<class... Ts> struct overload : Ts... { using Ts::operator()...; };
 //template<class... Ts> overload(Ts...) -> overload<Ts...>;

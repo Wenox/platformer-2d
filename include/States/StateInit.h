@@ -1,8 +1,5 @@
 #pragma once
 
-#include <iostream>
-#include <TGUI/Widgets/Label.hpp>
-#include <TGUI/Gui.hpp>
 #include "StateMachine.h"
 
 

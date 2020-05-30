@@ -1,8 +1,8 @@
 #pragma once
 
+#include "ResourceManager.h"
+#include "StateMachine.h"
 
-#include "ResourceManager/ResourceManager.h"
-#include <States/StateMachine.h>
 
 class Game {
 public:
