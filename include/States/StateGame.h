@@ -23,74 +23,69 @@ public:
     void onCreate() override {
         int u = 0;
         auto j = consts::blocksCountHeight;
-        constexpr auto entitiesNum = consts::blocksCountHeight * consts::blocksCountHeight;
+        constexpr auto entitiesNum = consts::blocksCountHeight * consts::blocksCountWidth;
+        std::cout << "BlocksCountNum: " << entitiesNum << std::endl;
 
-        std::visit(
-                overload{ [&](MapLoader<Bmp>&)
-                          {
-                              auto& mapLoaderRef = std::get<MapLoader<Bmp> >(mapLoader);
-                              auto& theData = std::get<BmpReader>(mapLoaderRef.mapReader).getData();
-                              auto& theEncoded = std::get<Encoder<PixelColor> >(mapLoaderRef.encoder).encodedObjects;
-                              blocksNum = mapLoaderRef.getBlocksNum();
-                              blocks.resize(blocksNum);
-                              for (int k = 0; k < entitiesNum; k++)
-                              {
-                                  if (k % consts::blocksCountWidth == 0)
-                                  {
-                                      j--;
-                                  }
-                                  int i = k % consts::blocksCountWidth;
+        std::visit(overload{
+                [&](MapLoader<Bmp>&) {
+                    auto& mapLoaderRef = std::get<MapLoader<Bmp>>(mapLoader);
+                    auto& theData =      std::get<BmpReader>(mapLoaderRef.mapReader).getData();
+                    auto& theEncoded =   std::get<Encoder<PixelColor>>(mapLoaderRef.encoder).encodedObjects;
+                    blocksNum = mapLoaderRef.getBlocksNum();
+                    blocks.resize(blocksNum);
+                    for (int k = 0; k < entitiesNum; k++) {
+                        if (k % consts::blocksCountWidth == 0) {
+                            j--;
+                        }
+                        int i = k % consts::blocksCountWidth;
 
-                                  auto curID = theEncoded.find(theData[k]);
-                                  switch (curID->second)
-                                  {
-                                      case Obj::Entity::Empty:
-                                          break;
-                                      case Obj::Entity::Block:
-                                          blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
-                                          u++;
-                                          break;
-                                      default:
-                                          break;
-                                  }
-                              }
-                          },
-                          [&](MapLoader<Txt>&)
-                          {
-                              {
-                                  auto& mapLoaderRef = std::get<MapLoader<Txt> >(mapLoader);
-                                  auto& theData = std::get<TxtReader>(mapLoaderRef.mapReader).getData();
-                                  auto& theEncoded = std::get<Encoder<int> >(mapLoaderRef.encoder).encodedObjects;
+                        auto curID = theEncoded.find(theData[k]);
+                        switch (curID->second) {
+                            case Obj::Entity::Empty:
+                                break;
+                            case Obj::Entity::Block:
+                                blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                                u++;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    },
+                [&](MapLoader<Txt>&){
+                    {
+                        auto& mapLoaderRef = std::get<MapLoader<Txt>>(mapLoader);
+                        auto& theData =      std::get<TxtReader>(mapLoaderRef.mapReader).getData();
+                        auto& theEncoded =   std::get<Encoder<int>>(mapLoaderRef.encoder).encodedObjects;
 
-                                  blocksNum = mapLoaderRef.getBlocksNum();
-                                  blocks.resize(blocksNum);
+                        blocksNum = mapLoaderRef.getBlocksNum();
+                        blocks.resize(blocksNum);
 
-                                  for (int k = 0; k < entitiesNum; k++)
-                                  {
-                                      if (k % consts::blocksCountWidth == 0)
-                                      {
-                                          j--;
-                                      }
-                                      int i = k % consts::blocksCountWidth;
+                        j = -1;
+                        std::cout << "EntitiesNum: " << entitiesNum << std::endl;
+                        for (int k = 0; k < entitiesNum; k++) {
+                            int i = k % consts::blocksCountWidth;
+                            if (k % consts::blocksCountWidth == 0) {
+                                j++;
+                            }
+                            auto curID = theEncoded.find(theData[k]);
+                            switch (curID->second) {
+                                case Obj::Entity::Empty:
+                                    break;
+                                case Obj::Entity::Block:
+                                    std::cout << "(x, y, i, j, k, u)\n";
+                                    std::cout << i * consts::entityWidth << " " << j * consts::entityHeight << " " << i << " " << j << " " << k << " " << u << std::endl;
+                                    blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                                    u++;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                }
+        }, mapLoader);
 
-                                      auto curID = theEncoded.find(theData[k]);
-                                      switch (curID->second)
-                                      {
-                                          case Obj::Entity::Empty:
-                                              break;
-                                          case Obj::Entity::Block:
-                                              blocks[u].setPosition(
-                                                      i * consts::entityWidth, j * consts::entityHeight);
-                                              u++;
-                                              break;
-                                          default:
-                                              break;
-                                      }
-                                  }
-                              }
-                          } },
-                mapLoader);
-1
 
 
         for (auto& block : blocks) {
