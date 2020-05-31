@@ -7,26 +7,24 @@ TxtReader::TxtReader(const std::string& name,
         : FileReader{name, mode}
 {
     if (isValidTxt()) {
-        std::cout << "READ\n";
         readFile();
     }
 }
 
 void TxtReader::readFile() {
-    std::cout << "OpenSuccess: " << this->isOpened() << std::endl;
     if (isOpened()) {
-        if (consts::blocksCountWidth % 4 != 0) {
-            throw std::runtime_error("Width has to be a multiple of 4");
-        }
-
         file.seekg(0);
-        int num;
-        while (file >> num) {
-            data.emplace_back(num);
+
+        int num = 0, rows = 0;
+        std::string line;
+        while (std::getline(file, line)) {
+            std::stringstream ss{line};
+            while (ss >> num) data.emplace_back(num);
+            rows++;
         }
 
-        consts::blocksCountHeight = 10; /** todo: count number of rows in a txt file */
-        consts::blocksCountWidth = 10;  /** todo: count number of cols in a txt file */
+        consts::blocksCountWidth  = std::count_if(line.begin(), line.end(), [](char c){ return std::isspace(c); }) + 1;
+        consts::blocksCountHeight = rows;
     }
     else {
         throw std::runtime_error("Failed to open " + fileName);
