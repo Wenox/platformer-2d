@@ -49,9 +49,7 @@ protected:
     explicit FileReader(const std::string& name, const std::ios_base::openmode& mode = std::ifstream::in)
         : fileName{name}
         , file{name, mode}
-    {
-        std::cout << "Opening: " << fileName << std::endl;
-    }
+    {}
 
     std::string  fileName;
     std::ifstream file;

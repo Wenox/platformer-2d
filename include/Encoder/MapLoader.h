@@ -92,27 +92,39 @@ public:
                 auto& encodedObjs = std::get<Encoder<int>>(encoder).encodedObjects;
 
                 for (blocksNum = 0; const auto& item : data) {
-                    switch (encodedObjs.find(item)->second) {
-                        case Obj::Entity::BlockBlue:
-                            queue.push(res::Texture::BlockBlue);
-                            ++blocksNum;
-                            break;
-                        case Obj::Entity::BlockYellow:
-                            queue.push(res::Texture::BlockYellow);
-                            ++blocksNum;
-                            break;
-                        case Obj::Entity::BlockRed:
-                            queue.push(res::Texture::BlockRed);
-                            ++blocksNum;
-                            break;
-                        case Obj::Entity::BlockGreen:
-                            queue.push(res::Texture::BlockGreen);
-                            ++blocksNum;
-                            break;
-                    }
+                switch (encodedObjs.find(item)->second) {
+                    case Obj::Entity::BlockBlue:
+                        queue.push(res::Texture::BlockBlue);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockYellow:
+                        queue.push(res::Texture::BlockYellow);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockRed:
+                        queue.push(res::Texture::BlockRed);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockGreen:
+                        queue.push(res::Texture::BlockGreen);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockBrown:
+                        queue.push(res::Texture::BlockBrown);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockGray:
+                        queue.push(res::Texture::BlockGray);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockPurple:
+                        queue.push(res::Texture::BlockPurple);
+                        ++blocksNum;
+                        break;
+                }
             }
             },
-            [&](std::monostate&) { std::cout << "Not yet constructed\n"; }
+            [&](std::monostate&) { std::cerr << "Not yet constructed\n"; }
         }, mapReader);
 
     }

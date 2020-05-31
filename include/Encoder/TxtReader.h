@@ -31,7 +31,7 @@ private:
         rawTxtData.reserve(file.tellg());
         file.seekg(0, std::ios::beg);
 
-        /** Entire file is loaded into string*/
+        /** Entire file is loaded into string */
         rawTxtData.assign((std::istreambuf_iterator<char>(file)),
                    std::istreambuf_iterator<char>());
 
@@ -39,20 +39,10 @@ private:
         std::string fullMatchPattern = R"((?:[[:space:]]*[[:digit:]]+[[:space:]]*)+)";
         std::regex re{fullMatchPattern};
         if (!std::regex_match(rawTxtData, re)) {
-            std::cout << "File does not match the pattern!\n";
+            std::cerr << "File " << fileName << " does not match the pattern!\n";
             return false;
         }
-        std::cout << "Correct file!\n";
 
-        /** Temporary */
-        std::string numberPattern = R"([[:blank:]]*[[:digit:]]+[[:blank:]]*)";
-        std::regex myRe{numberPattern};
-        for ( std::sregex_iterator it(std::begin(rawTxtData), std::end(rawTxtData), myRe)
-            ; it != std::sregex_iterator{}
-            ; ++it )
-        {
-            std::cout << "Match " << ++dataSize << ": " <<  (*it)[0] << std::endl;
-        }
         return true;
     }
 };

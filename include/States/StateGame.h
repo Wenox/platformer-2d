@@ -10,12 +10,15 @@ public:
     StateGame(StateMachine &stateMachine, ResourceManager& resources, std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader, Window& window)
             : stateMachine{stateMachine}, resources{resources}, mapLoader{mapLoader},
             window{window},
-            camera{{320, 288},{ static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}},
-            queue{std::get<MapLoader<Bmp>>(mapLoader).getQueue()}
+            camera{{320, 288},{ static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}
     {
+        std::visit(overload{
+            [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
+            [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
+        }, mapLoader);
+
         std::cout << "StateGame::StateGame()" << std::endl;
         window.getWindow().setView(camera);
-        camera.zoom(0.5);
     }
 
     void onCreate() override;
@@ -40,7 +43,7 @@ private:
     Window& window;
     sf::View camera;
 
-    std::queue<res::Texture>& queue;
+    std::queue<res::Texture> queue;
 
     void generateWorldFromBmp();
     void generateWorldFromTxt();

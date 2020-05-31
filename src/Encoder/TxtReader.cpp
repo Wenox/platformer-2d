@@ -15,17 +15,18 @@ TxtReader::TxtReader(const std::string& name,
 void TxtReader::readFile() {
     std::cout << "OpenSuccess: " << this->isOpened() << std::endl;
     if (isOpened()) {
-        std::cout << "IS OPENED\n";
-        if constexpr (consts::blocksCountWidth % 4 != 0) {
+        if (consts::blocksCountWidth % 4 != 0) {
             throw std::runtime_error("Width has to be a multiple of 4");
         }
 
-        int num;
         file.seekg(0);
+        int num;
         while (file >> num) {
-            std::cout << "Emplacing: " << num << std::endl;
             data.emplace_back(num);
         }
+
+        consts::blocksCountHeight = 10; /** todo: count number of rows in a txt file */
+        consts::blocksCountWidth = 10;  /** todo: count number of cols in a txt file */
     }
     else {
         throw std::runtime_error("Failed to open " + fileName);

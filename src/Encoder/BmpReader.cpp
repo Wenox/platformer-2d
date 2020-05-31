@@ -11,10 +11,8 @@ BmpReader::BmpReader(const std::string& name,
 
 void BmpReader::readFile() {
     if (isOpened()) {
-        if constexpr (consts::blocksCountWidth % 4 != 0) {
-            throw std::runtime_error("Width has to be a multiple of 4");
-        }
-
+        readWidth();
+        readHeight();
         readPixels();
     }
     else {
@@ -25,17 +23,20 @@ void BmpReader::readFile() {
 void BmpReader::readWidth() {
     file.seekg(widthOffset);
     width = file.get();
-    if (width != consts::blocksCountWidth) {
-        throw std::runtime_error("BMP width is " + std::to_string(width) + " but should be " + std::to_string(consts::blocksCountWidth));
-    }
+    std::cout << fileName << " width is: " << width << std::endl;
+//    if (consts::blocksCountWidth % 4 != 0) {
+//        throw std::runtime_error("Width has to be a multiple of 4");
+//    }
 }
 
 void BmpReader::readHeight() {
     file.seekg(heightOffset);
     height = file.get();
+    /*
     if (height != consts::blocksCountHeight) {
         throw std::runtime_error("BMP height is " + std::to_string(height) + " but should be " + std::to_string(consts::blocksCountHeight));
-    }
+    }*/
+    std::cout << fileName << " height is: " << height << std::endl;
 }
 
 void BmpReader::readPixels() {
@@ -44,12 +45,13 @@ void BmpReader::readPixels() {
 
     file.seekg(dataOffset);
 
-
-
     PixelColor pixelColor{};
     while (file >> pixelColor) {
         data.emplace_back(pixelColor);
     }
+
+    consts::blocksCountWidth  = this->width;
+    consts::blocksCountHeight = this->height;
 }
 
 int BmpReader::getPixelsCount() const {

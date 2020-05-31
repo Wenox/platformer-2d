@@ -9,14 +9,14 @@ void StateGame::onCreate() {
             [&](MapLoader<Txt>&) { generateWorldFromTxt(); }
     }, mapLoader);
 
-    for (auto& block : blocks) {
-        std::cout << "GOOD\n";
+    for (int i = 0; auto& block : blocks) {
         block.setTexture(resources.getTextures().get(queue.front()));
         queue.pop();
     }
 
     texture = resources.getTextures().get(res::Texture::Wizard);
     sprite.setTexture(texture);
+
 }
 
 
@@ -66,7 +66,7 @@ void StateGame::draw(Window &window) {
 void StateGame::generateWorldFromBmp() {
     int u = 0;
     auto j = consts::blocksCountHeight;
-    constexpr auto entitiesNum = consts::blocksCountHeight * consts::blocksCountWidth;
+    const auto entitiesNum = consts::blocksCountHeight * consts::blocksCountWidth;
 
     auto& mapLoaderRef = std::get<MapLoader<Bmp>>(mapLoader);
     auto& theData =      std::get<BmpReader>(mapLoaderRef.mapReader).getData();
@@ -74,7 +74,6 @@ void StateGame::generateWorldFromBmp() {
     blocksNum = mapLoaderRef.getBlocksNum();
     blocks.resize(blocksNum);
 
-    std::cout << "Przed petla: \n" << entitiesNum << " " << blocksNum;
     for (int k = 0; k < entitiesNum; k++) {
         if (k % consts::blocksCountWidth == 0) {
             j--;
@@ -96,7 +95,7 @@ void StateGame::generateWorldFromBmp() {
 
 void StateGame::generateWorldFromTxt() {
     int u = 0;
-    constexpr auto entitiesNum = consts::blocksCountHeight * consts::blocksCountWidth;
+    const auto entitiesNum = consts::blocksCountHeight * consts::blocksCountWidth;
 
     auto& mapLoaderRef = std::get<MapLoader<Txt>>(mapLoader);
     auto& theData =      std::get<TxtReader>(mapLoaderRef.mapReader).getData();

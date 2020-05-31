@@ -1,12 +1,10 @@
 #pragma once
 
+#include "FileNameParser.h"
 #include "MapLoaderGUI.h"
 #include "Game.h"
 #include "StateGame.h"
 #include "StateID.h"
-
-//template<class... Ts> struct overload : Ts... { using Ts::operator()...; };
-//template<class... Ts> overload(Ts...) -> overload<Ts...>;
 
 
 class StateMapLoader : public State {
@@ -29,7 +27,7 @@ public:
             stateMachine = state::menuID;
         });
         gui.widgets[to_underlying(Loader::Btn::loadConfirm)]->connect("Pressed", [&]() {
-            this->editBoxContent = gui.getGui().getContainer()->get<tgui::EditBox>("editBox")->getText().toAnsiString();
+            this->mapName = gui.getGui().getContainer()->get<tgui::EditBox>("editBox")->getText().toAnsiString();
             gui.getGui().getContainer()->get<tgui::EditBox>("editBox")->setText("");
             gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->setTextSize(gui.config.textSize - 5);
             gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->getRenderer()->setTextColor(
@@ -42,14 +40,17 @@ public:
         });
 
         gui.widgets[to_underlying(Loader::Btn::loadConfirm)]->connect("Pressed", [&]() {
-            if (this->editBoxContent == "hello.bmp") {
-                mapLoader = std::make_optional<MapLoader<Bmp>>(editBoxContent);
+            if (FileNameParser mapFile{mapName}; mapFile.isNameCorrect()) {
+                if (mapFile.isBmp()) mapLoader = std::make_optional<MapLoader<Bmp>>(mapName);
+                if (mapFile.isTxt()) mapLoader = std::make_optional<MapLoader<Txt>>(mapName);
+
+                state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, mapLoader.value(), window));
+                stateMachine = state::gameID;
             }
-            if (this->editBoxContent == "data.txt") {
-                mapLoader = std::make_optional<MapLoader<Txt>>(editBoxContent);
+            else {
+                std::cerr << "Name: " << mapName << " is not a valid file name!\n";
+                ///< clear mapName edit box, prompt user to enter correct map's file name
             }
-            state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, mapLoader.value(), window));
-            stateMachine = state::gameID;
         });
     }
 
@@ -77,8 +78,7 @@ private:
     ResourceManager& resources;
 
     MapLoaderGUI gui;
-    std::string editBoxContent{};
-
+    std::string mapName{};
 
     std::optional<std::variant<MapLoader<Bmp>, MapLoader<Txt>>> mapLoader;
 };
