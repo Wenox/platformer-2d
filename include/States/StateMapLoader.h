@@ -48,7 +48,7 @@ public:
             if (this->editBoxContent == "data.txt") {
                 mapLoader = std::make_optional<MapLoader<Txt>>(editBoxContent);
             }
-            state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, mapLoader.value()));
+            state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, mapLoader.value(), window));
             stateMachine = state::gameID;
         });
     }

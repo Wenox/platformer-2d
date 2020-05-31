@@ -10,7 +10,9 @@ void StateGame::onCreate() {
     }, mapLoader);
 
     for (auto& block : blocks) {
-        block.setTexture(resources.getTextures().get(res::Texture::Block));
+        std::cout << "GOOD\n";
+        block.setTexture(resources.getTextures().get(queue.front()));
+        queue.pop();
     }
 
     texture = resources.getTextures().get(res::Texture::Wizard);
@@ -44,6 +46,12 @@ void StateGame::update(float dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         sprite.move({0, velocity * dt});
     }
+
+    auto cameraX = sprite.getPosition().x + sprite.getTexture()->getSize().x / 2;
+    auto cameraY = sprite.getPosition().y + sprite.getTexture()->getSize().y / 2;
+
+    camera.setCenter(cameraX, cameraY);
+    window.getWindow().setView(camera);
 }
 
 void StateGame::draw(Window &window) {
@@ -65,6 +73,8 @@ void StateGame::generateWorldFromBmp() {
     auto& theEncoded =   std::get<Encoder<PixelColor>>(mapLoaderRef.encoder).encodedObjects;
     blocksNum = mapLoaderRef.getBlocksNum();
     blocks.resize(blocksNum);
+
+    std::cout << "Przed petla: \n" << entitiesNum << " " << blocksNum;
     for (int k = 0; k < entitiesNum; k++) {
         if (k % consts::blocksCountWidth == 0) {
             j--;
@@ -75,11 +85,9 @@ void StateGame::generateWorldFromBmp() {
         switch (curID->second) {
             case Obj::Entity::Empty:
                 break;
-            case Obj::Entity::Block:
+            default:
                 blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 u++;
-                break;
-            default:
                 break;
         }
     }
@@ -106,11 +114,9 @@ void StateGame::generateWorldFromTxt() {
         switch (curID->second) {
             case Obj::Entity::Empty:
                 break;
-            case Obj::Entity::Block:
+            default:
                 blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 u++;
-                break;
-            default:
                 break;
         }
     }

@@ -1,6 +1,8 @@
 #pragma once
 
 #include <variant>
+#include <queue>
+#include <ResourceManager/Resources.h>
 #include "BmpReader.h"
 #include "TxtReader.h"
 #include "Encoder.h"
@@ -51,12 +53,38 @@ public:
                 auto& encodedObjs = std::get<Encoder<PixelColor>>(encoder).encodedObjects;
 
                 for (blocksNum = 0; const auto& item : data) {
-                    switch (encodedObjs.find(item)->second) {
-                        case Obj::Entity::Block:
-                            ++blocksNum;
-                            break;
-                    }
+                switch (encodedObjs.find(item)->second) {
+                    case Obj::Entity::BlockBlue:
+                        queue.push(res::Texture::BlockBlue);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockYellow:
+                        queue.push(res::Texture::BlockYellow);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockRed:
+                        queue.push(res::Texture::BlockRed);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockGreen:
+                        queue.push(res::Texture::BlockGreen);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockBrown:
+                        queue.push(res::Texture::BlockBrown);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockGray:
+                        queue.push(res::Texture::BlockGray);
+                        ++blocksNum;
+                        break;
+                    case Obj::Entity::BlockPurple:
+                        queue.push(res::Texture::BlockPurple);
+                        ++blocksNum;
+                        break;
                 }
+            }
+
             },
             [&](TxtReader&) {
                 /** Analyzer */
@@ -64,11 +92,24 @@ public:
                 auto& encodedObjs = std::get<Encoder<int>>(encoder).encodedObjects;
 
                 for (blocksNum = 0; const auto& item : data) {
-                switch (encodedObjs.find(item)->second) {
-                    case Obj::Entity::Block:
-                        ++blocksNum;
-                        break;
-                }
+                    switch (encodedObjs.find(item)->second) {
+                        case Obj::Entity::BlockBlue:
+                            queue.push(res::Texture::BlockBlue);
+                            ++blocksNum;
+                            break;
+                        case Obj::Entity::BlockYellow:
+                            queue.push(res::Texture::BlockYellow);
+                            ++blocksNum;
+                            break;
+                        case Obj::Entity::BlockRed:
+                            queue.push(res::Texture::BlockRed);
+                            ++blocksNum;
+                            break;
+                        case Obj::Entity::BlockGreen:
+                            queue.push(res::Texture::BlockGreen);
+                            ++blocksNum;
+                            break;
+                    }
             }
             },
             [&](std::monostate&) { std::cout << "Not yet constructed\n"; }
@@ -94,8 +135,13 @@ public:
         }, mapReader);
     }
 
+    auto& getQueue() {
+        return queue;
+    }
+
 public:
     int blocksNum{};
     std::variant<std::monostate, BmpReader, TxtReader>                  mapReader;
     std::variant<std::monostate, Encoder<PixelColor>, Encoder<int>>     encoder;
+    std::queue<res::Texture> queue;
 };

@@ -15,21 +15,14 @@ void ResourceManager::loadResources() {
 }
 
 void ResourceManager::loadTextures() {
-    textures.insert(res::Texture::Block, "Block_Type1_Red.png");
-    textures.insert(res::Texture::Wizard, "wizard.png");
-    textures.insert(res::Texture::Wizard, "wizard.png");
-    textures.insert(res::Texture::Wizard, "wizard.png");
-    textures.insert(res::Texture::Gray,   "gray.png");
-    textures.insert(res::Texture::Gray,   "gray.png");
-    textures.insert(res::Texture::Orange, "orange.png");
-    textures.insert(res::Texture::Gray,   "gray.png");
-    textures.insert(res::Texture::Wizard, "wizard.png");
-    textures.insert(res::Texture::Orange, "orange.png");
-    textures.insert(res::Texture::Orange, "orange.png");
-    textures.insert(res::Texture::Gray,   "gray.png");
-    textures.insert(res::Texture::Orange, "orange.png");
-    textures.insert(res::Texture::Orange, "orange.png");
-    textures.insert(res::Texture::Orange, "orange.png");
+    textures.insert(res::Texture::BlockRed,    "Block_Type1_Red.png");
+    textures.insert(res::Texture::BlockBlue,   "Block_Type1_Blue.png");
+    textures.insert(res::Texture::BlockBrown,  "Block_Type1_Brown.png");
+    textures.insert(res::Texture::BlockGray,   "Block_Type1_Gray.png");
+    textures.insert(res::Texture::BlockGreen,  "Block_Type1_Green.png");
+    textures.insert(res::Texture::BlockPurple, "Block_Type1_Purple.png");
+    textures.insert(res::Texture::BlockYellow, "Block_Type1_Yellow.png");
+    textures.insert(res::Texture::Wizard,  "wizard.png");
 }
 
 void ResourceManager::loadSounds() {

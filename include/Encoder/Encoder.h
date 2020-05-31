@@ -12,8 +12,14 @@ template <typename Key>
 namespace Obj {
     enum class Entity {
         Empty,
-        Block,
-        Player
+        Player,
+        BlockRed,
+        BlockBlue,
+        BlockBrown,
+        BlockGray,
+        BlockGreen,
+        BlockPurple,
+        BlockYellow,
     };
 }
 
@@ -35,14 +41,26 @@ public:
 private:
     void encodeAll() {
         if constexpr (std::is_same<ReaderKey, PixelColor>()) {
-            encode(PixelColor{36, 28, 237}, Obj::Entity::Block);
             encode(PixelColor{0, 0, 0},       Obj::Entity::Empty);
-            encode(PixelColor{255, 0, 0},     Obj::Entity::Player);
+            encode(PixelColor{201, 174, 255},     Obj::Entity::Player); ///< light pink
+            encode(PixelColor{36, 28, 237},     Obj::Entity::BlockRed);
+            encode(PixelColor{232, 162, 0},     Obj::Entity::BlockBlue);
+            encode(PixelColor{21, 0, 136},     Obj::Entity::BlockBrown); ///< dark brown
+            encode(PixelColor{127, 127, 127},     Obj::Entity::BlockGray);
+            encode(PixelColor{76, 177, 34},     Obj::Entity::BlockGreen);
+            encode(PixelColor{164, 73, 163},     Obj::Entity::BlockPurple);
+            encode(PixelColor{0, 242, 255},     Obj::Entity::BlockYellow);
         }
         if constexpr (std::is_same<ReaderKey, int>()) {
             encode(0, Obj::Entity::Empty);
-            encode(1, Obj::Entity::Block);
-            encode(2, Obj::Entity::Player);
+            encode(1, Obj::Entity::Player);
+            encode(2, Obj::Entity::BlockRed);
+            encode(3, Obj::Entity::BlockBlue);
+            encode(4, Obj::Entity::BlockBrown);
+            encode(5, Obj::Entity::BlockGray);
+            encode(6, Obj::Entity::BlockGreen);
+            encode(7, Obj::Entity::BlockPurple);
+            encode(8, Obj::Entity::BlockYellow);
         }
     }
 

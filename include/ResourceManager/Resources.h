@@ -2,16 +2,18 @@
 
 namespace res {
     enum class Texture {
-        Block,
-        Gray,
-        Green,
-        Orange,
+        BlockRed,
+        BlockBlue,
+        BlockBrown,
+        BlockGray,
+        BlockGreen,
+        BlockPurple,
+        BlockYellow,
         Wizard
     };
 
     enum class Sound {
         Bullet,
-        Poof,
         Bing
     };
 

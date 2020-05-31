@@ -19,6 +19,8 @@ include_directories(include
         include/GUI/Core
         include/ResourceManager
         include/Encoder
+        include/Encoder/Utility
+        include/Events
         googletest/googletest/include
         googletest/googlemock/include)
 
@@ -40,7 +42,10 @@ set(SOURCE_FILES
         src/GUI/MapLoaderConfig.cpp
         src/Encoder/FileReader.cpp
         src/Encoder/BmpReader.cpp
-        include/Encoder/PixelColor.h include/Encoder/TxtReader.h src/Encoder/TxtReader.cpp include/Encoder/Encoder.cpp include/Encoder/Encoder.h include/Encoder/MapLoader.cpp include/Encoder/MapLoader.h include/Encoder/Utility/FilenameParser.cpp include/Encoder/Utility/FilenameParser.h)
+        src/Encoder/TxtReader.cpp
+        src/Encoder/Encoder.cpp
+        src/Encoder/MapLoader.cpp
+        src/Encoder/Utility/FilenameParser.cpp)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)
