@@ -22,9 +22,10 @@ void TxtReader::readFile() {
             while (ss >> num) data.emplace_back(num);
             rows++;
         }
-
-        consts::blocksCountWidth  = std::count_if(line.begin(), line.end(), [](char c){ return std::isspace(c); }) + 1;
+        std::stringstream ss{line};
+        consts::blocksCountWidth  = std::distance(std::istream_iterator<int>{ss}, std::istream_iterator<int>{});
         consts::blocksCountHeight = rows;
+
     }
     else {
         throw std::runtime_error("Failed to open " + fileName);
