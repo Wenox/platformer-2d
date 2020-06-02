@@ -16,7 +16,6 @@ void StateGame::onCreate() {
 
     texture = resources.getTextures().get(res::Texture::Wizard);
     sprite.setTexture(texture);
-
 }
 
 
@@ -84,6 +83,9 @@ void StateGame::generateWorldFromBmp() {
         switch (curID->second) {
             case Obj::Entity::Empty:
                 break;
+            case Obj::Entity::Player:
+                sprite.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                break;
             default:
                 blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 u++;
@@ -112,6 +114,9 @@ void StateGame::generateWorldFromTxt() {
         auto curID = theEncoded.find(theData[k]);
         switch (curID->second) {
             case Obj::Entity::Empty:
+                break;
+            case Obj::Entity::Player:
+                sprite.setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 break;
             default:
                 blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
