@@ -13,9 +13,9 @@ namespace Loader {
     };
 
     constexpr std::initializer_list<Loader::Btn> Buttons = {
-            Btn::newMap,
-            Btn::loadMap,
-            Btn::loadConfirm
+        Btn::newMap,
+        Btn::loadMap,
+        Btn::loadConfirm
     };
 
     static_assert(Buttons.size() == toInt(Btn::SIZE));

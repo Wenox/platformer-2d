@@ -15,11 +15,11 @@ namespace Menu {
     };
 
     constexpr std::initializer_list<Menu::Btn> Buttons = {
-            Btn::newGame,
-            Btn::loadGame,
-            Btn::options,
-            Btn::about,
-            Btn::exit
+        Btn::newGame,
+        Btn::loadGame,
+        Btn::options,
+        Btn::about,
+        Btn::exit
     };
 
     static_assert(Buttons.size() == toInt(Btn::SIZE));
