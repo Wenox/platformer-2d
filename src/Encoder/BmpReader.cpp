@@ -69,4 +69,3 @@ void BmpReader::debugPrint() const {
                   << (uint16_t) data[i].red << std::endl;
     }
 }
-

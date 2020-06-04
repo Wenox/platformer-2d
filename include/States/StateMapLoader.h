@@ -30,7 +30,7 @@ public:
         setGui();
 
         gui.widgets[to_underlying(Loader::Btn::loadConfirm)]->connect("Pressed", [&]() {
-            if (FileNameParser mapFile{mapName}; mapFile.isNameCorrect()) {
+            if (FileNameParser mapFile{mapName}; mapFile.isValidFormat() and mapFile.exists()) {
                 if (mapFile.isBmp()) mapLoader = std::make_optional<MapLoader<Bmp>>(mapName);
                 if (mapFile.isTxt()) mapLoader = std::make_optional<MapLoader<Txt>>(mapName);
 
@@ -38,7 +38,8 @@ public:
                 stateMachine = state::gameID;
             }
             else {
-                std::cerr << "Name: " << mapName << " is not a valid file name!\n";
+                gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->setVisible(true);
+                std::cerr << "Map file: " << mapName << " does not exist!\n";
                 ///< clear mapName edit box, prompt user to enter correct map's file name
             }
         });
@@ -46,6 +47,10 @@ public:
 
     void onDestroy() override {
 
+    }
+
+    void onActivate() override {
+        gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->setVisible(false);
     }
 
     void processInput() override {

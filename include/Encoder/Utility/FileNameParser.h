@@ -2,6 +2,7 @@
 
 #include <regex>
 #include <iostream>
+#include <fstream>
 
 class FileNameParser {
 public:
@@ -15,8 +16,13 @@ public:
         }
     }
 
-    bool isNameCorrect() {
+    bool isValidFormat() {
         return std::regex_match(fileName, result, re);
+    }
+
+    bool exists() const {
+        std::ifstream file{fileName.c_str()};
+        return file.good();
     }
 
     bool isBmp() const {

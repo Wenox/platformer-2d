@@ -10,6 +10,7 @@ void StateMapLoader::setGui() {
         gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->setText("No such file");
         gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->showWithEffect(
                 tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(300));
+        gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->setVisible(false);
 
         /** todo: to be cleaned up */
     });
