@@ -40,6 +40,11 @@ public:
 protected:
     Entity(ResourceHolder<res::Texture, sf::Texture>& textureHolder, res::Texture textureID, sf::Vector2f position);
     Entity(ResourceHolder<res::Texture, sf::Texture>& textureHolder, res::Texture textureID);
+    explicit Entity(sf::Vector2f position)
+    : position{position}
+    {
+        sprite.setPosition(position);
+    }
 
     sf::Sprite   sprite;
     sf::Vector2f position; /** todo: do I need it? */

@@ -1,3 +1,4 @@
+#include <Entities/Block.h>
 #include "Consts.h"
 #include "StateID.h"
 #include "StateGame.h"
@@ -9,8 +10,11 @@ void StateGame::onCreate() {
             [&](MapLoader<Txt>&) { generateWorldFromTxt(); }
     }, mapLoader);
 
-    for (int i = 0; auto& block : blocks) {
-        block.setTexture(resources.getTextures().get(queue.front()));
+    std::cout << "Blocks size: " << blocks.size() << std::endl;
+    for (auto& block : blocks) {
+//        std::cout << "Block: " << block->x() << " " << block->y() << std::endl;
+
+        block->getSprite().setTexture(resources.getTextures().get(queue.front()));
         queue.pop();
     }
 
@@ -56,7 +60,7 @@ void StateGame::update(float dt) {
 void StateGame::draw(Window &window) {
     window.draw(sprite);
     for (const auto& block : blocks) {
-        window.draw(block);
+        window.draw(*block);
     }
 }
 
@@ -71,7 +75,6 @@ void StateGame::generateWorldFromBmp() {
     auto& theData =      std::get<BmpReader>(mapLoaderRef.mapReader).getData();
     auto& theEncoded =   std::get<Encoder<PixelColor>>(mapLoaderRef.encoder).encodedObjects;
     blocksNum = mapLoaderRef.getBlocksNum();
-    blocks.resize(blocksNum);
 
     for (int k = 0; k < entitiesNum; k++) {
         if (k % consts::blocksCountWidth == 0) {
@@ -87,7 +90,9 @@ void StateGame::generateWorldFromBmp() {
                 sprite.setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 break;
             default:
-                blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                        static_cast<float>(j * consts::entityHeight)});
+                blocks.push_back(std::move(newBlock));
                 u++;
                 break;
         }
@@ -104,7 +109,6 @@ void StateGame::generateWorldFromTxt() {
     auto& theEncoded =   std::get<Encoder<int>>(mapLoaderRef.encoder).encodedObjects;
 
     blocksNum = mapLoaderRef.getBlocksNum();
-    blocks.resize(blocksNum);
 
     for (int k = 0, j = -1; k < entitiesNum; k++) {
         int i = k % consts::blocksCountWidth;
@@ -119,7 +123,9 @@ void StateGame::generateWorldFromTxt() {
                 sprite.setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 break;
             default:
-                blocks[u].setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                     static_cast<float>(j * consts::entityHeight)});
+                blocks.push_back(std::move(newBlock));
                 u++;
                 break;
         }

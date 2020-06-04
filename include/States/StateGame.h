@@ -1,8 +1,11 @@
 #pragma once
 
+#include <Entities/Entity.h>
 #include "StateMachine.h"
 #include "ResourceManager.h"
 #include "MapLoader.h"
+#include "Block.h"
+#include <memory>
 
 
 class StateGame : public State {
@@ -35,7 +38,7 @@ private:
 
     std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader;
 
-    std::vector<sf::Sprite> blocks{};
+    std::vector<std::unique_ptr<Entity>> blocks;
     sf::Texture texture;
     sf::Sprite sprite;
     int blocksNum;
