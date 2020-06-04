@@ -1,17 +1,21 @@
 #include "StateMapLoader.h"
 
-void StateMapLoader::setGui() {
+void StateMapLoader::setLoadConfirmBtn() {
     gui.widgets[to_underlying(Loader::Btn::loadConfirm)]->connect("Pressed", [&]() {
-        this->mapName = gui.getGui().getContainer()->get<tgui::EditBox>("editBox")->getText().toAnsiString();
-        gui.getGui().getContainer()->get<tgui::EditBox>("editBox")->setText("");
-        gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->setTextSize(gui.config.textSize - 5);
-        gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->getRenderer()->setTextColor(
-                tgui::Color{255, 0, 0});
-        gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->setText("No such file");
-        gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->showWithEffect(
-                tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(300));
-        gui.getGui().getContainer()->get<tgui::Label>("editBoxLabel")->setVisible(false);
+        mapName = gui.getMapName();
+        gui.animateBadMapLabel();
 
-        /** todo: to be cleaned up */
+        if (FileNameParser mapFile{mapName}; mapFile.isValidFormat() and mapFile.exists()) {
+            if (mapFile.isBmp()) mapLoader = std::make_optional<MapLoader<Bmp>>(mapName);
+            if (mapFile.isTxt()) mapLoader = std::make_optional<MapLoader<Txt>>(mapName);
+
+            state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, mapLoader.value(), window));
+            stateMachine = state::gameID;
+        }
+        else {
+            std::cerr << "Map file: " << mapName << " does not exist!\n";
+            gui.setBadMapLabelVisible(true);
+            gui.clearMapNameBox();
+        }
     });
 }

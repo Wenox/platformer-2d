@@ -13,10 +13,10 @@ void MapLoaderGUI::init() {
 
 
 void MapLoaderGUI::buildGUI() {
-/** background */
+    /** background */
     gui.add(tgui::Picture::create("../resources/mapLoader.jpg"));
 
-/** buttons */
+    /** buttons */
     for (auto i{0u}; auto btn : Loader::Buttons) {
         const auto& btnName = loaderConfig.widgetsNames[btn];
         widgets.emplace_back(tgui::Button::create(btnName));
@@ -25,23 +25,23 @@ void MapLoaderGUI::buildGUI() {
         ++i;
     }
 
-/** file name editBox */
-    auto editBox = tgui::EditBox::create();
-    editBox->setSize(config.width, config.height);
-    editBox->setTextSize(config.textSize);
-    editBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
+    /** map name editBox */
+    auto mapNameBox = tgui::EditBox::create();
+    mapNameBox->setSize(config.width, config.height);
+    mapNameBox->setTextSize(config.textSize);
+    mapNameBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
                          tgui::bindBottom(widgets[to_underlying(Loader::Btn::loadMap)]) + 10);
-    gui.add(editBox, "editBox");
+    gui.add(mapNameBox, "mapNameBox");
 
 
-/** label editBox */
-    auto editBoxLabel = tgui::Label::create("No such file!");
-    editBoxLabel->setTextSize(config.textSize - 5);
-    editBoxLabel->setPosition(tgui::bindLeft(editBox) - editBoxLabel->getSize().x - 10, tgui::bindTop(editBox) + 12);
-    editBoxLabel->getRenderer()->setTextColor(tgui::Color{255, 0, 0});
-    editBoxLabel->setVisible(false);
-    gui.add(editBoxLabel, "editBoxLabel");
+    /** label when entering bad map's name */
+    auto badMapLabel = tgui::Label::create("No such file!");
+    badMapLabel->setTextSize(config.textSize - 5);
+    badMapLabel->setPosition(tgui::bindLeft(mapNameBox) - badMapLabel->getSize().x - 10, tgui::bindTop(mapNameBox) + 12);
+    badMapLabel->getRenderer()->setTextColor(tgui::Color{255, 0, 0});
+    badMapLabel->setVisible(false);
 
+    gui.add(badMapLabel, "badMapLabel");
 }
 
 
