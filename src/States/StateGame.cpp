@@ -3,6 +3,22 @@
 #include "StateID.h"
 #include "StateGame.h"
 
+StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader, Window& window)
+    : stateMachine{stateMachine}
+    , resources{resources}
+    , mapLoader{mapLoader}
+    , window{window}
+    , camera{{320, 288}
+    , {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}
+{
+    std::visit(overload{
+            [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
+            [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
+    }, mapLoader);
+
+    std::cout << "StateGame::StateGame()" << std::endl;
+    window.getWindow().setView(camera);
+}
 
 void StateGame::onCreate() {
     std::visit(overload{
@@ -10,10 +26,7 @@ void StateGame::onCreate() {
             [&](MapLoader<Txt>&) { generateWorldFromTxt(); }
     }, mapLoader);
 
-    std::cout << "Blocks size: " << blocks.size() << std::endl;
     for (auto& block : blocks) {
-//        std::cout << "Block: " << block->x() << " " << block->y() << std::endl;
-
         block->getSprite().setTexture(resources.getTextures().get(queue.front()));
         queue.pop();
     }
@@ -74,7 +87,6 @@ void StateGame::generateWorldFromBmp() {
     auto& mapLoaderRef = std::get<MapLoader<Bmp>>(mapLoader);
     auto& theData =      std::get<BmpReader>(mapLoaderRef.mapReader).getData();
     auto& theEncoded =   std::get<Encoder<PixelColor>>(mapLoaderRef.encoder).encodedObjects;
-    blocksNum = mapLoaderRef.getBlocksNum();
 
     for (int k = 0; k < entitiesNum; k++) {
         if (k % consts::blocksCountWidth == 0) {
@@ -107,9 +119,7 @@ void StateGame::generateWorldFromTxt() {
     auto& mapLoaderRef = std::get<MapLoader<Txt>>(mapLoader);
     auto& theData =      std::get<TxtReader>(mapLoaderRef.mapReader).getData();
     auto& theEncoded =   std::get<Encoder<int>>(mapLoaderRef.encoder).encodedObjects;
-
-    blocksNum = mapLoaderRef.getBlocksNum();
-
+    
     for (int k = 0, j = -1; k < entitiesNum; k++) {
         int i = k % consts::blocksCountWidth;
         if (k % consts::blocksCountWidth == 0) {

@@ -10,19 +10,7 @@
 
 class StateGame : public State {
 public:
-    StateGame(StateMachine &stateMachine, ResourceManager& resources, std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader, Window& window)
-            : stateMachine{stateMachine}, resources{resources}, mapLoader{mapLoader},
-            window{window},
-            camera{{320, 288},{ static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}
-    {
-        std::visit(overload{
-            [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
-            [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
-        }, mapLoader);
-
-        std::cout << "StateGame::StateGame()" << std::endl;
-        window.getWindow().setView(camera);
-    }
+    StateGame(StateMachine &stateMachine, ResourceManager& resources, std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader, Window& window);
 
     void onCreate() override;
     void onDestroy() override;
@@ -41,7 +29,6 @@ private:
     std::vector<std::unique_ptr<Entity>> blocks;
     sf::Texture texture;
     sf::Sprite sprite;
-    int blocksNum;
 
     Window& window;
     sf::View camera;
