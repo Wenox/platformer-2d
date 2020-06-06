@@ -66,6 +66,14 @@ void StateGame::update(float dt) {
     auto cameraX = sprite.getPosition().x + sprite.getTexture()->getSize().x / 2;
     auto cameraY = sprite.getPosition().y + sprite.getTexture()->getSize().y / 2;
 
+    std::cout << cameraX <<  " " <<cameraY << std::endl;
+
+    /** Four possible camera collision conditions */
+//    if (cameraX > camera.getSize().x / 2) { std::cout << "X left coll\n"; }
+//    if (cameraX > consts::blocksCountWidth * 32 - camera.getSize().x / 2) { std::cout << "X right coll\n";}
+//    if (cameraY < camera.getSize().y / 2) { std::cout << " Y top coll \n"; }
+//    if (cameraY > consts::blocksCountHeight * 32 - camera.getSize().y / 2) { std::cout << " Y bottom coll\n"; }
+//    else
     camera.setCenter(cameraX, cameraY);
     window.getWindow().setView(camera);
 }
@@ -76,8 +84,6 @@ void StateGame::draw(Window &window) {
         window.draw(*block);
     }
 }
-
-
 
 void StateGame::generateWorldFromBmp() {
     int u = 0;
@@ -119,7 +125,7 @@ void StateGame::generateWorldFromTxt() {
     auto& mapLoaderRef = std::get<MapLoader<Txt>>(mapLoader);
     auto& theData =      std::get<TxtReader>(mapLoaderRef.mapReader).getData();
     auto& theEncoded =   std::get<Encoder<int>>(mapLoaderRef.encoder).encodedObjects;
-    
+
     for (int k = 0, j = -1; k < entitiesNum; k++) {
         int i = k % consts::blocksCountWidth;
         if (k % consts::blocksCountWidth == 0) {
