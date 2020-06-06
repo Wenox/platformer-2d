@@ -8,16 +8,16 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
     , resources{resources}
     , mapLoader{mapLoader}
     , window{window}
-    , camera{{320, 288}
-    , {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}
+    , camera{window, sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
 {
+    std::cout << "Here\n";
     std::visit(overload{
             [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
             [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
     }, mapLoader);
 
     std::cout << "StateGame::StateGame()" << std::endl;
-    window.getWindow().setView(camera);
+    window.getWindow().setView(camera.getCamera());
 }
 
 void StateGame::onCreate() {
@@ -33,6 +33,7 @@ void StateGame::onCreate() {
 
     texture = resources.getTextures().get(res::Texture::Wizard);
     sprite.setTexture(texture);
+    camera.setController(sprite);
 }
 
 
@@ -63,19 +64,8 @@ void StateGame::update(float dt) {
         sprite.move({0, velocity * dt});
     }
 
-    auto cameraX = sprite.getPosition().x + sprite.getTexture()->getSize().x / 2;
-    auto cameraY = sprite.getPosition().y + sprite.getTexture()->getSize().y / 2;
-
-    std::cout << cameraX <<  " " <<cameraY << std::endl;
-
-    /** Four possible camera collision conditions */
-//    if (cameraX > camera.getSize().x / 2) { std::cout << "X left coll\n"; }
-//    if (cameraX > consts::blocksCountWidth * 32 - camera.getSize().x / 2) { std::cout << "X right coll\n";}
-//    if (cameraY < camera.getSize().y / 2) { std::cout << " Y top coll \n"; }
-//    if (cameraY > consts::blocksCountHeight * 32 - camera.getSize().y / 2) { std::cout << " Y bottom coll\n"; }
-//    else
-    camera.setCenter(cameraX, cameraY);
-    window.getWindow().setView(camera);
+    camera.update();
+    window.getWindow().setView(camera.getCamera());
 }
 
 void StateGame::draw(Window &window) {

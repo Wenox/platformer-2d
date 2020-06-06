@@ -6,6 +6,7 @@
 #include "MapLoader.h"
 #include "Block.h"
 #include <memory>
+#include <Camera.h>
 
 
 class StateGame : public State {
@@ -31,7 +32,7 @@ private:
     sf::Sprite sprite;
 
     Window& window;
-    sf::View camera;
+    Camera camera;
 
     std::queue<res::Texture> queue;
 
