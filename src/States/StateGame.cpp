@@ -57,6 +57,9 @@ void StateGame::update(float dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         sprite.move({velocity * dt, 0});
     }
+
+    camera.updateX();
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         sprite.move({0, -velocity * dt});
     }
@@ -64,7 +67,9 @@ void StateGame::update(float dt) {
         sprite.move({0, velocity * dt});
     }
 
-    camera.update();
+    camera.updateY();
+
+//    camera.update();
     window.getWindow().setView(camera.getCamera());
 }
 

@@ -15,6 +15,86 @@ public:
         std::cout << "Zegnam\n";
     }
 
+
+    /** Temporary version! */
+    void updateX() {
+        auto cameraX = sprite->getPosition().x + halvedSpriteWidth;
+        auto cameraY = sprite->getPosition().y + halvedSpriteHeight;
+        
+        camera.setCenter(cameraX, cameraY);
+
+        std::cout << cameraX << " " << cameraY << std::endl;
+        if (cameraX > rightBorderBoundary) {
+            std::cout << "X right collision\n";
+            if (wasTopCollision) {
+                camera.setCenter(rightBorderBoundary, topBorderBoundary);
+            } else if (wasBotCollision) {
+                camera.setCenter(rightBorderBoundary, bottomBorderBoundary);
+            } else {
+                camera.setCenter(rightBorderBoundary, cameraY);
+            }
+            wasRightCollision = true;
+            wasLeftCollision = false;
+        }
+        else if (cameraX < leftBorderBoundary) {
+            std::cout << "X left collision\n";
+            if (wasTopCollision) {
+                camera.setCenter(leftBorderBoundary, topBorderBoundary);
+            } else if (wasBotCollision) {
+                camera.setCenter(leftBorderBoundary, bottomBorderBoundary);
+            } else {
+                camera.setCenter(leftBorderBoundary, cameraY);
+            }
+            wasLeftCollision = true;
+            wasRightCollision = false;
+        } else {
+            if (wasTopCollision) {
+                camera.setCenter(cameraX, topBorderBoundary);
+            } else if (wasBotCollision) {
+                camera.setCenter(cameraX, bottomBorderBoundary);
+            } else {
+                camera.setCenter(cameraX, cameraY);
+            }
+            wasLeftCollision = false;
+            wasRightCollision = false;
+        }
+    }
+
+    void updateY() {
+        auto cameraX = sprite->getPosition().x + halvedSpriteWidth;
+        auto cameraY = sprite->getPosition().y + halvedSpriteHeight;
+
+//        std::cout << cameraX << " " << cameraY << std::endl;
+//        camera.setCenter(cameraX, cameraY);
+        if (cameraY > bottomBorderBoundary) {
+            std::cout << "Y bottom collision\n";
+            if (wasLeftCollision) {
+                camera.setCenter(leftBorderBoundary, bottomBorderBoundary);
+            } else if (wasRightCollision) {
+                camera.setCenter(rightBorderBoundary, bottomBorderBoundary);
+            } else {
+                camera.setCenter(cameraX, bottomBorderBoundary);
+            }
+            wasBotCollision = true;
+            wasTopCollision = false;
+        }
+        else if (cameraY < topBorderBoundary) {
+            std::cout << "Y top collision\n";
+            if (wasLeftCollision) {
+                camera.setCenter(leftBorderBoundary, topBorderBoundary);
+            } else if (wasRightCollision) {
+                camera.setCenter(rightBorderBoundary, topBorderBoundary);
+            } else {
+                camera.setCenter(cameraX, topBorderBoundary);
+            }
+            wasTopCollision = true;
+            wasBotCollision = false;
+        } else {
+            wasBotCollision = false;
+            wasTopCollision = false;
+        }
+    }
+
     void update() {
         auto cameraX = sprite->getPosition().x + halvedSpriteWidth;
         auto cameraY = sprite->getPosition().y + halvedSpriteHeight;
@@ -65,6 +145,14 @@ private:
 
     float halvedSpriteWidth{};
     float halvedSpriteHeight{};
+
+    float curX{};
+    float curY{};
+
+    bool wasTopCollision{};
+    bool wasBotCollision{};
+    bool wasLeftCollision{};
+    bool wasRightCollision{};
 
     void setCameraConstants() {
         std::cout << "1\n";
