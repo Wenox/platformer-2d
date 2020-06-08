@@ -20,7 +20,7 @@ public:
     void updateX() {
         auto cameraX = sprite->getPosition().x + halvedSpriteWidth;
         auto cameraY = sprite->getPosition().y + halvedSpriteHeight;
-        
+
         camera.setCenter(cameraX, cameraY);
 
         std::cout << cameraX << " " << cameraY << std::endl;

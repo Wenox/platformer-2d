@@ -32,8 +32,8 @@ void StateGame::onCreate() {
     }
 
     texture = resources.getTextures().get(res::Texture::Wizard);
-    sprite.setTexture(texture);
-    camera.setController(sprite);
+    player.getSprite().setTexture(texture); /** todo: direct setter */
+    camera.setController(player.getSprite());
 }
 
 
@@ -52,29 +52,28 @@ void StateGame::processInput() {
 
 void StateGame::update(float dt) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        sprite.move({-velocity * dt, 0});
+        player.move({- player.getVelocity() * dt, 0});
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        sprite.move({velocity * dt, 0});
+        player.move({player.getVelocity() * dt, 0}); /** todo: dont use getter, just bind velocity to const */
     }
 
     camera.updateX();
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-        sprite.move({0, -velocity * dt});
+        player.move({0, - player.getVelocity() * dt});
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-        sprite.move({0, velocity * dt});
+        player.move({0, player.getVelocity() * dt});
     }
 
     camera.updateY();
 
-//    camera.update();
     window.getWindow().setView(camera.getCamera());
 }
 
 void StateGame::draw(Window &window) {
-    window.draw(sprite);
+    window.draw(player);
     for (const auto& block : blocks) {
         window.draw(*block);
     }
@@ -100,7 +99,7 @@ void StateGame::generateWorldFromBmp() {
             case Obj::Entity::Empty:
                 break;
             case Obj::Entity::Player:
-                sprite.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                player.setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 break;
             default:
                 auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
@@ -131,7 +130,7 @@ void StateGame::generateWorldFromTxt() {
             case Obj::Entity::Empty:
                 break;
             case Obj::Entity::Player:
-                sprite.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                player.setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 break;
             default:
                 auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),

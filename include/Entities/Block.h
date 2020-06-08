@@ -5,7 +5,7 @@
 
 class Block : public Entity {
 public:
-    Block(sf::Vector2f position)
+    explicit Block(sf::Vector2f position)
         : Entity{position}
     {}
 

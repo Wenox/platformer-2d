@@ -7,6 +7,7 @@
 #include "Block.h"
 #include <memory>
 #include <Camera.h>
+#include <Entities/Player.h>
 
 
 class StateGame : public State {
@@ -21,15 +22,14 @@ public:
     void draw(Window& window) override;
 
 private:
-    const int velocity = 400;
     StateMachine& stateMachine;
     ResourceManager& resources;
 
     std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader;
 
+    Player player;
     std::vector<std::unique_ptr<Entity>> blocks;
     sf::Texture texture;
-    sf::Sprite sprite;
 
     Window& window;
     Camera camera;
