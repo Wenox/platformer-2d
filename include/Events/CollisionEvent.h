@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Player.h"
+#include "Entities/Player/Player.h"
 #include <cmath>
 #include <Entities/Block.h>
 

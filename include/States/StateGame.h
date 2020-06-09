@@ -7,7 +7,7 @@
 #include "Block.h"
 #include <memory>
 #include <Camera.h>
-#include <Entities/Player.h>
+#include <Entities/Player/Player.h>
 #include <Events/CollisionEvent.h>
 #include <Events/MovementEvent.h>
 

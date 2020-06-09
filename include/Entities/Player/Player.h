@@ -1,11 +1,13 @@
 #pragma once
 
+#include <Consts.h>
 #include "Entity.h"
+#include "PlayerState.h"
 
 
 class Player : public Entity {
 private:
-    const float velocity = 400.0;
+    const float velocity = consts::horizontalVelocity;
 
 public:
     explicit Player(sf::Vector2f position = {0, 0})
@@ -19,6 +21,9 @@ public:
     auto& getVelocity() const {
         return velocity;
     }
+
+    MovingState  movingState{MovingState::standing};
+    JumpingState jumpingState{JumpingState::onGround};
 };
 
 

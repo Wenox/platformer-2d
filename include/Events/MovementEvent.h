@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Entities/Block.h>
-#include "Player.h"
+#include "Entities/Player/Player.h"
 
 
 class MovementEvent {

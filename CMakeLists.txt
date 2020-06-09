@@ -22,6 +22,7 @@ include_directories(include
         include/Encoder/Utility
         include/Events
         include/Entities
+        include/Entities/Player
         googletest/googletest/include
         googletest/googlemock/include)
 
@@ -46,7 +47,7 @@ set(SOURCE_FILES
         src/Encoder/TxtReader.cpp
         src/Encoder/Encoder.cpp
         src/Encoder/MapLoader.cpp
-        src/Encoder/Utility/FileNameParser.cpp src/Consts.cpp src/Entities/Entity.cpp include/Entities/Entity.h src/Entities/Block.cpp include/Entities/Block.h src/Entities/Player.cpp include/Entities/Player.h include/Camera.cpp include/Camera.h src/Events/CollisionEvent.cpp include/Events/CollisionEvent.h src/Events/MovementEvent.cpp include/Events/MovementEvent.h)
+        src/Encoder/Utility/FileNameParser.cpp src/Consts.cpp src/Entities/Entity.cpp include/Entities/Entity.h src/Entities/Block.cpp include/Entities/Block.h src/Entities/Player/Player.cpp include/Entities/Player/Player.h include/Camera.cpp include/Camera.h src/Events/CollisionEvent.cpp include/Events/CollisionEvent.h src/Events/MovementEvent.cpp include/Events/MovementEvent.h include/Entities/Player/PlayerState.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)
