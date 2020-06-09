@@ -8,6 +8,7 @@
 #include <memory>
 #include <Camera.h>
 #include <Entities/Player.h>
+#include <Events/CollisionEvent.h>
 
 
 class StateGame : public State {
@@ -35,6 +36,8 @@ private:
     Camera camera;
 
     std::queue<res::Texture> queue;
+
+    std::unique_ptr<CollisionEvent> collider;
 
     void generateWorldFromBmp();
     void generateWorldFromTxt();

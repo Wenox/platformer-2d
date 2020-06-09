@@ -9,7 +9,7 @@ namespace res {
         BlockGreen,
         BlockPurple,
         BlockYellow,
-        Wizard
+        Wizard,
     };
 
     enum class Sound {

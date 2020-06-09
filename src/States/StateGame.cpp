@@ -34,6 +34,8 @@ void StateGame::onCreate() {
     texture = resources.getTextures().get(res::Texture::Wizard);
     player.getSprite().setTexture(texture); /** todo: direct setter */
     camera.setController(player.getSprite());
+
+    collider = std::make_unique<CollisionEvent>(player, blocks);
 }
 
 
@@ -59,6 +61,7 @@ void StateGame::update(float dt) {
     }
 
     camera.updateX();
+    collider->updateAxisX();
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         player.move({0, - player.getVelocity() * dt});
@@ -68,6 +71,7 @@ void StateGame::update(float dt) {
     }
 
     camera.updateY();
+    collider->updateAxisY();
 
     window.getWindow().setView(camera.getCamera());
 }
