@@ -35,6 +35,7 @@ void StateGame::onCreate() {
     player.getSprite().setTexture(texture); /** todo: direct setter */
     camera.setController(player.getSprite());
 
+    moveController = std::make_unique<MovementEvent>(player, blocks);
     collider = std::make_unique<CollisionEvent>(player, blocks);
 }
 
@@ -53,25 +54,14 @@ void StateGame::processInput() {
 }
 
 void StateGame::update(float dt) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        player.move({- player.getVelocity() * dt, 0});
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        player.move({player.getVelocity() * dt, 0}); /** todo: dont use getter, just bind velocity to const */
-    }
-
-    camera.updateX();
+    moveController->updateAxisX(dt);
     collider->updateAxisX();
+    camera.updateX();
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-        player.move({0, - player.getVelocity() * dt});
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-        player.move({0, player.getVelocity() * dt});
-    }
 
-    camera.updateY();
+    moveController->updateAxisY(dt);
     collider->updateAxisY();
+    camera.updateY();
 
     window.getWindow().setView(camera.getCamera());
 }

@@ -5,4 +5,5 @@ namespace consts {
     extern int blocksCountHeight;
     constexpr auto entityWidth = 32;
     constexpr auto entityHeight = 32;
+    constexpr auto horizontalVelocity = 400;
 }

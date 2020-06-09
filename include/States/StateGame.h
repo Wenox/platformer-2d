@@ -9,6 +9,7 @@
 #include <Camera.h>
 #include <Entities/Player.h>
 #include <Events/CollisionEvent.h>
+#include <Events/MovementEvent.h>
 
 
 class StateGame : public State {
@@ -37,6 +38,7 @@ private:
 
     std::queue<res::Texture> queue;
 
+    std::unique_ptr<MovementEvent>  moveController;
     std::unique_ptr<CollisionEvent> collider;
 
     void generateWorldFromBmp();
