@@ -10,6 +10,7 @@ private:
     const float velX = consts::horizontalVelocity;
     float jumpTime = 0.0;
     float velY = consts::initialJumpVelocity;
+    constexpr static auto detectorRange = 5.0f;
 
 public:
     explicit Player(sf::Vector2f position = {0, 0})
@@ -55,6 +56,17 @@ public:
     void hitCeilingUpdate() {
         this->setVelocityY(consts::hitCeilingVelocity);
     }
+
+    bool isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const {
+        for (std::size_t i = 0; i < blocks.size(); i++) { /** todo: range-based */
+            if (blocks[i]->getGlobalBounds().contains(left(),  bot() + detectorRange)
+                ||  blocks[i]->getGlobalBounds().contains(right(), bot() + detectorRange)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     MovingState  movingState{MovingState::standing};
     JumpingState jumpingState{JumpingState::onGround};

@@ -56,7 +56,7 @@ void CollisionEvent::resolveCollisionAxisX(const Entity& block) {
 }
 
 void CollisionEvent::resolveCollisionAxisY(const Entity &block) {
-    if (player.top() < block.top()) { // collision from top
+    if (player.top() < block.top()) {        // collision from top
         player.move(0, -(player.bot() - block.top()));
         player.landOnGroundUpdate();
     } else if (player.bot() >= block.bot()) { // collision from bottom

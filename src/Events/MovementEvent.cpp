@@ -25,7 +25,9 @@ void MovementEvent::updateAxisX(float dt) {
 void MovementEvent::updateAxisY(float dt) {
     switch (player.jumpingState) {
         case JumpingState::onGround:
-            /** todo: implement gravity when fall off of the edge */
+            if (!player.isDetectingGround(blocks)) {
+                player.jumpingState = JumpingState::gravity;
+            }
             break;
         case JumpingState::jumping:
             player.jumpFrame(dt);
