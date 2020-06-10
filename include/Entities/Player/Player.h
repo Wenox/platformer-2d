@@ -52,6 +52,10 @@ public:
         this->restartJumpTime();
     }
 
+    void hitCeilingUpdate() {
+        this->setVelocityY(consts::hitCeilingVelocity);
+    }
+
     MovingState  movingState{MovingState::standing};
     JumpingState jumpingState{JumpingState::onGround};
 };

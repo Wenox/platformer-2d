@@ -61,7 +61,7 @@ void CollisionEvent::resolveCollisionAxisY(const Entity &block) {
         player.landOnGroundUpdate();
     } else if (player.bot() >= block.bot()) { // collision from bottom
         player.move(0, block.bot() - player.top());
-        /** todo: player hits ceiling */
+        player.hitCeilingUpdate();
     } else {
         std::cerr << "Velocity on vertical axis was too high\n";
     }
