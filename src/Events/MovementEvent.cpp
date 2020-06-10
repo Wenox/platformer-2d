@@ -23,9 +23,18 @@ void MovementEvent::updateAxisX(float dt) {
 }
 
 void MovementEvent::updateAxisY(float dt) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-        player.move({0, - player.getVelocity() * dt});
+    switch (player.jumpingState) {
+        case JumpingState::onGround:
+            /** todo: implement gravity when fall off of the edge */
+            break;
+        case JumpingState::jumping:
+            player.jumpFrame(dt);
+            break;
+        case JumpingState::gravity:
+            /** todo: gravity */
+            break;
     }
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         player.move({0, player.getVelocity() * dt});
     }

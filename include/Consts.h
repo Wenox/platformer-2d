@@ -6,4 +6,7 @@ namespace consts {
     constexpr auto entityWidth = 32;
     constexpr auto entityHeight = 32;
     constexpr auto horizontalVelocity = 400;
+
+    constexpr auto terminalVelocity = 20.0;
+    constexpr auto gravity = 10.0;
 }

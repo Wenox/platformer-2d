@@ -61,6 +61,10 @@ void StateGame::processInput() {
     } else {
         player.movingState = MovingState::standing;
     }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+        player.jumpingState = JumpingState::jumping;
+    }
 }
 
 void StateGame::update(float dt) {
