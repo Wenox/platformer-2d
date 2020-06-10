@@ -8,6 +8,7 @@
 class Player : public Entity {
 private:
     const float velX = consts::horizontalVelocity;
+    float gravVelY = 0.0;
     float jumpTime = 0.0;
     float velY = consts::initialJumpVelocity;
     constexpr static auto detectorRange = 5.0f;
@@ -40,6 +41,15 @@ public:
 
         if (velY < consts::terminalVelocity) {
             velY += consts::gravity * jumpTime;
+        }
+    }
+
+    void gravityFrame(float dt) {
+        jumpTime += dt;
+        sprite.move(0, gravVelY * jumpTime);
+
+        if (gravVelY < consts::terminalVelocity) {
+            gravVelY += consts::gravity * jumpTime;
         }
     }
 

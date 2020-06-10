@@ -33,7 +33,7 @@ void MovementEvent::updateAxisY(float dt) {
             player.jumpFrame(dt);
             break;
         case JumpingState::gravity:
-            /** todo: gravity */
+            player.gravityFrame(dt);
             break;
     }
 
