@@ -51,6 +51,16 @@ void StateGame::processInput() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
         stateMachine.switchTo(state::menuID);
     }
+
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+        player.movingState = MovingState::movingRight;
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+        player.movingState = MovingState::movingLeft;
+    } else {
+        player.movingState = MovingState::standing;
+    }
 }
 
 void StateGame::update(float dt) {

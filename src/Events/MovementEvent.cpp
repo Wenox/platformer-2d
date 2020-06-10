@@ -8,11 +8,17 @@ MovementEvent::MovementEvent(Player& player, std::vector<std::unique_ptr<Entity>
 }
 
 void MovementEvent::updateAxisX(float dt) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        player.move({- player.getVelocity() * dt, 0});
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        player.move({player.getVelocity() * dt, 0}); /** todo: dont use getter, just bind velocity to const */
+    switch (player.movingState) {
+        case MovingState::standing:
+            break;
+        case MovingState::movingLeft:
+            player.move({- player.getVelocity() * dt, 0});
+            break;
+        case MovingState::movingRight:
+            player.move({player.getVelocity() * dt, 0}); /** todo: dont use getter, just bind velocity to const */
+            break;
+        default:
+            break;
     }
 }
 
