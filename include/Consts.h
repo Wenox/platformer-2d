@@ -9,4 +9,5 @@ namespace consts {
 
     constexpr auto terminalVelocity = 20.0;
     constexpr auto gravity = 10.0;
+    constexpr auto initialJumpVelocity = -60.0;
 }

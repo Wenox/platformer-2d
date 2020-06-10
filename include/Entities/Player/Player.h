@@ -7,9 +7,9 @@
 
 class Player : public Entity {
 private:
-    const float velocity = consts::horizontalVelocity;
+    const float velX = consts::horizontalVelocity;
     float jumpTime = 0.0;
-    float velocityY = -60.0;
+    float velY = consts::initialJumpVelocity;
 
 public:
     explicit Player(sf::Vector2f position = {0, 0})
@@ -20,17 +20,36 @@ public:
         target.draw(sprite, states);
     }
 
-    auto& getVelocity() const {
-        return velocity;
+    float getVelocityX() const {
+        return velX;
     }
+
+    float getVelocityY() const {
+        return velY;
+    }
+
+    void setVelocityY(float newVal) {
+        this->velY = newVal;
+    }
+
 
     void jumpFrame(float dt) {
         jumpTime += dt;
-        sprite.move(0, velocityY * jumpTime);
+        sprite.move(0, velY * jumpTime);
 
-        if (velocityY < consts::terminalVelocity) {
-            velocityY += consts::gravity * jumpTime;
+        if (velY < consts::terminalVelocity) {
+            velY += consts::gravity * jumpTime;
         }
+    }
+
+    void restartJumpTime() {
+        jumpTime = 0.0;
+    }
+
+    void landOnGroundUpdate() {
+        this->jumpingState = JumpingState::onGround;
+        this->setVelocityY(consts::initialJumpVelocity);
+        this->restartJumpTime();
     }
 
     MovingState  movingState{MovingState::standing};

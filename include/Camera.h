@@ -23,7 +23,7 @@ public:
 
         camera.setCenter(cameraX, cameraY);
 
-        std::cout << cameraX << " " << cameraY << std::endl;
+//        std::cout << cameraX << " " << cameraY << std::endl;
         if (cameraX > rightBorderBoundary) {
             std::cout << "X right collision\n";
             if (wasTopCollision) {
@@ -67,7 +67,7 @@ public:
 //        std::cout << cameraX << " " << cameraY << std::endl;
 //        camera.setCenter(cameraX, cameraY);
         if (cameraY > bottomBorderBoundary) {
-            std::cout << "Y bottom collision\n";
+//            std::cout << "Y bottom collision\n";
             if (wasLeftCollision) {
                 camera.setCenter(leftBorderBoundary, bottomBorderBoundary);
             } else if (wasRightCollision) {
@@ -79,7 +79,7 @@ public:
             wasTopCollision = false;
         }
         else if (cameraY < topBorderBoundary) {
-            std::cout << "Y top collision\n";
+//            std::cout << "Y top collision\n";
             if (wasLeftCollision) {
                 camera.setCenter(leftBorderBoundary, topBorderBoundary);
             } else if (wasRightCollision) {
@@ -98,7 +98,6 @@ public:
     void update() {
         auto cameraX = sprite->getPosition().x + halvedSpriteWidth;
         auto cameraY = sprite->getPosition().y + halvedSpriteHeight;
-        std::cout << cameraX <<  " " <<cameraY << std::endl;
 
         if (cameraX > rightBorderBoundary) { std::cout << "X right collision\n"; }
         else if (cameraX < leftBorderBoundary) { std::cout << "X left collision\n";}
