@@ -31,8 +31,7 @@ void StateGame::onCreate() {
         queue.pop();
     }
 
-    texture = resources.getTextures().get(res::Texture::Wizard);
-    player.getSprite().setTexture(texture); /** todo: direct setter */
+    player.getSprite().setTexture(resources.getTextures().get(res::Texture::Wizard)); /** todo: direct setter */
     camera.setController(player.getSprite());
 
     moveController = std::make_unique<MovementEvent>(player, blocks);

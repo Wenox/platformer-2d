@@ -31,7 +31,6 @@ private:
 
     Player player;
     std::vector<std::unique_ptr<Entity>> blocks;
-    sf::Texture texture;
 
     Window& window;
     Camera camera;
