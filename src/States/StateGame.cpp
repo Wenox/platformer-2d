@@ -32,6 +32,8 @@ void StateGame::onCreate() {
     }
 
     player.getSprite().setTexture(resources.getTextures().get(res::Texture::Wizard)); /** todo: direct setter */
+    objective.getSprite().setTexture(resources.getTextures().get(res::Texture::Objective));
+
     camera.setController(player.getSprite());
 
     moveController = std::make_unique<MovementEvent>(player, blocks);
@@ -81,6 +83,7 @@ void StateGame::update(float dt) {
 
 void StateGame::draw(Window &window) {
     window.draw(player);
+    window.draw(objective);
     for (const auto& block : blocks) {
         window.draw(*block);
     }
@@ -107,6 +110,9 @@ void StateGame::generateWorldFromBmp() {
                 break;
             case Obj::Entity::Player:
                 player.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                break;
+            case Obj::Entity::Objective:
+                objective.setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 break;
             default:
                 auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
@@ -138,6 +144,9 @@ void StateGame::generateWorldFromTxt() {
                 break;
             case Obj::Entity::Player:
                 player.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                break;
+            case Obj::Entity::Objective:
+                objective.setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 break;
             default:
                 auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),

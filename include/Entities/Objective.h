@@ -5,7 +5,7 @@
 
 class Objective : public Entity {
 public:
-    explicit Objective(sf::Vector2f position)
+    explicit Objective(sf::Vector2f position = {0, 0})
             : Entity{position}
     {}
 

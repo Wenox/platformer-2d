@@ -10,6 +10,7 @@
 #include <Entities/Player/Player.h>
 #include <Events/CollisionEvent.h>
 #include <Events/MovementEvent.h>
+#include <Entities/Objective.h>
 
 
 class StateGame : public State {
@@ -31,6 +32,7 @@ private:
 
     Player player;
     std::vector<std::unique_ptr<Entity>> blocks;
+    Objective objective;
 
     Window& window;
     Camera camera;

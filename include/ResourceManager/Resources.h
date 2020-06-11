@@ -10,6 +10,7 @@ namespace res {
         BlockPurple,
         BlockYellow,
         Wizard,
+        Objective
     };
 
     enum class Sound {

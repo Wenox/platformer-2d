@@ -13,6 +13,8 @@ namespace Obj {
     enum class Entity {
         Empty,
         Player,
+        Objective,
+
         BlockRed,
         BlockBlue,
         BlockBrown,
@@ -43,6 +45,8 @@ private:
         if constexpr (std::is_same<ReaderKey, PixelColor>()) {
             encode(PixelColor{0, 0, 0},       Obj::Entity::Empty);
             encode(PixelColor{201, 174, 255},     Obj::Entity::Player); ///< light pink
+            encode(PixelColor{255, 255, 255},     Obj::Entity::Objective); ///< WHITE
+
             encode(PixelColor{36, 28, 237},     Obj::Entity::BlockRed);
             encode(PixelColor{232, 162, 0},     Obj::Entity::BlockBlue);
             encode(PixelColor{21, 0, 136},     Obj::Entity::BlockBrown); ///< dark brown
@@ -54,6 +58,8 @@ private:
         if constexpr (std::is_same<ReaderKey, int>()) {
             encode(0, Obj::Entity::Empty);
             encode(1, Obj::Entity::Player);
+            encode(9, Obj::Entity::Objective);
+
             encode(2, Obj::Entity::BlockRed);
             encode(3, Obj::Entity::BlockBlue);
             encode(4, Obj::Entity::BlockBrown);
