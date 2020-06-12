@@ -10,7 +10,6 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
     , window{window}
     , camera{window, sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
 {
-    std::cout << "Here\n";
     std::visit(overload{
             [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
             [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
@@ -66,7 +65,7 @@ void StateGame::processInput() {
         player.getSprite().setTexture(resources.getTextures().get(res::Texture::Player));
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+    if (player.jumpingState == JumpingState::onGround && sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         player.jumpingState = JumpingState::jumping;
     }
 }
@@ -84,7 +83,7 @@ void StateGame::update(float dt) {
     window.getWindow().setView(camera.getCamera());
 }
 
-void StateGame::draw(Window &window) {
+void StateGame::draw(Window& window) {
     window.draw(player);
     window.draw(objective);
     for (const auto& block : blocks) {
