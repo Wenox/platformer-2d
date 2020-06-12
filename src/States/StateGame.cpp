@@ -37,6 +37,7 @@ void StateGame::onCreate() {
 
     moveController = std::make_unique<MovementEvent>(player, blocks);
     collider = std::make_unique<CollisionEvent>(player, blocks);
+    inputEvent = std::make_unique<InputEvent>(player, resources);
 }
 
 
@@ -52,22 +53,7 @@ void StateGame::processInput() {
         stateMachine.switchTo(state::menuID);
     }
 
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        player.movingState = MovingState::movingRight;
-        player.getSprite().setTexture(resources.getTextures().get(res::Texture::PlayerRight));
-    }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        player.movingState = MovingState::movingLeft;
-        player.getSprite().setTexture(resources.getTextures().get(res::Texture::PlayerLeft));
-    } else {
-        player.movingState = MovingState::standing;
-        player.getSprite().setTexture(resources.getTextures().get(res::Texture::Player));
-    }
-
-    if (player.jumpingState == JumpingState::onGround && sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-        player.jumpingState = JumpingState::jumping;
-    }
+    inputEvent->update();
 }
 
 void StateGame::update(float dt) {

@@ -55,7 +55,7 @@ set(SOURCE_FILES
         src/Events/CollisionEvent.cpp
         src/Events/MovementEvent.cpp
         src/Entities/Objective.cpp
-        )
+        src/Events/InputEvent.cpp include/Events/InputEvent.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

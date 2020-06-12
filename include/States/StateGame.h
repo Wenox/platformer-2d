@@ -11,6 +11,7 @@
 #include <Events/CollisionEvent.h>
 #include <Events/MovementEvent.h>
 #include <Entities/Objective.h>
+#include <Events/InputEvent.h>
 
 
 class StateGame : public State {
@@ -41,6 +42,7 @@ private:
 
     std::unique_ptr<MovementEvent>  moveController;
     std::unique_ptr<CollisionEvent> collider;
+    std::unique_ptr<InputEvent>     inputEvent;
 
     void generateWorldFromBmp();
     void generateWorldFromTxt();
