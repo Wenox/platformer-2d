@@ -7,9 +7,7 @@
 
 class Entity : public sf::Drawable, public sf::Transformable {
 public:
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
-        target.draw(sprite, states);
-    }
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
     void move(const sf::Vector2f& offset);
     void move(float offsetX, float offsetY);
@@ -38,13 +36,9 @@ public:
 
 
 protected:
+    explicit Entity(sf::Vector2f position);
     Entity(ResourceHolder<res::Texture, sf::Texture>& textureHolder, res::Texture textureID, sf::Vector2f position);
     Entity(ResourceHolder<res::Texture, sf::Texture>& textureHolder, res::Texture textureID);
-    explicit Entity(sf::Vector2f position)
-    : position{position}
-    {
-        sprite.setPosition(position);
-    }
 
     sf::Sprite   sprite;
     sf::Vector2f position; /** todo: do I need it? */

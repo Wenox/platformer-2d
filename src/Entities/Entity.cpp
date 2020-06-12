@@ -1,5 +1,10 @@
 #include "Entity.h"
 
+Entity::Entity(sf::Vector2f position)
+    : position{position}
+{
+    sprite.setPosition(position);
+}
 
 Entity::Entity(ResourceHolder<res::Texture, sf::Texture>& textureHolder, res::Texture textureID, sf::Vector2f position)
     : position{position}
@@ -15,6 +20,9 @@ Entity::Entity(ResourceHolder<res::Texture, sf::Texture>& textureHolder, res::Te
     sprite.setPosition(position);
 }
 
+void Entity::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+    target.draw(sprite, states);
+}
 
 void Entity::move(const sf::Vector2f& offset) {
     sprite.move(offset);

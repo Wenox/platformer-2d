@@ -5,13 +5,9 @@
 
 class Block : public Entity {
 public:
-    explicit Block(sf::Vector2f position)
-        : Entity{position}
-    {}
+    explicit Block(sf::Vector2f position);
 
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
-        target.draw(sprite, states);
-    }
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };
 
 

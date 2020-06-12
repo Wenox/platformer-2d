@@ -6,80 +6,38 @@
 
 
 class Player : public Entity {
-private:
-    const float velX = consts::horizontalVelocity;
-    float gravVelY = 0.0;
-    float jumpTime = 0.0;
-    float velY = consts::initialJumpVelocity;
-    constexpr static auto detectorRange = 5.0f;
-
 public:
-    explicit Player(sf::Vector2f position = {0, 0})
-            : Entity{position}
-    {}
+    explicit Player(sf::Vector2f position = {0, 0});
 
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
-        target.draw(sprite, states);
-    }
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-    float getVelocityX() const {
-        return velX;
-    }
+    void jumpFrame(float dt);
+    void gravityFrame(float dt);
 
-    float getVelocityY() const {
-        return velY;
-    }
+    void restartJumpTime();
 
-    void setVelocityY(float newVal) {
-        this->velY = newVal;
-    }
+    void landOnGroundUpdate();
+    void hitCeilingUpdate();
 
+    bool isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const;
 
-    void jumpFrame(float dt) {
-        jumpTime += dt;
-        sprite.move(0, velY * jumpTime);
+    float getVelocityX() const;
+    float getVelocityY() const;
 
-        if (velY < consts::terminalVelocity) {
-            velY += consts::gravity * jumpTime;
-        }
-    }
-
-    void gravityFrame(float dt) {
-        jumpTime += dt;
-        sprite.move(0, gravVelY * jumpTime);
-
-        if (gravVelY < consts::terminalVelocity) {
-            gravVelY += consts::gravity * jumpTime;
-        }
-    }
-
-    void restartJumpTime() {
-        jumpTime = 0.0;
-    }
-
-    void landOnGroundUpdate() {
-        this->jumpingState = JumpingState::onGround;
-        this->setVelocityY(consts::initialJumpVelocity);
-        this->restartJumpTime();
-    }
-
-    void hitCeilingUpdate() {
-        this->setVelocityY(consts::hitCeilingVelocity);
-    }
-
-    bool isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const {
-        for (std::size_t i = 0; i < blocks.size(); i++) { /** todo: range-based */
-            if (blocks[i]->getGlobalBounds().contains(left(),  bot() + detectorRange)
-                ||  blocks[i]->getGlobalBounds().contains(right(), bot() + detectorRange)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
+    void setVelocityY(float newVal);
 
     MovingState  movingState{MovingState::standing};
     JumpingState jumpingState{JumpingState::onGround};
+
+private:
+    const float velX = consts::horizontalVelocity;
+    float velY = consts::initialJumpVelocity;
+
+    float gravVelY = 0.0;
+    float jumpTime = 0.0;
+
+    constexpr static auto detectorRange = 5.0f;
+
 };
 
 
