@@ -36,7 +36,7 @@ void CollisionEvent::handleCollision(const Entity& block, const std::function<vo
 
 bool CollisionEvent::playerInRangeOf(const Entity& entity) const {
     return std::abs(entity.left() - player.left()) < collidableRange
-           && std::abs(entity.top()  - player.top())  < collidableRange;
+        && std::abs(entity.top()  - player.top())  < collidableRange;
 }
 
 bool CollisionEvent::playerIntersects(const Entity& entity) const {

@@ -2,6 +2,8 @@
 #include "Consts.h"
 #include "StateID.h"
 #include "StateGame.h"
+#include <chrono>
+
 
 StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader, Window& window)
     : stateMachine{stateMachine}
@@ -70,11 +72,18 @@ void StateGame::update(float dt) {
 }
 
 void StateGame::draw(Window& window) {
-    window.draw(player);
-    window.draw(objective);
     for (const auto& block : blocks) {
-        window.draw(*block);
+        if (isInDrawRange(*block)) {
+            window.draw(*block);
+        }
     }
+    window.draw(objective);
+    window.draw(player);
+}
+
+bool StateGame::isInDrawRange(const Entity& entity) const {
+    return std::abs(entity.left() - player.left())    < 640.0f
+           && std::abs(entity.top()  - player.top())  < 576.0f;
 }
 
 void StateGame::generateWorldFromBmp() {

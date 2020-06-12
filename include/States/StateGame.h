@@ -44,6 +44,8 @@ private:
     std::unique_ptr<CollisionEvent> collider;
     std::unique_ptr<InputEvent>     inputEvent;
 
+
+    bool isInDrawRange(const Entity& entity) const;
     void generateWorldFromBmp();
     void generateWorldFromTxt();
 };
