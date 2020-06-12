@@ -28,6 +28,8 @@ void ResourceManager::loadTextures() {
     textures.insert(res::Texture::Player,  "player_standing.png");
 
     textures.insert(res::Texture::Objective,  "Door_Type1_Yellow_Closed.png");
+
+    textures.insert(res::Texture::Heart,  "heart.png");
 }
 
 void ResourceManager::loadSounds() {

@@ -11,6 +11,7 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
     , mapLoader{mapLoader}
     , window{window}
     , camera{window, sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
+    , livesHUD(window.getWindow(), resources.getTextures())
 {
     std::visit(overload{
             [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
@@ -19,6 +20,7 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
 
     std::cout << "StateGame::StateGame()" << std::endl;
     window.getWindow().setView(camera.getCamera());
+    window.getWindow().setView(viewHearts);
 }
 
 void StateGame::onCreate() {
@@ -40,6 +42,11 @@ void StateGame::onCreate() {
     moveController = std::make_unique<MovementEvent>(player, blocks);
     collider = std::make_unique<CollisionEvent>(player, blocks);
     inputEvent = std::make_unique<InputEvent>(player, resources);
+
+//    for (int i = 0; i < hearts.size(); ++i) {
+//        hearts[i].setTexture(resources.getTextures().get(res::Texture::Heart));
+//        hearts[i].setPosition(window.getWindow().getDefaultView().getViewport().left + 25 + 50 * i, window.getWindow().getDefaultView().getViewport().top + 25);
+//    }
 }
 
 
@@ -67,11 +74,11 @@ void StateGame::update(float dt) {
     moveController->updateAxisY(dt);
     collider->updateAxisY(dt);
     camera.updateY();
-
-    window.getWindow().setView(camera.getCamera());
 }
 
 void StateGame::draw(Window& window) {
+    window.getWindow().setView(camera.getCamera());
+
     for (const auto& block : blocks) {
         if (isInDrawRange(*block)) {
             window.draw(*block);
@@ -79,6 +86,12 @@ void StateGame::draw(Window& window) {
     }
     window.draw(objective);
     window.draw(player);
+
+    window.draw(livesHUD);
+//    window.getWindow().setView(viewHearts);
+//    for (const auto& heart : hearts) {
+//        window.draw(heart);
+//    }
 }
 
 bool StateGame::isInDrawRange(const Entity& entity) const {

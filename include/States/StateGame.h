@@ -12,6 +12,7 @@
 #include <Events/MovementEvent.h>
 #include <Entities/Objective.h>
 #include <Events/InputEvent.h>
+#include <LivesHUD.h>
 
 
 class StateGame : public State {
@@ -38,12 +39,17 @@ private:
     Window& window;
     Camera camera;
 
+    std::array<sf::Sprite, 3> hearts{};
+
     std::queue<res::Texture> queue;
 
     std::unique_ptr<MovementEvent>  moveController;
     std::unique_ptr<CollisionEvent> collider;
     std::unique_ptr<InputEvent>     inputEvent;
 
+    sf::View viewHearts;
+
+    LivesHUD livesHUD;
 
     bool isInDrawRange(const Entity& entity) const;
     void generateWorldFromBmp();

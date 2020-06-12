@@ -11,4 +11,6 @@ namespace consts {
     constexpr auto gravity             = 1.40f;
     constexpr auto initialJumpVelocity = -18.5f;
     constexpr auto hitCeilingVelocity  = 10.0;
+
+    constexpr auto playerLives = 3;
 }

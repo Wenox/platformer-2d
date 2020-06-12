@@ -14,7 +14,9 @@ namespace res {
         PlayerLeft,
         PlayerRight,
 
-        Objective
+        Objective,
+
+        Heart
     };
 
     enum class Sound {
