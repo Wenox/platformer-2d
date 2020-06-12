@@ -58,12 +58,12 @@ void StateGame::processInput() {
 
 void StateGame::update(float dt) {
     moveController->updateAxisX(dt);
-    collider->updateAxisX();
+    collider->updateAxisX(dt);
     camera.updateX();
 
 
     moveController->updateAxisY(dt);
-    collider->updateAxisY();
+    collider->updateAxisY(dt);
     camera.updateY();
 
     window.getWindow().setView(camera.getCamera());

@@ -12,7 +12,7 @@ CollisionEvent::CollisionEvent(Player& player, std::vector<std::unique_ptr<Entit
                                                 : collidableRange = std::max(consts::entityWidth, consts::entityHeight);
 }
 
-void CollisionEvent::updateAxisX() {
+void CollisionEvent::updateAxisX(float) {
     for (auto& block : blocks) {
         handleCollision(*block, [this](const Entity &e) {
             this->resolveCollisionAxisX(e);
@@ -20,7 +20,7 @@ void CollisionEvent::updateAxisX() {
     }
 }
 
-void CollisionEvent::updateAxisY() {
+void CollisionEvent::updateAxisY(float) {
     for (auto& block : blocks) {
         handleCollision(*block, [this](const Entity &e) {
             this->resolveCollisionAxisY(e);

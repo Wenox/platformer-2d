@@ -1,18 +1,19 @@
 #pragma once
 
-#include "Entities/Player/Player.h"
 #include <cmath>
-#include <Entities/Block.h>
+#include "Player.h"
+#include "Block.h"
+#include "PhysicsEvent.h"
 
-class CollisionEvent {
+class CollisionEvent : public PhysicsEvent {
 public:
     CollisionEvent(Player& player, std::vector<std::unique_ptr<Entity>>& blocks);
 
     CollisionEvent(const CollisionEvent&) = delete;
     CollisionEvent& operator=(const CollisionEvent&) = delete;
 
-    void updateAxisX();
-    void updateAxisY();
+    void updateAxisX(float) override;
+    void updateAxisY(float) override;
 
     void handleCollision(const Entity& block, const std::function<void(const Entity&)>& resolveCollision);
 
