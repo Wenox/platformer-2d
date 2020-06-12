@@ -5,4 +5,5 @@ namespace state {
     extern int gameID;
     extern int menuID;
     extern int loaderID;
+    extern int optionsID;
 }

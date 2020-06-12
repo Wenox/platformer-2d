@@ -2,6 +2,7 @@
 #include <States/StateInit.h>
 #include <States/StateMenu.h>
 #include <States/StateMapLoader.h>
+#include <States/StateOptions.h>
 #include "Game.h"
 
 
@@ -13,13 +14,10 @@ Game::Game()
 
 void Game::init() {
     state::initID = stateMachine.insert(std::make_shared<StateInit>(stateMachine, window));
-    state::menuID = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window, resources));
-//    state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources));
+    state::menuID = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window, resources, settings));
     state::loaderID = stateMachine.insert(std::make_shared<StateMapLoader>(*this));
+    state::optionsID = stateMachine.insert(std::make_shared<StateOptions>(stateMachine, window, settings));
 
-    std::cout << "stateInitializerID: " << state::initID << std::endl;
-    std::cout << "stateMenuID: " << state::menuID << std::endl;
-//    std::cout << "stateGameID: " << state::gameID << std::endl;
 
     stateMachine.switchTo(state::menuID);
 }

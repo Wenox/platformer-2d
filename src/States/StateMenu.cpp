@@ -4,31 +4,31 @@
 
 
 
-StateMenu::StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager)
+StateMenu::StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager, Settings& settings)
         : stateMachine{stateMachine},
           window{window},
           gui{window},
-          resources{resourceManager}
+          resources{resourceManager},
+          settings{settings}
 {
     sound.setBuffer(resources.getSounds().get(res::Sound::Bing));
     std::cout << "StateMenu::StateMenu()\n";
 }
 
 void StateMenu::onCreate() {
-    for (auto& widget : gui.widgets) {
-        widget->connect("MouseEntered", [&]() {
-            sound.play();
-        });
-    }
-
-
     gui.widgets[to_underlying(Menu::Btn::newGame)]->connect("pressed", [&]() {
         stateMachine = state::loaderID;
     });
 
     gui.widgets[to_underlying(Menu::Btn::options)]->connect("pressed", [&]() {
-        stateMachine = state::initID;
+        stateMachine = state::optionsID;
     });
+
+    for (auto& widget : gui.widgets) {
+        widget->connect("MouseEntered", [&]() {
+            sound.play();
+        });
+    }
 }
 
 void StateMenu::onDestroy() {
@@ -36,8 +36,11 @@ void StateMenu::onDestroy() {
 }
 
 void StateMenu::onActivate() {
-    std::cout << "State Menu activated" << std::endl;
-
+    if (settings.isSoundEnabled) {
+        sound.setVolume(100.0f);
+    } else {
+        sound.setVolume(0.0f);
+    }
 }
 
 void StateMenu::onDeactivate() {

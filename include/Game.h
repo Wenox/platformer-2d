@@ -2,6 +2,7 @@
 
 #include "ResourceManager.h"
 #include "StateMachine.h"
+#include "Settings.h"
 
 
 class Game {
@@ -23,6 +24,8 @@ private:
     Window window;
     ResourceManager resources;
     StateMachine stateMachine;
+
+    Settings settings;
 
     sf::Clock clock;
     float dt;

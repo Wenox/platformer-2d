@@ -3,12 +3,13 @@
 #include <GUI/MenuGUI.h>
 #include "StateMachine.h"
 #include <SFML/Audio.hpp>
+#include <Settings.h>
 #include "ResourceManager.h"
 
 
 class StateMenu : public State {
 public:
-    StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager);
+    StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager, Settings& settings);
 
     void onCreate() override;
     void onDestroy() override;
@@ -26,6 +27,10 @@ private:
     MenuGUI gui;
     ResourceManager& resources;
     sf::Sound sound;
+
+    std::vector<unsigned int> connectedIDs{};
+
+    Settings& settings;
 };
 
 

@@ -5,4 +5,5 @@ namespace state {
     int initID;
     int menuID;
     int loaderID;
+    int optionsID;
 }
