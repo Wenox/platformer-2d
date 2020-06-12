@@ -2,9 +2,10 @@
 
 #include "Player.h"
 #include "ResourceManager.h"
+#include "Event.h"
 
 
-class InputEvent : public Player {
+class InputEvent : public Event {
 public:
     explicit InputEvent(Player& player, ResourceManager& resources);
 
