@@ -15,6 +15,7 @@ void MovementEvent::updateAxisX(float dt) {
             player.move({- player.getVelocityX() * dt, 0});
             break;
         case MovingState::movingRight:
+            player.getSprite().setScale(1.0, 1.0);
             player.move({player.getVelocityX() * dt, 0}); /** todo: dont use getter, just bind velocity to const */
             break;
         default:

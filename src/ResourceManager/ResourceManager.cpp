@@ -22,7 +22,11 @@ void ResourceManager::loadTextures() {
     textures.insert(res::Texture::BlockGreen,  "Block_Type1_Green.png");
     textures.insert(res::Texture::BlockPurple, "Block_Type1_Purple.png");
     textures.insert(res::Texture::BlockYellow, "Block_Type1_Yellow.png");
-    textures.insert(res::Texture::Wizard,  "wizard2.png");
+
+    textures.insert(res::Texture::PlayerLeft,  "player_left.png");
+    textures.insert(res::Texture::PlayerRight,  "player_right.png");
+    textures.insert(res::Texture::Player,  "player_standing.png");
+
     textures.insert(res::Texture::Objective,  "Door_Type1_Yellow_Closed.png");
 }
 

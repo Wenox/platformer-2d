@@ -31,7 +31,7 @@ void StateGame::onCreate() {
         queue.pop();
     }
 
-    player.getSprite().setTexture(resources.getTextures().get(res::Texture::Wizard)); /** todo: direct setter */
+    player.getSprite().setTexture(resources.getTextures().get(res::Texture::Player)); /** todo: direct setter */
     objective.getSprite().setTexture(resources.getTextures().get(res::Texture::Objective));
 
     camera.setController(player.getSprite());
@@ -56,11 +56,14 @@ void StateGame::processInput() {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         player.movingState = MovingState::movingRight;
+        player.getSprite().setTexture(resources.getTextures().get(res::Texture::PlayerRight));
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         player.movingState = MovingState::movingLeft;
+        player.getSprite().setTexture(resources.getTextures().get(res::Texture::PlayerLeft));
     } else {
         player.movingState = MovingState::standing;
+        player.getSprite().setTexture(resources.getTextures().get(res::Texture::Player));
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {

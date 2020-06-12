@@ -6,7 +6,7 @@
 Window::Window(const std::string& windowName)
     : window{sf::VideoMode{640, 576}, windowName}
 {
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(300);
 }
 
 void Window::update() {
