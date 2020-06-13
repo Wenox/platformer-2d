@@ -69,6 +69,10 @@ void StateGame::processInput() {
         stateMachine.switchTo(state::menuID);
     }
 
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
+        stateMachine = state::pausedID;
+    }
+
     inputEvent->update();
 }
 

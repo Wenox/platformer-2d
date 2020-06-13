@@ -20,6 +20,7 @@ namespace res {
         HeartEmpty,
 
         BgClouds,
+        BgPaused,
 
         Spike
     };

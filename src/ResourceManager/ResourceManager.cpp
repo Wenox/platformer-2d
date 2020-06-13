@@ -35,6 +35,8 @@ void ResourceManager::loadTextures() {
     textures.insert(res::Texture::Spike,  "spike.png");
 
     textures.insert(res::Texture::BgClouds, "clouds1.jpg");
+
+    textures.insert(res::Texture::BgPaused, "pausedBg.png");
 }
 
 void ResourceManager::loadSounds() {
