@@ -23,6 +23,7 @@ include_directories(include
         include/Events
         include/Entities
         include/Entities/Player
+        include/GUI/HUD
         googletest/googletest/include
         googletest/googlemock/include)
 
@@ -55,7 +56,7 @@ set(SOURCE_FILES
         src/Events/CollisionEvent.cpp
         src/Events/MovementEvent.cpp
         src/Entities/Objective.cpp
-        src/Events/InputEvent.cpp include/Events/InputEvent.h include/Events/Event.h include/Events/PhysicsEvent.h include/Settings.cpp include/Settings.h include/States/StateOptions.cpp include/States/StateOptions.h include/GUI/OptionsGUI.cpp include/GUI/OptionsGUI.h include/LivesHUD.cpp include/LivesHUD.h)
+        src/Events/InputEvent.cpp include/Events/InputEvent.h include/Events/Event.h include/Events/PhysicsEvent.h src/Settings.cpp include/Settings.h src/States/StateOptions.cpp include/States/StateOptions.h src/GUI/OptionsGUI.cpp include/GUI/OptionsGUI.h src/LivesHUD.cpp include/GUI/HUD/LivesHUD.h src/Entities/Life.cpp include/Entities/Life.h src/GUI/HUD/LivesBorder.cpp include/GUI/HUD/LivesBorder.h include/GUI/HUD/LivesHUDConfig.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

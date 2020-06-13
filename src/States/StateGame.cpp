@@ -2,7 +2,6 @@
 #include "Consts.h"
 #include "StateID.h"
 #include "StateGame.h"
-#include <chrono>
 
 
 StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader, Window& window)
@@ -42,11 +41,6 @@ void StateGame::onCreate() {
     moveController = std::make_unique<MovementEvent>(player, blocks);
     collider = std::make_unique<CollisionEvent>(player, blocks);
     inputEvent = std::make_unique<InputEvent>(player, resources);
-
-//    for (int i = 0; i < hearts.size(); ++i) {
-//        hearts[i].setTexture(resources.getTextures().get(res::Texture::Heart));
-//        hearts[i].setPosition(window.getWindow().getDefaultView().getViewport().left + 25 + 50 * i, window.getWindow().getDefaultView().getViewport().top + 25);
-//    }
 }
 
 
@@ -70,15 +64,15 @@ void StateGame::update(float dt) {
     collider->updateAxisX(dt);
     camera.updateX();
 
-
     moveController->updateAxisY(dt);
     collider->updateAxisY(dt);
     camera.updateY();
+
+
+    window.getWindow().setView(camera.getCamera());
 }
 
 void StateGame::draw(Window& window) {
-    window.getWindow().setView(camera.getCamera());
-
     for (const auto& block : blocks) {
         if (isInDrawRange(*block)) {
             window.draw(*block);
@@ -86,17 +80,12 @@ void StateGame::draw(Window& window) {
     }
     window.draw(objective);
     window.draw(player);
-
     window.draw(livesHUD);
-//    window.getWindow().setView(viewHearts);
-//    for (const auto& heart : hearts) {
-//        window.draw(heart);
-//    }
 }
 
 bool StateGame::isInDrawRange(const Entity& entity) const {
-    return std::abs(entity.left() - player.left())    < 640.0f
-           && std::abs(entity.top()  - player.top())  < 576.0f;
+    return std::abs(entity.left() - player.left()) < 640.0f
+        && std::abs(entity.top()  - player.top())  < 576.0f;
 }
 
 void StateGame::generateWorldFromBmp() {

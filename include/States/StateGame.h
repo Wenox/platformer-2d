@@ -12,7 +12,7 @@
 #include <Events/MovementEvent.h>
 #include <Entities/Objective.h>
 #include <Events/InputEvent.h>
-#include <LivesHUD.h>
+#include <GUI/HUD/LivesHUD.h>
 
 
 class StateGame : public State {
