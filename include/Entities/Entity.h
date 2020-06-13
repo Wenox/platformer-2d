@@ -28,6 +28,10 @@ public:
     float top() const;
     float bot() const;
 
+    void rotateLeft();
+    void rotateRight();
+    void rotateTop();
+
     virtual ~Entity() = default;
     Entity(Entity const&) = default;
     Entity(Entity&&) = default;

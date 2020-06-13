@@ -1,3 +1,4 @@
+#include <Consts.h>
 #include "Entity.h"
 
 Entity::Entity(sf::Vector2f position)
@@ -78,4 +79,19 @@ float Entity::top() const {
 
 float Entity::bot() const {
     return top() + height();
+}
+
+void Entity::rotateLeft() {
+    sprite.rotate(90.0f);
+    sprite.move(consts::entityWidth, 0);
+}
+
+void Entity::rotateRight() {
+    sprite.rotate(-90.0f);
+    sprite.move(0, consts::entityHeight);
+}
+
+void Entity::rotateTop() {
+    sprite.rotate(180.0f);
+    sprite.move(consts::entityWidth, consts::entityHeight);
 }

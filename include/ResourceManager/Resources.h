@@ -19,9 +19,6 @@ namespace res {
         Heart,
 
         Spike,
-        SpikeLeft,
-        SpikeRight,
-        SpikeTop
     };
 
     enum class Sound {
