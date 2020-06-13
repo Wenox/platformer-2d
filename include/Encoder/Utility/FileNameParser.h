@@ -4,39 +4,23 @@
 #include <iostream>
 #include <fstream>
 
+
 class FileNameParser {
 public:
-    explicit FileNameParser(std::string fileName) : fileName{fileName} {
-        try {
-            re.assign(fileNamePattern.data());
-        }
-        catch(const std::regex_error& e) {
-            std::cerr << "Bad pattern: " << fileNamePattern << std::endl;
-            std::cerr << e.what() << std::endl;
-        }
-    }
+    explicit FileNameParser(std::string fileName);
 
-    bool isValidFormat() {
-        return std::regex_match(fileName, result, re);
-    }
+    bool isValidFormat();
+    bool exists() const;
 
-    bool exists() const {
-        std::ifstream file{fileName.c_str()};
-        return file.good();
-    }
-
-    bool isBmp() const {
-        return result.str(1) == std::string("bmp");
-    }
-
-    bool isTxt() const {
-        return result.str(1) == std::string("txt");
-    }
+    bool isBmp() const;
+    bool isTxt() const;
 
 private:
     std::string fileName;
+
     std::regex re{};
     constexpr static std::string_view fileNamePattern = R"(.+?\.(bmp|txt))";
+
     std::smatch result{};
 };
 

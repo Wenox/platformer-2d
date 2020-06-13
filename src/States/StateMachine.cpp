@@ -2,10 +2,6 @@
 #include "StateMachine.h"
 
 
-StateMachine::StateMachine() {
-
-}
-
 void StateMachine::switchTo(int stateID) {
     auto it = states.find(stateID);
     if (it != std::end(states)) {
@@ -22,6 +18,18 @@ void StateMachine::switchTo(int stateID) {
 
 void StateMachine::switchToDefault() {
 
+}
+
+StateMachine& StateMachine::operator=(int stateID) {
+    this->switchTo(stateID);
+    return *this;
+}
+
+StateMachine& StateMachine::operator+=(const std::shared_ptr<State>& s) {
+    auto it = states.insert(std::make_pair(currentStateID, s));
+    it.first->second->onCreate();
+    currentStateID++;
+    return *this;
 }
 
 void StateMachine::processInput() const {

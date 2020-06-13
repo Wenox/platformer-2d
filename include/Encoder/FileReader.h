@@ -15,10 +15,9 @@ public:
     }
 
     virtual ~FileReader() = default;
-    FileReader(const FileReader&) = default;
-    FileReader(FileReader&&) = default;
-    FileReader& operator=(const FileReader&) = default;
-    FileReader& operator=(FileReader&&) = default;
+    FileReader(FileReader&&) noexcept = default;
+    FileReader& operator=(FileReader&&) noexcept = default;
+    /** Note: basic_ifstream has copy ctor/copy assignment explicitly deleted */
 
 
     auto& getFile() const {

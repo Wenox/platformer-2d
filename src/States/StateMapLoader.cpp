@@ -1,4 +1,42 @@
 #include "StateMapLoader.h"
+#include "StateID.h"
+#include "StateGame.h"
+#include "FileNameParser.h"
+
+
+StateMapLoader::StateMapLoader(Game& game)
+    : stateMachine{game.getStateMachine()}
+    , window{game.getWindow()}
+    , resources{game.getResources()}
+    , gui{window}
+{}
+
+void StateMapLoader::onCreate() {
+    gui.widgets[to_underlying(Loader::Btn::newMap)]->connect("Pressed", [&]() {
+        stateMachine = state::gameID;
+    });
+    gui.widgets[to_underlying(Loader::Btn::loadMap)]->connect("Pressed", [&]() {
+        stateMachine = state::menuID;
+    });
+
+    setLoadConfirmBtn();
+}
+
+void StateMapLoader::onDestroy() {
+
+}
+
+void StateMapLoader::onActivate() {
+    gui.setBadMapLabelVisible(false);
+}
+
+void StateMapLoader::update(float) {
+    gui.handleEvent(window.getEvent());
+}
+
+void StateMapLoader::draw(Window&) {
+    gui.draw();
+}
 
 void StateMapLoader::setLoadConfirmBtn() {
     gui.widgets[to_underlying(Loader::Btn::loadConfirm)]->connect("Pressed", [&]() {

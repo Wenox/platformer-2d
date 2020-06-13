@@ -10,14 +10,10 @@ public:
     explicit TxtReader(const std::string& name,
                        const std::ios_base::openmode& mode = std::ifstream::ate | std::ifstream::binary);
 
-    virtual void readFile();
+    void readFile() override;
 
-    int getPixelsCount() const;
-
-    virtual ~TxtReader() = default;
-    TxtReader(const TxtReader&) = default;
+    ~TxtReader() override = default;
     TxtReader(TxtReader&&) = default;
-    TxtReader& operator=(const TxtReader&) = default;
     TxtReader& operator=(TxtReader&&) = default;
 
     void debugPrint() const;

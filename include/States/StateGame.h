@@ -39,15 +39,11 @@ private:
     Window& window;
     Camera camera;
 
-    std::array<sf::Sprite, 3> hearts{};
-
     std::queue<res::Texture> queue;
 
     std::unique_ptr<MovementEvent>  moveController;
     std::unique_ptr<CollisionEvent> collider;
     std::unique_ptr<InputEvent>     inputEvent;
-
-    sf::View viewHearts;
 
     LivesHUD livesHUD;
 

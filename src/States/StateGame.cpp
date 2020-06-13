@@ -19,7 +19,6 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
 
     std::cout << "StateGame::StateGame()" << std::endl;
     window.getWindow().setView(camera.getCamera());
-    window.getWindow().setView(viewHearts);
 }
 
 void StateGame::onCreate() {
