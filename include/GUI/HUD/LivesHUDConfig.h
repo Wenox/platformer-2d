@@ -9,7 +9,7 @@ namespace lives {
     const sf::Color fillColor = sf::Color{255, 255, 255, 140}; /** semi-transparent white */
     const sf::Color borderColor = sf::Color::Red;
 
-    constexpr auto borderThickness = 3;
+    constexpr auto borderThickness = 2;
     constexpr auto borderOffsetX = 15;
     constexpr auto borderOffsetY = 15;
     constexpr auto heartOffsetX  = 25;

@@ -14,6 +14,7 @@ namespace Obj {
         Empty,
         Player,
         Objective,
+        HeartCollectible,
 
         BlockRed,
         BlockBlue,
@@ -51,6 +52,7 @@ private:
             encode(PixelColor{0, 0, 0},       Obj::Entity::Empty);
             encode(PixelColor{201, 174, 255}, Obj::Entity::Player);      ///< Light pink
             encode(PixelColor{255, 255, 255}, Obj::Entity::Objective);   ///< White
+            encode(PixelColor{231, 191, 200}, Obj::Entity::HeartCollectible);   ///< Light violet
 
             encode(PixelColor{36, 28, 237},   Obj::Entity::BlockRed);
             encode(PixelColor{232, 162, 0},   Obj::Entity::BlockBlue);

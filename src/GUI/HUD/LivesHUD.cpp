@@ -7,7 +7,9 @@ LivesHUD::LivesHUD(sf::RenderWindow& renderWindow, ResourceHolder<res::Texture, 
 {
     const auto& viewport = renderWindow.getDefaultView().getViewport();
     for (auto i = 0; auto& life : lives) {
-        life.getSprite().setTexture(textures[res::Texture::Heart]);
+        life.storeAliveTexture(textures[res::Texture::Heart]);
+        life.storeDeadTexture(textures[res::Texture::HeartEmpty]);
+        life.getSprite().setTexture(life.getAliveTexture());
         life.setPosition(viewport.left + lives::heartOffsetX + lives::boxSide * i,
                          viewport.top  + lives::heartOffsetY);
         ++i;

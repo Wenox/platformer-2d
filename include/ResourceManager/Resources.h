@@ -17,13 +17,17 @@ namespace res {
         Objective,
 
         Heart,
+        HeartEmpty,
 
-        Spike,
+        BgClouds,
+
+        Spike
     };
 
     enum class Sound {
         Bullet,
-        Bing
+        Bing,
+        Death
     };
 
     enum class Music {

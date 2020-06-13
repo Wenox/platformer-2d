@@ -11,7 +11,11 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
     , window{window}
     , camera{window, sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
     , livesHUD(window.getWindow(), resources.getTextures())
+    , bg(resources.getTextures()[res::Texture::BgClouds])
+    , sound(resources.getSounds().get(res::Sound::Bullet))
+    , deathSound(resources.getSounds().get(res::Sound::Death))
 {
+    bg.scale(1.4, 1.4);
     std::visit(overload{
             [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
             [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
@@ -35,6 +39,11 @@ void StateGame::onCreate() {
     for (auto& spike : spikes) {
         spike->getSprite().setTexture(resources.getTextures().get(res::Texture::Spike));
         spike->setTextureDirection();
+    }
+
+    for (auto& heart : hearts) {
+        /** todo: set texture during construction of hearts */
+        heart->getSprite().setTexture(resources.getTextures()[res::Texture::Heart]);
     }
 
     player.getSprite().setTexture(resources.getTextures().get(res::Texture::Player)); /** todo: direct setter */
@@ -73,10 +82,33 @@ void StateGame::update(float dt) {
     camera.updateY();
 
 
+    for (const auto& spike : spikes) {
+        if (player.isIntersecting(*spike)) {
+            deathSound.play();
+            player.kill(livesHUD);
+        }
+    }
+
+    for (const auto& heart : hearts) {
+        if (!heart->wasCollected()) {
+            if (player.isIntersecting(*heart) and !livesHUD.hasAllLives()) {
+                sound.play();
+                livesHUD.increaseLife();
+                heart->setCollected(true);
+            }
+        }
+    }
+
+
     window.getWindow().setView(camera.getCamera());
+
+    if (livesHUD.isDead()) {
+        stateMachine = state::menuID;
+    }
 }
 
 void StateGame::draw(Window& window) {
+    window.draw(bg);
     for (const auto& block : blocks) {
         if (isInDrawRange(*block)) {
             window.draw(*block);
@@ -85,6 +117,11 @@ void StateGame::draw(Window& window) {
     for (const auto& spike : spikes) {
         if (isInDrawRange(*spike)) {
             window.draw(*spike);
+        }
+    }
+    for (const auto& heart : hearts) {
+        if (isInDrawRange(*heart) and !heart->wasCollected()) {
+            window.draw(*heart);
         }
     }
     window.draw(objective);
@@ -118,9 +155,14 @@ void StateGame::generateWorldFromBmp() {
                 break;
             case Obj::Entity::Player:
                 player.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                player.setStartingPosition();
                 break;
             case Obj::Entity::Objective:
                 objective.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                break;
+            case Obj::Entity::HeartCollectible:
+                hearts.push_back(std::move(std::make_unique<HeartCollectible>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                                                       static_cast<float>(j * consts::entityHeight)})));
                 break;
             case Obj::Entity::Spike:
                 spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::Spike, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
@@ -168,9 +210,14 @@ void StateGame::generateWorldFromTxt() {
                 break;
             case Obj::Entity::Player:
                 player.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                player.setStartingPosition();
                 break;
             case Obj::Entity::Objective:
                 objective.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                break;
+            case Obj::Entity::HeartCollectible:
+                hearts.push_back(std::move(std::make_unique<HeartCollectible>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                                           static_cast<float>(j * consts::entityHeight)})));
                 break;
             case Obj::Entity::Spike:
                 spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::Spike, sf::Vector2f{static_cast<float>(i * consts::entityWidth),

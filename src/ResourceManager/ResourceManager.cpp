@@ -30,15 +30,17 @@ void ResourceManager::loadTextures() {
     textures.insert(res::Texture::Objective,  "Door_Type1_Yellow_Closed.png");
 
     textures.insert(res::Texture::Heart,  "heart.png");
+    textures.insert(res::Texture::HeartEmpty,  "heart-empty.png");
 
     textures.insert(res::Texture::Spike,  "spike.png");
+
+    textures.insert(res::Texture::BgClouds, "clouds1.jpg");
 }
 
 void ResourceManager::loadSounds() {
-    sounds += ResourceInserter(res::Sound::Bullet, "boing.wav");
-    sounds += ResourceInserter(res::Sound::Bullet, "boing.wav");
-    sounds += ResourceInserter(res::Sound::Bullet, "boing.wav");
-    sounds.insert(res::Sound::Bing,   "boing_long.wav");
+    sounds += ResourceInserter(res::Sound::Bing, "boing.wav");
+    sounds.insert(res::Sound::Bullet,   "boing_long.wav");
+    sounds.insert(res::Sound::Death,   "death.wav");
 }
 
 void ResourceManager::loadMusic() {

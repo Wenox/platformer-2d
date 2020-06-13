@@ -14,6 +14,8 @@
 #include <Events/InputEvent.h>
 #include <GUI/HUD/LivesHUD.h>
 #include <Entities/Spike.h>
+#include <Entities/HeartCollectible.h>
+#include <SFML/Audio/Sound.hpp>
 
 
 class StateGame : public State {
@@ -37,6 +39,7 @@ private:
     Objective objective;
     std::vector<std::unique_ptr<Entity>> blocks;
     std::vector<std::unique_ptr<Spike>> spikes;
+    std::vector<std::unique_ptr<HeartCollectible>> hearts; /** todo: use interface type */
 
     Window& window;
     Camera camera;
@@ -48,6 +51,11 @@ private:
     std::unique_ptr<InputEvent>     inputEvent;
 
     LivesHUD livesHUD;
+
+    sf::Sprite bg;
+
+    sf::Sound sound;
+    sf::Sound deathSound;
 
     bool isInDrawRange(const Entity& entity) const;
     void generateWorldFromBmp();
