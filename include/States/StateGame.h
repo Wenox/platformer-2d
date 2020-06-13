@@ -13,6 +13,7 @@
 #include <Entities/Objective.h>
 #include <Events/InputEvent.h>
 #include <GUI/HUD/LivesHUD.h>
+#include <Entities/Spike.h>
 
 
 class StateGame : public State {
@@ -33,8 +34,9 @@ private:
     std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader;
 
     Player player;
-    std::vector<std::unique_ptr<Entity>> blocks;
     Objective objective;
+    std::vector<std::unique_ptr<Entity>> blocks;
+    std::vector<std::unique_ptr<Spike>> spikes;
 
     Window& window;
     Camera camera;

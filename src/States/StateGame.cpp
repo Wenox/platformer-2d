@@ -32,6 +32,11 @@ void StateGame::onCreate() {
         queue.pop();
     }
 
+    for (auto& spike : spikes) {
+        spike->getSprite().setTexture(resources.getTextures().get(res::Texture::Spike));
+        spike->setTextureDirection();
+    }
+
     player.getSprite().setTexture(resources.getTextures().get(res::Texture::Player)); /** todo: direct setter */
     objective.getSprite().setTexture(resources.getTextures().get(res::Texture::Objective));
 
@@ -77,6 +82,11 @@ void StateGame::draw(Window& window) {
             window.draw(*block);
         }
     }
+    for (const auto& spike : spikes) {
+        if (isInDrawRange(*spike)) {
+            window.draw(*spike);
+        }
+    }
     window.draw(objective);
     window.draw(player);
     window.draw(livesHUD);
@@ -112,6 +122,22 @@ void StateGame::generateWorldFromBmp() {
             case Obj::Entity::Objective:
                 objective.setPosition(i * consts::entityWidth, j * consts::entityHeight);
                 break;
+            case Obj::Entity::Spike:
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::Spike, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                                                    static_cast<float>(j * consts::entityHeight)})));
+                break;
+            case Obj::Entity::SpikeLeft:
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeLeft, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                                                        static_cast<float>(j * consts::entityHeight)})));
+                break;
+            case Obj::Entity::SpikeRight:
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeRight, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                                                         static_cast<float>(j * consts::entityHeight)})));
+                break;
+            case Obj::Entity::SpikeTop:
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeTop, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                                                       static_cast<float>(j * consts::entityHeight)})));
+                break;
             default:
                 auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
                                                                         static_cast<float>(j * consts::entityHeight)});
@@ -145,6 +171,22 @@ void StateGame::generateWorldFromTxt() {
                 break;
             case Obj::Entity::Objective:
                 objective.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                break;
+            case Obj::Entity::Spike:
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::Spike, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                                     static_cast<float>(j * consts::entityHeight)})));
+                break;
+            case Obj::Entity::SpikeLeft:
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeLeft, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                                                    static_cast<float>(j * consts::entityHeight)})));
+                break;
+            case Obj::Entity::SpikeRight:
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeRight, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                                                    static_cast<float>(j * consts::entityHeight)})));
+                break;
+            case Obj::Entity::SpikeTop:
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeTop, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
+                                                                                                    static_cast<float>(j * consts::entityHeight)})));
                 break;
             default:
                 auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),

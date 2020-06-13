@@ -22,6 +22,11 @@ namespace Obj {
         BlockGreen,
         BlockPurple,
         BlockYellow,
+
+        Spike,
+        SpikeLeft,
+        SpikeRight,
+        SpikeTop
     };
 }
 
@@ -54,6 +59,11 @@ private:
             encode(PixelColor{76, 177, 34},   Obj::Entity::BlockGreen);
             encode(PixelColor{164, 73, 163},  Obj::Entity::BlockPurple);
             encode(PixelColor{0, 242, 255},   Obj::Entity::BlockYellow);
+
+            encode(PixelColor{195, 195, 195}, Obj::Entity::Spike);        ////< Light grey
+            encode(PixelColor{194, 195, 195}, Obj::Entity::SpikeLeft);        ////< Light grey
+            encode(PixelColor{195, 194, 195}, Obj::Entity::SpikeRight);        ////< Light grey
+            encode(PixelColor{195, 195, 194}, Obj::Entity::SpikeTop);        ////< Light grey
         }
         if constexpr (std::is_same<ReaderKey, int>()) {
             encode(0, Obj::Entity::Empty);
@@ -67,6 +77,8 @@ private:
             encode(6, Obj::Entity::BlockGreen);
             encode(7, Obj::Entity::BlockPurple);
             encode(8, Obj::Entity::BlockYellow);
+
+            encode(10, Obj::Entity::Spike);
         }
     }
 

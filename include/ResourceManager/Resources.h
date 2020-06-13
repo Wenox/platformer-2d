@@ -16,7 +16,12 @@ namespace res {
 
         Objective,
 
-        Heart
+        Heart,
+
+        Spike,
+        SpikeLeft,
+        SpikeRight,
+        SpikeTop
     };
 
     enum class Sound {

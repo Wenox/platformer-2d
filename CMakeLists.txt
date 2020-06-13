@@ -56,7 +56,7 @@ set(SOURCE_FILES
         src/Events/CollisionEvent.cpp
         src/Events/MovementEvent.cpp
         src/Entities/Objective.cpp
-        src/Events/InputEvent.cpp include/Events/InputEvent.h include/Events/Event.h include/Events/PhysicsEvent.h src/Settings.cpp include/Settings.h src/States/StateOptions.cpp include/States/StateOptions.h src/GUI/OptionsGUI.cpp include/GUI/OptionsGUI.h src/GUI/HUD/LivesHUD.cpp include/GUI/HUD/LivesHUD.h src/Entities/Life.cpp include/Entities/Life.h src/GUI/HUD/LivesBorder.cpp include/GUI/HUD/LivesBorder.h include/GUI/HUD/LivesHUDConfig.h)
+        src/Events/InputEvent.cpp include/Events/InputEvent.h include/Events/Event.h include/Events/PhysicsEvent.h src/Settings.cpp include/Settings.h src/States/StateOptions.cpp include/States/StateOptions.h src/GUI/OptionsGUI.cpp include/GUI/OptionsGUI.h src/GUI/HUD/LivesHUD.cpp include/GUI/HUD/LivesHUD.h src/Entities/Life.cpp include/Entities/Life.h src/GUI/HUD/LivesBorder.cpp include/GUI/HUD/LivesBorder.h include/GUI/HUD/LivesHUDConfig.h include/Entities/Spike.cpp include/Entities/Spike.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

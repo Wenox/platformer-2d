@@ -30,6 +30,11 @@ void ResourceManager::loadTextures() {
     textures.insert(res::Texture::Objective,  "Door_Type1_Yellow_Closed.png");
 
     textures.insert(res::Texture::Heart,  "heart.png");
+
+    textures.insert(res::Texture::Spike,  "spike.png");
+    textures.insert(res::Texture::SpikeLeft,  "spike-left.png");
+    textures.insert(res::Texture::SpikeRight,  "spike-right.png");
+    textures.insert(res::Texture::SpikeTop,  "spike-top.png");
 }
 
 void ResourceManager::loadSounds() {
