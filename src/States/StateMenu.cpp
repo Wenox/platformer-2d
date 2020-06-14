@@ -11,8 +11,7 @@ StateMenu::StateMenu(StateMachine& stateMachine, Window& window, ResourceManager
           resources{resourceManager},
           settings{settings}
 {
-    sound.setBuffer(resources.getSounds().get(res::Sound::Bing));
-    std::cout << "StateMenu::StateMenu()\n";
+    onHoverBtnSound.setBuffer(resources.getSounds().get(res::Sound::Bing));
 }
 
 void StateMenu::onCreate() {
@@ -26,7 +25,7 @@ void StateMenu::onCreate() {
 
     for (auto& widget : gui.widgets) {
         widget->connect("MouseEntered", [&]() {
-            sound.play();
+            onHoverBtnSound.play();
         });
     }
 }
@@ -37,9 +36,9 @@ void StateMenu::onDestroy() {
 
 void StateMenu::onActivate() {
     if (settings.isSoundEnabled) {
-        sound.setVolume(100.0f);
+        onHoverBtnSound.setVolume(100.0f);
     } else {
-        sound.setVolume(0.0f);
+        onHoverBtnSound.setVolume(0.0f);
     }
 }
 

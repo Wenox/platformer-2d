@@ -26,9 +26,7 @@ private:
     Window& window;
     MenuGUI gui;
     ResourceManager& resources;
-    sf::Sound sound;
-
-    std::vector<unsigned int> connectedIDs{};
+    sf::Sound onHoverBtnSound;
 
     Settings& settings;
 };

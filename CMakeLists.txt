@@ -56,7 +56,19 @@ set(SOURCE_FILES
         src/Events/CollisionEvent.cpp
         src/Events/MovementEvent.cpp
         src/Entities/Objective.cpp
-        src/Events/InputEvent.cpp include/Events/InputEvent.h include/Events/Event.h include/Events/PhysicsEvent.h src/Settings.cpp include/Settings.h src/States/StateOptions.cpp include/States/StateOptions.h src/GUI/OptionsGUI.cpp include/GUI/OptionsGUI.h src/GUI/HUD/LivesHUD.cpp include/GUI/HUD/LivesHUD.h src/Entities/Life.cpp include/Entities/Life.h src/GUI/HUD/LivesBorder.cpp include/GUI/HUD/LivesBorder.h include/GUI/HUD/LivesHUDConfig.h src/Entities/Spike.cpp include/Entities/Spike.h include/Entities/HeartCollectible.cpp include/Entities/HeartCollectible.h src/States/StatePaused.cpp include/States/StatePaused.h)
+        src/Events/InputEvent.cpp
+        src/Settings.cpp
+        src/States/StateOptions.cpp
+        src/GUI/OptionsGUI.cpp
+        src/GUI/HUD/LivesHUD.cpp
+        src/Entities/Life.cpp
+        src/GUI/HUD/LivesBorder.cpp
+        src/Entities/Spike.cpp
+        src/Entities/HeartCollectible.cpp
+        src/States/StatePaused.cpp
+        src/GUI/PausedGUI.cpp
+        src/GUI/PausedConfig.cpp
+        src/ActionMap.cpp include/ActionMap.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

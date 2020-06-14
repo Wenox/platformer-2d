@@ -30,7 +30,7 @@ void MapLoaderGUI::buildGUI() {
     mapNameBox->setSize(config.width, config.height);
     mapNameBox->setTextSize(config.textSize);
     mapNameBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
-                         tgui::bindBottom(widgets[to_underlying(Loader::Btn::loadMap)]) + 10);
+                          tgui::bindBottom(widgets[to_underlying(Loader::Btn::loadMap)]) + 10);
     gui.add(mapNameBox, "mapNameBox");
 
 

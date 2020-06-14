@@ -1,6 +1,8 @@
 #pragma once
 
+#include <iostream>
 #include <GUI/OptionsGUI.h>
+#include <ActionMap.h>
 #include "State.h"
 #include "StateMachine.h"
 #include "StateID.h"
@@ -16,6 +18,10 @@ public:
     {}
 
     void onCreate() override {
+        gui.getGui().get("jumpButton")->connect("Pressed", [&]() {
+            jumpBtnPressed = true;
+            gui.getGui().get("promptKey")->setVisible(true);
+        });
     }
     void onDestroy() override {
     }
@@ -30,7 +36,18 @@ public:
         }
     }
     void update(float dt) override {
+        if (jumpBtnPressed) {
+            if (window.getEvent().front().type == sf::Event::KeyPressed) {
+                jumpBtnPressed = false;
+                gui.getGui().get("promptKey")->setVisible(false);
+
+                actionMap->set("Jump", window.getEvent().front().key.code);
+            }
+        }
+
         gui.handleEvent(window.getEvent());
+
+
     }
     void draw(Window& window) override {
         gui.draw();
@@ -41,7 +58,11 @@ private:
     Window& window;
     Settings& settings;
 
+    ActionMap* actionMap = ActionMap::Instance();
+
     OptionsGUI gui;
+
+    bool jumpBtnPressed = false;
 };
 
 
