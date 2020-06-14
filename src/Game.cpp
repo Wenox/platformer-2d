@@ -17,7 +17,7 @@ void Game::init() {
     state::initID    = stateMachine.insert(std::make_shared<StateInit>(stateMachine, window));
     state::menuID    = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window, resources, settings));
     state::loaderID  = stateMachine.insert(std::make_shared<StateMapLoader>(*this));
-    state::optionsID = stateMachine.insert(std::make_shared<StateOptions>(stateMachine, window, settings));
+    state::optionsID = stateMachine.insert(std::make_shared<StateOptions>(stateMachine, window, settings, resources.getTextures()));
     state::pausedID  = stateMachine.insert(std::make_shared<StatePaused>(stateMachine, window, resources));
 
     stateMachine.switchTo(state::menuID);

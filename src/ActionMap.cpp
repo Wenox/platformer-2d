@@ -20,15 +20,8 @@ void ActionMap::set(const std::string& action, sf::Keyboard::Key key) {
     }
 }
 
-ActionMap* ActionMap::instance = nullptr;
-std::mutex ActionMap::constructionGuard;
 
-ActionMap* ActionMap::Instance() {
-    if (!instance) {
-        std::lock_guard<std::mutex> lock(constructionGuard);
-        if (!instance) {
-            instance = new ActionMap();
-        }
-    }
+ActionMap& ActionMap::Instance() {
+    static ActionMap instance;
     return instance;
 }

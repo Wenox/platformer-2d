@@ -3,6 +3,10 @@
 #include "StateGame.h"
 #include "FileNameParser.h"
 
+#ifdef _WIN32
+    #include <windows.h>
+#endif
+
 
 StateMapLoader::StateMapLoader(Game& game)
     : stateMachine{game.getStateMachine()}
@@ -11,15 +15,26 @@ StateMapLoader::StateMapLoader(Game& game)
     , gui{window}
 {}
 
+
 void StateMapLoader::onCreate() {
     gui.widgets[to_underlying(Loader::Btn::newMap)]->connect("Pressed", [&]() {
+#ifdef _WIN32
+        ShellExecute(nullptr, "open", consts::mapEditorPath.data(), nullptr, nullptr, SW_SHOWNORMAL);
+#elif
+        this->printHelp(std::clog);
         stateMachine = state::gameID;
+#endif
     });
     gui.widgets[to_underlying(Loader::Btn::loadMap)]->connect("Pressed", [&]() {
         stateMachine = state::menuID;
     });
 
     setLoadConfirmBtn();
+}
+
+void StateMapLoader::printHelp(std::ostream& ost) {
+    ost << "It appears you are not Windows user\n";
+    ost << "You should manually open the Map Editor in the browser\n";
 }
 
 void StateMapLoader::onDestroy() {

@@ -29,4 +29,5 @@ private:
     std::optional<std::variant<MapLoader<Bmp>, MapLoader<Txt>>> mapLoader;
 
     void setLoadConfirmBtn();
+    static void printHelp(std::ostream& ost) ;
 };

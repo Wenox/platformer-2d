@@ -18,11 +18,11 @@ void InputEvent::update() {
 
 void InputEvent::updateHorizontal() {
 
-    if (isPressed(actions->getActionMap()["GoRight"])) {
+    if (isPressed(actions.getActionMap()["GoRight"])) {
         player.movingState = MovingState::movingRight;
         player.getSprite().setTexture(resources.getTextures().get(res::Texture::PlayerRight));
     }
-    else if (isPressed(actions->getActionMap()["GoLeft"])) {
+    else if (isPressed(actions.getActionMap()["GoLeft"])) {
         player.movingState = MovingState::movingLeft;
         player.getSprite().setTexture(resources.getTextures().get(res::Texture::PlayerLeft));
     }
@@ -38,7 +38,7 @@ bool InputEvent::isPressed(sf::Keyboard::Key myKeyCode) {
 
 void InputEvent::updateVertical() {
     if (player.jumpingState == JumpingState::onGround) {
-        if (isPressed(actions->getActionMap()["Jump"])) {
+        if (isPressed(actions.getActionMap()["Jump"])) {
             player.jumpingState = JumpingState::jumping;
         }
     }

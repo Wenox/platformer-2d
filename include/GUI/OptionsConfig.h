@@ -4,27 +4,30 @@
 #include "IConfig.h"
 
 
-namespace Loader {
+namespace Options {
     enum class Btn {
-        newMap,
-        loadMap,
-        loadConfirm,
+        Jump,
+        GoLeft,
+        GoRight,
         SIZE
     };
 
-    constexpr std::initializer_list<Loader::Btn> Buttons = {
-        Btn::newMap,
-        Btn::loadMap,
-        Btn::loadConfirm
+    constexpr std::initializer_list<Options::Btn> Buttons = {
+        Btn::Jump,
+        Btn::GoLeft,
+        Btn::GoRight
     };
 
     static_assert(Buttons.size() == toInt(Btn::SIZE));
 
 
     struct Config : public IConfig<Btn> {
-    Config() {
-        this->init();
-    }
+
+        constexpr static auto offsetY = 300;
+
+        Config() {
+            this->init();
+        }
 #if (__cplusplus == 202002L)
         constexpr
 #endif
@@ -37,9 +40,9 @@ namespace Loader {
 #endif
         void encode() override {
             mapListOf(widgetsNames)
-                    (Loader::Btn::newMap, "Build new map")
-                    (Loader::Btn::loadMap, "Load map")
-                    (Loader::Btn::loadConfirm, "Load");
+                    (Options::Btn::Jump, "Jump")
+                    (Options::Btn::GoLeft, "GoLeft")
+                    (Options::Btn::GoRight, "GoRight");
         }
     };
 };

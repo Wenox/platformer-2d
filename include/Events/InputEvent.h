@@ -20,7 +20,7 @@ public:
     static bool isPressed(sf::Keyboard::Key myKeyCode);
 private:
     std::unordered_map<std::string, sf::Keyboard::Key> keys;
-    ActionMap* actions = ActionMap::Instance();
+    ActionMap& actions = ActionMap::Instance();
 
     void updateHorizontal();
     void updateVertical();

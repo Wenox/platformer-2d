@@ -1,7 +1,12 @@
 #pragma once
 
+#include <string_view>
+
 
 namespace consts {
+    constexpr std::string_view mapEditorPath = "index.html";
+
+
     extern int blocksCountWidth;
     extern int blocksCountHeight;
     constexpr auto entityWidth  = 32;

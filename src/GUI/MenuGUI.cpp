@@ -15,7 +15,7 @@ void MenuGUI::buildGUI() {
     gui.add(tgui::Picture::create("../resources/background.jpg"));
 
     for (auto i{0u}; auto btn : Menu::Buttons) {
-        const auto& btnName = menuConfig.widgetsNames[btn];
+        const auto &btnName = menuConfig.widgetsNames[btn];
         widgets.emplace_back(tgui::Button::create(btnName));
 
         this->loadWidget(widgets[i]);

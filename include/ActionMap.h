@@ -24,17 +24,15 @@ public:
         return actionMap.size();
     }
 
+
     ActionMap(ActionMap const&) = delete;
     void operator=(ActionMap const&) = delete;
-    static ActionMap* Instance();
 
-protected:
-    ActionMap();
     ~ActionMap() = default;
+    static ActionMap& Instance();
 
 private:
-    static std::mutex constructionGuard;
-    static ActionMap* instance;
+    ActionMap();
 };
 
 

@@ -21,6 +21,7 @@ namespace res {
 
         BgClouds,
         BgPaused,
+        BgOptions,
 
         Spike
     };
