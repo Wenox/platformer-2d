@@ -28,6 +28,6 @@ private:
 
     std::optional<std::variant<MapLoader<Bmp>, MapLoader<Txt>>> mapLoader;
 
-    void setLoadConfirmBtn();
+    void setLoadMapBtn();
     static void printHelp(std::ostream& ost) ;
 };

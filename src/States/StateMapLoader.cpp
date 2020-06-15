@@ -17,7 +17,7 @@ StateMapLoader::StateMapLoader(Game& game)
 
 
 void StateMapLoader::onCreate() {
-    gui.widgets[to_underlying(Loader::Btn::newMap)]->connect("Pressed", [&]() {
+    gui.widgets[to_underlying(Loader::Btn::openEditor)]->connect("Pressed", [&]() {
 #ifdef _WIN32
         ShellExecute(nullptr, "open", consts::mapEditorPath.data(), nullptr, nullptr, SW_SHOWNORMAL);
 #elif
@@ -25,11 +25,18 @@ void StateMapLoader::onCreate() {
         stateMachine = state::gameID;
 #endif
     });
-    gui.widgets[to_underlying(Loader::Btn::loadMap)]->connect("Pressed", [&]() {
+    gui.widgets[to_underlying(Loader::Btn::goBack)]->connect("Pressed", [&]() {
         stateMachine = state::menuID;
     });
 
-    setLoadConfirmBtn();
+    gui.getGui().get("mapNameBox")->connect("Clicked", [&]() {
+        if (gui.isPromptToEnter()) {
+            gui.clearMapNameBox();
+            gui.setPromptToEnter(false);
+        }
+    });
+
+    setLoadMapBtn();
 }
 
 void StateMapLoader::printHelp(std::ostream& ost) {
@@ -53,8 +60,8 @@ void StateMapLoader::draw(Window&) {
     gui.draw();
 }
 
-void StateMapLoader::setLoadConfirmBtn() {
-    gui.widgets[to_underlying(Loader::Btn::loadConfirm)]->connect("Pressed", [&]() {
+void StateMapLoader::setLoadMapBtn() {
+    gui.widgets[to_underlying(Loader::Btn::loadMap)]->connect("Pressed", [&]() {
         mapName = gui.getMapName();
         gui.animateBadMapLabel();
 
@@ -68,7 +75,7 @@ void StateMapLoader::setLoadConfirmBtn() {
         else {
             std::cerr << "Map file: " << mapName << " does not exist!\n";
             gui.setBadMapLabelVisible(true);
-            gui.clearMapNameBox();
+            gui.clearMapNameBoxWithPrompt();
         }
     });
 }

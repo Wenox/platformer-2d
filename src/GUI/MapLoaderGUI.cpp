@@ -9,12 +9,20 @@ MapLoaderGUI::MapLoaderGUI(Window& window)
 
 void MapLoaderGUI::init() {
     this->buildGUI();
+    clearMapNameBoxWithPrompt();
 }
 
 
 void MapLoaderGUI::buildGUI() {
     /** background */
     gui.add(tgui::Picture::create("../resources/mapLoader.jpg"));
+
+    auto panelBorder = tgui::Panel::create({config.width + 22, 375});
+    panelBorder->setPosition(184,
+                             107);
+    panelBorder->getRenderer()->setBackgroundColor(tgui::Color::Black);
+    panelBorder->setInheritedOpacity(0.3);
+    gui.add(panelBorder);
 
     /** buttons */
     for (auto i{0u}; auto btn : Loader::Buttons) {
@@ -25,19 +33,21 @@ void MapLoaderGUI::buildGUI() {
         ++i;
     }
 
+
     /** map name editBox */
     auto mapNameBox = tgui::EditBox::create();
     mapNameBox->setSize(config.width, config.height);
     mapNameBox->setTextSize(config.textSize);
+    mapNameBox->getRenderer()->setTextColor(loaderConfig.mapNameColor);
     mapNameBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
-                          tgui::bindBottom(widgets[to_underlying(Loader::Btn::loadMap)]) + 10);
+                            tgui::bindTop (widgets[to_underlying(Loader::Btn::loadMap)]) - 10 - config.height);
     gui.add(mapNameBox, "mapNameBox");
 
 
     /** label when entering bad map's name */
     auto badMapLabel = tgui::Label::create("No such file!");
     badMapLabel->setTextSize(config.textSize - 5);
-    badMapLabel->setPosition(tgui::bindLeft(mapNameBox) - badMapLabel->getSize().x - 10, tgui::bindTop(mapNameBox) + 12);
+    badMapLabel->setPosition(tgui::bindLeft(mapNameBox) - badMapLabel->getSize().x - 16, tgui::bindTop(mapNameBox) + 12);
     badMapLabel->getRenderer()->setTextColor(tgui::Color{255, 0, 0});
     badMapLabel->setVisible(false);
 
@@ -46,7 +56,7 @@ void MapLoaderGUI::buildGUI() {
 
 
 void MapLoaderGUI::loadWidget(tgui::Widget::Ptr& widget) {
-    if (btnIndex == 2) ++btnIndex;
+    if (btnIndex == 1) btnIndex += 2;
 
     config.prepare(widget);
     widget->setPosition(gui.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,

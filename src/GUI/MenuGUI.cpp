@@ -12,7 +12,8 @@ void MenuGUI::init() {
 }
 
 void MenuGUI::buildGUI() {
-    gui.add(tgui::Picture::create("../resources/background.jpg"));
+    createBackgroundImage();
+    createBackgroundPanel();
 
     for (auto i{0u}; auto btn : Menu::Buttons) {
         const auto &btnName = menuConfig.widgetsNames[btn];
@@ -21,6 +22,7 @@ void MenuGUI::buildGUI() {
         this->loadWidget(widgets[i]);
         ++i;
     }
+
 }
 
 void MenuGUI::loadWidget(tgui::Widget::Ptr& widget) {
@@ -28,4 +30,16 @@ void MenuGUI::loadWidget(tgui::Widget::Ptr& widget) {
     widget->setPosition({gui.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
                          Menu::Config::offsetY + gui.getTarget()->getSize().y / 9 * ++btnIndex});
     gui.add(widget);
+}
+
+void MenuGUI::createBackgroundImage() {
+    gui.add(tgui::Picture::create("../resources/background.jpg"));
+}
+
+void MenuGUI::createBackgroundPanel() {
+    auto panelBorder = tgui::Panel::create({config.width + 22, 330});
+    panelBorder->setPosition(184,96);
+    panelBorder->getRenderer()->setBackgroundColor(tgui::Color::White);
+    panelBorder->setInheritedOpacity(0.35);
+    gui.add(panelBorder);
 }

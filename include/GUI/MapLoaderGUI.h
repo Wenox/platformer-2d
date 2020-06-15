@@ -20,14 +20,26 @@ private:
     void buildGUI() override;
     void loadWidget(tgui::Widget::Ptr& widget);
 
+    bool promptToEnter{};
 public:
+    void setPromptToEnter(bool status) { promptToEnter = status; }
+    bool isPromptToEnter() const { return promptToEnter; }
+
     auto getMapName() {
         return this->getGui().getContainer()->get<tgui::EditBox>("mapNameBox")->getText().toAnsiString();
+    }
+
+    void clearMapNameBoxWithPrompt() {
+        this->promptToEnter = true;
+        const auto& mapNameBox = this->getGui().getContainer()->get<tgui::EditBox>("mapNameBox");
+        mapNameBox->setText({"Enter map name..."});
     }
 
     void clearMapNameBox() {
         this->getGui().getContainer()->get<tgui::EditBox>("mapNameBox")->setText({});
     }
+
+
 
     void setBadMapLabelVisible(bool visibilityStatus) {
         this->getGui().getContainer()->get<tgui::Label>("badMapLabel")->setVisible(visibilityStatus);

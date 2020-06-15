@@ -1,30 +1,33 @@
 #pragma once
 
+#include <TGUI/Color.hpp>
 #include "Utility.h"
 #include "IConfig.h"
 
 
 namespace Loader {
     enum class Btn {
-        newMap,
         loadMap,
-        loadConfirm,
+        openEditor,
+        goBack,
         SIZE
     };
 
     constexpr std::initializer_list<Loader::Btn> Buttons = {
-        Btn::newMap,
         Btn::loadMap,
-        Btn::loadConfirm
+        Btn::openEditor,
+        Btn::goBack
     };
 
     static_assert(Buttons.size() == toInt(Btn::SIZE));
 
 
     struct Config : public IConfig<Btn> {
-    Config() {
-        this->init();
-    }
+        tgui::Color mapNameColor = {196, 0, 0};
+
+        Config() {
+            this->init();
+        }
 #if (__cplusplus == 202002L)
         constexpr
 #endif
@@ -37,9 +40,9 @@ namespace Loader {
 #endif
         void encode() override {
             mapListOf(widgetsNames)
-                    (Loader::Btn::newMap, "Build new map")
-                    (Loader::Btn::loadMap, "Load map")
-                    (Loader::Btn::loadConfirm, "Load");
+                    (Loader::Btn::loadMap,     "Load map")
+                    (Loader::Btn::openEditor,  "Build new map")
+                    (Loader::Btn::goBack,"Go back");
         }
     };
 };
