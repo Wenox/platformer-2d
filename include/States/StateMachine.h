@@ -24,10 +24,18 @@ public:
     StateMachine& operator=(int stateID);
     StateMachine& operator+=(const std::shared_ptr<State>& s);
 
+    void setCameFrom(int id) {
+        cameFromState = id;
+    }
+
+    int getCameFrom() const { return cameFromState; }
+
 private:
     std::unordered_map<int, std::shared_ptr<State>> states{};
     std::shared_ptr<State> currentState{nullptr};
     int currentStateID{1}; ///* todo: rename me */
+
+    int cameFromState{};
 };
 
 

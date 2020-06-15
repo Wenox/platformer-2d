@@ -16,6 +16,7 @@
 #include <Entities/Spike.h>
 #include <Entities/HeartCollectible.h>
 #include <SFML/Audio/Sound.hpp>
+#include <Settings.h>
 
 
 class StateGame : public State {
@@ -24,6 +25,8 @@ public:
 
     void onCreate() override;
     void onDestroy() override;
+
+    void onActivate() override;
 
     void processInput() override;
     void update(float dt) override;

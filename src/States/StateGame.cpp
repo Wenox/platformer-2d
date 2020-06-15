@@ -62,6 +62,10 @@ void StateGame::onDestroy() {
 
 }
 
+void StateGame::onActivate() {
+    stateMachine.setCameFrom(state::gameID);
+}
+
 void StateGame::processInput() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
         stateMachine.switchTo(state::initID);
@@ -134,7 +138,10 @@ void StateGame::draw(Window& window) {
     window.draw(objective);
     window.draw(player);
     window.draw(livesHUD);
-    window.draw(fps);
+
+    if (mySettings.isFpsEnabled) {
+        window.draw(fps);
+    }
 }
 
 void StateGame::prepareFPS() {

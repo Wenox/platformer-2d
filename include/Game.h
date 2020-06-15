@@ -25,8 +25,6 @@ private:
     ResourceManager resources;
     StateMachine stateMachine;
 
-    Settings settings;
-
     sf::Clock clock;
     float dt;
 

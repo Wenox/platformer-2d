@@ -16,10 +16,9 @@ private:
     Action action;
 
 public:
-    StateOptions(StateMachine& stateMachine, Window& window, Settings& settings, ResourceHolder<res::Texture, sf::Texture>& textures)
+    StateOptions(StateMachine& stateMachine, Window& window, ResourceHolder<res::Texture, sf::Texture>& textures)
     : stateMachine{stateMachine}
     , window{window}
-    , settings{settings}
     , gui{window}
     , action{Action::NONE}
     , bg{textures[res::Texture::BgOptions]}
@@ -38,6 +37,9 @@ public:
             action = Action::GoRight;
             gui.getGui().get("panel")->showWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
         });
+        gui.widgets[to_underlying(Options::Btn::GoBack)]->connect("Pressed", [&]() {
+            stateMachine = state::gameID;
+        });
     }
 
     void onDestroy() override {
@@ -48,8 +50,12 @@ public:
 
     void processInput() override {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
-            settings.isSoundEnabled = gui.isSoundChecked();
-            stateMachine = state::menuID;
+            /** save options */
+            mySettings.isSoundEnabled = gui.isSoundChecked();
+            mySettings.isFpsEnabled   = gui.isFpsChecked();
+            mySettings.volume         = gui.getVolume();
+
+            stateMachine = stateMachine.getCameFrom();
         }
     }
     void update(float dt) override {
@@ -59,7 +65,6 @@ public:
             gui.getGui().get("panel")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
 
             if (window.getEvent().front().key.code == sf::Keyboard::Escape) {
-                std::cout << "Escape\n";
                 action = Action::NONE;
                 return;
             }
@@ -93,7 +98,6 @@ public:
 private:
     StateMachine& stateMachine;
     Window& window;
-    Settings& settings;
 
     ActionMap& actionMap = ActionMap::Instance();
 

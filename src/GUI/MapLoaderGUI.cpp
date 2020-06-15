@@ -22,6 +22,8 @@ void MapLoaderGUI::buildGUI() {
                              107);
     panelBorder->getRenderer()->setBackgroundColor(tgui::Color::Black);
     panelBorder->setInheritedOpacity(0.3);
+    panelBorder->getRenderer()->setBorders({1, 1, 1, 1});
+    panelBorder->getRenderer()->setBorderColor(tgui::Color::White);
     gui.add(panelBorder);
 
     /** buttons */
@@ -41,15 +43,17 @@ void MapLoaderGUI::buildGUI() {
     mapNameBox->getRenderer()->setTextColor(loaderConfig.mapNameColor);
     mapNameBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
                             tgui::bindTop (widgets[to_underlying(Loader::Btn::loadMap)]) - 10 - config.height);
+    mapNameBox->setInheritedFont({"../resources/CascadiaCode.ttf"});
     gui.add(mapNameBox, "mapNameBox");
 
 
     /** label when entering bad map's name */
     auto badMapLabel = tgui::Label::create("No such file!");
     badMapLabel->setTextSize(config.textSize - 5);
-    badMapLabel->setPosition(tgui::bindLeft(mapNameBox) - badMapLabel->getSize().x - 16, tgui::bindTop(mapNameBox) + 12);
+    badMapLabel->setPosition(tgui::bindLeft(mapNameBox) - badMapLabel->getSize().x - 32, tgui::bindTop(mapNameBox) + 12);
     badMapLabel->getRenderer()->setTextColor(tgui::Color{255, 0, 0});
     badMapLabel->setVisible(false);
+    badMapLabel->setInheritedFont({"../resources/CascadiaCode.ttf"});
 
     gui.add(badMapLabel, "badMapLabel");
 }
@@ -61,6 +65,7 @@ void MapLoaderGUI::loadWidget(tgui::Widget::Ptr& widget) {
     config.prepare(widget);
     widget->setPosition(gui.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
                         180 + 60 * btnIndex);
+    widget->setInheritedFont({"../resources/CascadiaCode.ttf"});
     btnIndex++;
     gui.add(widget);
 }

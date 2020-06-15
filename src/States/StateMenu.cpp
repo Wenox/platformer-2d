@@ -2,12 +2,11 @@
 #include "StateMenu.h"
 
 
-StateMenu::StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager, Settings& settings)
+StateMenu::StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager)
         : stateMachine{stateMachine},
           window{window},
           gui{window},
-          resources{resourceManager},
-          settings{settings}
+          resources{resourceManager}
 {
     onHoverBtnSound.setBuffer(resources.getSounds().get(res::Sound::Bing));
 }
@@ -37,8 +36,10 @@ void StateMenu::onDestroy() {
 }
 
 void StateMenu::onActivate() {
-    if (settings.isSoundEnabled) {
-        onHoverBtnSound.setVolume(100.0f);
+    stateMachine.setCameFrom(state::menuID);
+
+    if (mySettings.isSoundEnabled) {
+        onHoverBtnSound.setVolume(mySettings.volume);
     } else {
         onHoverBtnSound.setVolume(0.0f);
     }

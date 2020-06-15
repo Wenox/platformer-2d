@@ -9,13 +9,15 @@ namespace Options {
         Jump,
         GoLeft,
         GoRight,
+        GoBack,
         SIZE
     };
 
     constexpr std::initializer_list<Options::Btn> Buttons = {
         Btn::Jump,
         Btn::GoLeft,
-        Btn::GoRight
+        Btn::GoRight,
+        Btn::GoBack
     };
 
     static_assert(Buttons.size() == toInt(Btn::SIZE));
@@ -23,7 +25,7 @@ namespace Options {
 
     struct Config : public IConfig<Btn> {
 
-        constexpr static auto offsetY = 300;
+        constexpr static auto offsetY = 250;
 
         Config() {
             this->init();
@@ -41,8 +43,9 @@ namespace Options {
         void encode() override {
             mapListOf(widgetsNames)
                     (Options::Btn::Jump, "Jump")
-                    (Options::Btn::GoLeft, "GoLeft")
-                    (Options::Btn::GoRight, "GoRight");
+                    (Options::Btn::GoLeft, "Run Left")
+                    (Options::Btn::GoRight, "Run Right")
+                    (Options::Btn::GoBack, "Go Back");
         }
     };
 };

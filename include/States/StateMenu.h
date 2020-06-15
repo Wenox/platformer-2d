@@ -9,7 +9,7 @@
 
 class StateMenu : public State {
 public:
-    StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager, Settings& settings);
+    StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager);
 
     void onCreate() override;
     void onDestroy() override;
@@ -27,8 +27,6 @@ private:
     MenuGUI gui;
     ResourceManager& resources;
     sf::Sound onHoverBtnSound;
-
-    Settings& settings;
 };
 
 

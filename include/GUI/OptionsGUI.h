@@ -9,8 +9,6 @@
 
 class OptionsGUI : public GUI<> {
 private:
-    Settings settings;
-
     Gui::Config<> config;
     Options::Config optionsConfig;
 
@@ -31,8 +29,16 @@ public:
 
     void loadWidget(tgui::Widget::Ptr& widget);
 
-        bool isSoundChecked() const {
+    bool isSoundChecked() const {
         return this->gui.getContainer()->get<tgui::CheckBox>("soundCheckBox")->isChecked();
+    }
+
+    bool isFpsChecked() const {
+        return this->gui.getContainer()->get<tgui::CheckBox>("fpsCheckBox")->isChecked();
+    }
+
+    auto getVolume() const  {
+        return this->gui.getContainer()->get<tgui::Slider>("soundVolume")->getValue();
     }
 };
 

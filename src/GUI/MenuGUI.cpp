@@ -29,6 +29,7 @@ void MenuGUI::loadWidget(tgui::Widget::Ptr& widget) {
     config.prepare(widget);
     widget->setPosition({gui.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
                          Menu::Config::offsetY + gui.getTarget()->getSize().y / 9 * ++btnIndex});
+    widget->setInheritedFont({"../resources/CascadiaCode.ttf"});
     gui.add(widget);
 }
 
@@ -41,5 +42,7 @@ void MenuGUI::createBackgroundPanel() {
     panelBorder->setPosition(184,96);
     panelBorder->getRenderer()->setBackgroundColor(tgui::Color::White);
     panelBorder->setInheritedOpacity(0.35);
+    panelBorder->getRenderer()->setBorders({1, 1, 1, 1});
+    panelBorder->getRenderer()->setBorderColor(tgui::Color::Black);
     gui.add(panelBorder);
 }
