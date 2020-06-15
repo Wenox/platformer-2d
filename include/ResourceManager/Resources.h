@@ -23,7 +23,12 @@ namespace res {
         BgPaused,
         BgOptions,
 
-        Spike
+        Spike,
+
+        OptionsLeftTopCorner,
+        OptionsLeftBotCorner,
+        OptionsRightBotCorner,
+        OptionsRightTopCorner
     };
 
     enum class Sound {

@@ -20,7 +20,19 @@ public:
     , window{window}
     , gui{window}
     , bg{textures[res::Texture::BgOptions]}
-    {}
+    , cornersTextures{{textures[res::Texture::OptionsLeftTopCorner],
+                       textures[res::Texture::OptionsLeftBotCorner],
+                       textures[res::Texture::OptionsRightBotCorner],
+                       textures[res::Texture::OptionsRightTopCorner]}}
+    {
+        for (int i = 0; i < cornersTextures.size(); ++i) {
+            corners.at(i).setTexture(cornersTextures.at(i).get());
+        }
+        corners.at(0).setPosition(0, 0);
+        corners.at(1).setPosition(0, 512);
+        corners.at(2).setPosition(576, 512);
+        corners.at(3).setPosition(576, 0);
+    }
 
     void onCreate() override {
         gui.widgets[to_underlying(Options::Btn::Keybinds)]->connect("Pressed", [&]() {
@@ -65,6 +77,9 @@ public:
 
     void draw(Window& window) override {
         this->window.draw(bg);
+        for (auto& corner : corners) {
+            this->window.draw(corner);
+        }
         gui.draw();
     }
 
@@ -75,6 +90,9 @@ private:
     OptionsGUI gui;
 
     sf::Sprite bg;
+
+    std::array<std::reference_wrapper<sf::Texture>, 4> cornersTextures;
+    std::array<sf::Sprite, 4> corners;
 };
 
 

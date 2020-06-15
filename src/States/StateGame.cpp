@@ -119,7 +119,7 @@ void StateGame::update(float dt) {
 }
 
 void StateGame::draw(Window& window) {
-    window.draw(bg);
+//    window.draw(bg);
     for (const auto& block : blocks) {
         if (isInDrawRange(*block)) {
             window.draw(*block);
@@ -135,9 +135,9 @@ void StateGame::draw(Window& window) {
             window.draw(*heart);
         }
     }
-    window.draw(objective);
-    window.draw(player);
-    window.draw(livesHUD);
+//    window.draw(objective);
+//    window.draw(player);
+//    window.draw(livesHUD);
 
     if (mySettings.isFpsEnabled) {
         window.draw(fps);

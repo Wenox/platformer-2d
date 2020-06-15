@@ -38,6 +38,12 @@ void ResourceManager::loadTextures() {
 
     textures.insert(res::Texture::BgPaused, "pausedBg.png");
     textures.insert(res::Texture::BgOptions, "optionsBg.jpg");
+
+
+    textures.insert(res::Texture::OptionsLeftTopCorner, "corner-left-top.png");
+    textures.insert(res::Texture::OptionsLeftBotCorner, "corner-left-bot.png");
+    textures.insert(res::Texture::OptionsRightBotCorner, "corner-right-bot.png");
+    textures.insert(res::Texture::OptionsRightTopCorner, "corner-right-top.png");
 }
 
 void ResourceManager::loadSounds() {
