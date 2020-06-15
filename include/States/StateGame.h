@@ -57,9 +57,14 @@ private:
     sf::Sound sound;
     sf::Sound deathSound;
 
+    sf::Font font;
+    sf::Text fps;
+
     bool isInDrawRange(const Entity& entity) const;
     void generateWorldFromBmp();
     void generateWorldFromTxt();
+
+    void prepareFPS();
 };
 
 

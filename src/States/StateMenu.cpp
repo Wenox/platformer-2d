@@ -1,7 +1,5 @@
-//#include "MenuConfig.h"
 #include "StateID.h"
 #include "StateMenu.h"
-
 
 
 StateMenu::StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager, Settings& settings)
@@ -21,6 +19,10 @@ void StateMenu::onCreate() {
 
     gui.widgets[to_underlying(Menu::Btn::options)]->connect("pressed", [&]() {
         stateMachine = state::optionsID;
+    });
+
+    gui.widgets[to_underlying(Menu::Btn::exit)]->connect("pressed", [&]() {
+        window.close();
     });
 
     for (auto& widget : gui.widgets) {

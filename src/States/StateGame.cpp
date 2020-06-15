@@ -21,7 +21,6 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
             [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
     }, mapLoader);
 
-    std::cout << "StateGame::StateGame()" << std::endl;
     window.getWindow().setView(camera.getCamera());
 }
 
@@ -54,6 +53,8 @@ void StateGame::onCreate() {
     moveController = std::make_unique<MovementEvent>(player, blocks);
     collider = std::make_unique<CollisionEvent>(player, blocks);
     inputEvent = std::make_unique<InputEvent>(player, resources, window);
+
+    prepareFPS();
 }
 
 
@@ -109,6 +110,8 @@ void StateGame::update(float dt) {
     if (livesHUD.isDead()) {
         stateMachine = state::menuID;
     }
+
+    fps.setString(std::to_string(static_cast<int>(1 / dt)));
 }
 
 void StateGame::draw(Window& window) {
@@ -131,8 +134,19 @@ void StateGame::draw(Window& window) {
     window.draw(objective);
     window.draw(player);
     window.draw(livesHUD);
+    window.draw(fps);
 }
 
+void StateGame::prepareFPS() {
+    if (!font.loadFromFile("../resources/CascadiaCode.ttf"))
+        throw std::runtime_error{"Font cascadiaCode missing"};
+    fps.setFont(font);
+    fps.setCharacterSize(36);
+    fps.setPosition(0, 960);
+    fps.setFillColor(sf::Color::Yellow);
+    fps.setOutlineColor(sf::Color::Black);
+    fps.setOutlineThickness(1);
+}
 bool StateGame::isInDrawRange(const Entity& entity) const {
     return std::abs(entity.left() - player.left()) < 640.0f
         && std::abs(entity.top()  - player.top())  < 576.0f;

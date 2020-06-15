@@ -22,6 +22,7 @@ public:
         return window;
     }
 
+    void close();
     bool isOpen() const;
 private:
     sf::RenderWindow window;
