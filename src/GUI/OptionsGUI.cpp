@@ -5,6 +5,14 @@ void OptionsGUI::buildGUI() {
     /** todo: try removing bg from PausedState and use it here instead */
 //    gui.add(tgui::Picture::create("../resources/background.jpg"));
 
+    auto myPanel = tgui::Panel::create({290, 150});
+    myPanel->setPosition(90,40);
+    myPanel->getRenderer()->setBackgroundColor(tgui::Color::Black);
+    myPanel->setInheritedOpacity(0.35);
+    myPanel->getRenderer()->setBorders({1, 1, 1, 1});
+    myPanel->getRenderer()->setBorderColor(tgui::Color::White);
+    gui.add(myPanel, "myPanel");
+
     for (auto i{0u}; auto btn : Options::Buttons) {
         const auto& btnName = optionsConfig.widgetsNames[btn];
         widgets.emplace_back(tgui::Button::create(btnName));
@@ -47,36 +55,6 @@ void OptionsGUI::buildGUI() {
     soundVolume->setValue(mySettings.volume);
     gui.add(soundVolume, "soundVolume");
 
-
-    auto panel = tgui::Panel::create({384, 256});
-    panel->setVisible(false);
-    panel->setPosition(128, 200);
-    panel->getRenderer()->setBackgroundColor(tgui::Color::Red);
-    panel->getRenderer()->setOpacity(1.0);
-    panel->getRenderer()->setBorderColor(tgui::Color::Black);
-    panel->getRenderer()->setBorders({1, 1, 1, 1});
-
-    sf::Texture texture;
-    if (!texture.loadFromFile("../resources/registerBg.png")) throw std::runtime_error("cant find registerBg");
-    panel->getRenderer()->setTextureBackground(texture);
-
-
-    auto myLabel = tgui::Label::create();
-    myLabel->setPosition(70, 100);
-    myLabel->setText("PRESS KEY...");
-    myLabel->setTextSize(28);
-    myLabel->getRenderer()->setTextColor(tgui::Color::White);
-    myLabel->setInheritedFont(tgui::Font("../resources/coolFont.ttf"));
-    panel->add(myLabel);
-
-    auto cancelRegisterLabel = tgui::Label::create("(ESC to cancel)");
-    cancelRegisterLabel->getRenderer()->setTextColor(tgui::Color{191, 191, 191});
-    cancelRegisterLabel->setPosition(100, 140);
-    cancelRegisterLabel->setTextSize(16);
-    cancelRegisterLabel->setInheritedFont(tgui::Font("../resources/coolFont.ttf"));
-    panel->add(cancelRegisterLabel);
-
-    gui.add(panel, "panel");
 }
 
 void OptionsGUI::loadWidget(tgui::Widget::Ptr& widget) {

@@ -13,32 +13,33 @@
 
 class StateOptions : public State {
 private:
-    Action action;
 
 public:
     StateOptions(StateMachine& stateMachine, Window& window, ResourceHolder<res::Texture, sf::Texture>& textures)
     : stateMachine{stateMachine}
     , window{window}
     , gui{window}
-    , action{Action::NONE}
     , bg{textures[res::Texture::BgOptions]}
     {}
 
     void onCreate() override {
-        gui.widgets[to_underlying(Options::Btn::Jump)]->connect("Pressed", [&]() {
-            action = Action::Jump;
-            gui.getGui().get("panel")->showWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
-        });
-        gui.widgets[to_underlying(Options::Btn::GoLeft)]->connect("Pressed", [&]() {
-            action = Action::GoLeft;
-            gui.getGui().get("panel")->showWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
-        });
-        gui.widgets[to_underlying(Options::Btn::GoRight)]->connect("Pressed", [&]() {
-            action = Action::GoRight;
-            gui.getGui().get("panel")->showWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
+        gui.widgets[to_underlying(Options::Btn::Keybinds)]->connect("Pressed", [&]() {
+            stateMachine = state::optionsKeysID;
         });
         gui.widgets[to_underlying(Options::Btn::GoBack)]->connect("Pressed", [&]() {
-            stateMachine = state::gameID;
+            stateMachine = stateMachine.getCameFrom();
+        });
+
+
+        gui.getGui().get("soundCheckBox")->connect("Clicked", [&]() {
+            const auto& slider = gui.getGui().get("soundVolume");
+            if (slider->isEnabled()) {
+                slider->setEnabled(false);
+                slider->setInheritedOpacity(0.5);
+            } else {
+                slider->setEnabled(true);
+                slider->setInheritedOpacity(1.0);
+            }
         });
     }
 
@@ -59,34 +60,6 @@ public:
         }
     }
     void update(float dt) override {
-        if (window.getEvent().front().type == sf::Event::KeyPressed
-        and action != Action::NONE) {
-
-            gui.getGui().get("panel")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
-
-            if (window.getEvent().front().key.code == sf::Keyboard::Escape) {
-                action = Action::NONE;
-                return;
-            }
-
-            switch (action) {
-                case Action::Jump:
-                    actionMap.set("Jump", window.getEvent().front().key.code);
-                    break;
-                case Action::GoLeft:
-                    actionMap.set("GoLeft", window.getEvent().front().key.code);
-                    break;
-                case Action::GoRight:
-                    actionMap.set("GoRight", window.getEvent().front().key.code);
-                    break;
-                default:
-                    break;
-            }
-
-            action = Action::NONE;
-
-        }
-
         gui.handleEvent(window.getEvent());
     }
 
@@ -98,8 +71,6 @@ public:
 private:
     StateMachine& stateMachine;
     Window& window;
-
-    ActionMap& actionMap = ActionMap::Instance();
 
     OptionsGUI gui;
 

@@ -6,5 +6,6 @@ namespace state {
     extern int menuID;
     extern int loaderID;
     extern int optionsID;
+    extern int optionsKeysID;
     extern int pausedID;
 }

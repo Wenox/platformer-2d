@@ -4,16 +4,20 @@
 #include "IConfig.h"
 
 
-namespace Options {
+namespace OptionsKeys {
     enum class Btn {
-        Keybinds,
+        Jump,
+        GoLeft,
+        GoRight,
         GoBack,
         SIZE
     };
 
-    constexpr std::initializer_list<Options::Btn> Buttons = {
-        Btn::Keybinds,
-        Btn::GoBack
+    constexpr std::initializer_list<OptionsKeys::Btn> Buttons = {
+            Btn::Jump,
+            Btn::GoLeft,
+            Btn::GoRight,
+            Btn::GoBack
     };
 
     static_assert(Buttons.size() == toInt(Btn::SIZE));
@@ -21,7 +25,7 @@ namespace Options {
 
     struct Config : public IConfig<Btn> {
 
-        constexpr static auto offsetY = 250;
+        constexpr static auto offsetY = 288;
 
         Config() {
             this->init();
@@ -38,8 +42,10 @@ namespace Options {
 #endif
         void encode() override {
             mapListOf(widgetsNames)
-                    (Options::Btn::Keybinds, "Keybindings")
-                    (Options::Btn::GoBack, "Go Back");
+                    (OptionsKeys::Btn::Jump, "Jump")
+                    (OptionsKeys::Btn::GoLeft, "Run Left")
+                    (OptionsKeys::Btn::GoRight, "Run Right")
+                    (OptionsKeys::Btn::GoBack, "Go Back");
         }
     };
 };

@@ -4,6 +4,7 @@
 #include <States/StateMapLoader.h>
 #include <States/StateOptions.h>
 #include <States/StatePaused.h>
+#include <States/StateOptionsKeys.h>
 #include "Game.h"
 
 
@@ -18,6 +19,7 @@ void Game::init() {
     state::menuID    = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window, resources));
     state::loaderID  = stateMachine.insert(std::make_shared<StateMapLoader>(*this));
     state::optionsID = stateMachine.insert(std::make_shared<StateOptions>(stateMachine, window, resources.getTextures()));
+    state::optionsKeysID = stateMachine.insert(std::make_shared<StateOptionsKeys>(stateMachine, window));
     state::pausedID  = stateMachine.insert(std::make_shared<StatePaused>(stateMachine, window, resources));
 
     stateMachine.switchTo(state::menuID);

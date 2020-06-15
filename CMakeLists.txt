@@ -68,7 +68,7 @@ set(SOURCE_FILES
         src/States/StatePaused.cpp
         src/GUI/PausedGUI.cpp
         src/GUI/PausedConfig.cpp
-        src/ActionMap.cpp include/ActionMap.h src/GUI/OptionsConfig.cpp include/GUI/OptionsConfig.h include/Action.h)
+        src/ActionMap.cpp include/ActionMap.h src/GUI/OptionsConfig.cpp include/GUI/OptionsConfig.h include/Action.h include/States/StateOptionsKeys.cpp include/States/StateOptionsKeys.h include/GUI/OptionsKeysGUI.h include/GUI/OptionsKeysConfig.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)
