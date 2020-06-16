@@ -21,25 +21,27 @@ void Player::setVelocityY(float newVal) {
 }
 
 void Player::jumpFrame(float dt) {
-    jumpTime += dt;
-    sprite.move(0, velY * jumpTime);
+    sprite.move(0, velY * dt +  gravity * (dt * dt) * 0.5f);
 
-    if (velY < consts::terminalVelocity) {
-        velY += consts::gravity * jumpTime;
+    if (velY > 1000) {
+        velY = 1000;
+    } else {
+        velY += gravity * dt;
     }
 }
 
 void Player::gravityFrame(float dt) {
-    jumpTime += dt;
-    sprite.move(0, gravVelY * jumpTime);
+    sprite.move(0.0f, dt * (gravVelY + dt * gravity * 0.5f));
 
-    if (gravVelY < consts::terminalVelocity) {
-        gravVelY += consts::gravity * jumpTime;
+    if (gravVelY > 1000.0f) {
+        gravVelY = 1000.0f;
+    } else {
+        gravVelY += dt * gravity;
     }
 }
 
 void Player::restartJumpTime() {
-    jumpTime = 0.0;
+    gravVelY = 0.0;
 }
 
 void Player::landOnGroundUpdate() {

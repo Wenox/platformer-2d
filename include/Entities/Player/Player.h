@@ -68,11 +68,11 @@ private:
     const float velX = consts::horizontalVelocity;
     float velY = consts::initialJumpVelocity;
 
-    float gravVelY = 0.0;
-    float jumpTime = 0.0;
+    float gravVelY = 0.0f;
+    float gravity = consts::gravity;
 
     constexpr static auto detectorRange = 5.0f;
-
+    float position;
 };
 
 
