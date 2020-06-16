@@ -4,10 +4,10 @@
 #include <Settings.h>
 #include "GUI.h"
 #include "Config.h"
-#include "OptionsKeysConfig.h"
+#include "KeybindsConfig.h"
 
 
-class OptionsKeysGUI : public GUI<> {
+class KeybindsGUI : public GUI<> {
 private:
     Gui::Config<> config;
     OptionsKeys::Config optionsConfig;
@@ -15,7 +15,7 @@ private:
     int btnIndex{0};
 
 public:
-    explicit OptionsKeysGUI(Window &window) : GUI{window} {
+    explicit KeybindsGUI(Window &window) : GUI{window} {
         this->init();
     }
 

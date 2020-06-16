@@ -36,7 +36,7 @@ public:
 
     void onCreate() override {
         gui.widgets[to_underlying(Options::Btn::Keybinds)]->connect("Pressed", [&]() {
-            stateMachine = state::optionsKeysID;
+            stateMachine = state::keybindsID;
         });
         gui.widgets[to_underlying(Options::Btn::GoBack)]->connect("Pressed", [&]() {
             stateMachine = stateMachine.getCameFrom();

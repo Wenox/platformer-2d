@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GUI/OptionsKeysGUI.h>
+#include <GUI/KeybindsGUI.h>
 #include <Action.h>
 #include <ActionMap.h>
 #include <iostream>
@@ -9,12 +9,12 @@
 #include "StateID.h"
 
 
-class StateOptionsKeys : public State {
+class StateKeybinds : public State {
 private:
     Action action;
 
 public:
-    StateOptionsKeys(StateMachine& stateMachine, Window& window)
+    StateKeybinds(StateMachine& stateMachine, Window& window)
             : stateMachine{stateMachine}
             , window{window}
             , gui{window}
@@ -91,6 +91,6 @@ private:
 
     ActionMap& actionMap = ActionMap::Instance();
 
-    OptionsKeysGUI gui;
+    KeybindsGUI gui;
 };
 

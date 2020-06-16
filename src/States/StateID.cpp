@@ -6,6 +6,6 @@ namespace state {
     int menuID;
     int loaderID;
     int optionsID;
-    int optionsKeysID;
+    int keybindsID;
     int pausedID;
 }
