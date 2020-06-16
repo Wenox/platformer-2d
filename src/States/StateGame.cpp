@@ -135,9 +135,9 @@ void StateGame::draw(Window& window) {
             window.draw(*heart);
         }
     }
-//    window.draw(objective);
-//    window.draw(player);
-//    window.draw(livesHUD);
+    window.draw(objective);
+    window.draw(player);
+    window.draw(livesHUD);
 
     if (mySettings.isFpsEnabled) {
         window.draw(fps);

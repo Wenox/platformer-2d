@@ -37,7 +37,7 @@ public:
 
         auto promptRebindLabel = tgui::Label::create("Rebind your keys");
         promptRebindLabel->setPosition(166, 10);
-        promptRebindLabel->setInheritedFont({"../resources/CascadiaCode.ttf"});
+        promptRebindLabel->setInheritedFont(config.font);
         promptRebindLabel->setTextSize(32);
         promptRebindLabel->getRenderer()->setTextColor(tgui::Color::Black);
         gui.add(promptRebindLabel, "promptRebindLabel");

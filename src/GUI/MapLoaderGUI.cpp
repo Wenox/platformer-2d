@@ -43,7 +43,7 @@ void MapLoaderGUI::buildGUI() {
     mapNameBox->getRenderer()->setTextColor(loaderConfig.mapNameColor);
     mapNameBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
                             tgui::bindTop (widgets[to_underlying(Loader::Btn::loadMap)]) - 10 - config.height);
-    mapNameBox->setInheritedFont({"../resources/CascadiaCode.ttf"});
+    mapNameBox->setInheritedFont(config.font);
     gui.add(mapNameBox, "mapNameBox");
 
 
@@ -53,7 +53,7 @@ void MapLoaderGUI::buildGUI() {
     badMapLabel->setPosition(tgui::bindLeft(mapNameBox) - badMapLabel->getSize().x - 32, tgui::bindTop(mapNameBox) + 12);
     badMapLabel->getRenderer()->setTextColor(tgui::Color{255, 0, 0});
     badMapLabel->setVisible(false);
-    badMapLabel->setInheritedFont({"../resources/CascadiaCode.ttf"});
+    badMapLabel->setInheritedFont(config.font);
 
     gui.add(badMapLabel, "badMapLabel");
 }
@@ -65,7 +65,6 @@ void MapLoaderGUI::loadWidget(tgui::Widget::Ptr& widget) {
     config.prepare(widget);
     widget->setPosition(gui.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
                         180 + 60 * btnIndex);
-    widget->setInheritedFont({"../resources/CascadiaCode.ttf"});
     btnIndex++;
     gui.add(widget);
 }

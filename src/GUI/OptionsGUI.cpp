@@ -40,7 +40,7 @@ void OptionsGUI::buildGUI() {
     auto fpsLabel = tgui::Label::create("Show FPS");
     fpsLabel->setTextSize(32);
     fpsLabel->setPosition(224, 45);
-    fpsLabel->setInheritedFont({"../resources/CascadiaCode.ttf"});
+    fpsLabel->setInheritedFont(config.font);
     fpsLabel->getRenderer()->setTextColor(tgui::Color::White);
     gui.add(fpsLabel, "fpsLabel");
 
@@ -53,7 +53,7 @@ void OptionsGUI::buildGUI() {
     auto soundLabel = tgui::Label::create("Enable sound");
     soundLabel->setTextSize(32);
     soundLabel->setPosition(224, 95);
-    soundLabel->setInheritedFont({"../resources/CascadiaCode.ttf"});
+    soundLabel->setInheritedFont(config.font);
     soundLabel->getRenderer()->setTextColor(tgui::Color::White);
     gui.add(soundLabel, "soundLabel");
 

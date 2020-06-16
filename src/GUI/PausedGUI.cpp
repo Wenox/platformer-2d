@@ -24,6 +24,5 @@ void PausedGUI::loadWidget(tgui::Widget::Ptr& widget) {
     config.prepare(widget);
     widget->setPosition({gui.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
                          Paused::Config::offsetY + gui.getTarget()->getSize().y / 9 * ++btnIndex});
-    widget->setInheritedFont({"../resources/CascadiaCode.ttf"});
     gui.add(widget);
 }
