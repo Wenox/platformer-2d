@@ -5,6 +5,7 @@
 #include <States/StateOptions.h>
 #include <States/StatePaused.h>
 #include <States/StateKeybinds.h>
+#include <States/StateRestart.h>
 #include "Game.h"
 
 
@@ -21,6 +22,7 @@ void Game::init() {
     state::optionsID = stateMachine.insert(std::make_shared<StateOptions>(stateMachine, window, resources.getTextures()));
     state::keybindsID = stateMachine.insert(std::make_shared<StateKeybinds>(stateMachine, window));
     state::pausedID  = stateMachine.insert(std::make_shared<StatePaused>(stateMachine, window, resources));
+    state::restartID = stateMachine.insert(std::make_shared<StateRestart>(stateMachine, window, resources));
 
     stateMachine.switchTo(state::menuID);
 }

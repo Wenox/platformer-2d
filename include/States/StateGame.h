@@ -5,6 +5,7 @@
 #include "ResourceManager.h"
 #include "MapLoader.h"
 #include "Block.h"
+#include "StateRestart.h"
 #include <memory>
 #include <Camera.h>
 #include <Entities/Player/Player.h>
@@ -63,10 +64,13 @@ private:
     sf::Font font;
     sf::Text fps;
 
+    int activationCounter{0};
+
     bool isInDrawRange(const Entity& entity) const;
     void generateWorldFromBmp();
     void generateWorldFromTxt();
 
+    void restartGameLevel();
     void prepareFPS();
 };
 

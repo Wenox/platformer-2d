@@ -24,8 +24,9 @@ public:
 private:
     StateMachine& stateMachine;
     Window& window;
-    MenuGUI gui;
     ResourceManager& resources;
+
+    MenuGUI gui;
     sf::Sound onHoverBtnSound;
 };
 

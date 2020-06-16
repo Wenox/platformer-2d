@@ -7,6 +7,10 @@ Window::Window(const std::string& windowName)
     : window{sf::VideoMode{640, 576}, windowName}
 {
     window.setFramerateLimit(3000);
+
+    sf::Image icon;
+    if (!icon.loadFromFile("../resources/icon.png"));
+    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }
 
 void Window::update() {

@@ -5,10 +5,10 @@
 StateMenu::StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager)
         : stateMachine{stateMachine},
           window{window},
-          gui{window},
-          resources{resourceManager}
+          resources{resourceManager},
+          gui{window}
 {
-    onHoverBtnSound.setBuffer(resources.getSounds().get(res::Sound::Bing));
+    onHoverBtnSound.setBuffer(resources.getSounds()[res::Sound::Bing]);
 }
 
 void StateMenu::onCreate() {
@@ -54,7 +54,7 @@ void StateMenu::processInput() {
         stateMachine = state::initID;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-        stateMachine = state::gameID;
+        stateMachine = state::restartID;
     }
 }
 

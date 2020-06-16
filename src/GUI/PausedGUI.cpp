@@ -11,6 +11,9 @@ void PausedGUI::buildGUI() {
     panelBorder->getRenderer()->setBorderColor(tgui::Color::Black);
     gui.add(panelBorder);
 
+    auto bg = tgui::Picture::create(tgui::Texture{"../resources/PausedBGMain.png"});
+    gui.add(bg, "pausedBg");
+
     for (auto i{0u}; auto btn : Paused::Buttons) {
         const auto& btnName = menuConfig.widgetsNames[btn];
         widgets.emplace_back(tgui::Button::create(btnName));

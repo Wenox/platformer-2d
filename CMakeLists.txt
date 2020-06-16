@@ -68,7 +68,7 @@ set(SOURCE_FILES
         src/States/StatePaused.cpp
         src/GUI/PausedGUI.cpp
         src/GUI/PausedConfig.cpp
-        src/ActionMap.cpp include/ActionMap.h src/GUI/OptionsConfig.cpp include/GUI/OptionsConfig.h include/Action.h src/States/StateKeybinds.cpp include/States/StateKeybinds.h include/GUI/KeybindsGUI.h include/GUI/KeybindsConfig.h include/Overload.h)
+        src/ActionMap.cpp include/ActionMap.h src/GUI/OptionsConfig.cpp include/GUI/OptionsConfig.h include/Action.h src/States/StateKeybinds.cpp include/States/StateKeybinds.h include/GUI/KeybindsGUI.h include/GUI/KeybindsConfig.h include/Overload.h src/States/StateRestart.cpp include/States/StateRestart.h src/GUI/RestartGUI.cpp include/GUI/RestartGUI.h src/GUI/RestartConfig.cpp include/GUI/RestartConfig.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

@@ -8,4 +8,5 @@ namespace state {
     int optionsID;
     int keybindsID;
     int pausedID;
+    int restartID;
 }

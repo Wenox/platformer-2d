@@ -1,12 +1,7 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include "Window.h"
-#include "Consts.h"
-#include <iostream>
-#include <memory>
 #include <variant>
-#include <Entities/Entity.h>
+#include "Entity.h"
 #include "Overload.h"
 
 

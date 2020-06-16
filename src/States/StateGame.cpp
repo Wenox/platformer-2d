@@ -63,7 +63,29 @@ void StateGame::onDestroy() {
 }
 
 void StateGame::onActivate() {
+
     stateMachine.setCameFrom(state::gameID);
+
+    if (activationCounter++ != 0) {
+        restartGameLevel();
+    }
+}
+
+
+
+void StateGame::restartGameLevel() {
+    player.setPosition(player.getStartingPosition());
+    player.jumpingState = JumpingState::onGround;
+    player.movingState  = MovingState::standing;
+    player.restartJumpTime();
+    livesHUD.refillLives();
+
+    /** Respawn hearts */
+    for (const auto& heart : hearts) {
+        if (heart->wasCollected()) {
+            heart->setCollected(false);
+        }
+    }
 }
 
 void StateGame::processInput() {
@@ -112,7 +134,13 @@ void StateGame::update(float dt) {
     window.getWindow().setView(camera.getCameraView());
 
     if (livesHUD.isDead()) {
-        stateMachine = state::menuID;
+        consts::playerWon = false;
+        stateMachine = state::restartID;
+    }
+
+    if (player.isIntersecting(objective)) {
+        consts::playerWon = true;
+        stateMachine = state::restartID;
     }
 
     fps.setString(std::to_string(static_cast<int>(1 / dt)));

@@ -21,7 +21,7 @@ namespace Options {
 
     struct Config : public IConfig<Btn> {
 
-        constexpr static auto offsetY = 250;
+        constexpr static auto offsetY = 350;
 
         Config() {
             this->init();

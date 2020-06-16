@@ -4,6 +4,7 @@
 #include <Entities/Spike.h>
 #include <GUI/HUD/LivesHUD.h>
 #include <Entities/HeartCollectible.h>
+#include <Entities/Objective.h>
 #include "Entity.h"
 #include "PlayerState.h"
 
@@ -35,11 +36,20 @@ public:
         return this->getGlobalBounds().intersects(entity.getGlobalBounds());
     }
 
+    bool isIntersecting(const Objective& entity) {
+        return this->getGlobalBounds().intersects(entity.getGlobalBounds());
+    }
+
     void kill(LivesHUD& livesHUD) {
         livesHUD.decreaseLife();
         setPosition(startingPosition);
         movingState = MovingState::standing;
         jumpingState = JumpingState::onGround;
+        this->restartJumpTime();
+    }
+
+    auto getStartingPosition() const {
+        return startingPosition;
     }
 
     void setStartingPosition() {

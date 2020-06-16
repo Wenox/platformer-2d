@@ -34,16 +34,19 @@ void ResourceManager::loadTextures() {
 
     textures.insert(res::Texture::Spike,  "spike.png");
 
-    textures.insert(res::Texture::BgClouds, "clouds1.jpg");
+    textures.insert(res::Texture::BgClouds, "violet.jpg");
 
-    textures.insert(res::Texture::BgPaused, "pausedBg.png");
-    textures.insert(res::Texture::BgOptions, "optionsBg.jpg");
+    textures.insert(res::Texture::BgPaused, "pausedBg2.png");
+    textures.insert(res::Texture::BgOptions, "test8.png");
 
 
     textures.insert(res::Texture::OptionsLeftTopCorner, "corner-left-top.png");
     textures.insert(res::Texture::OptionsLeftBotCorner, "corner-left-bot.png");
     textures.insert(res::Texture::OptionsRightBotCorner, "corner-right-bot.png");
     textures.insert(res::Texture::OptionsRightTopCorner, "corner-right-top.png");
+
+    textures.insert(res::Texture::GameOver, "gameOver2.png");
+    textures.insert(res::Texture::GameWon, "gameWon.png");
 }
 
 void ResourceManager::loadSounds() {

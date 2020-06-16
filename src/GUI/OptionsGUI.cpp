@@ -14,7 +14,7 @@ void OptionsGUI::buildGUI() {
     gui.add(myPanel, "myPanel");
 
     auto btnsPanel = tgui::Panel::create({270, 135});
-    btnsPanel->setPosition(185,305);
+    btnsPanel->setPosition(185,405);
     btnsPanel->getRenderer()->setBackgroundColor(tgui::Color::Black);
     btnsPanel->setInheritedOpacity(0.35);
     btnsPanel->getRenderer()->setBorders({1, 1, 1, 1});

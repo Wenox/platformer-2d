@@ -21,6 +21,12 @@ public:
         availableLives += 1;
     }
 
+    void refillLives() {
+        while (!this->hasAllLives()) {
+            this->increaseLife();
+        }
+    }
+
     bool hasAllLives() const {
         return availableLives >= lives::count;
     }

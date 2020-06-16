@@ -28,7 +28,10 @@ namespace res {
         OptionsLeftTopCorner,
         OptionsLeftBotCorner,
         OptionsRightBotCorner,
-        OptionsRightTopCorner
+        OptionsRightTopCorner,
+
+        GameOver,
+        GameWon
     };
 
     enum class Sound {
