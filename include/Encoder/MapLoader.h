@@ -24,9 +24,7 @@ public:
 struct Bmp {};
 struct Txt {};
 
-
-template<class... Ts> struct overload : Ts... { using Ts::operator()...; };
-template<class... Ts> overload(Ts...) -> overload<Ts...>;
+#include "Overload.h"
 
 
 template <typename FileType>

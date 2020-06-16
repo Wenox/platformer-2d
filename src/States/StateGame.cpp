@@ -9,7 +9,7 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
     , resources{resources}
     , mapLoader{mapLoader}
     , window{window}
-    , camera{window, sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
+    , camera{sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
     , livesHUD(window.getWindow(), resources.getTextures())
     , bg(resources.getTextures()[res::Texture::BgClouds])
     , sound(resources.getSounds().get(res::Sound::Bullet))
@@ -21,7 +21,7 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
             [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
     }, mapLoader);
 
-    window.getWindow().setView(camera.getCamera());
+    window.getWindow().setView(camera.getCameraView());
 }
 
 void StateGame::onCreate() {
@@ -48,7 +48,7 @@ void StateGame::onCreate() {
     player.getSprite().setTexture(resources.getTextures().get(res::Texture::Player)); /** todo: direct setter */
     objective.getSprite().setTexture(resources.getTextures().get(res::Texture::Objective));
 
-    camera.setController(player.getSprite());
+    camera.setController(player);
 
     moveController = std::make_unique<MovementEvent>(player, blocks);
     collider = std::make_unique<CollisionEvent>(player, blocks);
@@ -109,7 +109,7 @@ void StateGame::update(float dt) {
     }
 
 
-    window.getWindow().setView(camera.getCamera());
+    window.getWindow().setView(camera.getCameraView());
 
     if (livesHUD.isDead()) {
         stateMachine = state::menuID;
@@ -119,7 +119,7 @@ void StateGame::update(float dt) {
 }
 
 void StateGame::draw(Window& window) {
-//    window.draw(bg);
+    window.draw(bg);
     for (const auto& block : blocks) {
         if (isInDrawRange(*block)) {
             window.draw(*block);
@@ -154,6 +154,7 @@ void StateGame::prepareFPS() {
     fps.setOutlineColor(sf::Color::Black);
     fps.setOutlineThickness(1);
 }
+
 bool StateGame::isInDrawRange(const Entity& entity) const {
     return std::abs(entity.left() - player.left()) < 640.0f
         && std::abs(entity.top()  - player.top())  < 576.0f;
