@@ -12,7 +12,7 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
         , camera{sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
         , livesHUD(window.getWindow(), resources.getTextures())
         , bg(resources.getTextures()[res::Texture::BgGame])
-        , sound(resources.getSounds().get(res::Sound::Bullet))
+        , collectSound(resources.getSounds().get(res::Sound::Bullet))
         , deathSound(resources.getSounds().get(res::Sound::Death))
 {
     std::visit(overload{
@@ -36,8 +36,6 @@ void StateGame::onCreate() {
     moveController = std::make_unique<MovementEvent>(player, blocks);
     collider       = std::make_unique<CollisionEvent>(player, blocks);
     inputEvent     = std::make_unique<InputEvent>(player, resources, window);
-
-    prepareFPS();
 }
 
 
@@ -77,6 +75,9 @@ void StateGame::setCollectiblesTextures() {
 
 
 void StateGame::onActivate() {
+    deathSound.setVolume(mySettings.volume);
+    collectSound.setVolume(mySettings.volume);
+
 
     if (activationCounter++ != 0 and stateMachine.getCameFrom() != state::pausedID) {
         restartGameLevel();
@@ -86,9 +87,11 @@ void StateGame::onActivate() {
 }
 
 void StateGame::onDeactivate() {
+//    music.pause();
 }
 
 void StateGame::onDestroy() {
+//    music.stop();
 }
 
 
@@ -135,7 +138,7 @@ void StateGame::update(float dt) {
     for (const auto& heart : hearts) {
         if (!heart->wasCollected()) {
             if (player.isIntersecting(*heart) and !livesHUD.hasAllLives()) {
-                sound.play();
+                collectSound.play();
                 livesHUD.increaseLife();
                 heart->setCollected(true);
             }
@@ -155,8 +158,12 @@ void StateGame::update(float dt) {
         stateMachine = state::restartID;
     }
 
-    fps.setString(std::to_string(static_cast<int>(1 / dt)));
+    fpsHUD.setValue(std::move(calcCurrentFps(dt)));
 }
+
+std::string StateGame::calcCurrentFps(float dt) {
+    return std::to_string(static_cast<int>(1 / dt));
+};
 
 void StateGame::draw(Window& window) {
     window.draw(bg);
@@ -180,20 +187,10 @@ void StateGame::draw(Window& window) {
     window.draw(livesHUD);
 
     if (mySettings.isFpsEnabled) {
-        window.draw(fps);
+        window.draw(fpsHUD);
     }
 }
 
-void StateGame::prepareFPS() {
-    if (!font.loadFromFile("../resources/CascadiaCode.ttf"))
-        throw std::runtime_error{"Font cascadiaCode missing"};
-    fps.setFont(font);
-    fps.setCharacterSize(36);
-    fps.setPosition(0, 960);
-    fps.setFillColor(sf::Color::Yellow);
-    fps.setOutlineColor(sf::Color::Black);
-    fps.setOutlineThickness(1);
-}
 
 bool StateGame::isInDrawRange(const Entity& entity) const {
     return std::abs(entity.left() - player.left()) < 640.0f

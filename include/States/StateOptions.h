@@ -54,6 +54,10 @@ public:
         });
     }
 
+    void onDeactivate() override {
+        saveOptions();
+    }
+
     void onDestroy() override {
     }
 
@@ -61,13 +65,14 @@ public:
 
     }
 
+    void saveOptions() {
+        mySettings.isSoundEnabled = gui.isSoundChecked();
+        mySettings.isFpsEnabled   = gui.isFpsChecked();
+        mySettings.volume         = gui.getVolume();
+    }
+
     void processInput() override {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
-            /** save options */
-            mySettings.isSoundEnabled = gui.isSoundChecked();
-            mySettings.isFpsEnabled   = gui.isFpsChecked();
-            mySettings.volume         = gui.getVolume();
-
             stateMachine = stateMachine.getCameFrom();
         }
     }

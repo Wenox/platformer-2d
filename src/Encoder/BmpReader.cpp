@@ -23,20 +23,11 @@ void BmpReader::readFile() {
 void BmpReader::readWidth() {
     file.seekg(widthOffset);
     width = file.get();
-    std::cout << fileName << " width is: " << width << std::endl;
-//    if (consts::blocksCountWidth % 4 != 0) {
-//        throw std::runtime_error("Width has to be a multiple of 4");
-//    }
 }
 
 void BmpReader::readHeight() {
     file.seekg(heightOffset);
     height = file.get();
-    /*
-    if (height != consts::blocksCountHeight) {
-        throw std::runtime_error("BMP height is " + std::to_string(height) + " but should be " + std::to_string(consts::blocksCountHeight));
-    }*/
-    std::cout << fileName << " height is: " << height << std::endl;
 }
 
 void BmpReader::readPixels() {

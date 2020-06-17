@@ -3,8 +3,13 @@
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 {
-    Game game;
-    game.run();
+    try {
+        Game game;
+        game.run();
+    } catch(std::exception& e) {
+        std::cerr << "Caught in main: " << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
 
-    return 0;
+    return EXIT_SUCCESS;
 }

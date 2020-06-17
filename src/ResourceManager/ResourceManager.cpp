@@ -56,7 +56,7 @@ void ResourceManager::loadTextures() {
 }
 
 void ResourceManager::loadSounds() {
-    sounds += ResourceInserter(res::Sound::Bing, "boing.wav");
+    sounds += ResourceInserter(res::Sound::Bing, "click.ogg");
     sounds.insert(res::Sound::Bullet,   "boing_long.wav");
     sounds.insert(res::Sound::Death,   "death.wav");
 }

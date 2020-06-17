@@ -74,7 +74,7 @@ set(SOURCE_FILES
         src/States/StateRestart.cpp
         src/GUI/RestartGUI.cpp
         src/GUI/RestartConfig.cpp
-        )
+        include/GUI/HUD/FpsHUD.cpp include/GUI/HUD/FpsHUD.h)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

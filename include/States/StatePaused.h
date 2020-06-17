@@ -3,6 +3,7 @@
 #include <SFML/Audio/Sound.hpp>
 #include <GUI/PausedGUI.h>
 #include <ResourceManager/ResourceManager.h>
+#include <Core/Settings.h>
 #include "Resources.h"
 #include "StateMachine.h"
 #include "StateID.h"
@@ -46,6 +47,12 @@ public:
 
     void onActivate() override {
         window.getWindow().setView(pausedView);
+
+        if (mySettings.isSoundEnabled) {
+            onHoverBtnSound.setVolume(mySettings.volume);
+        } else {
+            onHoverBtnSound.setVolume(0.0f);
+        }
     }
 
     void onDeactivate() override {

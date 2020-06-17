@@ -18,6 +18,7 @@
 #include <Entities/HeartCollectible.h>
 #include <SFML/Audio/Sound.hpp>
 #include <Settings.h>
+#include <GUI/HUD/FpsHUD.h>
 
 
 class StateGame : public State {
@@ -56,14 +57,12 @@ private:
     std::unique_ptr<InputEvent>     inputEvent;
 
     LivesHUD livesHUD;
+    FpsHUD   fpsHUD;
 
     sf::Sprite bg;
 
-    sf::Sound sound;
+    sf::Sound collectSound;
     sf::Sound deathSound;
-
-    sf::Font font;
-    sf::Text fps;
 
     int activationCounter{0};
 
@@ -77,7 +76,8 @@ private:
     void setCollectiblesTextures();
 
     void restartGameLevel();
-    void prepareFPS();
+
+    std::string calcCurrentFps(float dt);
 };
 
 

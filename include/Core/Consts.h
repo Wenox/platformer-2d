@@ -6,7 +6,7 @@
 namespace consts {
     constexpr std::string_view mapEditorPath = "index.html";
 
-    constexpr auto initSoundVolume = 80.0f;
+    constexpr auto initSoundVolume = 30.0f;
 
     extern int blocksCountWidth;
     extern int blocksCountHeight;

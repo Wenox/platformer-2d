@@ -41,6 +41,12 @@ public:
         gui.widgets[to_underlying(OptionsKeys::Btn::GoBack)]->connect("Pressed", [&]() {
             stateMachine = state::optionsID;
         });
+
+        for (auto& widget : gui.widgets) {
+            widget->connect("MouseEntered", [&]() {
+
+            });
+        }
     }
     void onDestroy() override {
 
