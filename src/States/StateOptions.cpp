@@ -1,14 +1,18 @@
 #include "StateOptions.h"
+#include "StateID.h"
 
-StateOptions::StateOptions(StateMachine& stateMachine, Window& window, ResourceHolder<res::Texture, sf::Texture>& textures)
+
+StateOptions::StateOptions(StateMachine& stateMachine, Window& window, ResourceManager& resources)
         : stateMachine{stateMachine}
         , window{window}
         , gui{window}
-        , cornersTextures{{textures[res::Texture::OptionsLeftTopCorner],
-                                  textures[res::Texture::OptionsLeftBotCorner],
-                                  textures[res::Texture::OptionsRightBotCorner],
-                                  textures[res::Texture::OptionsRightTopCorner]}}
+        , cornersTextures{{resources.getTextures()[res::Texture::OptionsLeftTopCorner],
+                           resources.getTextures()[res::Texture::OptionsLeftBotCorner],
+                           resources.getTextures()[res::Texture::OptionsRightBotCorner],
+                           resources.getTextures()[res::Texture::OptionsRightTopCorner]}}
 {
+    onHoverBtnSound.setBuffer(resources.getSounds()[res::Sound::Bing]);
+
     for (int i = 0; i < cornersTextures.size(); ++i) {
         corners.at(i).setTexture(cornersTextures.at(i).get());
     }
@@ -27,9 +31,26 @@ void StateOptions::onCreate() {
         stateMachine.switchToPreviousState();
     });
 
-    gui.getGui().get("soundCheckBox")->connect("Clicked", [&]() {
+    gui.getGui().get("fpsCheckBox")->connect("Changed", [&]() {
+        mySettings.isFpsEnabled = gui.isFpsChecked();
+    });
+
+    gui.getGui().get("soundCheckBox")->connect("Changed", [&]() {
+        saveOptions();
+        updateHoverSoundVolume();
         updateSlider();
     });
+
+    gui.getGui().get("soundVolume")->connect("ValueChanged", [&]() {
+        mySettings.volume = gui.getVolume();
+        updateHoverSoundVolume();
+    });
+
+    for (auto& widget : gui.widgets) {
+        widget->connect("MouseEntered", [&]() {
+            onHoverBtnSound.play();
+        });
+    }
 }
 
 void StateOptions::updateSlider() {
@@ -43,16 +64,19 @@ void StateOptions::updateSlider() {
     }
 }
 
-void StateOptions::onDeactivate() {
-    saveOptions();
+void StateOptions::onActivate() {
 }
 
 void StateOptions::processInput() {
     gui.handleEvent(window.getEvent());
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
         stateMachine.switchToPreviousState();
     }
+}
+
+void StateOptions::update(float dt) {
+
 }
 
 void StateOptions::draw(Window&) {
@@ -62,12 +86,16 @@ void StateOptions::draw(Window&) {
     gui.draw();
 }
 
-void StateOptions::update(float dt) {
-
-}
-
 void StateOptions::saveOptions() {
     mySettings.isSoundEnabled = gui.isSoundChecked();
     mySettings.isFpsEnabled = gui.isFpsChecked();
     mySettings.volume = gui.getVolume();
+}
+
+void StateOptions::updateHoverSoundVolume() {
+    if (mySettings.isSoundEnabled) {
+        onHoverBtnSound.setVolume(mySettings.volume);
+    } else {
+        onHoverBtnSound.setVolume(0.0f);
+    }
 }

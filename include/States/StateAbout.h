@@ -7,28 +7,16 @@
 
 class StateAbout : public State {
 public:
-    StateAbout(StateMachine& stateMachine, ResourceManager& resources)
-    : stateMachine{stateMachine}
-    , aboutInfo{resources.getTextures()[res::Texture::AboutInfo]}
-    {}
+    StateAbout(StateMachine& stateMachine, ResourceManager& resources);
 
-    void onCreate() override {}
+    void onCreate() override;
 
-    void processInput() override {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-            stateMachine.switchTo(state::menuID);
-        }
-    }
-
-    void update(float) override {}
-
-    void draw(Window& window) override {
-        window.draw(aboutInfo);
-    }
+    void processInput() override;
+    void update(float) override;
+    void draw(Window& window) override;
 
 private:
     StateMachine& stateMachine;
-
     sf::Sprite aboutInfo;
 };
 

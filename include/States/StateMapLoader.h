@@ -1,5 +1,6 @@
 #pragma once
 
+#include <SFML/Audio/Sound.hpp>
 #include "ResourceManager.h"
 #include "MapLoaderGUI.h"
 #include "MapLoader.h"
@@ -25,6 +26,9 @@ private:
     MapLoaderGUI gui;
 
     std::optional<std::variant<MapLoader<Bmp>, MapLoader<Txt>>> mapLoader;
+
+    sf::Sound onHoverBtnSound;
+    void updateHoverSoundVolume();
 
     void setMapLoaderButton();
     void createGameFrom(std::string_view mapName);

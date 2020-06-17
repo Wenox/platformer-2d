@@ -13,7 +13,9 @@ StateMapLoader::StateMapLoader(StateMachine& stateMachine, Window& window, Resou
     , window{window}
     , resources{resourceManager}
     , gui{window}
-{}
+{
+    onHoverBtnSound.setBuffer(resourceManager.getSounds()[res::Sound::Bing]);
+}
 
 
 void StateMapLoader::onCreate() {
@@ -37,6 +39,12 @@ void StateMapLoader::onCreate() {
         }
     });
 
+    for (auto& widget : gui.widgets) {
+        widget->connect("MouseEntered", [&]() {
+            onHoverBtnSound.play();
+        });
+    }
+
     setMapLoaderButton();
 }
 
@@ -47,6 +55,7 @@ void StateMapLoader::printHelp(std::ostream& ost) {
 
 void StateMapLoader::onActivate() {
     gui.setBadMapLabelVisible(false);
+    updateHoverSoundVolume();
 }
 
 void StateMapLoader::processInput() {
@@ -81,5 +90,13 @@ void StateMapLoader::createGameFrom(std::string_view mapName) {
         std::clog << "Map file: " << mapName << " does not exist!" << std::endl;
         gui.setBadMapLabelVisible(true);
         gui.clearMapNameBoxWithPrompt();
+    }
+}
+
+void StateMapLoader::updateHoverSoundVolume() {
+    if (mySettings.isSoundEnabled) {
+        onHoverBtnSound.setVolume(mySettings.volume);
+    } else {
+        onHoverBtnSound.setVolume(0.0f);
     }
 }
