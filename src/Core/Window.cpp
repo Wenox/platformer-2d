@@ -1,15 +1,13 @@
 #include "Window.h"
 #include <SFML/Window/Event.hpp>
+#include <Core/Consts.h>
 
 
 Window::Window(const std::string& windowName)
-        : window{sf::VideoMode{640, 576}, windowName}
+        : window{sf::VideoMode{consts::windowWidth, consts::windowHeight}, windowName}
 {
-    window.setFramerateLimit(3000);
-
-    sf::Image icon;
-    if (!icon.loadFromFile("../resources/icon.png"));
-    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+    window.setFramerateLimit(consts::maxFps);
+    setWindowIcon();
 }
 
 void Window::update() {
@@ -41,4 +39,12 @@ void Window::close() {
 
 bool Window::isOpen() const {
     return window.isOpen();
+}
+
+void Window::setWindowIcon() {
+    sf::Image icon;
+    if (!icon.loadFromFile("../resources/icon.png")) {
+        throw std::runtime_error{"Missing icon.png"};
+    }
+    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }

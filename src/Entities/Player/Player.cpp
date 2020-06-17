@@ -54,6 +54,10 @@ void Player::hitCeilingUpdate() {
     this->setVelocityY(consts::hitCeilingVelocity);
 }
 
+bool Player::fellBelowMap() {
+    return this->top() > consts::windowHeight;
+}
+
 bool Player::isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const {
     for (std::size_t i = 0; i < blocks.size(); i++) { /** todo: range-based */
         if (blocks[i]->getGlobalBounds().contains(left(),  bot() + detectorRange)
@@ -63,4 +67,3 @@ bool Player::isDetectingGround(const std::vector<std::unique_ptr<Entity>>& block
     }
     return false;
 }
-

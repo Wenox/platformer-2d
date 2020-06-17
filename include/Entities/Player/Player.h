@@ -12,6 +12,7 @@
 class Player : public Entity {
 private:
     sf::Vector2f startingPosition;
+
 public:
     explicit Player(sf::Vector2f position = {0, 0});
 
@@ -24,6 +25,8 @@ public:
 
     void landOnGroundUpdate();
     void hitCeilingUpdate();
+
+    bool fellBelowMap();
 
     bool isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const;
 

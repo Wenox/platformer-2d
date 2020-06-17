@@ -12,10 +12,11 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
         , camera{sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
         , livesHUD(window.getWindow(), resources.getTextures())
         , bg(resources.getTextures()[res::Texture::BgGame])
-        , collectSound(resources.getSounds().get(res::Sound::Bullet))
-        , deathSound(resources.getSounds().get(res::Sound::Death))
+        , collectSound(resources.getSounds()[res::Sound::Bullet])
+        , deathSound(resources.getSounds()[res::Sound::Death])
 {
     music.openFromFile("../resources/sound/MaquinasOutpost2.ogg");
+
     std::visit(overload{
             [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
             [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
@@ -74,14 +75,13 @@ void StateGame::setCollectiblesTextures() {
 }
 
 void StateGame::onActivate() {
+    if (stateMachine.getCameFrom() == state::restartID) {
+        restartGameLevel();
+    }
+
     music.play();
     deathSound.setVolume(mySettings.volume);
     collectSound.setVolume(mySettings.volume);
-
-
-    if (activationCounter++ != 0 and stateMachine.getCameFrom() != state::pausedID) {
-        restartGameLevel();
-    }
 
     stateMachine.setCameFrom(state::gameID);
 }
@@ -100,9 +100,10 @@ void StateGame::restartGameLevel() {
     player.jumpingState = JumpingState::onGround;
     player.movingState  = MovingState::standing;
     player.restartJumpTime();
+
     livesHUD.refillLives();
 
-    /** Respawn hearts */
+    /** Respawn collectibles */
     for (const auto& heart : hearts) {
         if (heart->wasCollected()) {
             heart->setCollected(false);
@@ -127,24 +128,7 @@ void StateGame::update(float dt) {
     collider->updateAxisY(dt);
     camera.updateY();
 
-
-    for (const auto& spike : spikes) {
-        if (player.isIntersecting(*spike)) {
-            deathSound.play();
-            player.kill(livesHUD);
-        }
-    }
-
-    for (const auto& heart : hearts) {
-        if (!heart->wasCollected()) {
-            if (player.isIntersecting(*heart) and !livesHUD.hasAllLives()) {
-                collectSound.play();
-                livesHUD.increaseLife();
-                heart->setCollected(true);
-            }
-        }
-    }
-
+    updateLoseLifeLogic();
 
     window.getWindow().setView(camera.getCameraView());
 
@@ -159,6 +143,37 @@ void StateGame::update(float dt) {
     }
 
     fpsHUD.setValue(std::move(calcCurrentFps(dt)));
+}
+
+void StateGame::updatePlayerLife() {
+    updateLoseLifeLogic();
+    updateGainLifeLogic();
+}
+
+void StateGame::updateLoseLifeLogic() {
+    if (player.fellBelowMap()) {
+        player.kill(livesHUD);
+        deathSound.play();
+    }
+
+    for (const auto& spike : spikes) {
+        if (player.isIntersecting(*spike)) {
+            player.kill(livesHUD);
+            deathSound.play();
+        }
+    }
+}
+
+void StateGame::updateGainLifeLogic() {
+    for (const auto& heart : hearts) {
+        if (!heart->wasCollected()) {
+            if (player.isIntersecting(*heart) and !livesHUD.hasAllLives()) {
+                collectSound.play();
+                livesHUD.increaseLife();
+                heart->setCollected(true);
+            }
+        }
+    }
 }
 
 std::string StateGame::calcCurrentFps(float dt) {

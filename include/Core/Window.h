@@ -24,9 +24,12 @@ public:
 
     void close();
     bool isOpen() const;
+
 private:
     sf::RenderWindow window;
     std::queue<sf::Event> events;
+
+    void setWindowIcon();
 };
 
 

@@ -36,6 +36,10 @@ public:
     void draw(Window& window) override;
 
 private:
+    void updatePlayerLife();
+    void updateGainLifeLogic();
+    void updateLoseLifeLogic();
+
     StateMachine& stateMachine;
     ResourceManager& resources;
 
@@ -64,7 +68,6 @@ private:
     sf::Sound collectSound;
     sf::Sound deathSound;
 
-    int activationCounter{0};
 
     bool isInDrawRange(const Entity& entity) const;
     void generateWorldFromBmp();
@@ -77,7 +80,7 @@ private:
 
     void restartGameLevel();
 
-    std::string calcCurrentFps(float dt);\
+    std::string calcCurrentFps(float dt);
 
     sf::Music music;
 };

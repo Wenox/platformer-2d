@@ -14,6 +14,9 @@ namespace consts {
     constexpr auto entityWidth  = 32;
     constexpr auto entityHeight = 32;
 
+    constexpr auto windowWidth  = 640;
+    constexpr auto windowHeight = 576;
+    constexpr auto maxFps       = 3000; /** Emphasize frame rate independent movement */
 
     constexpr auto v0 = -80.0f;
     constexpr auto horizontalVelocity  = 300;

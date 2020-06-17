@@ -32,12 +32,8 @@ public:
 
     void onActivate() override {
         consts::playerWon ? gui.setWonTexture() : gui.setLostTexture();
-    }
 
-    void processInput() override {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) {
-            stateMachine = state::menuID;
-        }
+        stateMachine.setCameFrom(state::restartID);
     }
 
     void update(float dt) override {
