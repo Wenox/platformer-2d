@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Entities/Entity.h>
+#include "Entity.h"
 #include "StateMachine.h"
 #include "ResourceManager.h"
 #include "MapLoader.h"

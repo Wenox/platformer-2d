@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GUI/MenuGUI.h>
+#include "MenuGUI.h"
 #include "StateMachine.h"
 #include <SFML/Audio.hpp>
 #include <Settings.h>

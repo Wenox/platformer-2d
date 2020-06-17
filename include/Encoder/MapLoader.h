@@ -2,7 +2,7 @@
 
 #include <variant>
 #include <queue>
-#include <ResourceManager/Resources.h>
+#include "Resources.h"
 #include "BmpReader.h"
 #include "TxtReader.h"
 #include "Encoder.h"

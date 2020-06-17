@@ -14,6 +14,7 @@ set(TGUI_DIR "${CMAKE_CURRENT_LIST_DIR}/${EXTERNAL_LIBRARIES_DIR}/TGUI-0.8/lib/c
 
 
 include_directories(include
+        include/Core
         include/States
         include/GUI
         include/GUI/Core
@@ -28,13 +29,12 @@ include_directories(include
         googletest/googlemock/include)
 
 set(SOURCE_FILES
-        src/main.cpp
-        src/Game.cpp
-        src/Window.cpp
+        src/Core/main.cpp
+        src/Core/Game.cpp
+        src/Core/Window.cpp
         src/States/StateMachine.cpp
         src/States/StateGame.cpp
         src/States/StateMenu.cpp
-        src/States/StateInit.cpp
         src/States/StateID.cpp
         src/ResourceManager/ResourceHolder.cpp
         src/ResourceManager/ResourceManager.cpp
@@ -49,15 +49,15 @@ set(SOURCE_FILES
         src/Encoder/Encoder.cpp
         src/Encoder/MapLoader.cpp
         src/Encoder/Utility/FileNameParser.cpp
-        src/Consts.cpp src/Entities/Entity.cpp
+        src/Core/Consts.cpp src/Entities/Entity.cpp
         src/Entities/Block.cpp
         src/Entities/Player/Player.cpp
-        src/Camera.cpp
+        src/Core/Camera.cpp
         src/Events/CollisionEvent.cpp
         src/Events/MovementEvent.cpp
         src/Entities/Objective.cpp
         src/Events/InputEvent.cpp
-        src/Settings.cpp
+        src/Core/Settings.cpp
         src/States/StateOptions.cpp
         src/GUI/OptionsGUI.cpp
         src/GUI/HUD/LivesHUD.cpp
@@ -68,7 +68,13 @@ set(SOURCE_FILES
         src/States/StatePaused.cpp
         src/GUI/PausedGUI.cpp
         src/GUI/PausedConfig.cpp
-        src/ActionMap.cpp include/ActionMap.h src/GUI/OptionsConfig.cpp include/GUI/OptionsConfig.h include/Action.h src/States/StateKeybinds.cpp include/States/StateKeybinds.h include/GUI/KeybindsGUI.h include/GUI/KeybindsConfig.h include/Overload.h src/States/StateRestart.cpp include/States/StateRestart.h src/GUI/RestartGUI.cpp include/GUI/RestartGUI.h src/GUI/RestartConfig.cpp include/GUI/RestartConfig.h)
+        src/Core/ActionMap.cpp
+        src/GUI/OptionsConfig.cpp
+        src/States/StateKeybinds.cpp
+        src/States/StateRestart.cpp
+        src/GUI/RestartGUI.cpp
+        src/GUI/RestartConfig.cpp
+    )
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

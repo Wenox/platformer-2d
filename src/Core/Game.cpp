@@ -1,11 +1,10 @@
-#include <States/StateGame.h>
-#include <States/StateInit.h>
-#include <States/StateMenu.h>
-#include <States/StateMapLoader.h>
-#include <States/StateOptions.h>
-#include <States/StatePaused.h>
-#include <States/StateKeybinds.h>
-#include <States/StateRestart.h>
+#include <StateGame.h>
+#include <StateMenu.h>
+#include <StateMapLoader.h>
+#include <StateOptions.h>
+#include <StatePaused.h>
+#include <StateKeybinds.h>
+#include <StateRestart.h>
 #include "Game.h"
 
 
@@ -16,7 +15,6 @@ Game::Game()
 }
 
 void Game::init() {
-    state::initID    = stateMachine.insert(std::make_shared<StateInit>(stateMachine, window));
     state::menuID    = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window, resources));
     state::loaderID  = stateMachine.insert(std::make_shared<StateMapLoader>(*this));
     state::optionsID = stateMachine.insert(std::make_shared<StateOptions>(stateMachine, window, resources.getTextures()));
