@@ -46,6 +46,18 @@ private:
     void checkLoseCondition();
     void checkWinCondition();
 
+    bool isInDrawRange(const Entity& entity) const;
+    bool playerFellToDeath() const;
+    void generateWorldFromBmp();
+    void generateWorldFromTxt();
+
+    void setEntitiesTextures();
+    void setBlocksTextures();
+    void setSpikesTextures();
+    void setCollectiblesTextures();
+
+    void restartGameLevel();
+
     StateMachine& stateMachine;
     ResourceManager& resources;
 
@@ -60,7 +72,7 @@ private:
     Window& window;
     Camera camera;
 
-    std::queue<res::Texture> queue;
+    std::queue<res::Texture> blocksQueue;
 
     std::unique_ptr<MovementEvent>  moveController;
     std::unique_ptr<CollisionEvent> collider;
@@ -69,26 +81,13 @@ private:
     LivesHUD livesHUD;
     FpsHUD   fpsHUD;
 
-    sf::Sprite bg;
+    sf::Sprite background;
 
     sf::Sound collectSound;
     sf::Sound deathSound;
-
-
-    bool isInDrawRange(const Entity& entity) const;
-    void generateWorldFromBmp();
-    void generateWorldFromTxt();
-
-    void setEntitiesTextures();
-    void setBlocksTextures();
-    void setSpikesTextures();
-    void setCollectiblesTextures();
-
-    void restartGameLevel();
-
-    std::string calcCurrentFps(float dt);
-
     sf::Music music;
+
+    const int bottomBorderHeight = consts::entityHeight * consts::blocksCountHeight;
 };
 
 

@@ -6,6 +6,7 @@
 namespace consts {
     constexpr std::string_view mapEditorPath  = "index.html";
     constexpr std::string_view defaultMapName = "map.bmp";
+    constexpr std::string_view gameMusic      = "../resources/sound/MaquinasOutpost2.ogg";
 
     constexpr auto initSoundVolume = 30.0f;
 

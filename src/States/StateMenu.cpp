@@ -50,9 +50,11 @@ void StateMenu::onCreate() {
 }
 
 void StateMenu::onActivate() {
-    stateMachine.setCameFrom(state::menuID);
-
     updateHoverSoundVolume();
+}
+
+void StateMenu::onDeactivate() {
+    stateMachine.setPreviousStateID(state::menuID);
 }
 
 void StateMenu::processInput() {

@@ -24,7 +24,7 @@ void StateOptions::onCreate() {
     });
 
     gui.widgets[to_underlying(Options::Btn::GoBack)]->connect("Pressed", [&]() {
-        stateMachine = stateMachine.getCameFrom();
+        stateMachine.switchToPreviousState();
     });
 
     gui.getGui().get("soundCheckBox")->connect("Clicked", [&]() {
@@ -51,7 +51,7 @@ void StateOptions::processInput() {
     gui.handleEvent(window.getEvent());
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
-        stateMachine = stateMachine.getCameFrom();
+        stateMachine.switchToPreviousState();
     }
 }
 

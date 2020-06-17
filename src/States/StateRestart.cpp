@@ -21,8 +21,10 @@ void StateRestart::onCreate() {
 
 void StateRestart::onActivate() {
     consts::playerWon ? gui.setWonTexture() : gui.setLostTexture();
+}
 
-    stateMachine.setCameFrom(state::restartID);
+void StateRestart::onDeactivate() {
+    stateMachine.setPreviousStateID(state::restartID);
 }
 
 void StateRestart::processInput() {

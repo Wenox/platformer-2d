@@ -22,8 +22,8 @@ void StatePaused::onCreate() {
     });
 
     gui.widgets[to_underlying(Paused::Btn::menu)]->connect("pressed", [&]() {
+        stateMachine.erase(state::gameID);
         stateMachine = state::menuID;
-        std::cout << "Dc\n";
     });
 
     for (auto& widget : gui.widgets) {
@@ -44,7 +44,7 @@ void StatePaused::onActivate() {
 }
 
 void StatePaused::onDeactivate() {
-    stateMachine.setCameFrom(state::pausedID);
+    stateMachine.setPreviousStateID(state::pausedID);
 }
 
 void StatePaused::processInput() {

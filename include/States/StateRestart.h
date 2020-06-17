@@ -10,6 +10,7 @@ public:
 
     void onCreate() override;
     void onActivate() override;
+    void onDeactivate() override;
 
     void processInput() override;
     void update(float) override;

@@ -9,7 +9,8 @@ class StateMachine {
 public:
 
     void switchTo(int stateID);
-    void switchToDefault();
+    void switchToPreviousState();
+    void switchToDefaultState();
 
 
     int insert(const std::shared_ptr<State>& state);
@@ -24,18 +25,18 @@ public:
     StateMachine& operator=(int stateID);
     StateMachine& operator+=(const std::shared_ptr<State>& s);
 
-    void setCameFrom(int id) {
-        cameFromState = id;
+    void setPreviousStateID(int stateID) {
+        previousStateID = stateID;
     }
 
-    int getCameFrom() const { return cameFromState; }
+    int getPreviousStateID() const { return previousStateID; }
 
 private:
     std::unordered_map<int, std::shared_ptr<State>> states{};
     std::shared_ptr<State> currentState{nullptr};
-    int currentStateID{1}; ///* todo: rename me */
 
-    int cameFromState{};
+    int currentInsertedID{1};
+    int previousStateID{};
 };
 
 

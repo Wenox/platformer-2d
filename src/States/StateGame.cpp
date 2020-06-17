@@ -11,18 +11,16 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
         , window{window}
         , camera{sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
         , livesHUD(window.getWindow(), resources.getTextures())
-        , bg(resources.getTextures()[res::Texture::BgGame])
+        , background(resources.getTextures()[res::Texture::BgGame])
         , collectSound(resources.getSounds()[res::Sound::Bullet])
         , deathSound(resources.getSounds()[res::Sound::Death])
 {
-    music.openFromFile("../resources/sound/MaquinasOutpost2.ogg");
+    music.openFromFile(consts::gameMusic.data());
 
     std::visit(overload{
-            [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
-            [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
+            [&](MapLoader<Bmp>&) { blocksQueue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
+            [&](MapLoader<Txt>&) { blocksQueue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
     }, mapLoader);
-
-    window.getWindow().setView(camera.getCameraView());
 }
 
 void StateGame::onCreate() {
@@ -53,8 +51,8 @@ void StateGame::setEntitiesTextures() {
 
 void StateGame::setBlocksTextures() {
     for (const auto& block : blocks) {
-        block->getSprite().setTexture(resources.getTextures()[queue.front()]);
-        queue.pop();
+        block->getSprite().setTexture(resources.getTextures()[blocksQueue.front()]);
+        blocksQueue.pop();
     }
 }
 
@@ -75,19 +73,18 @@ void StateGame::setCollectiblesTextures() {
 }
 
 void StateGame::onActivate() {
-    if (stateMachine.getCameFrom() == state::restartID) {
+    if (state::restartID == stateMachine.getPreviousStateID()) {
         restartGameLevel();
     }
 
     music.play();
     deathSound.setVolume(mySettings.volume);
     collectSound.setVolume(mySettings.volume);
-
-    stateMachine.setCameFrom(state::gameID);
 }
 
 void StateGame::onDeactivate() {
     music.pause();
+    stateMachine.setPreviousStateID(state::gameID);
 }
 
 void StateGame::onDestroy() {
@@ -145,7 +142,7 @@ void StateGame::updatePlayerLife() {
 }
 
 void StateGame::updateLoseLifeLogic() {
-    if (player.fellBelowMap()) {
+    if (playerFellToDeath()) {
         player.kill(livesHUD);
         deathSound.play();
     }
@@ -156,6 +153,10 @@ void StateGame::updateLoseLifeLogic() {
             deathSound.play();
         }
     }
+}
+
+bool StateGame::playerFellToDeath() const {
+    return player.top() > bottomBorderHeight;
 }
 
 void StateGame::updateGainLifeLogic() {
@@ -193,7 +194,7 @@ void StateGame::checkLoseCondition() {
 
 
 void StateGame::draw(Window& window) {
-    window.draw(bg);
+    window.draw(background);
     for (const auto& block : blocks) {
         if (isInDrawRange(*block)) {
             window.draw(*block);

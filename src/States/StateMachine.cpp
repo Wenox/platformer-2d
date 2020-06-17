@@ -16,8 +16,8 @@ void StateMachine::switchTo(int stateID) {
     }
 }
 
-void StateMachine::switchToDefault() {
-
+void StateMachine::switchToPreviousState() {
+    this->switchTo(previousStateID);
 }
 
 StateMachine& StateMachine::operator=(int stateID) {
@@ -26,9 +26,9 @@ StateMachine& StateMachine::operator=(int stateID) {
 }
 
 StateMachine& StateMachine::operator+=(const std::shared_ptr<State>& s) {
-    auto it = states.insert(std::make_pair(currentStateID, s));
+    auto it = states.insert(std::make_pair(currentInsertedID, s));
     it.first->second->onCreate();
-    currentStateID++;
+    ++currentInsertedID;
     return *this;
 }
 
@@ -44,17 +44,17 @@ void StateMachine::update(float dt) const {
     }
 }
 
-void StateMachine::draw(Window &window) const {
+void StateMachine::draw(Window& window) const {
     if (currentState) {
         currentState->draw(window);
     }
 }
 
 int StateMachine::insert(const std::shared_ptr<State>& state) {
-    auto it = states.insert(std::make_pair(currentStateID, state));
+    auto it = states.insert(std::make_pair(currentInsertedID, state));
     it.first->second->onCreate();
 
-    return currentStateID++;
+    return currentInsertedID++;
 }
 
 void StateMachine::erase(int stateID) {
@@ -67,7 +67,7 @@ void StateMachine::erase(int stateID) {
 
         it->second->onDestroy();
 
-        --currentStateID;
+        --currentInsertedID;
         states.erase(it);
     } else {
         std::cerr << "Cannot erase StateID: " << stateID << std::endl;

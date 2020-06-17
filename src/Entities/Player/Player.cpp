@@ -21,7 +21,7 @@ void Player::setVelocityY(float newVal) {
 }
 
 void Player::jumpFrame(float dt) {
-    sprite.move(0, velY * dt +  gravity * (dt * dt) * 0.5f);
+    sprite.move(0, velY * dt + gravity * (dt * dt) * 0.5f);
 
     if (velY > 1000) {
         velY = 1000;
@@ -54,9 +54,6 @@ void Player::hitCeilingUpdate() {
     this->setVelocityY(consts::hitCeilingVelocity);
 }
 
-bool Player::fellBelowMap() {
-    return this->top() > consts::windowHeight;
-}
 
 bool Player::isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const {
     for (std::size_t i = 0; i < blocks.size(); i++) { /** todo: range-based */

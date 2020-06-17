@@ -26,8 +26,6 @@ public:
     void landOnGroundUpdate();
     void hitCeilingUpdate();
 
-    bool fellBelowMap();
-
     bool isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const;
 
     bool isIntersecting(const Spike& entity) const {
@@ -76,6 +74,8 @@ private:
 
     constexpr static auto detectorRange = 5.0f;
     float position;
+
+
 };
 
 
