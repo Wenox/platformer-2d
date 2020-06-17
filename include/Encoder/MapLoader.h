@@ -7,6 +7,8 @@
 #include "TxtReader.h"
 #include "Encoder.h"
 
+#include "Overload.h"
+
 
 class ILoader {
 public:
@@ -20,12 +22,8 @@ public:
     ILoader& operator=(ILoader&&) = default;
 };
 
-
-struct Bmp {};
-struct Txt {};
-
-#include "Overload.h"
-
+struct Bmp{};
+struct Txt{};
 
 template <typename FileType>
 class MapLoader : public ILoader {

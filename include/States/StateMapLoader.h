@@ -1,19 +1,19 @@
 #pragma once
 
+#include "ResourceManager.h"
 #include "MapLoaderGUI.h"
-#include "Game.h"
 #include "MapLoader.h"
+#include "StateMachine.h"
 
 
 class StateMapLoader : public State {
 public:
-
-    explicit StateMapLoader(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager);
+    StateMapLoader(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager);
 
     void onCreate() override;
-
     void onActivate() override;
 
+    void processInput() override;
     void update(float) override;
     void draw(Window&) override;
 
@@ -23,10 +23,11 @@ private:
     ResourceManager& resources;
 
     MapLoaderGUI gui;
-    std::string mapName{};
 
     std::optional<std::variant<MapLoader<Bmp>, MapLoader<Txt>>> mapLoader;
 
-    void setLoadMapBtn();
-    static void printHelp(std::ostream& ost) ;
+    void setMapLoaderButton();
+    void createGameFrom(std::string_view mapName);
+
+    static void printHelp(std::ostream& ost);
 };

@@ -1,76 +1,24 @@
 #pragma once
 
 #include <SFML/Audio/Sound.hpp>
-#include <GUI/PausedGUI.h>
-#include <ResourceManager/ResourceManager.h>
-#include <Core/Settings.h>
-#include "Resources.h"
+#include "PausedGUI.h"
+#include "ResourceManager.h"
 #include "StateMachine.h"
 #include "StateID.h"
 
 
 class StatePaused : public State {
 public:
-    StatePaused(StateMachine& stateMachine, Window& window, ResourceManager& resources)
-            : stateMachine{stateMachine}
-            , window{window}
-            , pausedView{{320, 288}, {604, 576}}
-            , gui{window}
-    {
-        background.setTexture(resources.getTextures()[res::Texture::BgPaused]);
-        onHoverBtnSound.setBuffer(resources.getSounds()[res::Sound::Bing]);
-    }
+    StatePaused(StateMachine& stateMachine, Window& window, ResourceManager& resources);
 
-    void onCreate() override {
-        gui.widgets[to_underlying(Paused::Btn::resume)]->connect("pressed", [&]() {
-            stateMachine = state::gameID;
-        });
+    void onCreate() override;
 
-        gui.widgets[to_underlying(Paused::Btn::options)]->connect("pressed", [&]() {
-            stateMachine = state::optionsID;
-        });
+    void onActivate() override;
+    void onDeactivate() override;
 
-        gui.widgets[to_underlying(Paused::Btn::menu)]->connect("pressed", [&]() {
-            stateMachine = state::menuID;
-        });
-
-        for (auto& widget : gui.widgets) {
-            widget->connect("MouseEntered", [&]() {
-                onHoverBtnSound.play();
-            });
-        }
-    }
-
-    void onActivate() override {
-        window.getWindow().setView(pausedView);
-
-        if (mySettings.isSoundEnabled) {
-            onHoverBtnSound.setVolume(mySettings.volume);
-        } else {
-            onHoverBtnSound.setVolume(0.0f);
-        }
-    }
-
-    void onDeactivate() override {
-        stateMachine.setCameFrom(state::pausedID);
-    }
-
-    void processInput() override {
-        gui.handleEvent(window.getEvent());
-    }
-
-    void update(float dt) override {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LBracket)) {
-            stateMachine = state::gameID;
-        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-            stateMachine = state::menuID;
-        }
-    }
-
-    void draw(Window& window) override {
-        this->window.draw(background);
-        gui.draw();
-    }
+    void processInput() override;
+    void update(float) override;
+    void draw(Window&) override;
 
 private:
     StateMachine& stateMachine;

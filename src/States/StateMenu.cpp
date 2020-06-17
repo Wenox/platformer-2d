@@ -1,5 +1,4 @@
-#include <Encoder/Utility/FileNameParser.h>
-#include <States/StateGame.h>
+#include "MapNameValidator.h"
 #include "StateID.h"
 #include "StateMenu.h"
 
@@ -19,7 +18,7 @@ void StateMenu::onCreate() {
     });
 
     gui.widgets[to_underlying(Menu::Btn::newGame)]->connect("pressed", [&]() {
-        if (FileNameParser mapFile{consts::defaultMapName.data()}; mapFile.isValidFormat() and mapFile.exists()) {
+        if (MapNameValidator mapFile{consts::defaultMapName.data()}; mapFile.isValidFormat() and mapFile.exists()) {
             if (mapFile.isBmp()) mapLoader = std::make_optional<MapLoader<Bmp>>(consts::defaultMapName.data());
             if (mapFile.isTxt()) mapLoader = std::make_optional<MapLoader<Txt>>(consts::defaultMapName.data());
 
@@ -53,17 +52,25 @@ void StateMenu::onCreate() {
 void StateMenu::onActivate() {
     stateMachine.setCameFrom(state::menuID);
 
+    updateHoverSoundVolume();
+}
+
+void StateMenu::processInput() {
+    gui.handleEvent(window.getEvent());
+}
+
+void StateMenu::update(float) {
+
+}
+
+void StateMenu::draw(Window&) {
+    gui.draw();
+}
+
+void StateMenu::updateHoverSoundVolume() {
     if (mySettings.isSoundEnabled) {
         onHoverBtnSound.setVolume(mySettings.volume);
     } else {
         onHoverBtnSound.setVolume(0.0f);
     }
-}
-
-void StateMenu::update(float dt) {
-    gui.handleEvent(window.getEvent());
-}
-
-void StateMenu::draw(Window&) {
-    gui.draw();
 }

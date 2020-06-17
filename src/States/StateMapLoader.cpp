@@ -1,7 +1,7 @@
 #include "StateMapLoader.h"
 #include "StateID.h"
 #include "StateGame.h"
-#include "FileNameParser.h"
+#include "MapNameValidator.h"
 
 #ifdef _WIN32
     #include <windows.h>
@@ -37,7 +37,7 @@ void StateMapLoader::onCreate() {
         }
     });
 
-    setLoadMapBtn();
+    setMapLoaderButton();
 }
 
 void StateMapLoader::printHelp(std::ostream& ost) {
@@ -49,30 +49,37 @@ void StateMapLoader::onActivate() {
     gui.setBadMapLabelVisible(false);
 }
 
-void StateMapLoader::update(float) {
+void StateMapLoader::processInput() {
     gui.handleEvent(window.getEvent());
+}
+
+void StateMapLoader::update(float) {
+
 }
 
 void StateMapLoader::draw(Window&) {
     gui.draw();
 }
 
-void StateMapLoader::setLoadMapBtn() {
+void StateMapLoader::setMapLoaderButton() {
     gui.widgets[to_underlying(Loader::Btn::loadMap)]->connect("Pressed", [&]() {
-        mapName = gui.getMapName();
         gui.animateBadMapLabel();
-
-        if (FileNameParser mapFile{mapName}; mapFile.isValidFormat() and mapFile.exists()) {
-            if (mapFile.isBmp()) mapLoader = std::make_optional<MapLoader<Bmp>>(mapName);
-            if (mapFile.isTxt()) mapLoader = std::make_optional<MapLoader<Txt>>(mapName);
-
-            state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, mapLoader.value(), window));
-            stateMachine = state::gameID;
-        }
-        else {
-            std::cerr << "Map file: " << mapName << " does not exist!\n";
-            gui.setBadMapLabelVisible(true);
-            gui.clearMapNameBoxWithPrompt();
-        }
+        createGameFrom(gui.getMapName());
     });
+}
+
+void StateMapLoader::createGameFrom(std::string_view mapName) {
+    if (MapNameValidator mapFile{mapName}; mapFile.isValidFormat() and mapFile.exists()) {
+
+        if (mapFile.isBmp()) mapLoader = std::make_optional<MapLoader<Bmp>>(mapName.data());
+        if (mapFile.isTxt()) mapLoader = std::make_optional<MapLoader<Txt>>(mapName.data());
+
+        state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, mapLoader.value(), window));
+        stateMachine = state::gameID;
+    }
+    else {
+        std::clog << "Map file: " << mapName << " does not exist!" << std::endl;
+        gui.setBadMapLabelVisible(true);
+        gui.clearMapNameBoxWithPrompt();
+    }
 }
