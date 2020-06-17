@@ -19,7 +19,6 @@ public:
     : stateMachine{stateMachine}
     , window{window}
     , gui{window}
-    , bg{textures[res::Texture::BgOptions]}
     , cornersTextures{{textures[res::Texture::OptionsLeftTopCorner],
                        textures[res::Texture::OptionsLeftBotCorner],
                        textures[res::Texture::OptionsRightBotCorner],
@@ -59,6 +58,7 @@ public:
     }
 
     void onActivate() override {
+
     }
 
     void processInput() override {
@@ -76,7 +76,6 @@ public:
     }
 
     void draw(Window& window) override {
-        this->window.draw(bg);
         for (auto& corner : corners) {
             this->window.draw(corner);
         }
@@ -88,8 +87,6 @@ private:
     Window& window;
 
     OptionsGUI gui;
-
-    sf::Sprite bg;
 
     std::array<std::reference_wrapper<sf::Texture>, 4> cornersTextures;
     std::array<sf::Sprite, 4> corners;

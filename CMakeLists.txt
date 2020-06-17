@@ -77,7 +77,7 @@ set(SOURCE_FILES
     )
 
 
-find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)
+find_package(SFML 2.5.1 COMPONENTS graphics audio network  REQUIRED)
 find_package(TGUI 0.8 REQUIRED)
 
 

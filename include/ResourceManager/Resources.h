@@ -24,7 +24,7 @@ namespace res {
         Heart,
         HeartEmpty,
 
-        BgClouds,
+        BgGame,
         BgPaused,
         BgOptions,
 
@@ -46,6 +46,6 @@ namespace res {
     };
 
     enum class Music {
-        Ambient
+        Arcade
     };
 }

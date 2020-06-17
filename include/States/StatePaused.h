@@ -48,6 +48,10 @@ public:
         window.getWindow().setView(pausedView);
     }
 
+    void onDeactivate() override {
+        stateMachine.setCameFrom(state::pausedID);
+    }
+
     void processInput() override {
         gui.handleEvent(window.getEvent());
     }

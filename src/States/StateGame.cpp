@@ -11,11 +11,11 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
     , window{window}
     , camera{sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
     , livesHUD(window.getWindow(), resources.getTextures())
-    , bg(resources.getTextures()[res::Texture::BgClouds])
+    , bg(resources.getTextures()[res::Texture::BgGame])
     , sound(resources.getSounds().get(res::Sound::Bullet))
     , deathSound(resources.getSounds().get(res::Sound::Death))
+    , music{resources.getMusic()[res::Music::Arcade]}
 {
-    bg.scale(1.4, 1.4);
     std::visit(overload{
             [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
             [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
@@ -30,47 +30,70 @@ void StateGame::onCreate() {
             [&](MapLoader<Txt>&) { generateWorldFromTxt(); }
     }, mapLoader);
 
-    for (auto& block : blocks) {
-        block->getSprite().setTexture(resources.getTextures().get(queue.front()));
-        queue.pop();
-    }
-
-    for (auto& spike : spikes) {
-        spike->getSprite().setTexture(resources.getTextures().get(res::Texture::Spike));
-        spike->setTextureDirection();
-    }
-
-    for (auto& heart : hearts) {
-        /** todo: set texture during construction of hearts */
-        heart->getSprite().setTexture(resources.getTextures()[res::Texture::Heart]);
-    }
-
-    player.getSprite().setTexture(resources.getTextures().get(res::Texture::Player)); /** todo: direct setter */
-    objective.getSprite().setTexture(resources.getTextures().get(res::Texture::Objective));
+    this->setEntitiesTextures();
 
     camera.setController(player);
 
     moveController = std::make_unique<MovementEvent>(player, blocks);
-    collider = std::make_unique<CollisionEvent>(player, blocks);
-    inputEvent = std::make_unique<InputEvent>(player, resources, window);
+    collider       = std::make_unique<CollisionEvent>(player, blocks);
+    inputEvent     = std::make_unique<InputEvent>(player, resources, window);
 
     prepareFPS();
 }
 
 
-void StateGame::onDestroy() {
+void StateGame::setEntitiesTextures() {
+    this->setBlocksTextures();
+    this->setSpikesTextures();
+    this->setCollectiblesTextures();
 
+    player.getSprite().setTexture(resources.getTextures().get(res::Texture::Player)); /** todo: direct setter */
+    objective.getSprite().setTexture(resources.getTextures().get(res::Texture::Objective));
 }
 
-void StateGame::onActivate() {
 
-    stateMachine.setCameFrom(state::gameID);
-
-    if (activationCounter++ != 0) {
-        restartGameLevel();
+void StateGame::setBlocksTextures() {
+    for (const auto& block : blocks) {
+        block->getSprite().setTexture(resources.getTextures()[queue.front()]);
+        queue.pop();
     }
 }
 
+void StateGame::setSpikesTextures() {
+    const auto& spikeTexture = resources.getTextures()[res::Texture::Spike];
+    for (const auto& spike : spikes) {
+        spike->getSprite().setTexture(spikeTexture);
+        spike->setTextureDirection();
+    }
+}
+
+void StateGame::setCollectiblesTextures() {
+    const auto& heartTexture = resources.getTextures()[res::Texture::Heart];
+    for (const auto& heart : hearts) {
+        /** todo: set texture during construction of hearts */
+        heart->getSprite().setTexture(heartTexture);
+    }
+}
+
+
+
+void StateGame::onActivate() {
+    music.play();
+
+    if (activationCounter++ != 0 and stateMachine.getCameFrom() != state::pausedID) {
+        restartGameLevel();
+    }
+
+    stateMachine.setCameFrom(state::gameID);
+}
+
+void StateGame::onDeactivate() {
+    music.pause();
+}
+
+void StateGame::onDestroy() {
+    music.stop();
+}
 
 
 void StateGame::restartGameLevel() {
@@ -89,13 +112,6 @@ void StateGame::restartGameLevel() {
 }
 
 void StateGame::processInput() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
-        stateMachine.switchTo(state::initID);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
-        stateMachine.switchTo(state::menuID);
-    }
-
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
         stateMachine = state::pausedID;
     }

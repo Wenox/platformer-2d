@@ -50,12 +50,7 @@ void StateMenu::onDeactivate() {
 }
 
 void StateMenu::processInput() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
-        stateMachine = state::initID;
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
-        stateMachine = state::restartID;
-    }
+
 }
 
 void StateMenu::update(float dt) {

@@ -2,8 +2,7 @@
 
 
 void OptionsGUI::buildGUI() {
-    /** todo: try removing bg from PausedState and use it here instead */
-//    gui.add(tgui::Picture::create("../resources/background.jpg"));
+    gui.add(tgui::Picture::create("../resources/test8.png"));
 
     auto myPanel = tgui::Panel::create({290, 150});
     myPanel->setPosition(174,40);

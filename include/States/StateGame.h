@@ -28,6 +28,7 @@ public:
     void onDestroy() override;
 
     void onActivate() override;
+    void onDeactivate() override;
 
     void processInput() override;
     void update(float dt) override;
@@ -60,6 +61,7 @@ private:
 
     sf::Sound sound;
     sf::Sound deathSound;
+    sf::Music& music;
 
     sf::Font font;
     sf::Text fps;
@@ -69,6 +71,11 @@ private:
     bool isInDrawRange(const Entity& entity) const;
     void generateWorldFromBmp();
     void generateWorldFromTxt();
+
+    void setEntitiesTextures();
+    void setBlocksTextures();
+    void setSpikesTextures();
+    void setCollectiblesTextures();
 
     void restartGameLevel();
     void prepareFPS();

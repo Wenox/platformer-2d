@@ -40,7 +40,7 @@ void ResourceManager::loadTextures() {
 
     textures.insert(res::Texture::Spike,  "spike.png");
 
-    textures.insert(res::Texture::BgClouds, "violet.jpg");
+    textures.insert(res::Texture::BgGame, "violet.jpg");
 
     textures.insert(res::Texture::BgPaused, "pausedBg2.png");
     textures.insert(res::Texture::BgOptions, "test8.png");
@@ -62,6 +62,5 @@ void ResourceManager::loadSounds() {
 }
 
 void ResourceManager::loadMusic() {
-//    music.insert(res::Music::Ambient, "boing.wav");
-//    music.insert(res::Music::Ambient, "boing_bad.wav");
+    music.insert(res::Music::Arcade, "MaquinasOutpost2.ogg");
 }
