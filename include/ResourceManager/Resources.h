@@ -28,6 +28,8 @@ namespace res {
         BgPaused,
         BgOptions,
 
+        AboutInfo,
+
         Spike,
 
         OptionsLeftTopCorner,

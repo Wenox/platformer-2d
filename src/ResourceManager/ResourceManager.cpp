@@ -2,7 +2,12 @@
 
 
 ResourceManager::ResourceManager() {
-    loadResources();
+    try {
+        loadResources();
+    } catch (std::exception& e) {
+        std::cerr << e.what() << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
 }
 
 void ResourceManager::loadResources() {
@@ -45,6 +50,7 @@ void ResourceManager::loadTextures() {
     textures.insert(res::Texture::BgPaused, "pausedBg2.png");
     textures.insert(res::Texture::BgOptions, "test8.png");
 
+    textures.insert(res::Texture::AboutInfo, "About.png");
 
     textures.insert(res::Texture::OptionsLeftTopCorner, "corner-left-top.png");
     textures.insert(res::Texture::OptionsLeftBotCorner, "corner-left-bot.png");

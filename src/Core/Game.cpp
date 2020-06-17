@@ -5,6 +5,7 @@
 #include <StatePaused.h>
 #include <StateKeybinds.h>
 #include <StateRestart.h>
+#include <States/StateAbout.h>
 #include "Game.h"
 
 
@@ -15,12 +16,13 @@ Game::Game()
 }
 
 void Game::init() {
-    state::menuID    = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window, resources));
-    state::loaderID  = stateMachine.insert(std::make_shared<StateMapLoader>(*this));
-    state::optionsID = stateMachine.insert(std::make_shared<StateOptions>(stateMachine, window, resources.getTextures()));
+    state::menuID     = stateMachine.insert(std::make_shared<StateMenu>(stateMachine, window, resources));
+    state::loaderID   = stateMachine.insert(std::make_shared<StateMapLoader>(stateMachine, window, resources));
+    state::optionsID  = stateMachine.insert(std::make_shared<StateOptions>(stateMachine, window, resources.getTextures()));
     state::keybindsID = stateMachine.insert(std::make_shared<StateKeybinds>(stateMachine, window));
-    state::pausedID  = stateMachine.insert(std::make_shared<StatePaused>(stateMachine, window, resources));
-    state::restartID = stateMachine.insert(std::make_shared<StateRestart>(stateMachine, window, resources));
+    state::pausedID   = stateMachine.insert(std::make_shared<StatePaused>(stateMachine, window, resources));
+    state::restartID  = stateMachine.insert(std::make_shared<StateRestart>(stateMachine, window, resources));
+    state::aboutID    = stateMachine.insert(std::make_shared<StateAbout>(stateMachine, resources));
 
     stateMachine.switchTo(state::menuID);
 }

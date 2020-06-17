@@ -2,12 +2,12 @@
 
 
 FileNameParser::FileNameParser(std::string fileName)
-    : fileName{fileName}
+    : fileName{std::move(fileName)}
 {
     try {
         re.assign(fileNamePattern.data());
     }
-    catch (const std::regex_error &e) {
+    catch (const std::regex_error& e) {
         std::cerr << "Bad pattern: " << fileNamePattern << std::endl;
         std::cerr << e.what() << std::endl;
     }

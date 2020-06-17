@@ -8,7 +8,7 @@
 class StateMapLoader : public State {
 public:
 
-    explicit StateMapLoader(Game& game);
+    explicit StateMapLoader(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager);
 
     void onCreate() override;
     void onDestroy() override;

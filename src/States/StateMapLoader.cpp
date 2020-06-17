@@ -8,10 +8,10 @@
 #endif
 
 
-StateMapLoader::StateMapLoader(Game& game)
-    : stateMachine{game.getStateMachine()}
-    , window{game.getWindow()}
-    , resources{game.getResources()}
+StateMapLoader::StateMapLoader(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager)
+    : stateMachine{stateMachine}
+    , window{window}
+    , resources{resourceManager}
     , gui{window}
 {}
 
@@ -25,6 +25,7 @@ void StateMapLoader::onCreate() {
         stateMachine = state::gameID;
 #endif
     });
+
     gui.widgets[to_underlying(Loader::Btn::goBack)]->connect("Pressed", [&]() {
         stateMachine = state::menuID;
     });

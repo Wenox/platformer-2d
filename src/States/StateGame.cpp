@@ -15,6 +15,7 @@ StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std
         , collectSound(resources.getSounds().get(res::Sound::Bullet))
         , deathSound(resources.getSounds().get(res::Sound::Death))
 {
+    music.openFromFile("../resources/sound/MaquinasOutpost2.ogg");
     std::visit(overload{
             [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
             [&](MapLoader<Txt>&) { queue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
@@ -65,16 +66,15 @@ void StateGame::setSpikesTextures() {
 }
 
 void StateGame::setCollectiblesTextures() {
-    const auto& heartTexture = resources.getTextures()[res::Texture::Heart];
-    for (const auto& heart : hearts) {
+    const auto &heartTexture = resources.getTextures()[res::Texture::Heart];
+    for (const auto &heart : hearts) {
         /** todo: set texture during construction of hearts */
         heart->getSprite().setTexture(heartTexture);
     }
 }
 
-
-
 void StateGame::onActivate() {
+    music.play();
     deathSound.setVolume(mySettings.volume);
     collectSound.setVolume(mySettings.volume);
 
@@ -87,11 +87,11 @@ void StateGame::onActivate() {
 }
 
 void StateGame::onDeactivate() {
-//    music.pause();
+    music.pause();
 }
 
 void StateGame::onDestroy() {
-//    music.stop();
+    music.stop();
 }
 
 

@@ -20,6 +20,10 @@ void StateMenu::onCreate() {
         stateMachine = state::optionsID;
     });
 
+    gui.widgets[to_underlying(Menu::Btn::about)]->connect("pressed", [&]() {
+        stateMachine = state::aboutID;
+    });
+
     gui.widgets[to_underlying(Menu::Btn::exit)]->connect("pressed", [&]() {
         window.close();
     });

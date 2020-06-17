@@ -1,6 +1,5 @@
 #include "Window.h"
 #include <SFML/Window/Event.hpp>
-#include <iostream>
 
 
 Window::Window(const std::string& windowName)

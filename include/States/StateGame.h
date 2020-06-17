@@ -77,7 +77,9 @@ private:
 
     void restartGameLevel();
 
-    std::string calcCurrentFps(float dt);
+    std::string calcCurrentFps(float dt);\
+
+    sf::Music music;
 };
 
 

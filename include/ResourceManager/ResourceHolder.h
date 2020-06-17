@@ -7,7 +7,6 @@
 #include <iomanip>
 #include <concepts>
 
-//clangd
 
 template <typename Key, typename Resource>
 #if (__cplusplus == 202002L)
@@ -118,6 +117,6 @@ private:
     void msgErrorLoading(std::string_view fileName) {
         std::cerr << "Failed loading resource: "
                      "{ Type: "    << std::quoted(typeid(Resource).name()) << ", "
-                                                                              "File name: " << std::quoted(fileName)                << " }" << std::endl;
+                     "File name: " << std::quoted(fileName)                << " }" << std::endl;
     }
 };
