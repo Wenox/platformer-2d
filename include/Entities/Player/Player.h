@@ -30,16 +30,16 @@ public:
 
     bool isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const;
 
-    bool isIntersecting(const Spike& entity) {
+    bool isIntersecting(const Spike& entity) const {
         return this->getGlobalBounds().intersects(entity.getGlobalBounds());
     }
 
     /** todo: use one interface */
-    bool isIntersecting(const HeartCollectible& entity) {
+    bool isIntersecting(const HeartCollectible& entity) const {
         return this->getGlobalBounds().intersects(entity.getGlobalBounds());
     }
 
-    bool isIntersecting(const Objective& entity) {
+    bool isIntersecting(const Objective& entity) const {
         return this->getGlobalBounds().intersects(entity.getGlobalBounds());
     }
 

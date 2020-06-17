@@ -120,6 +120,16 @@ void StateGame::processInput() {
 }
 
 void StateGame::update(float dt) {
+    updatePhysics(dt);
+
+    window.updateView(camera.getCameraView());
+    fpsHUD.update(dt);
+
+    updatePlayerLife();
+    updateGameStatus();
+}
+
+void StateGame::updatePhysics(float dt) {
     moveController->updateAxisX(dt);
     collider->updateAxisX(dt);
     camera.updateX();
@@ -127,22 +137,6 @@ void StateGame::update(float dt) {
     moveController->updateAxisY(dt);
     collider->updateAxisY(dt);
     camera.updateY();
-
-    updateLoseLifeLogic();
-
-    window.getWindow().setView(camera.getCameraView());
-
-    if (livesHUD.isDead()) {
-        consts::playerWon = false;
-        stateMachine = state::restartID;
-    }
-
-    if (player.isIntersecting(objective)) {
-        consts::playerWon = true;
-        stateMachine = state::restartID;
-    }
-
-    fpsHUD.setValue(std::move(calcCurrentFps(dt)));
 }
 
 void StateGame::updatePlayerLife() {
@@ -166,19 +160,37 @@ void StateGame::updateLoseLifeLogic() {
 
 void StateGame::updateGainLifeLogic() {
     for (const auto& heart : hearts) {
-        if (!heart->wasCollected()) {
-            if (player.isIntersecting(*heart) and !livesHUD.hasAllLives()) {
-                collectSound.play();
-                livesHUD.increaseLife();
-                heart->setCollected(true);
-            }
+        if (canCollect(*heart)) {
+            livesHUD.increaseLife();
+            heart->setCollected(true);
+            collectSound.play();
         }
     }
 }
 
-std::string StateGame::calcCurrentFps(float dt) {
-    return std::to_string(static_cast<int>(1 / dt));
-};
+bool StateGame::canCollect(const HeartCollectible& heart) {
+    return !heart.wasCollected() and player.isIntersecting(heart) and !livesHUD.hasAllLives();
+}
+
+void StateGame::updateGameStatus() {
+    checkLoseCondition();
+    checkWinCondition();
+}
+
+void StateGame::checkWinCondition() {
+    if (player.isIntersecting(objective)) {
+        consts::playerWon = true;
+        stateMachine = state::restartID;
+    }
+}
+
+void StateGame::checkLoseCondition() {
+    if (livesHUD.isDead()) {
+        consts::playerWon = false;
+        stateMachine = state::restartID;
+    }
+}
+
 
 void StateGame::draw(Window& window) {
     window.draw(bg);
@@ -209,7 +221,7 @@ void StateGame::draw(Window& window) {
 
 bool StateGame::isInDrawRange(const Entity& entity) const {
     return std::abs(entity.left() - player.left()) < 640.0f
-           && std::abs(entity.top()  - player.top())  < 576.0f;
+        && std::abs(entity.top()  - player.top())  < 576.0f;
 }
 
 void StateGame::generateWorldFromBmp() {

@@ -41,6 +41,9 @@ bool Window::isOpen() const {
     return window.isOpen();
 }
 
+void Window::updateView(const sf::View& view) {
+    window.setView(view);
+}
 void Window::setWindowIcon() {
     sf::Image icon;
     if (!icon.loadFromFile("../resources/icon.png")) {

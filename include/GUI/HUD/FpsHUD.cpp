@@ -9,9 +9,13 @@ void FpsHUD::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(fps, states);
 }
 
-void FpsHUD::setValue(const std::string& fpsValue) {
-    fps.setString(fpsValue);
+void FpsHUD::update(float dt) {
+    fps.setString(calcCurrentFps(dt));
 }
+
+std::string FpsHUD::calcCurrentFps(float dt) {
+    return std::to_string(static_cast<int>(1 / dt));
+};
 
 void FpsHUD::setFont() {
     if (!font.loadFromFile("../resources/CascadiaCode.ttf"))

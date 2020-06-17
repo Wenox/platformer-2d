@@ -18,12 +18,13 @@ public:
 
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-    void setValue(const std::string& fpsValue);
+    void update(float dt);
 
 private:
     sf::Font font;
     sf::Text fps;
 
+    std::string calcCurrentFps(float dt);
     void setFont();
     void setFps();
 };

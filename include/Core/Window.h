@@ -25,6 +25,8 @@ public:
     void close();
     bool isOpen() const;
 
+    void updateView(const sf::View& view);
+
 private:
     sf::RenderWindow window;
     std::queue<sf::Event> events;

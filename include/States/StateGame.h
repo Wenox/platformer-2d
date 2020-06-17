@@ -36,9 +36,15 @@ public:
     void draw(Window& window) override;
 
 private:
+    void updatePhysics(float dt);
     void updatePlayerLife();
     void updateGainLifeLogic();
     void updateLoseLifeLogic();
+    bool canCollect(const HeartCollectible& heart);
+
+    void updateGameStatus();
+    void checkLoseCondition();
+    void checkWinCondition();
 
     StateMachine& stateMachine;
     ResourceManager& resources;
