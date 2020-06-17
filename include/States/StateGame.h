@@ -61,7 +61,6 @@ private:
 
     sf::Sound sound;
     sf::Sound deathSound;
-    sf::Music& music;
 
     sf::Font font;
     sf::Text fps;

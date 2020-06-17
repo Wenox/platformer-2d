@@ -74,10 +74,10 @@ set(SOURCE_FILES
         src/States/StateRestart.cpp
         src/GUI/RestartGUI.cpp
         src/GUI/RestartConfig.cpp
-    )
+        )
 
 
-find_package(SFML 2.5.1 COMPONENTS graphics audio network  REQUIRED)
+find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)
 find_package(TGUI 0.8 REQUIRED)
 
 
@@ -93,8 +93,8 @@ target_link_libraries(${PROJECT_NAME} ${PROJECT_LIBRARIES})
 
 # copy the sfml libraries into the build directory
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   "${CMAKE_CURRENT_LIST_DIR}/${SHARED_LIBRARIES_DIR}/"
-                   $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_CURRENT_LIST_DIR}/${SHARED_LIBRARIES_DIR}/"
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 
 add_subdirectory(test)

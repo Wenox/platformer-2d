@@ -5,16 +5,15 @@
 
 
 StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader, Window& window)
-    : stateMachine{stateMachine}
-    , resources{resources}
-    , mapLoader{mapLoader}
-    , window{window}
-    , camera{sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
-    , livesHUD(window.getWindow(), resources.getTextures())
-    , bg(resources.getTextures()[res::Texture::BgGame])
-    , sound(resources.getSounds().get(res::Sound::Bullet))
-    , deathSound(resources.getSounds().get(res::Sound::Death))
-    , music{resources.getMusic()[res::Music::Arcade]}
+        : stateMachine{stateMachine}
+        , resources{resources}
+        , mapLoader{mapLoader}
+        , window{window}
+        , camera{sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
+        , livesHUD(window.getWindow(), resources.getTextures())
+        , bg(resources.getTextures()[res::Texture::BgGame])
+        , sound(resources.getSounds().get(res::Sound::Bullet))
+        , deathSound(resources.getSounds().get(res::Sound::Death))
 {
     std::visit(overload{
             [&](MapLoader<Bmp>&) { queue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
@@ -78,7 +77,6 @@ void StateGame::setCollectiblesTextures() {
 
 
 void StateGame::onActivate() {
-    music.play();
 
     if (activationCounter++ != 0 and stateMachine.getCameFrom() != state::pausedID) {
         restartGameLevel();
@@ -88,11 +86,9 @@ void StateGame::onActivate() {
 }
 
 void StateGame::onDeactivate() {
-    music.pause();
 }
 
 void StateGame::onDestroy() {
-    music.stop();
 }
 
 
@@ -201,7 +197,7 @@ void StateGame::prepareFPS() {
 
 bool StateGame::isInDrawRange(const Entity& entity) const {
     return std::abs(entity.left() - player.left()) < 640.0f
-        && std::abs(entity.top()  - player.top())  < 576.0f;
+           && std::abs(entity.top()  - player.top())  < 576.0f;
 }
 
 void StateGame::generateWorldFromBmp() {
@@ -232,7 +228,7 @@ void StateGame::generateWorldFromBmp() {
                 break;
             case Obj::Entity::HeartCollectible:
                 hearts.push_back(std::move(std::make_unique<HeartCollectible>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                       static_cast<float>(j * consts::entityHeight)})));
+                                                                                           static_cast<float>(j * consts::entityHeight)})));
                 break;
             case Obj::Entity::Spike:
                 spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::Spike, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
@@ -252,7 +248,7 @@ void StateGame::generateWorldFromBmp() {
                 break;
             default:
                 auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                        static_cast<float>(j * consts::entityHeight)});
+                                                                     static_cast<float>(j * consts::entityHeight)});
                 blocks.push_back(std::move(newBlock));
                 u++;
                 break;
@@ -291,19 +287,19 @@ void StateGame::generateWorldFromTxt() {
                 break;
             case Obj::Entity::Spike:
                 spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::Spike, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                     static_cast<float>(j * consts::entityHeight)})));
+                                                                                                    static_cast<float>(j * consts::entityHeight)})));
                 break;
             case Obj::Entity::SpikeLeft:
                 spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeLeft, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                    static_cast<float>(j * consts::entityHeight)})));
+                                                                                                        static_cast<float>(j * consts::entityHeight)})));
                 break;
             case Obj::Entity::SpikeRight:
                 spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeRight, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                    static_cast<float>(j * consts::entityHeight)})));
+                                                                                                         static_cast<float>(j * consts::entityHeight)})));
                 break;
             case Obj::Entity::SpikeTop:
                 spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeTop, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                    static_cast<float>(j * consts::entityHeight)})));
+                                                                                                       static_cast<float>(j * consts::entityHeight)})));
                 break;
             default:
                 auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),

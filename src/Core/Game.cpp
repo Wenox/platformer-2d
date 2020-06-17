@@ -9,7 +9,7 @@
 
 
 Game::Game()
-    : window{"Platformer"}
+        : window{"Platformer"}
 {
     this->init();
 }

@@ -16,13 +16,13 @@ private:
 
 public:
     StateOptions(StateMachine& stateMachine, Window& window, ResourceHolder<res::Texture, sf::Texture>& textures)
-    : stateMachine{stateMachine}
-    , window{window}
-    , gui{window}
-    , cornersTextures{{textures[res::Texture::OptionsLeftTopCorner],
-                       textures[res::Texture::OptionsLeftBotCorner],
-                       textures[res::Texture::OptionsRightBotCorner],
-                       textures[res::Texture::OptionsRightTopCorner]}}
+            : stateMachine{stateMachine}
+            , window{window}
+            , gui{window}
+            , cornersTextures{{textures[res::Texture::OptionsLeftTopCorner],
+                               textures[res::Texture::OptionsLeftBotCorner],
+                               textures[res::Texture::OptionsRightBotCorner],
+                               textures[res::Texture::OptionsRightTopCorner]}}
     {
         for (int i = 0; i < cornersTextures.size(); ++i) {
             corners.at(i).setTexture(cornersTextures.at(i).get());

@@ -62,5 +62,5 @@ void ResourceManager::loadSounds() {
 }
 
 void ResourceManager::loadMusic() {
-    music.insert(res::Music::Arcade, "MaquinasOutpost2.ogg");
+//    music.insert(res::Music::Arcade, "MaquinasOutpost2.ogg");
 }

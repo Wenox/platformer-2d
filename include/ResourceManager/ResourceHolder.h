@@ -11,7 +11,7 @@
 
 template <typename Key, typename Resource>
 #if (__cplusplus == 202002L)
-    requires Mappable<Key>
+requires Mappable<Key>
 #endif
 class ResourceHolder {
     std::unordered_map<Key, std::unique_ptr<Resource>> resources;
@@ -116,8 +116,8 @@ public:
 
 private:
     void msgErrorLoading(std::string_view fileName) {
-         std::cerr << "Failed loading resource: "
-                      "{ Type: "    << std::quoted(typeid(Resource).name()) << ", "
-                      "File name: " << std::quoted(fileName)                << " }" << std::endl;
+        std::cerr << "Failed loading resource: "
+                     "{ Type: "    << std::quoted(typeid(Resource).name()) << ", "
+                                                                              "File name: " << std::quoted(fileName)                << " }" << std::endl;
     }
 };

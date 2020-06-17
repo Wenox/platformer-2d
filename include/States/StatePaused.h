@@ -11,10 +11,10 @@
 class StatePaused : public State {
 public:
     StatePaused(StateMachine& stateMachine, Window& window, ResourceManager& resources)
-    : stateMachine{stateMachine}
-    , window{window}
-    , pausedView{{320, 288}, {604, 576}}
-    , gui{window}
+            : stateMachine{stateMachine}
+            , window{window}
+            , pausedView{{320, 288}, {604, 576}}
+            , gui{window}
     {
         background.setTexture(resources.getTextures()[res::Texture::BgPaused]);
         onHoverBtnSound.setBuffer(resources.getSounds()[res::Sound::Bing]);
