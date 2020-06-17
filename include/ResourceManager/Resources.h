@@ -9,6 +9,11 @@ namespace res {
         BlockGreen,
         BlockPurple,
         BlockYellow,
+        BlockCrate,
+        Water1,
+        Water2,
+        Sign1,
+        Sign2,
 
         Player,
         PlayerLeft,

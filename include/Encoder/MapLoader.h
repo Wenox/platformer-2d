@@ -115,6 +115,26 @@ private:
                     queue.push(res::Texture::BlockPurple);
                     ++blocksNum;
                     break;
+                case Obj::Entity::BlockCrate:
+                    queue.push(res::Texture::BlockCrate);
+                    ++blocksNum;
+                    break;
+                case Obj::Entity::Water1:
+                    queue.push(res::Texture::Water1);
+                    ++blocksNum;
+                    break;
+                case Obj::Entity::Water2:
+                    queue.push(res::Texture::Water2);
+                    ++blocksNum;
+                    break;
+                case Obj::Entity::Sign1:
+                    queue.push(res::Texture::Sign1);
+                    ++blocksNum;
+                    break;
+                case Obj::Entity::Sign2:
+                    queue.push(res::Texture::Sign2);
+                    ++blocksNum;
+                    break;
             }
         }
     }
@@ -151,6 +171,26 @@ private:
                     break;
                 case Obj::Entity::BlockPurple:
                     queue.push(res::Texture::BlockPurple);
+                    ++blocksNum;
+                    break;
+                case Obj::Entity::BlockCrate:
+                    queue.push(res::Texture::BlockCrate);
+                    ++blocksNum;
+                    break;
+                case Obj::Entity::Water1:
+                    queue.push(res::Texture::Water1);
+                    ++blocksNum;
+                    break;
+                case Obj::Entity::Water2:
+                    queue.push(res::Texture::Water2);
+                    ++blocksNum;
+                    break;
+                case Obj::Entity::Sign1:
+                    queue.push(res::Texture::Sign1);
+                    ++blocksNum;
+                    break;
+                case Obj::Entity::Sign2:
+                    queue.push(res::Texture::Sign2);
                     ++blocksNum;
                     break;
             }
