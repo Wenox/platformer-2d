@@ -44,10 +44,19 @@ bool Window::isOpen() const {
 void Window::updateView(const sf::View& view) {
     window.setView(view);
 }
+
 void Window::setWindowIcon() {
     sf::Image icon;
     if (!icon.loadFromFile("../resources/icon.png")) {
         throw std::runtime_error{"Missing icon.png"};
     }
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+}
+
+unsigned int Window::getWidth() const noexcept {
+    return window.getSize().x;
+}
+
+unsigned int Window::getHeight() const noexcept {
+    return window.getSize().y;
 }

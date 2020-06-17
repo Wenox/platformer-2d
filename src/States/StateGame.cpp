@@ -1,15 +1,20 @@
-#include "Block.h"
-#include "Consts.h"
-#include "StateID.h"
 #include "StateGame.h"
+#include "StateID.h"
+#include "Settings.h"
 
 
-StateGame::StateGame(StateMachine &stateMachine, ResourceManager& resources, std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader, Window& window)
+StateGame::StateGame(StateMachine &stateMachine,
+                     Window& window,
+                     ResourceManager& resources,
+                     std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader)
+
         : stateMachine{stateMachine}
+        , window{window}
         , resources{resources}
         , mapLoader{mapLoader}
-        , window{window}
-        , camera{sf::View{{320, 288}, {static_cast<float>(window.getWindow().getSize().x), static_cast<float>(window.getWindow().getSize().y)}}}
+        , camera{sf::View{{window.getWidth() / 2.0f, window.getHeight() / 2.0f},
+                          {static_cast<float>(window.getWidth()),
+                           static_cast<float>(window.getHeight())}}}
         , livesHUD(window.getWindow(), resources.getTextures())
         , background(resources.getTextures()[res::Texture::BgGame])
         , collectSound(resources.getSounds()[res::Sound::Bullet])
@@ -65,9 +70,8 @@ void StateGame::setSpikesTextures() {
 }
 
 void StateGame::setCollectiblesTextures() {
-    const auto &heartTexture = resources.getTextures()[res::Texture::Heart];
+    const auto& heartTexture = resources.getTextures()[res::Texture::Heart];
     for (const auto &heart : hearts) {
-        /** todo: set texture during construction of hearts */
         heart->getSprite().setTexture(heartTexture);
     }
 }

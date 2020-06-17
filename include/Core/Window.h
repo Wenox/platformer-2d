@@ -27,6 +27,9 @@ public:
 
     void updateView(const sf::View& view);
 
+    unsigned int getWidth()  const noexcept;
+    unsigned int getHeight() const noexcept;
+
 private:
     sf::RenderWindow window;
     std::queue<sf::Event> events;

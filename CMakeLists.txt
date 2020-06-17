@@ -16,6 +16,7 @@ set(TGUI_DIR "${CMAKE_CURRENT_LIST_DIR}/${EXTERNAL_LIBRARIES_DIR}/TGUI-0.8/lib/c
 include_directories(include
         include/Core
         include/States
+        include/States/Core
         include/GUI
         include/GUI/Core
         include/ResourceManager
@@ -32,10 +33,10 @@ set(SOURCE_FILES
         src/Core/main.cpp
         src/Core/Game.cpp
         src/Core/Window.cpp
-        src/States/StateMachine.cpp
+        src/States/Core/StateMachine.cpp
         src/States/StateGame.cpp
         src/States/StateMenu.cpp
-        src/States/StateID.cpp
+        src/States/Core/StateID.cpp
         src/ResourceManager/ResourceHolder.cpp
         src/ResourceManager/ResourceManager.cpp
         src/GUI/MenuConfig.cpp
@@ -74,7 +75,8 @@ set(SOURCE_FILES
         src/States/StateRestart.cpp
         src/GUI/RestartGUI.cpp
         src/GUI/RestartConfig.cpp
-        include/GUI/HUD/FpsHUD.cpp include/GUI/HUD/FpsHUD.h src/StateAbout.cpp include/States/StateAbout.h)
+        src/GUI/HUD/FpsHUD.cpp
+        src/States/StateAbout.cpp)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

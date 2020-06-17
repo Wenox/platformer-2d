@@ -1,29 +1,21 @@
 #pragma once
 
-#include "Entity.h"
-#include "StateMachine.h"
-#include "ResourceManager.h"
-#include "MapLoader.h"
-#include "Block.h"
-#include "StateRestart.h"
-#include <memory>
-#include <Camera.h>
-#include <Entities/Player/Player.h>
-#include <Events/CollisionEvent.h>
-#include <Events/MovementEvent.h>
-#include <Entities/Objective.h>
-#include <Events/InputEvent.h>
-#include <GUI/HUD/LivesHUD.h>
-#include <Entities/Spike.h>
-#include <Entities/HeartCollectible.h>
 #include <SFML/Audio/Sound.hpp>
-#include <Settings.h>
-#include <GUI/HUD/FpsHUD.h>
+#include "MapLoader.h"
+#include "StateRestart.h"
+#include "Camera.h"
+#include "CollisionEvent.h"
+#include "MovementEvent.h"
+#include "InputEvent.h"
+#include "FpsHUD.h"
 
 
 class StateGame : public State {
 public:
-    StateGame(StateMachine &stateMachine, ResourceManager& resources, std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader, Window& window);
+    StateGame(StateMachine &stateMachine,
+              Window& window,
+              ResourceManager& resources,
+              std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader);
 
     void onCreate() override;
     void onDestroy() override;
@@ -59,20 +51,19 @@ private:
     void restartGameLevel();
 
     StateMachine& stateMachine;
+    Window& window;
     ResourceManager& resources;
 
     std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader;
+    std::queue<res::Texture> blocksQueue;
 
     Player player;
     Objective objective;
     std::vector<std::unique_ptr<Entity>> blocks;
     std::vector<std::unique_ptr<Spike>> spikes;
-    std::vector<std::unique_ptr<HeartCollectible>> hearts; /** todo: use interface type */
+    std::vector<std::unique_ptr<HeartCollectible>> hearts;
 
-    Window& window;
     Camera camera;
-
-    std::queue<res::Texture> blocksQueue;
 
     std::unique_ptr<MovementEvent>  moveController;
     std::unique_ptr<CollisionEvent> collider;

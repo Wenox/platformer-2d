@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace state {
     extern int gameID;
     extern int menuID;

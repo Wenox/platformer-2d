@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ResourceManager.h"
-#include "StateMachine.h"
+#include "States/Core/StateMachine.h"
 #include "Settings.h"
 
 

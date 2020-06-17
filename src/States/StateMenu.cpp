@@ -1,3 +1,4 @@
+#include "Settings.h""
 #include "MapNameValidator.h"
 #include "StateID.h"
 #include "StateMenu.h"
@@ -23,7 +24,7 @@ void StateMenu::onCreate() {
             if (mapFile.isTxt()) mapLoader = std::make_optional<MapLoader<Txt>>(consts::defaultMapName.data());
 
             state::gameID = stateMachine.insert(
-                    std::make_shared<StateGame>(stateMachine, resources, mapLoader.value(), window));
+                    std::make_shared<StateGame>(stateMachine, window, resources, mapLoader.value()));
             stateMachine.switchTo(state::gameID);
         } else {
             throw std::runtime_error{"Such default map file does not exist: " + std::string(consts::defaultMapName.data())};

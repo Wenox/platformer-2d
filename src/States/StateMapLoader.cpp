@@ -2,6 +2,8 @@
 #include "StateID.h"
 #include "StateGame.h"
 #include "MapNameValidator.h"
+#include "Settings.h"
+
 
 #ifdef _WIN32
     #include <windows.h>
@@ -83,8 +85,8 @@ void StateMapLoader::createGameFrom(std::string_view mapName) {
         if (mapFile.isBmp()) mapLoader = std::make_optional<MapLoader<Bmp>>(mapName.data());
         if (mapFile.isTxt()) mapLoader = std::make_optional<MapLoader<Txt>>(mapName.data());
 
-        state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, resources, mapLoader.value(), window));
-        stateMachine = state::gameID;
+        state::gameID = stateMachine.insert(std::make_shared<StateGame>(stateMachine, window, resources, mapLoader.value()));
+        stateMachine  = state::gameID;
     }
     else {
         std::clog << "Map file: " << mapName << " does not exist!" << std::endl;

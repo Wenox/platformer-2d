@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
+
 class MissingFont : public std::exception {
     std::string msg;
 public:
@@ -11,6 +12,8 @@ public:
         return msg.c_str();
     }
 };
+
+
 
 class FpsHUD : public sf::Drawable {
 public:
