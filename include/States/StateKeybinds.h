@@ -48,13 +48,7 @@ public:
             });
         }
     }
-    void onDestroy() override {
 
-    }
-
-    void onActivate() override {}
-
-    void processInput() override{}
     void update(float dt) override {
         if (window.getEvent().front().type == sf::Event::KeyPressed
             and action != Action::NONE) {

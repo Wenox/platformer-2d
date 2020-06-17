@@ -26,10 +26,6 @@ public:
         });
     }
 
-    void onDestroy() override {
-
-    }
-
     void onActivate() override {
         consts::playerWon ? gui.setWonTexture() : gui.setLostTexture();
 

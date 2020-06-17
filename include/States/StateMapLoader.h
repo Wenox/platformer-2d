@@ -11,7 +11,6 @@ public:
     explicit StateMapLoader(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager);
 
     void onCreate() override;
-    void onDestroy() override;
 
     void onActivate() override;
 

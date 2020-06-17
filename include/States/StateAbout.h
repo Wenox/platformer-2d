@@ -13,13 +13,14 @@ public:
     {}
 
     void onCreate() override {}
-    void onDestroy() override {}
 
     void processInput() override {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
             stateMachine.switchTo(state::menuID);
         }
     }
+
+    void update(float) override {}
 
     void draw(Window& window) override {
         window.draw(aboutInfo);

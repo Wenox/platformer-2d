@@ -13,12 +13,9 @@ public:
     StateMenu(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager);
 
     void onCreate() override;
-    void onDestroy() override;
 
     void onActivate() override;
-    void onDeactivate() override;
 
-    void processInput() override;
     void update(float dt) override;
     void draw(Window&) override;
 

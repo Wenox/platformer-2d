@@ -41,10 +41,6 @@ public:
         }
     }
 
-    void onDestroy() override {
-
-    }
-
     void onActivate() override {
         window.getWindow().setView(pausedView);
 

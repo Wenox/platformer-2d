@@ -45,10 +45,6 @@ void StateMapLoader::printHelp(std::ostream& ost) {
     ost << "You should manually open the Map Editor in the browser\n";
 }
 
-void StateMapLoader::onDestroy() {
-
-}
-
 void StateMapLoader::onActivate() {
     gui.setBadMapLabelVisible(false);
 }

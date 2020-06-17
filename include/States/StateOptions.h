@@ -58,13 +58,6 @@ public:
         saveOptions();
     }
 
-    void onDestroy() override {
-    }
-
-    void onActivate() override {
-
-    }
-
     void saveOptions() {
         mySettings.isSoundEnabled = gui.isSoundChecked();
         mySettings.isFpsEnabled   = gui.isFpsChecked();

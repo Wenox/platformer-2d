@@ -50,10 +50,6 @@ void StateMenu::onCreate() {
     }
 }
 
-void StateMenu::onDestroy() {
-
-}
-
 void StateMenu::onActivate() {
     stateMachine.setCameFrom(state::menuID);
 
@@ -62,14 +58,6 @@ void StateMenu::onActivate() {
     } else {
         onHoverBtnSound.setVolume(0.0f);
     }
-}
-
-void StateMenu::onDeactivate() {
-
-}
-
-void StateMenu::processInput() {
-
 }
 
 void StateMenu::update(float dt) {
