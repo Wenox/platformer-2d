@@ -5,6 +5,7 @@
 #include <SFML/Audio.hpp>
 #include <Settings.h>
 #include "ResourceManager.h"
+#include "MapLoader.h"
 
 
 class StateMenu : public State {
@@ -28,6 +29,8 @@ private:
 
     MenuGUI gui;
     sf::Sound onHoverBtnSound;
+
+    std::optional<std::variant<MapLoader<Bmp>, MapLoader<Txt>>> mapLoader;
 };
 
 
