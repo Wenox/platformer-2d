@@ -14,6 +14,6 @@ void Config::init() {
 
 void Config::encode() {
     mapListOf(widgetsNames)
-            (Restart::Btn::PlayAgain,  "Play Again")
-            (Restart::Btn::Menu, "Main Menu");
+             (Restart::Btn::PlayAgain,  "Play Again")
+             (Restart::Btn::Menu,       "Main Menu");
 }

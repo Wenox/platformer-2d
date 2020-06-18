@@ -17,5 +17,5 @@ void Config::encode() {
              (Menu::Btn::loadGame, "Load Game")
              (Menu::Btn::options,  "Options")
              (Menu::Btn::about,    "About")
-             (Menu::Btn::exit, "Exit");
+             (Menu::Btn::exit,     "Exit");
 }

@@ -61,7 +61,7 @@ void KeybindsView::buildGUI() {
     rightIcon->setPosition(158, 456);
     view.add(rightIcon, "leftIcon");
 
-    for (auto i{0u}; auto btn : OptionsKeys::Buttons) {
+    for (auto i{0u}; auto btn : Keybinds::Buttons) {
         const auto& btnName = optionsConfig.widgetsNames[btn];
         widgets.emplace_back(tgui::Button::create(btnName));
 
@@ -109,6 +109,6 @@ void KeybindsView::buildGUI() {
 void KeybindsView::loadWidget(tgui::Widget::Ptr &widget) {
     config.prepare(widget);
     widget->setPosition({view.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2 + 25,
-                         OptionsKeys::Config::offsetY + view.getTarget()->getSize().y / 10 * ++buttonsCounter});
+                         Keybinds::Config::offsetY + view.getTarget()->getSize().y / 10 * ++buttonsCounter});
     view.add(widget);
 }

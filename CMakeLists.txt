@@ -79,7 +79,7 @@ set(SOURCE_FILES
         src/GUI/Views/RestartView.cpp
         src/GUI/Configs/RestartConfig.cpp
         src/Entities/Overlay/FpsOverlay.cpp
-        src/States/StateAbout.cpp src/GUI/Views/KeybindsView.cpp)
+        src/States/StateAbout.cpp src/GUI/Views/KeybindsView.cpp src/GUI/Configs/KeybindsConfig.cpp)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

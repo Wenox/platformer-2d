@@ -4,7 +4,7 @@
 #include "IConfig.h"
 
 
-namespace OptionsKeys {
+namespace Keybinds {
     enum class Btn {
         Jump,
         RunLeft,
@@ -13,7 +13,7 @@ namespace OptionsKeys {
         SIZE
     };
 
-    constexpr std::initializer_list<OptionsKeys::Btn> Buttons = {
+    constexpr std::initializer_list<Keybinds::Btn> Buttons = {
         Btn::Jump,
         Btn::RunLeft,
         Btn::RunRight,
@@ -26,26 +26,17 @@ namespace OptionsKeys {
 
         constexpr static auto offsetY = 288;
 
-        Config() {
-            this->init();
-        }
-#if (__cplusplus == 202002L)
-        constexpr
-#endif
-        void init() {
-            this->encode();
-        }
+        Config();
 
 #if (__cplusplus == 202002L)
         constexpr
 #endif
-        void encode() override {
-            mapListOf(widgetsNames)
-                    (OptionsKeys::Btn::Jump, "Jump")
-                    (OptionsKeys::Btn::RunLeft, "Run Left")
-                    (OptionsKeys::Btn::RunRight, "Run Right")
-                    (OptionsKeys::Btn::GoBack, "Go Back");
-        }
+        void init();
+
+#if (__cplusplus == 202002L)
+        constexpr
+#endif
+        void encode() override;
     };
 };
 

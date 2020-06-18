@@ -11,7 +11,7 @@ public:
 
 private:
     Gui::Config<> config;
-    OptionsKeys::Config optionsConfig;
+    Keybinds::Config optionsConfig;
 
     void init();
     void buildGUI() override;

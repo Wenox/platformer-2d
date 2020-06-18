@@ -23,24 +23,17 @@ namespace Options {
 
         constexpr static auto offsetY = 350;
 
-        Config() {
-            this->init();
-        }
-#if (__cplusplus == 202002L)
-        constexpr
-#endif
-        void init() {
-            this->encode();
-        }
+        Config();
 
 #if (__cplusplus == 202002L)
         constexpr
 #endif
-        void encode() override {
-            mapListOf(widgetsNames)
-                    (Options::Btn::Keybinds, "Keybindings")
-                    (Options::Btn::GoBack, "Go Back");
-        }
+        void init();
+
+#if (__cplusplus == 202002L)
+        constexpr
+#endif
+        void encode() override;
     };
 };
 

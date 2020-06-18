@@ -23,6 +23,7 @@ namespace Restart {
         constexpr static auto offsetY = 512;
         constexpr static auto offsetX = 60;
         constexpr static auto spacing = 20;
+
         Config();
 
 #if (__cplusplus == 202002L)

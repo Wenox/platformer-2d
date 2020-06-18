@@ -23,26 +23,18 @@ namespace Paused {
     struct Config : public IConfig<Btn> {
 
         constexpr static auto offsetY = 280;
-        Config() {
-            this->init();
-        }
+
+        Config();
 
 #if (__cplusplus == 202002L)
         constexpr
 #endif
-        void init() {
-            this->encode();
-        }
+        void init();
 
 #if (__cplusplus == 202002L)
         constexpr
 #endif
-        void encode() override {
-            mapListOf(widgetsNames)
-                    (Paused::Btn::resume,  "Resume")
-                    (Paused::Btn::options, "Options")
-                    (Paused::Btn::menu, "Main menu");
-        }
+        void encode() override;
     };
 }
 

@@ -27,6 +27,7 @@ namespace Menu {
     struct Config : public IConfig<Btn> {
 
         constexpr static auto offsetY = 45;
+
         Config();
 
 #if (__cplusplus == 202002L)
