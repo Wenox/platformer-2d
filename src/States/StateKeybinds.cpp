@@ -52,7 +52,7 @@ void StateKeybinds::processInput() {
     }
 }
 
-void StateKeybinds::update(float dt) {
+void StateKeybinds::update(float) {
     if (window.getEvent().front().type == sf::Event::KeyPressed
         and action != Action::NONE) {
 

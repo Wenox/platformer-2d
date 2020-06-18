@@ -64,10 +64,6 @@ void StateMapLoader::processInput() {
     gui.handleEvent(window.getEvent());
 }
 
-void StateMapLoader::update(float) {
-
-}
-
 void StateMapLoader::draw(Window&) {
     gui.draw();
 }

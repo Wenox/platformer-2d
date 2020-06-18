@@ -9,10 +9,7 @@ class StateAbout : public State {
 public:
     StateAbout(StateMachine& stateMachine, ResourceManager& resources);
 
-    void onCreate() override;
-
     void processInput() override;
-    void update(float) override;
     void draw(Window& window) override;
 
 private:

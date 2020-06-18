@@ -76,10 +76,6 @@ void StateOptions::processInput() {
     }
 }
 
-void StateOptions::update(float dt) {
-
-}
-
 void StateOptions::draw(Window&) {
     for (auto& corner : corners) {
         this->window.draw(corner);

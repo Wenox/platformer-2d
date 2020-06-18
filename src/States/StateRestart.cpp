@@ -31,10 +31,6 @@ void StateRestart::processInput() {
     gui.handleEvent(window.getEvent());
 }
 
-void StateRestart::update(float) {
-
-}
-
 void StateRestart::draw(Window&) {
     gui.draw();
 }

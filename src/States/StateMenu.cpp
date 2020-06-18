@@ -62,10 +62,6 @@ void StateMenu::processInput() {
     gui.handleEvent(window.getEvent());
 }
 
-void StateMenu::update(float) {
-
-}
-
 void StateMenu::draw(Window&) {
     gui.draw();
 }

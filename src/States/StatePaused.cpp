@@ -56,10 +56,6 @@ void StatePaused::processInput() {
     }
 }
 
-void StatePaused::update(float) {
-
-}
-
 void StatePaused::draw(Window&) {
     gui.draw();
 }

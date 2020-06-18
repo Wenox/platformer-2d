@@ -15,7 +15,6 @@ public:
     void onActivate() override;
 
     void processInput() override;
-    void update(float) override;
     void draw(Window&) override;
 
 private:

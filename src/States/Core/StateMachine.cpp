@@ -74,3 +74,4 @@ void StateMachine::erase(int stateID) {
         ///* todo: throw EraseStateBadID */
     }
 }
+
