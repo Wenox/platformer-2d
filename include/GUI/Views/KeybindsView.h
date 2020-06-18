@@ -28,7 +28,7 @@ private:
     void createTitlePanel();
     void createRebindingPanelGroup();
     void createButtonsPanel();
-    
+
     tgui::Panel::Ptr createRebindingPanel();
     static void addBackgroundInto(const tgui::Panel::Ptr& parent);
     static void addPressKeyLabelInto(const tgui::Panel::Ptr& parent);

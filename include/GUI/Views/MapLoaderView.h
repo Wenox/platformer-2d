@@ -24,11 +24,16 @@ private:
     Gui::Config<> config;
     Loader::Config loaderConfig;
 
+    bool promptToEnterMapName{};
+
     void init();
     void buildGUI() override;
     void loadWidget(tgui::Widget::Ptr& widget);
 
-    bool promptToEnter{};
+    void createMainPanel();
+    void createButtons();
+    void createMapNameBox();
+    void createBadMapLabel();
 };
 
 

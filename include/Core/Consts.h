@@ -14,11 +14,11 @@ namespace consts {
     constexpr static string_view gameMusic       = "../resources/sound/MaquinasOutpost2.ogg";
 
     namespace bg {
+
         constexpr static string_view options   = "../resources/test8.png";
         constexpr static string_view keybinds  = "../resources/bindingsBg.png";
         constexpr static string_view rebinding = "../resources/registerBg.png";
-//        constexpr static string_view paused  = "../resources/test8.png";
-//        constexpr static string_view restart = "../resources/test8.png";
+        constexpr static string_view loader    = "../resources/mapLoader.jpg";
     }
 
     constexpr static string_view largeBgIcon  = "../resources/gamepad6.png";

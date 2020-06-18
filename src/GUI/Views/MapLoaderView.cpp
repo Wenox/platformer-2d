@@ -1,3 +1,4 @@
+#include <Core/Consts.h>
 #include "MapLoaderView.h"
 
 
@@ -13,65 +14,16 @@ void MapLoaderView::init() {
     clearMapNameBoxWithPrompt();
 }
 
-
 void MapLoaderView::buildGUI() {
-    /** background */
-    view.add(tgui::Picture::create("../resources/mapLoader.jpg"));
-
-    auto panelBorder = tgui::Panel::create({config.width + 22, 375});
-    panelBorder->setPosition(184,
-                             107);
-    panelBorder->getRenderer()->setBackgroundColor(tgui::Color::Black);
-    panelBorder->setInheritedOpacity(0.3);
-    panelBorder->getRenderer()->setBorders({1, 1, 1, 1});
-    panelBorder->getRenderer()->setBorderColor(tgui::Color::White);
-    view.add(panelBorder);
-
-    /** buttons */
-    for (auto i{0u}; auto btn : Loader::Buttons) {
-        const auto& btnName = loaderConfig.widgetsNames[btn];
-        widgets.emplace_back(tgui::Button::create(btnName));
-
-        this->loadWidget(widgets[i]);
-        ++i;
-    }
-
-
-    /** map name editBox */
-    auto mapNameBox = tgui::EditBox::create();
-    mapNameBox->setSize(config.width, config.height);
-    mapNameBox->setTextSize(config.textSize);
-    mapNameBox->getRenderer()->setTextColor(loaderConfig.mapNameColor);
-    mapNameBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
-                            tgui::bindTop (widgets[to_underlying(Loader::Btn::loadMap)]) - 10 - config.height);
-    mapNameBox->setInheritedFont(config.font);
-    view.add(mapNameBox, "mapNameBox");
-
-
-    /** label when entering bad map's name */
-    auto badMapLabel = tgui::Label::create("No such file!");
-    badMapLabel->setTextSize(config.textSize - 5);
-    badMapLabel->setPosition(tgui::bindLeft(mapNameBox) - badMapLabel->getSize().x - 32, tgui::bindTop(mapNameBox) + 12);
-    badMapLabel->getRenderer()->setTextColor(tgui::Color{255, 0, 0});
-    badMapLabel->setVisible(false);
-    badMapLabel->setInheritedFont(config.font);
-
-    view.add(badMapLabel, "badMapLabel");
-}
-
-
-void MapLoaderView::loadWidget(tgui::Widget::Ptr& widget) {
-    if (buttonsCounter == 1) buttonsCounter += 2;
-
-    config.prepare(widget);
-    widget->setPosition(view.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
-                        180 + 60 * buttonsCounter);
-    buttonsCounter++;
-    view.add(widget);
+    createBackground(consts::bg::loader);
+    createMainPanel();
+    createButtons();
+    createMapNameBox();
+    createBadMapLabel();
 }
 
 void MapLoaderView::clearMapNameBoxWithPrompt() {
-    this->promptToEnter = true;
+    this->promptToEnterMapName = true;
     const auto& mapNameBox = this->getView().getContainer()->get<tgui::EditBox>("mapNameBox");
     mapNameBox->setText({"Enter map name..."});
 }
@@ -94,9 +46,66 @@ std::string MapLoaderView::getMapName() const {
 }
 
 void MapLoaderView::setPromptToEnter(bool status) {
-    promptToEnter = status;
+    promptToEnterMapName = status;
 }
 
 bool MapLoaderView::isPromptToEnter() const {
-    return promptToEnter;
+    return promptToEnterMapName;
+}
+
+void MapLoaderView::createMainPanel() {
+    auto mainPanel = tgui::Panel::create({config.width + 22, 375});
+
+    mainPanel->setPosition(184,107);
+    mainPanel->getRenderer()->setBackgroundColor(tgui::Color::Black);
+    mainPanel->setInheritedOpacity(0.3);
+    mainPanel->getRenderer()->setBorders({2, 2, 2, 2});
+    mainPanel->getRenderer()->setBorderColor(tgui::Color::White);
+
+    view.add(mainPanel);
+}
+
+void MapLoaderView::createButtons() {
+    for (auto i{0u}; auto btn : Loader::Buttons) {
+        const auto& btnName = loaderConfig.widgetsNames[btn];
+        widgets.emplace_back(tgui::Button::create(btnName));
+
+        this->loadWidget(widgets[i]);
+        ++i;
+    }
+}
+
+void MapLoaderView::loadWidget(tgui::Widget::Ptr& widget) {
+    if (buttonsCounter == 1) buttonsCounter += 2; ///< so there is a wide gap between buttons
+
+    config.prepare(widget);
+    widget->setPosition(view.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
+                        180 + 60 * buttonsCounter);
+    buttonsCounter++;
+    view.add(widget);
+}
+
+void MapLoaderView::createMapNameBox() {
+    auto mapNameBox = tgui::EditBox::create();
+
+    mapNameBox->setSize(config.width, config.height);
+    mapNameBox->setTextSize(config.textSize);
+    mapNameBox->getRenderer()->setTextColor(loaderConfig.mapNameColor);
+    mapNameBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
+                            tgui::bindTop (widgets[to_underlying(Loader::Btn::loadMap)]) - 10 - config.height);
+    mapNameBox->setInheritedFont(config.font);
+
+    view.add(mapNameBox, "mapNameBox");
+}
+
+void MapLoaderView::createBadMapLabel() {
+    auto badMapLabel = tgui::Label::create("No such file!");
+
+    badMapLabel->setTextSize(config.textSize - 5);
+    badMapLabel->setPosition(22, 132);
+    badMapLabel->getRenderer()->setTextColor(tgui::Color{255, 0, 0});
+    badMapLabel->setVisible(false);
+    badMapLabel->setInheritedFont(config.font);
+
+    view.add(badMapLabel, "badMapLabel");
 }
