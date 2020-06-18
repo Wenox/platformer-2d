@@ -1,4 +1,5 @@
 #include "PausedView.h"
+#include "Consts.h"
 
 
 PausedView::PausedView(Window& window)
@@ -12,19 +13,30 @@ void PausedView::init() {
 }
 
 void PausedView::buildGUI() {
-    /** todo: try removing bg from PausedState and use it here instead */
+    createBackgroundFrom(consts::bg::paused);
+    createMainPanel();
+    createPausedTextImage();
+    createButtons();
+}
 
-    auto panelBorder = tgui::Panel::create({config.width + 22, 205});
-    panelBorder->setPosition(184,330);
-    panelBorder->getRenderer()->setBackgroundColor(tgui::Color::Magenta);
-    panelBorder->setInheritedOpacity(0.25);
-    panelBorder->getRenderer()->setBorders({2, 2, 2, 2});
-    panelBorder->getRenderer()->setBorderColor(tgui::Color::Black);
-    view.add(panelBorder);
+void PausedView::createMainPanel() {
+    auto mainPanel = tgui::Panel::create({config.width + 22, 205});
 
-    auto bg = tgui::Picture::create(tgui::Texture{"../resources/PausedBGMain.png"});
+    mainPanel->setPosition(184, 330);
+    mainPanel->getRenderer()->setBackgroundColor(tgui::Color::Magenta);
+    mainPanel->setInheritedOpacity(0.25);
+    mainPanel->getRenderer()->setBorders({2, 2, 2, 2});
+    mainPanel->getRenderer()->setBorderColor(tgui::Color::Black);
+
+    view.add(mainPanel);
+}
+
+void PausedView::createPausedTextImage() {
+    auto bg = tgui::Picture::create(tgui::Texture{consts::pausedTextImage.data()});
     view.add(bg, "pausedBg");
+}
 
+void PausedView::createButtons() {
     for (auto i{0u}; auto btn : Paused::Buttons) {
         const auto& btnName = menuConfig.widgetsNames[btn];
         widgets.emplace_back(tgui::Button::create(btnName));

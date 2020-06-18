@@ -1,4 +1,5 @@
 #include "RestartView.h"
+#include "Consts.h""
 
 
 RestartView::RestartView(Window& window, ResourceManager& resourceManager)
@@ -25,40 +26,55 @@ void RestartView::setGameLostTexture() {
 }
 
 void RestartView::buildGUI() {
-//        auto bg = tgui::Picture::create(tgui::Texture{"../resources/bindingsBg.jpg"});
-auto bg = tgui::Picture::create(tgui::Texture{"../resources/wonBg.png"});
-view.add(bg, "bg");
-
-
-auto mainPanel = tgui::Panel::create({612, 484});
-mainPanel->setPosition(14,14);
-mainPanel->getRenderer()->setBackgroundColor(tgui::Color::Magenta);
-mainPanel->setInheritedOpacity(0.12);
-mainPanel->getRenderer()->setBorders({4, 4, 4, 4});
-mainPanel->getRenderer()->setBorderColor(tgui::Color::Black);
-view.add(mainPanel, "mainPanel");
-
-auto btnPanel = tgui::Panel::create({533, 62});
-btnPanel->setPosition(restartConfig.offsetX - 6,restartConfig.offsetY - 6);
-btnPanel->getRenderer()->setBackgroundColor(tgui::Color::Magenta);
-btnPanel->setInheritedOpacity(0.2);
-btnPanel->getRenderer()->setBorders({2, 2, 2, 2});
-btnPanel->getRenderer()->setBorderColor(tgui::Color::White);
-view.add(btnPanel, "btnPanel");
-
-
-
-for (auto i{0u}; auto btn : Restart::Buttons) {
-const auto &btnName = restartConfig.widgetsNames[btn];
-widgets.emplace_back(tgui::Button::create(btnName));
-
-this->loadWidget(widgets[i]);
-++i;
+    createBackgroundFrom(consts::bg::restart);
+    createPanels();
+    createButtons();
+    createGameFinishedImage();
 }
 
-    gameFinishedImage = tgui::Picture::create(wonTexture);
-view.add(gameFinishedImage, "gameFinishedImage");
+void RestartView::createPanels() {
+    createMainPanel();
+    createButtonsPanel();
+}
 
+
+void RestartView::createMainPanel() {
+    auto mainPanel = tgui::Panel::create({612, 484});
+
+    mainPanel->setPosition(14,14);
+    mainPanel->getRenderer()->setBackgroundColor(tgui::Color::Magenta);
+    mainPanel->setInheritedOpacity(0.12);
+    mainPanel->getRenderer()->setBorders({4, 4, 4, 4});
+    mainPanel->getRenderer()->setBorderColor(tgui::Color::Black);
+
+    view.add(mainPanel, "mainPanel");
+}
+
+void RestartView::createButtonsPanel() {
+    auto btnPanel = tgui::Panel::create({533, 62});
+
+    btnPanel->setPosition(restartConfig.offsetX - 6, restartConfig.offsetY - 6);
+    btnPanel->getRenderer()->setBackgroundColor(tgui::Color::Magenta);
+    btnPanel->setInheritedOpacity(0.2);
+    btnPanel->getRenderer()->setBorders({2, 2, 2, 2});
+    btnPanel->getRenderer()->setBorderColor(tgui::Color::White);
+
+    view.add(btnPanel, "btnPanel");
+}
+
+void RestartView::createButtons() {
+    for (auto i{0u}; auto btn : Restart::Buttons) {
+        const auto &btnName = restartConfig.widgetsNames[btn];
+        widgets.emplace_back(tgui::Button::create(btnName));
+
+        this->loadWidget(widgets[i]);
+        ++i;
+    }
+}
+
+void RestartView::createGameFinishedImage() {
+    gameFinishedImage = tgui::Picture::create(wonTexture);
+    view.add(gameFinishedImage, "gameFinishedImage");
 }
 
 void RestartView::loadWidget(tgui::Widget::Ptr& widget) {

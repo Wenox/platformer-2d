@@ -16,6 +16,10 @@ private:
     void init();
     void buildGUI() override;
     void loadWidget(tgui::Widget::Ptr& widget);
+
+    void createMainPanel();
+    void createPausedTextImage();
+    void createButtons();
 };
 
 

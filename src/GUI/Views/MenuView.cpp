@@ -14,8 +14,23 @@ void MenuView::init() {
 
 void MenuView::buildGUI() {
     createBackgroundFrom(consts::bg::menu);
-    createBackgroundPanel();
+    createMainPanel();
+    createButtons();
+}
 
+void MenuView::createMainPanel() {
+    auto mainPanel = tgui::Panel::create({config.width + 22, 330});
+
+    mainPanel->setPosition(184,96);
+    mainPanel->getRenderer()->setBackgroundColor(tgui::Color::White);
+    mainPanel->setInheritedOpacity(0.35);
+    mainPanel->getRenderer()->setBorders({1, 1, 1, 1});
+    mainPanel->getRenderer()->setBorderColor(tgui::Color::Black);
+
+    view.add(mainPanel);
+}
+
+void MenuView::createButtons() {
     for (auto i{0u}; auto btn : Menu::Buttons) {
         const auto &btnName = menuConfig.widgetsNames[btn];
         widgets.emplace_back(tgui::Button::create(btnName));
@@ -23,7 +38,6 @@ void MenuView::buildGUI() {
         this->loadWidget(widgets[i]);
         ++i;
     }
-
 }
 
 void MenuView::loadWidget(tgui::Widget::Ptr& widget) {
@@ -31,14 +45,4 @@ void MenuView::loadWidget(tgui::Widget::Ptr& widget) {
     widget->setPosition({view.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
                          Menu::Config::offsetY + view.getTarget()->getSize().y / 9 * ++buttonsCounter});
     view.add(widget);
-}
-
-void MenuView::createBackgroundPanel() {
-    auto panelBorder = tgui::Panel::create({config.width + 22, 330});
-    panelBorder->setPosition(184,96);
-    panelBorder->getRenderer()->setBackgroundColor(tgui::Color::White);
-    panelBorder->setInheritedOpacity(0.35);
-    panelBorder->getRenderer()->setBorders({1, 1, 1, 1});
-    panelBorder->getRenderer()->setBorderColor(tgui::Color::Black);
-    view.add(panelBorder);
 }

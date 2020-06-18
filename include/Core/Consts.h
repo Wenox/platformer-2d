@@ -20,15 +20,21 @@ namespace consts {
         constexpr static string_view rebinding = "../resources/registerBg.png";
         constexpr static string_view loader    = "../resources/mapLoader.jpg";
         constexpr static string_view menu      = "../resources/background.jpg";
+        constexpr static string_view paused    = "../resources/pausedBg2.png";
+        constexpr static string_view restart   = "../resources/wonBg.png";
     }
 
-    constexpr static string_view largeBgIcon  = "../resources/gamepad6.png";
-    constexpr static string_view jumpIcon     = "../resources/long-jump2.png";
-    constexpr static string_view runLeftIcon  = "../resources/left-arrow2.png";
-    constexpr static string_view runRightIcon = "../resources/right-arrow2.png";
-    constexpr static string_view sideBorder   = "../resources/side.png";
+    constexpr static string_view largeBgIcon   = "../resources/gamepad6.png";
+    constexpr static string_view jumpIcon      = "../resources/long-jump2.png";
+    constexpr static string_view runLeftIcon   = "../resources/left-arrow2.png";
+    constexpr static string_view runRightIcon  = "../resources/right-arrow2.png";
+    constexpr static string_view sideBorder    = "../resources/side.png";
+
+    constexpr static string_view pausedTextImage = "../resources/PausedBGMain.png";
 
     constexpr static string_view fontName = "../resources/coolFont.ttf";
+
+
 
 
     constexpr static Keyboard::Key defaultJumpKey     = Keyboard::W;

@@ -24,7 +24,6 @@ private:
     StateMachine& stateMachine;
     Window& window;
 
-    sf::Sprite background;
     sf::View pausedView;
 
     PausedView gui;

@@ -8,7 +8,6 @@ StatePaused::StatePaused(StateMachine& stateMachine, Window& window, ResourceMan
         , pausedView{{320, 288}, {604, 576}}
         , gui{window}
 {
-    background.setTexture(resources.getTextures()[res::Texture::BgPaused]);
     onHoverBtnSound.setBuffer(resources.getSounds()[res::Sound::Bing]);
 }
 
@@ -62,6 +61,5 @@ void StatePaused::update(float) {
 }
 
 void StatePaused::draw(Window&) {
-    window.draw(background);
     gui.draw();
 }

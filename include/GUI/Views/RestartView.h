@@ -25,4 +25,11 @@ private:
     void init();
     void buildGUI() override;
     void loadWidget(tgui::Widget::Ptr& widget);
+
+    void createPanels();
+    void createButtons();
+    void createGameFinishedImage();
+
+    void createMainPanel();
+    void createButtonsPanel();
 };
