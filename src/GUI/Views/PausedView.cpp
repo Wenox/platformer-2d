@@ -13,7 +13,7 @@ void PausedView::init() {
 }
 
 void PausedView::buildGUI() {
-    createBackgroundFrom(consts::bg::paused);
+    createBackgroundFrom(config::bg::paused);
     createMainPanel();
     createPausedTextImage();
     createButtons();
@@ -32,7 +32,7 @@ void PausedView::createMainPanel() {
 }
 
 void PausedView::createPausedTextImage() {
-    auto bg = tgui::Picture::create(tgui::Texture{consts::pausedTextImage.data()});
+    auto bg = tgui::Picture::create(tgui::Texture{config::pausedTextImage.data()});
     view.add(bg, "pausedBg");
 }
 

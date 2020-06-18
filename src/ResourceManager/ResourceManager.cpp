@@ -4,7 +4,7 @@
 ResourceManager::ResourceManager() {
     try {
         loadResources();
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
         std::exit(EXIT_FAILURE);
     }
@@ -20,53 +20,56 @@ void ResourceManager::loadResources() {
 }
 
 void ResourceManager::loadTextures() {
-    textures.insert(res::Texture::BlockRed,    "Block_Type1_Red.png");
-    textures.insert(res::Texture::BlockBlue,   "Block_Type1_Blue.png");
-    textures.insert(res::Texture::BlockBrown,  "Block_Type1_Brown.png");
-    textures.insert(res::Texture::BlockGray,   "Block_Type1_Gray.png");
-    textures.insert(res::Texture::BlockGreen,  "Block_Type1_Green.png");
-    textures.insert(res::Texture::BlockPurple, "Block_Type1_Purple.png");
-    textures.insert(res::Texture::BlockYellow, "Block_Type1_Yellow.png");
-    textures.insert(res::Texture::BlockCrate, "crate.png");
 
-    textures.insert(res::Texture::Sign1, "Sign_1.png");
-    textures.insert(res::Texture::Sign2, "Sign_2.png");
-    textures.insert(res::Texture::Water1, "water1.png");
-    textures.insert(res::Texture::Water2, "water2.png");
+    /** Player */
+    textures.insert(res::Texture::PlayerLeft,  "Player_Left.png");
+    textures.insert(res::Texture::PlayerRight, "Player_Right.png");
+    textures.insert(res::Texture::Player,      "Player_Standing.png");
 
-    textures.insert(res::Texture::PlayerLeft,  "player_left.png");
-    textures.insert(res::Texture::PlayerRight,  "player_right.png");
-    textures.insert(res::Texture::Player,  "player_standing.png");
 
-    textures.insert(res::Texture::Objective,  "Door_Type1_Yellow_Closed.png");
+    /** Blocks */
+    textures.insert(res::Texture::BlockRed,    "Block_Red.png");
+    textures.insert(res::Texture::BlockBlue,   "Block_Blue.png");
+    textures.insert(res::Texture::BlockBrown,  "Block_Brown.png");
+    textures.insert(res::Texture::BlockGray,   "Block_Gray.png");
+    textures.insert(res::Texture::BlockGreen,  "Block_Green.png");
+    textures.insert(res::Texture::BlockPurple, "Block_Purple.png");
+    textures.insert(res::Texture::BlockYellow, "Block_Yellow.png");
+    textures.insert(res::Texture::BlockCrate,  "Block_Crate.png");
+    textures.insert(res::Texture::Sign1,       "Block_Sign_1.png");
+    textures.insert(res::Texture::Sign2,       "Block_Sign_2.png");
+    textures.insert(res::Texture::Water1,      "Block_Water_1.png");
+    textures.insert(res::Texture::Water2,      "Block_Water_2.png");
 
-    textures.insert(res::Texture::Heart,  "heart.png");
-    textures.insert(res::Texture::HeartEmpty,  "heart-empty.png");
 
-    textures.insert(res::Texture::Spike,  "spike.png");
+    /** Special */
+    textures.insert(res::Texture::Spike,       "Spike.png");
+    textures.insert(res::Texture::Objective,   "Objective.png");
+    textures.insert(res::Texture::Heart,       "Heart.png");
+    textures.insert(res::Texture::HeartEmpty,  "Heart_Empty.png");
 
-    textures.insert(res::Texture::BgGame, "violet.jpg");
 
-    textures.insert(res::Texture::BgPaused, "pausedBg2.png");
-    textures.insert(res::Texture::BgOptions, "test8.png");
+    /** Large textures */
+    textures.insert(res::Texture::GameLost,    "Texture_Game_Lost.png");
+    textures.insert(res::Texture::GameWon,     "Texture_Game_Won.png");
+    textures.insert(res::Texture::BgGame,      "Texture_Game_Background.jpg");
+    textures.insert(res::Texture::BgAbout,     "Texture_About.png");
 
-    textures.insert(res::Texture::AboutInfo, "About.png");
 
-    textures.insert(res::Texture::OptionsLeftTopCorner, "corner-left-top.png");
-    textures.insert(res::Texture::OptionsLeftBotCorner, "corner-left-bot.png");
-    textures.insert(res::Texture::OptionsRightBotCorner, "corner-right-bot.png");
-    textures.insert(res::Texture::OptionsRightTopCorner, "corner-right-top.png");
-
-    textures.insert(res::Texture::GameOver, "gameOver2.png");
-    textures.insert(res::Texture::GameWon, "gameWon.png");
+    /** Corners in the Options menu */
+    textures.insert(res::Texture::OptionsLeftTopCorner,  "Corner_Left_Top.png");
+    textures.insert(res::Texture::OptionsLeftBotCorner,  "Corner_Left_Bot.png");
+    textures.insert(res::Texture::OptionsRightBotCorner, "Corner_Right_Top.png");
+    textures.insert(res::Texture::OptionsRightTopCorner, "Corner_Right_Bot.png");
 }
 
 void ResourceManager::loadSounds() {
-    sounds += ResourceInserter(res::Sound::Bing, "click.ogg");
-    sounds.insert(res::Sound::Bullet,   "boing_long.wav");
-    sounds.insert(res::Sound::Death,   "death.wav");
+    sounds += ResourceInserter(res::Sound::BtnHover, "Button_Hover.ogg");
+    sounds += ResourceInserter(res::Sound::Collect,  "Collect.wav");
+    sounds += ResourceInserter(res::Sound::Death,    "Death.wav");
+    sounds += ResourceInserter(res::Sound::WinGame,  "Win.ogg");
 }
 
 void ResourceManager::loadMusic() {
-//    music.insert(res::Music::Arcade, "MaquinasOutpost2.ogg");
+//    music.insert(res::Music::Background, "Background.ogg");
 }

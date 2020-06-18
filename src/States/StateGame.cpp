@@ -17,15 +17,20 @@ StateGame::StateGame(StateMachine &stateMachine,
                           {static_cast<float>(window.getWidth()),
                            static_cast<float>(window.getHeight())}}}
         , lives(window.getWindow(), resources.getTextures())
-        , collectSound(resources.getSounds()[res::Sound::Bullet])
+        , collectSound(resources.getSounds()[res::Sound::Collect])
         , deathSound(resources.getSounds()[res::Sound::Death])
+        , winGameSound(resources.getSounds()[res::Sound::WinGame])
 {
-    music.openFromFile(consts::gameMusic.data());
+    loadMusic();
 
     std::visit(overload{
             [&](MapLoader<Bmp>&) { blocksQueue = std::get<MapLoader<Bmp>>(mapLoader).getQueue(); },
             [&](MapLoader<Txt>&) { blocksQueue = std::get<MapLoader<Txt>>(mapLoader).getQueue(); },
     }, mapLoader);
+}
+
+void StateGame::loadMusic() {
+    music.openFromFile(config::gameMusic.data());
 }
 
 void StateGame::onCreate() {
@@ -42,7 +47,6 @@ void StateGame::onCreate() {
     collider       = std::make_unique<CollisionEvent>(player, blocks);
     inputEvent     = std::make_unique<InputEvent>(player, resources, window);
 }
-
 
 void StateGame::setEntitiesTextures() {
     this->setBlocksTextures();
@@ -84,6 +88,7 @@ void StateGame::onActivate() {
     music.play();
     deathSound.setVolume(audioConfig.volume);
     collectSound.setVolume(audioConfig.volume);
+    winGameSound.setVolume(audioConfig.volume);
 }
 
 void StateGame::onDeactivate() {
@@ -182,14 +187,15 @@ void StateGame::updateGameStatus() {
 
 void StateGame::checkWinCondition() {
     if (player.isIntersecting(objective)) {
-        consts::playerWon = true;
+        config::playerWon = true;
+        winGameSound.play();
         stateMachine = state::restartID;
     }
 }
 
 void StateGame::checkLoseCondition() {
     if (lives.isDead()) {
-        consts::playerWon = false;
+        config::playerWon = false;
         stateMachine = state::restartID;
     }
 }
@@ -229,53 +235,53 @@ bool StateGame::isInDrawRange(const Entity& entity) const {
 
 void StateGame::generateWorldFromBmp() {
     int u = 0;
-    auto j = consts::blocksCountHeight;
-    const auto entitiesNum = consts::blocksCountHeight * consts::blocksCountWidth;
+    auto j = config::blocksCountHeight;
+    const auto entitiesNum = config::blocksCountHeight * config::blocksCountWidth;
 
     auto& mapLoaderRef = std::get<MapLoader<Bmp>>(mapLoader);
     auto& theData =      std::get<BmpReader>(mapLoaderRef.mapReader).getData();
     auto& theEncoded =   std::get<Encoder<PixelColor>>(mapLoaderRef.encoder).encodedObjects;
 
     for (int k = 0; k < entitiesNum; k++) {
-        if (k % consts::blocksCountWidth == 0) {
+        if (k % config::blocksCountWidth == 0) {
             j--;
         }
-        int i = k % consts::blocksCountWidth;
+        int i = k % config::blocksCountWidth;
 
         auto curID = theEncoded.find(theData[k]);
         switch (curID->second) {
             case Obj::Entity::Empty:
                 break;
             case Obj::Entity::Player:
-                player.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                player.setPosition(i * config::entityWidth, j * config::entityHeight);
                 player.setStartingPosition();
                 break;
             case Obj::Entity::Objective:
-                objective.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                objective.setPosition(i * config::entityWidth, j * config::entityHeight);
                 break;
             case Obj::Entity::HeartCollectible:
-                hearts.push_back(std::move(std::make_unique<HeartCollectible>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                           static_cast<float>(j * consts::entityHeight)})));
+                hearts.push_back(std::move(std::make_unique<HeartCollectible>(sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                                           static_cast<float>(j * config::entityHeight)})));
                 break;
             case Obj::Entity::Spike:
-                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::Spike, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                    static_cast<float>(j * consts::entityHeight)})));
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::Spike, sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                                                    static_cast<float>(j * config::entityHeight)})));
                 break;
             case Obj::Entity::SpikeLeft:
-                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeLeft, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                        static_cast<float>(j * consts::entityHeight)})));
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeLeft, sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                                                        static_cast<float>(j * config::entityHeight)})));
                 break;
             case Obj::Entity::SpikeRight:
-                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeRight, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                         static_cast<float>(j * consts::entityHeight)})));
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeRight, sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                                                         static_cast<float>(j * config::entityHeight)})));
                 break;
             case Obj::Entity::SpikeTop:
-                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeTop, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                       static_cast<float>(j * consts::entityHeight)})));
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeTop, sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                                                       static_cast<float>(j * config::entityHeight)})));
                 break;
             default:
-                auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                     static_cast<float>(j * consts::entityHeight)});
+                auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                     static_cast<float>(j * config::entityHeight)});
                 blocks.push_back(std::move(newBlock));
                 u++;
                 break;
@@ -286,15 +292,15 @@ void StateGame::generateWorldFromBmp() {
 
 void StateGame::generateWorldFromTxt() {
     int u = 0;
-    const auto entitiesNum = consts::blocksCountHeight * consts::blocksCountWidth;
+    const auto entitiesNum = config::blocksCountHeight * config::blocksCountWidth;
 
     auto& mapLoaderRef = std::get<MapLoader<Txt>>(mapLoader);
     auto& theData =      std::get<TxtReader>(mapLoaderRef.mapReader).getData();
     auto& theEncoded =   std::get<Encoder<int>>(mapLoaderRef.encoder).encodedObjects;
 
     for (int k = 0, j = -1; k < entitiesNum; k++) {
-        int i = k % consts::blocksCountWidth;
-        if (k % consts::blocksCountWidth == 0) {
+        int i = k % config::blocksCountWidth;
+        if (k % config::blocksCountWidth == 0) {
             j++;
         }
         auto curID = theEncoded.find(theData[k]);
@@ -302,35 +308,35 @@ void StateGame::generateWorldFromTxt() {
             case Obj::Entity::Empty:
                 break;
             case Obj::Entity::Player:
-                player.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                player.setPosition(i * config::entityWidth, j * config::entityHeight);
                 player.setStartingPosition();
                 break;
             case Obj::Entity::Objective:
-                objective.setPosition(i * consts::entityWidth, j * consts::entityHeight);
+                objective.setPosition(i * config::entityWidth, j * config::entityHeight);
                 break;
             case Obj::Entity::HeartCollectible:
-                hearts.push_back(std::move(std::make_unique<HeartCollectible>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                           static_cast<float>(j * consts::entityHeight)})));
+                hearts.push_back(std::move(std::make_unique<HeartCollectible>(sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                                           static_cast<float>(j * config::entityHeight)})));
                 break;
             case Obj::Entity::Spike:
-                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::Spike, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                    static_cast<float>(j * consts::entityHeight)})));
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::Spike, sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                                                    static_cast<float>(j * config::entityHeight)})));
                 break;
             case Obj::Entity::SpikeLeft:
-                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeLeft, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                        static_cast<float>(j * consts::entityHeight)})));
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeLeft, sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                                                        static_cast<float>(j * config::entityHeight)})));
                 break;
             case Obj::Entity::SpikeRight:
-                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeRight, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                         static_cast<float>(j * consts::entityHeight)})));
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeRight, sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                                                         static_cast<float>(j * config::entityHeight)})));
                 break;
             case Obj::Entity::SpikeTop:
-                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeTop, sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                                                       static_cast<float>(j * consts::entityHeight)})));
+                spikes.push_back(std::move(std::make_unique<Spike>(Obj::Entity::SpikeTop, sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                                                       static_cast<float>(j * config::entityHeight)})));
                 break;
             default:
-                auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * consts::entityWidth),
-                                                                     static_cast<float>(j * consts::entityHeight)});
+                auto newBlock = std::make_unique<Block>(sf::Vector2f{static_cast<float>(i * config::entityWidth),
+                                                                     static_cast<float>(j * config::entityHeight)});
                 blocks.push_back(std::move(newBlock));
                 u++;
                 break;

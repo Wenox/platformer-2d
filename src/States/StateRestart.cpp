@@ -20,7 +20,7 @@ void StateRestart::onCreate() {
 }
 
 void StateRestart::onActivate() {
-    consts::playerWon ? gui.setGameWonTexture() : gui.setGameLostTexture();
+    config::playerWon ? gui.setGameWonTexture() : gui.setGameLostTexture();
 }
 
 void StateRestart::onDeactivate() {

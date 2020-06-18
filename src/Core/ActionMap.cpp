@@ -4,9 +4,9 @@
 
 
 ActionMap::ActionMap() {
-    this->insert("GoLeft",  consts::defaultRunLeftKey);
-    this->insert("GoRight", consts::defaultRunRightKey);
-    this->insert("Jump" ,   consts::defaultJumpKey);
+    this->insert("GoLeft", config::defaultRunLeftKey);
+    this->insert("GoRight", config::defaultRunRightKey);
+    this->insert("Jump" , config::defaultJumpKey);
 }
 
 void ActionMap::insert(const std::string& action, sf::Keyboard::Key key) {

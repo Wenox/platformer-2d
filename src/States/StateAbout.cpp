@@ -3,7 +3,7 @@
 
 StateAbout::StateAbout(StateMachine& stateMachine, ResourceManager& resources)
         : stateMachine{stateMachine}
-        , aboutInfo{resources.getTextures()[res::Texture::AboutInfo]}
+        , aboutInfo{resources.getTextures()[res::Texture::BgAbout]}
 {}
 
 void StateAbout::onCreate() {}

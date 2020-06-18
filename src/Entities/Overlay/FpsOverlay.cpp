@@ -1,3 +1,4 @@
+#include <Core/Consts.h>
 #include "FpsOverlay.h"
 
 FpsOverlay::FpsOverlay() {
@@ -18,8 +19,8 @@ std::string FpsOverlay::calcCurrentFps(float dt) {
 }
 
 void FpsOverlay::setFont() {
-    if (!font.loadFromFile("../resources/CascadiaCode.ttf"))
-        throw MissingFont{"FpsOverlay: CascadiaCode.ttf missing"};
+    if (!font.loadFromFile(config::widgetsFontName.data()))
+        throw MissingFont{"FpsOverlay missing font: " + std::string(config::widgetsFontName.data())};
 }
 
 void FpsOverlay::setFps() {

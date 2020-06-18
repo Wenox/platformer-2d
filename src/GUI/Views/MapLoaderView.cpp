@@ -15,7 +15,7 @@ void MapLoaderView::init() {
 }
 
 void MapLoaderView::buildGUI() {
-    createBackgroundFrom(consts::bg::loader);
+    createBackgroundFrom(config::bg::loader);
     createMainPanel();
     createButtons();
     createMapNameBox();

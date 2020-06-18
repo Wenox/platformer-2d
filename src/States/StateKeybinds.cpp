@@ -9,7 +9,7 @@ StateKeybinds::StateKeybinds(StateMachine& stateMachine, Window& window, Resourc
         , window{window}
         , gui{window}
 {
-    onHoverBtnSound.setBuffer(resourceManager.getSounds()[res::Sound::Bing]);
+    onHoverBtnSound.setBuffer(resourceManager.getSounds()[res::Sound::BtnHover]);
 }
 
 void StateKeybinds::onCreate() {

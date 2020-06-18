@@ -8,8 +8,8 @@ CollisionEvent::CollisionEvent(Player& player, std::vector<std::unique_ptr<Entit
          collidableRange{0.0f}
 {
     /** Collidable entity does not have to be a square. In such a case, collidable range is the longer side */
-    consts::entityWidth == consts::entityHeight ? collidableRange = consts::entityWidth
-                                                : collidableRange = std::max(consts::entityWidth, consts::entityHeight);
+    config::entityWidth == config::entityHeight ? collidableRange = config::entityWidth
+                                                : collidableRange = std::max(config::entityWidth, config::entityHeight);
 }
 
 void CollisionEvent::updateAxisX(float) {

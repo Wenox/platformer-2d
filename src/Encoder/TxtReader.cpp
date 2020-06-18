@@ -23,8 +23,8 @@ void TxtReader::readFile() {
             rows++;
         }
         std::stringstream ss{line};
-        consts::blocksCountWidth  = std::distance(std::istream_iterator<int>{ss}, std::istream_iterator<int>{});
-        consts::blocksCountHeight = rows;
+        config::blocksCountWidth  = std::distance(std::istream_iterator<int>{ss}, std::istream_iterator<int>{});
+        config::blocksCountHeight = rows;
 
     }
     else {

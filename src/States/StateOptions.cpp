@@ -12,7 +12,7 @@ StateOptions::StateOptions(StateMachine& stateMachine, Window& window, ResourceM
                            resources.getTextures()[res::Texture::OptionsRightBotCorner],
                            resources.getTextures()[res::Texture::OptionsRightTopCorner]}}
 {
-    onHoverBtnSound.setBuffer(resources.getSounds()[res::Sound::Bing]);
+    onHoverBtnSound.setBuffer(resources.getSounds()[res::Sound::BtnHover]);
 
     for (std::size_t i{0u}; i < cornersTextures.size(); ++i) {
         corners.at(i).setTexture(cornersTextures.at(i).get());

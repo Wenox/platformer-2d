@@ -41,8 +41,8 @@ void BmpReader::readPixels() {
         data.emplace_back(pixelColor);
     }
 
-    consts::blocksCountWidth  = this->width;
-    consts::blocksCountHeight = this->height;
+    config::blocksCountWidth  = this->width;
+    config::blocksCountHeight = this->height;
 }
 
 int BmpReader::getPixelsCount() const {

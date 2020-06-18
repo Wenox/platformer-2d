@@ -4,9 +4,9 @@
 
 
 Window::Window(std::string_view windowName)
-        : window{sf::VideoMode{consts::windowWidth, consts::windowHeight}, windowName.data()}
+        : window{sf::VideoMode{config::windowWidth, config::windowHeight}, windowName.data()}
 {
-    window.setFramerateLimit(consts::maxFps);
+    window.setFramerateLimit(config::maxFps);
     setWindowIcon();
 }
 
@@ -55,8 +55,8 @@ sf::RenderWindow& Window::getWindow() {
 
 void Window::setWindowIcon() {
     sf::Image icon;
-    if (!icon.loadFromFile("../resources/icon.png")) {
-        throw std::runtime_error{"Missing icon.png"};
+    if (!icon.loadFromFile(config::programIcon.data())) {
+        throw std::runtime_error{"Missing program icon: " + std::string(config::programIcon)};
     }
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }

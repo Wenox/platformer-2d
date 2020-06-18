@@ -7,7 +7,7 @@ class AudioCfg {
 public:
     bool isSoundEnabled = true;
     bool isFpsEnabled = true;
-    float volume = consts::initSoundVolume;
+    float volume = config::defaultSoundVolume;
 };
 
 extern AudioCfg audioConfig;

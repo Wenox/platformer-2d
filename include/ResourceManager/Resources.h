@@ -25,10 +25,7 @@ namespace res {
         HeartEmpty,
 
         BgGame,
-        BgPaused,
-        BgOptions,
-
-        AboutInfo,
+        BgAbout,
 
         Spike,
 
@@ -37,17 +34,18 @@ namespace res {
         OptionsRightBotCorner,
         OptionsRightTopCorner,
 
-        GameOver,
+        GameLost,
         GameWon
     };
 
     enum class Sound {
-        Bullet,
-        Bing,
-        Death
+        Collect,
+        BtnHover,
+        Death,
+        WinGame
     };
 
     enum class Music {
-        Arcade
+        Background
     };
 }

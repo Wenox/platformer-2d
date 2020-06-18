@@ -108,8 +108,8 @@ void Camera::setCameraConstants() noexcept {
     halvedCameraWidth  = cameraWidth  / 2.0;
     halvedCameraHeight = cameraHeight / 2.0;
 
-    mapWidth =  consts::blocksCountWidth  * 32;
-    mapHeight = consts::blocksCountHeight * 32;
+    mapWidth = config::blocksCountWidth * 32;
+    mapHeight = config::blocksCountHeight * 32;
 
     leftBorderBoundary   = halvedCameraWidth;
     topBorderBoundary    = halvedCameraHeight;

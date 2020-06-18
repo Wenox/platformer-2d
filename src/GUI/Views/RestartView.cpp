@@ -4,7 +4,7 @@
 
 RestartView::RestartView(Window& window, ResourceManager& resourceManager)
     : View{window}
-    , lostTexture{resourceManager.getTextures()[res::Texture::GameOver]}
+    , lostTexture{resourceManager.getTextures()[res::Texture::GameLost]}
     , wonTexture {resourceManager.getTextures()[res::Texture::GameWon]}
 {
     this->init();
@@ -26,7 +26,7 @@ void RestartView::setGameLostTexture() {
 }
 
 void RestartView::buildGUI() {
-    createBackgroundFrom(consts::bg::restart);
+    createBackgroundFrom(config::bg::restart);
     createPanels();
     createButtons();
     createGameFinishedImage();

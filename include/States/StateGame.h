@@ -46,6 +46,7 @@ private:
     void generateWorldFromBmp();
     void generateWorldFromTxt();
 
+    void loadMusic();
     void setEntitiesTextures();
     void setBlocksTextures();
     void setSpikesTextures();
@@ -90,10 +91,11 @@ private:
     /** todo: Simplifiable to e.g. SoundPlayer class */
     sf::Sound collectSound;
     sf::Sound deathSound;
+    sf::Sound winGameSound;
     sf::Music music;
 
 
-    const int bottomBorderHeight = consts::entityHeight * consts::blocksCountHeight;
+    const int bottomBorderHeight = config::entityHeight * config::blocksCountHeight;
 };
 
 

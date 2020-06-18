@@ -8,6 +8,32 @@
 #include <concepts>
 
 
+template <typename Resource>
+class MissingResource : public std::exception {
+    std::string_view fileName{};
+    std::string_view msg{};
+
+public:
+    MissingResource() = default;
+    MissingResource(std::string_view fileName)
+    : fileName{fileName}
+    {
+        initMsg<Resource>();
+    }
+
+    template <typename T>
+    void initMsg() {
+        msg = "Failed loading resource: "
+              "{ Type: "    + std::string(typeid(Resource).name()) + ", "
+              "  File name: " + fileName.data()                    + " }";
+    }
+
+    virtual const char* what() const noexcept override {
+        return msg.data();
+    }
+};
+
+
 template <typename Key, typename Resource>
 #if (__cplusplus == 202002L)
 requires Mappable<Key>
@@ -34,9 +60,7 @@ public:
         }
 
         if (!loaded) {
-            msgErrorLoading(fileName);
-            ///* todo: possibly "throw ErrorLoadingResource" here */
-            return;
+            throw MissingResource<Resource>(fileName);
         }
         resources.emplace(key, std::move(resPtr));
     }
@@ -114,9 +138,5 @@ public:
     }
 
 private:
-    void msgErrorLoading(std::string_view fileName) {
-        std::cerr << "Failed loading resource: "
-                     "{ Type: "    << std::quoted(typeid(Resource).name()) << ", "
-                     "File name: " << std::quoted(fileName)                << " }" << std::endl;
-    }
+
 };

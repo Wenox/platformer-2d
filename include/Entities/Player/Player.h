@@ -40,12 +40,12 @@ public:
     JumpingState jumpingState{JumpingState::onGround};
 
 private:
-    const float velocityX = consts::horizontalVelocity;
+    const float velocityX = config::horizontalVelocity;
 
-    float gravity = consts::gravity;
+    float gravity = config::gravity;
 
     /** Two kinds of vertical velocity */
-    float jumpVelocity = consts::initialJumpVelocity; ///< used when player himself jumped
+    float jumpVelocity = config::initialJumpVelocity; ///< used when player himself jumped
     float gravVelocity = 0.0f;                        ///< used when player is free-falling (e.g. slipped off edge)
 
     constexpr static auto feetDetectorRange = 5.0f;

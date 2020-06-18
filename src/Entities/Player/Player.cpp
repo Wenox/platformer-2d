@@ -20,8 +20,8 @@ void Player::gravityFrame(float dt) {
 }
 
 void Player::updateVelocity(float& velocity, float dt) const noexcept {
-    if (velocity > consts::terminalVelocity) {
-        velocity = consts::terminalVelocity;
+    if (velocity > config::terminalVelocity) {
+        velocity = config::terminalVelocity;
     } else {
         velocity += gravity * dt;
     }
@@ -33,12 +33,12 @@ void Player::resetGravVelocity() {
 
 void Player::landOnGroundUpdate() {
     this->jumpingState = JumpingState::onGround;
-    this->setJumpVelocity(consts::initialJumpVelocity);
+    this->setJumpVelocity(config::initialJumpVelocity);
     this->resetGravVelocity();
 }
 
 void Player::hitCeilingUpdate() {
-    this->setJumpVelocity(consts::hitCeilingVelocity);
+    this->setJumpVelocity(config::hitCeilingVelocity);
 }
 
 bool Player::isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const {

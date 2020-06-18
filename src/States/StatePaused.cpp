@@ -8,7 +8,7 @@ StatePaused::StatePaused(StateMachine& stateMachine, Window& window, ResourceMan
         , pausedView{{320, 288}, {604, 576}}
         , gui{window}
 {
-    onHoverBtnSound.setBuffer(resources.getSounds()[res::Sound::Bing]);
+    onHoverBtnSound.setBuffer(resources.getSounds()[res::Sound::BtnHover]);
 }
 
 void StatePaused::onCreate() {

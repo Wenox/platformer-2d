@@ -13,7 +13,7 @@ void MenuView::init() {
 }
 
 void MenuView::buildGUI() {
-    createBackgroundFrom(consts::bg::menu);
+    createBackgroundFrom(config::bg::menu);
     createMainPanel();
     createButtons();
 }

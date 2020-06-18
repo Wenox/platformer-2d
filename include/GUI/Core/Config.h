@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Consts.h"
+
 
 namespace Gui {
     template <typename Widget = tgui::Widget::Ptr>
@@ -10,7 +12,7 @@ namespace Gui {
         constexpr static auto opacity     = 0.95;
 
 
-        const static inline tgui::Font font = {"../resources/CascadiaCode.ttf"};
+        const static inline tgui::Font font = {config::widgetsFontName.data()};
 
 
         const tgui::Color borderColor     = {209, 153, 48};

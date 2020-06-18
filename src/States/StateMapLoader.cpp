@@ -16,14 +16,14 @@ StateMapLoader::StateMapLoader(StateMachine& stateMachine, Window& window, Resou
     , resources{resourceManager}
     , gui{window}
 {
-    onHoverBtnSound.setBuffer(resourceManager.getSounds()[res::Sound::Bing]);
+    onHoverBtnSound.setBuffer(resourceManager.getSounds()[res::Sound::BtnHover]);
 }
 
 
 void StateMapLoader::onCreate() {
     gui.widgets[to_underlying(Loader::Btn::openEditor)]->connect("Pressed", [&]() {
 #ifdef _WIN32
-        ShellExecute(nullptr, "open", consts::mapEditorPath.data(), nullptr, nullptr, SW_SHOWNORMAL);
+        ShellExecute(nullptr, "open", config::mapEditorPath.data(), nullptr, nullptr, SW_SHOWNORMAL);
 #elif
         this->printHelp(std::clog);
         stateMachine = state::gameID;

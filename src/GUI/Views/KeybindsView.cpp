@@ -14,7 +14,7 @@ void KeybindsView::init() {
 }
 
 void KeybindsView::buildGUI() {
-    createBackgroundFrom(consts::bg::keybinds);
+    createBackgroundFrom(config::bg::keybinds);
     createPanels();
     createButtons();
     createIcons();
@@ -67,7 +67,7 @@ void KeybindsView::createRebindingPanelGroup() {
         addPressKeyLabelInto(parent);
         addCancelLabelInto(parent);
     } catch (std::exception& e) {
-        std::cerr << "Add keybinds register labels failed. No such font: " << consts::fontName << std::endl;
+        std::cerr << "Add keybinds register labels failed. No such font: " << config::keybindsFontName << std::endl;
         std::cerr << e.what() << std::endl;
     }
 }
@@ -88,8 +88,8 @@ tgui::Panel::Ptr KeybindsView::createRebindingPanel() {
 
 void KeybindsView::addBackgroundInto(const tgui::Panel::Ptr& parent) {
     sf::Texture texture;
-    if (!texture.loadFromFile(consts::bg::rebinding.data())) {
-        throw std::runtime_error("No such resource: " + std::string(consts::bg::rebinding.data()));
+    if (!texture.loadFromFile(config::rebindingBg.data())) {
+        throw std::runtime_error("No such resource: " + std::string(config::rebindingBg.data()));
     }
     parent->getRenderer()->setTextureBackground(texture);
 }
@@ -101,7 +101,7 @@ void KeybindsView::addPressKeyLabelInto(const tgui::Panel::Ptr& parent) {
     myLabel->setText("PRESS KEY...");
     myLabel->setTextSize(28);
     myLabel->getRenderer()->setTextColor(tgui::Color::White);
-    myLabel->setInheritedFont(tgui::Font(consts::fontName.data()));
+    myLabel->setInheritedFont(tgui::Font(config::keybindsFontName.data()));
 
     parent->add(myLabel);
 }
@@ -112,7 +112,7 @@ void KeybindsView::addCancelLabelInto(const tgui::Panel::Ptr& parent) {
     cancelRegisterLabel->getRenderer()->setTextColor(tgui::Color{191, 191, 191});
     cancelRegisterLabel->setPosition(100, 140);
     cancelRegisterLabel->setTextSize(16);
-    cancelRegisterLabel->setInheritedFont(tgui::Font(consts::fontName.data()));
+    cancelRegisterLabel->setInheritedFont(tgui::Font(config::keybindsFontName.data()));
 
     parent->add(cancelRegisterLabel);
 }
@@ -149,7 +149,7 @@ void KeybindsView::createIcons() {
 
 
 void KeybindsView::createLargeBgIcon() {
-    auto largeBgIcon = tgui::Picture::create(tgui::Texture{consts::largeBgIcon.data()});
+    auto largeBgIcon = tgui::Picture::create(tgui::Texture{config::largeBgIcon.data()});
 
     largeBgIcon->setPosition(170, 75);
     largeBgIcon->setInheritedOpacity(0.6);
@@ -158,7 +158,7 @@ void KeybindsView::createLargeBgIcon() {
 }
 
 void KeybindsView::createJumpIcon() {
-    auto jumpIcon = tgui::Picture::create(tgui::Texture{consts::jumpIcon.data()});
+    auto jumpIcon = tgui::Picture::create(tgui::Texture{config::jumpIcon.data()});
 
     jumpIcon->setPosition(158, 342);
     jumpIcon->setInheritedOpacity(0.3);
@@ -167,7 +167,7 @@ void KeybindsView::createJumpIcon() {
 }
 
 void KeybindsView::createRunLeftIcon() {
-    auto leftIcon = tgui::Picture::create(tgui::Texture{consts::runLeftIcon.data()});
+    auto leftIcon = tgui::Picture::create(tgui::Texture{config::runLeftIcon.data()});
 
     leftIcon->setPosition(158, 398);
     leftIcon->setInheritedOpacity(0.3);
@@ -177,7 +177,7 @@ void KeybindsView::createRunLeftIcon() {
 }
 
 void KeybindsView::createRunRightIcon() {
-    auto rightIcon = tgui::Picture::create(tgui::Texture{consts::runRightIcon.data()});
+    auto rightIcon = tgui::Picture::create(tgui::Texture{config::runRightIcon.data()});
 
     rightIcon->setInheritedOpacity(0.3);
     rightIcon->setPosition(158, 456);
@@ -202,18 +202,18 @@ void KeybindsView::createBorders() {
         createRightBorder();
     }
     catch (std::exception& e) {
-        std::cerr << "No such border texture: " << consts::sideBorder.data() << std::endl;
+        std::cerr << "No such border texture: " << config::sideBorder.data() << std::endl;
         std::cerr << e.what() << std::endl;
     }
 }
 
 void KeybindsView::createLeftBorder() {
-    auto leftSideBorder = tgui::Picture::create(tgui::Texture{consts::sideBorder.data()});
+    auto leftSideBorder = tgui::Picture::create(tgui::Texture{config::sideBorder.data()});
     view.add(leftSideBorder, "leftSideBorder");
 }
 
 void KeybindsView::createRightBorder() {
-    auto rightSideBorder = tgui::Picture::create(tgui::Texture{consts::sideBorder.data()});
+    auto rightSideBorder = tgui::Picture::create(tgui::Texture{config::sideBorder.data()});
     rightSideBorder->setPosition(608, 0);
     view.add(rightSideBorder, "rightSideBorder");
 }
