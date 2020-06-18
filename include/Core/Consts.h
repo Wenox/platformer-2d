@@ -3,15 +3,36 @@
 #include <string_view>
 #include <SFML/Window/Keyboard.hpp>
 
+using std::string_view;
+using sf::Keyboard;
+
 
 namespace consts {
-    constexpr static std::string_view mapEditorPath  = "index.html";
-    constexpr static std::string_view defaultMapName = "map.bmp";
-    constexpr static std::string_view gameMusic      = "../resources/sound/MaquinasOutpost2.ogg";
 
-    constexpr static sf::Keyboard::Key defaultJumpKey     = sf::Keyboard::W;
-    constexpr static sf::Keyboard::Key defaultRunLeftKey  = sf::Keyboard::A;
-    constexpr static sf::Keyboard::Key defaultRunRightKey = sf::Keyboard::D;
+    constexpr static string_view mapEditorPath   = "index.html";
+    constexpr static string_view defaultMapName  = "map.bmp";
+    constexpr static string_view gameMusic       = "../resources/sound/MaquinasOutpost2.ogg";
+
+    namespace bg {
+        constexpr static string_view options   = "../resources/test8.png";
+        constexpr static string_view keybinds  = "../resources/bindingsBg.png";
+        constexpr static string_view rebinding = "../resources/registerBg.png";
+//        constexpr static string_view paused  = "../resources/test8.png";
+//        constexpr static string_view restart = "../resources/test8.png";
+    }
+
+    constexpr static string_view largeBgIcon  = "../resources/gamepad6.png";
+    constexpr static string_view jumpIcon     = "../resources/long-jump2.png";
+    constexpr static string_view runLeftIcon  = "../resources/left-arrow2.png";
+    constexpr static string_view runRightIcon = "../resources/right-arrow2.png";
+    constexpr static string_view sideBorder   = "../resources/side.png";
+
+    constexpr static string_view fontName = "../resources/coolFont.ttf";
+
+
+    constexpr static Keyboard::Key defaultJumpKey     = Keyboard::W;
+    constexpr static Keyboard::Key defaultRunLeftKey  = Keyboard::A;
+    constexpr static Keyboard::Key defaultRunRightKey = Keyboard::D;
 
     constexpr static auto initSoundVolume = 30.0f;
 

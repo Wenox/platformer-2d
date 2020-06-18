@@ -1,4 +1,6 @@
+#include "Consts.h"
 #include "KeybindsView.h"
+#include <iostream>
 
 
 KeybindsView::KeybindsView(Window &window)
@@ -12,25 +14,33 @@ void KeybindsView::init() {
 }
 
 void KeybindsView::buildGUI() {
-    view.add(tgui::Picture::create("../resources/bindingsBg.png"));
+    createBackground(consts::bg::keybinds);
+    createPanels();
+    createButtons();
+    createIcons();
+    createLabels();
+    createBorders();
 
+}
 
-    auto panelPrompt = tgui::Panel::create({config.width + 72, 48});
-    panelPrompt->setPosition(159,8);
-    panelPrompt->getRenderer()->setBackgroundColor(tgui::Color::White);
-    panelPrompt->setInheritedOpacity(0.35);
-    panelPrompt->getRenderer()->setBorders({1, 1, 1, 1});
-    panelPrompt->getRenderer()->setBorderColor(tgui::Color::Black);
-    view.add(panelPrompt, "panelPrompt");
+void KeybindsView::createPanels() {
+    createTitlePanel();
+    createButtonsPanel();
 
-    auto promptRebindLabel = tgui::Label::create("Rebind your keys");
-    promptRebindLabel->setPosition(166, 10);
-    promptRebindLabel->setInheritedFont(config.font);
-    promptRebindLabel->setTextSize(32);
-    promptRebindLabel->getRenderer()->setTextColor(tgui::Color::Black);
-    view.add(promptRebindLabel, "promptRebindLabel");
+    createRebindingPanelGroup();
+}
 
+void KeybindsView::createTitlePanel() {
+    auto panelTitle = tgui::Panel::create({config.width + 72, 48});
+    panelTitle->setPosition(159, 8);
+    panelTitle->getRenderer()->setBackgroundColor(tgui::Color::White);
+    panelTitle->setInheritedOpacity(0.35);
+    panelTitle->getRenderer()->setBorders({1, 1, 1, 1});
+    panelTitle->getRenderer()->setBorderColor(tgui::Color::Black);
+    view.add(panelTitle, "panelTitle");
+}
 
+void KeybindsView::createButtonsPanel() {
     auto panelButtons = tgui::Panel::create({config.width + 72, 238});
     panelButtons->setPosition(159,335);
     panelButtons->getRenderer()->setBackgroundColor(tgui::Color::Black);
@@ -38,37 +48,28 @@ void KeybindsView::buildGUI() {
     panelButtons->getRenderer()->setBorders({1, 1, 1, 1});
     panelButtons->getRenderer()->setBorderColor(tgui::Color::White);
     view.add(panelButtons, "panelButtons");
+}
 
+void KeybindsView::createRebindingPanelGroup() {
+    const auto& parent = createRebindingPanel();
 
-    auto gamepad = tgui::Picture::create(tgui::Texture{"../resources/gamepad6.png"});
-    gamepad->setPosition(170, 75);
-    gamepad->setInheritedOpacity(0.6);
-    view.add(gamepad, "gamepad");
-
-    auto jumpIcon = tgui::Picture::create(tgui::Texture{"../resources/long-jump2.png"});
-    jumpIcon->setPosition(158, 342);
-    jumpIcon->setInheritedOpacity(0.3);
-    view.add(jumpIcon, "jumpIcon");
-
-    auto leftIcon = tgui::Picture::create(tgui::Texture{"../resources/left-arrow2.png"});
-    leftIcon->setPosition(158, 398);
-    leftIcon->setInheritedOpacity(0.3);
-    view.add(leftIcon, "leftIcon");
-
-
-    auto rightIcon = tgui::Picture::create(tgui::Texture{"../resources/right-arrow2.png"});
-    rightIcon->setInheritedOpacity(0.3);
-    rightIcon->setPosition(158, 456);
-    view.add(rightIcon, "leftIcon");
-
-    for (auto i{0u}; auto btn : Keybinds::Buttons) {
-        const auto& btnName = optionsConfig.widgetsNames[btn];
-        widgets.emplace_back(tgui::Button::create(btnName));
-
-        this->loadWidget(widgets[i]);
-        ++i;
+    try {
+        addBackgroundInto(parent);
+    } catch (std::exception& e) {
+        std::cerr << "Add keybinds background failed, using empty background instead." << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
+    try {
+        addPressKeyLabelInto(parent);
+        addCancelLabelInto(parent);
+    } catch (std::exception& e) {
+        std::cerr << "Add keybinds register labels failed. No such font: " << consts::fontName << std::endl;
+        std::cerr << e.what() << std::endl;
+    }
+}
+
+tgui::Panel::Ptr KeybindsView::createRebindingPanel() {
     auto panel = tgui::Panel::create({384, 256});
     panel->setVisible(false);
     panel->setPosition(128, 68);
@@ -76,34 +77,46 @@ void KeybindsView::buildGUI() {
     panel->getRenderer()->setOpacity(1.0);
     panel->getRenderer()->setBorderColor(tgui::Color::Black);
     panel->getRenderer()->setBorders({1, 1, 1, 1});
+    view.add(panel, "panel");
 
+    return panel;
+}
+
+void KeybindsView::addBackgroundInto(const tgui::Panel::Ptr& parent) {
     sf::Texture texture;
-    if (!texture.loadFromFile("../resources/registerBg.png")) throw std::runtime_error("cant find registerBg");
-    panel->getRenderer()->setTextureBackground(texture);
+    if (!texture.loadFromFile(consts::bg::rebinding.data())) {
+        throw std::runtime_error("No such resource: " + std::string(consts::bg::rebinding.data()));
+    }
+    parent->getRenderer()->setTextureBackground(texture);
+}
 
-
+void KeybindsView::addPressKeyLabelInto(const tgui::Panel::Ptr& parent) {
     auto myLabel = tgui::Label::create();
     myLabel->setPosition(70, 100);
     myLabel->setText("PRESS KEY...");
     myLabel->setTextSize(28);
     myLabel->getRenderer()->setTextColor(tgui::Color::White);
-    myLabel->setInheritedFont(tgui::Font("../resources/coolFont.ttf"));
-    panel->add(myLabel);
+    myLabel->setInheritedFont(tgui::Font(consts::fontName.data()));
+    parent->add(myLabel);
+}
 
+void KeybindsView::addCancelLabelInto(const tgui::Panel::Ptr& parent) {
     auto cancelRegisterLabel = tgui::Label::create("(ESC to cancel)");
     cancelRegisterLabel->getRenderer()->setTextColor(tgui::Color{191, 191, 191});
     cancelRegisterLabel->setPosition(100, 140);
     cancelRegisterLabel->setTextSize(16);
-    cancelRegisterLabel->setInheritedFont(tgui::Font("../resources/coolFont.ttf"));
-    panel->add(cancelRegisterLabel);
+    cancelRegisterLabel->setInheritedFont(tgui::Font(consts::fontName.data()));
+    parent->add(cancelRegisterLabel);
+}
 
-    view.add(panel, "panel");
+void KeybindsView::createButtons() {
+    for (auto i{0u}; auto btn : Keybinds::Buttons) {
+        const auto& btnName = optionsConfig.widgetsNames[btn];
+        widgets.emplace_back(tgui::Button::create(btnName));
 
-    auto leftSide = tgui::Picture::create(tgui::Texture{"../resources/side.png"});
-    view.add(leftSide, "leftSide");
-    auto rightSide = tgui::Picture::create(tgui::Texture{"../resources/side.png"});
-    rightSide->setPosition(608, 0);
-    view.add(rightSide, "rightSide");
+        this->loadWidget(widgets[i]);
+        ++i;
+    }
 }
 
 void KeybindsView::loadWidget(tgui::Widget::Ptr &widget) {
@@ -111,4 +124,78 @@ void KeybindsView::loadWidget(tgui::Widget::Ptr &widget) {
     widget->setPosition({view.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2 + 25,
                          Keybinds::Config::offsetY + view.getTarget()->getSize().y / 10 * ++buttonsCounter});
     view.add(widget);
+}
+
+void KeybindsView::createIcons() {
+    try {
+        createLargeBgIcon();
+        createJumpIcon();
+        createRunLeftIcon();
+        createRunRightIcon();
+    }
+    catch(std::exception& e) {
+        std::cout << "Could not load an icon for Keybinds menu" << std::endl;
+        std::cerr << e.what() << std::endl;
+    }
+}
+
+
+void KeybindsView::createLargeBgIcon() {
+    auto largeBgIcon = tgui::Picture::create(tgui::Texture{consts::largeBgIcon.data()});
+    largeBgIcon->setPosition(170, 75);
+    largeBgIcon->setInheritedOpacity(0.6);
+    view.add(largeBgIcon, "largeBgIcon");
+}
+
+void KeybindsView::createJumpIcon() {
+    auto jumpIcon = tgui::Picture::create(tgui::Texture{consts::jumpIcon.data()});
+    jumpIcon->setPosition(158, 342);
+    jumpIcon->setInheritedOpacity(0.3);
+    view.add(jumpIcon);
+}
+
+void KeybindsView::createRunLeftIcon() {
+    auto leftIcon = tgui::Picture::create(tgui::Texture{consts::runLeftIcon.data()});
+    leftIcon->setPosition(158, 398);
+    leftIcon->setInheritedOpacity(0.3);
+    view.add(leftIcon);
+
+}
+
+void KeybindsView::createRunRightIcon() {
+    auto rightIcon = tgui::Picture::create(tgui::Texture{consts::runRightIcon.data()});
+    rightIcon->setInheritedOpacity(0.3);
+    rightIcon->setPosition(158, 456);
+    view.add(rightIcon);
+}
+
+void KeybindsView::createBorders() {
+    try {
+        createLeftBorder();
+        createRightBorder();
+    }
+    catch (std::exception& e) {
+        std::cerr << "No such border texture: " << consts::sideBorder.data() << std::endl;
+        std::cerr << e.what() << std::endl;
+    }
+}
+
+void KeybindsView::createLeftBorder() {
+    auto leftSideBorder = tgui::Picture::create(tgui::Texture{consts::sideBorder.data()});
+    view.add(leftSideBorder, "leftSideBorder");
+}
+
+void KeybindsView::createRightBorder() {
+    auto rightSideBorder = tgui::Picture::create(tgui::Texture{consts::sideBorder.data()});
+    rightSideBorder->setPosition(608, 0);
+    view.add(rightSideBorder, "rightSideBorder");
+}
+
+void KeybindsView::createTitleLabel() {
+    auto promptRebindLabel = tgui::Label::create("Rebind your keys");
+    promptRebindLabel->setPosition(166, 10);
+    promptRebindLabel->setInheritedFont(Gui::Config<>::font);
+    promptRebindLabel->setTextSize(32);
+    promptRebindLabel->getRenderer()->setTextColor(tgui::Color::Black);
+    view.add(promptRebindLabel, "promptRebindLabel");
 }

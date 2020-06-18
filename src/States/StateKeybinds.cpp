@@ -15,17 +15,17 @@ StateKeybinds::StateKeybinds(StateMachine& stateMachine, Window& window, Resourc
 void StateKeybinds::onCreate() {
     gui.widgets[to_underlying(Keybinds::Btn::Jump)]->connect("Pressed", [&]() {
         action = Action::Jump;
-        gui.getView().get("gamepad")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
+        gui.getView().get("largeBgIcon")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
         gui.getView().get("panel")->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(150));
     });
     gui.widgets[to_underlying(Keybinds::Btn::RunLeft)]->connect("Pressed", [&]() {
         action = Action::GoLeft;
-        gui.getView().get("gamepad")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
+        gui.getView().get("largeBgIcon")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
         gui.getView().get("panel")->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(150));
     });
     gui.widgets[to_underlying(Keybinds::Btn::RunRight)]->connect("Pressed", [&]() {
         action = Action::GoRight;
-        gui.getView().get("gamepad")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
+        gui.getView().get("largeBgIcon")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
         gui.getView().get("panel")->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(150));
     });
 
@@ -57,7 +57,7 @@ void StateKeybinds::update(float dt) {
         and action != Action::NONE) {
 
         gui.getView().get("panel")->hideWithEffect(tgui::ShowAnimationType::SlideToRight, sf::milliseconds(150));
-        gui.getView().get("gamepad")->showWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
+        gui.getView().get("largeBgIcon")->showWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
 
         if (window.getEvent().front().key.code == sf::Keyboard::Escape) {
             action = Action::NONE;
