@@ -28,9 +28,7 @@ public:
 
     bool isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const;
 
-    bool isIntersecting(const Spike& entity) const;
-    bool isIntersecting(const HeartCollectible& entity) const;
-    bool isIntersecting(const Objective& entity) const;
+    bool isIntersecting(const Entity& entity) const;
 
     void kill(LivesHUD& livesHUD);
 

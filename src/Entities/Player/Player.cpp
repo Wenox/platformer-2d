@@ -65,15 +65,7 @@ bool Player::isDetectingGround(const std::vector<std::unique_ptr<Entity>>& block
     return false;
 }
 
-bool Player::isIntersecting(const Spike& entity) const {
-    return this->getGlobalBounds().intersects(entity.getGlobalBounds());
-}
-
-bool Player::isIntersecting(const HeartCollectible& entity) const {
-    return this->getGlobalBounds().intersects(entity.getGlobalBounds());
-}
-
-bool Player::isIntersecting(const Objective& entity) const {
+bool Player::isIntersecting(const Entity& entity) const {
     return this->getGlobalBounds().intersects(entity.getGlobalBounds());
 }
 
