@@ -24,10 +24,11 @@ namespace consts {
     constexpr static auto windowHeight = entityHeight * 18;
     constexpr static auto maxFps       = 3000; /** Emphasize frame rate independent movement */
 
-    constexpr static auto horizontalVelocity  = 300;
-    constexpr static auto terminalVelocity    = 40;
-    constexpr static auto gravity             = 2000.0f;
+    constexpr static auto horizontalVelocity  = 300.0f;
     constexpr static auto initialJumpVelocity = -680.0f;
-    constexpr static auto hitCeilingVelocity  = 10.0;
+    constexpr static auto terminalVelocity    = 1000.0f;
+    constexpr static auto gravity             = 2000.0f;
+    constexpr static auto hitCeilingVelocity  = 10.0f;
+
     extern bool playerWon;
 }

@@ -1,12 +1,8 @@
 #pragma once
 
 #include <Consts.h>
-#include <Entities/Spike.h>
 #include <GUI/HUD/LivesHUD.h>
-#include <Entities/HeartCollectible.h>
-#include <Entities/Objective.h>
-#include "Entity.h"
-#include "PlayerState.h"
+#include "PlayerStates.h"
 
 
 class Player : public Entity {
@@ -20,14 +16,13 @@ public:
 
     void jumpFrame(float dt);
     void gravityFrame(float dt);
-
-    void restartJumpTime();
+    void updateVelocity(float& velocity, float dt) const noexcept;
 
     void landOnGroundUpdate();
     void hitCeilingUpdate();
+    void resetGravVelocity();
 
     bool isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const;
-
     bool isIntersecting(const Entity& entity) const;
 
     void kill(LivesHUD& livesHUD);
@@ -37,22 +32,24 @@ public:
     sf::Vector2f getStartingPosition() const;
 
     float getVelocityX() const;
-    float getVelocityY() const;
-
-    void setVelocityY(float newVal);
+    [[maybe_unused]] float getJumpVelocity() const;
+    [[maybe_unused]] float getGravVelocity() const;
+    void setJumpVelocity(float newVal);
 
     MovingState  movingState{MovingState::standing};
     JumpingState jumpingState{JumpingState::onGround};
 
 private:
-    const float velX = consts::horizontalVelocity;
-    float velY = consts::initialJumpVelocity;
+    const float velocityX = consts::horizontalVelocity;
 
-    float gravVelY = 0.0f;
     float gravity = consts::gravity;
 
-    constexpr static auto detectorRange = 5.0f;
-    float position;
+    /** Two kinds of vertical velocity */
+    float jumpVelocity = consts::initialJumpVelocity; ///< used when player himself jumped
+    float gravVelocity = 0.0f;                        ///< used when player is free-falling (e.g. slipped off edge)
+
+    constexpr static auto feetDetectorRange = 5.0f;
+    float position{};
 };
 
 

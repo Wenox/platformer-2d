@@ -1,5 +1,6 @@
 #include "Player.h"
 
+
 Player::Player(sf::Vector2f position)
     : Entity{position}
 {}
@@ -8,57 +9,42 @@ void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(sprite, states);
 }
 
-float Player::getVelocityX() const {
-    return velX;
-}
-
-float Player::getVelocityY() const {
-    return velY;
-}
-
-void Player::setVelocityY(float newVal) {
-    this->velY = newVal;
-}
-
 void Player::jumpFrame(float dt) {
-    sprite.move(0, velY * dt + gravity * (dt * dt) * 0.5f);
-
-    if (velY > 1000) {
-        velY = 1000;
-    } else {
-        velY += gravity * dt;
-    }
+    sprite.move(0, jumpVelocity * dt + gravity * (dt * dt) * 0.5f);
+    updateVelocity(jumpVelocity, dt);
 }
 
 void Player::gravityFrame(float dt) {
-    sprite.move(0.0f, dt * (gravVelY + dt * gravity * 0.5f));
+    sprite.move(0.0f, dt * (gravVelocity + dt * gravity * 0.5f));
+    updateVelocity(gravVelocity, dt);
+}
 
-    if (gravVelY > 1000.0f) {
-        gravVelY = 1000.0f;
+void Player::updateVelocity(float& velocity, float dt) const noexcept {
+    if (velocity > consts::terminalVelocity) {
+        velocity = consts::terminalVelocity;
     } else {
-        gravVelY += dt * gravity;
+        velocity += gravity * dt;
     }
 }
 
-void Player::restartJumpTime() {
-    gravVelY = 0.0;
+void Player::resetGravVelocity() {
+    gravVelocity = 0.0;
 }
 
 void Player::landOnGroundUpdate() {
     this->jumpingState = JumpingState::onGround;
-    this->setVelocityY(consts::initialJumpVelocity);
-    this->restartJumpTime();
+    this->setJumpVelocity(consts::initialJumpVelocity);
+    this->resetGravVelocity();
 }
 
 void Player::hitCeilingUpdate() {
-    this->setVelocityY(consts::hitCeilingVelocity);
+    this->setJumpVelocity(consts::hitCeilingVelocity);
 }
 
-
 bool Player::isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const {
-    for (std::size_t i = 0; i < blocks.size(); i++) { /** todo: range-based */
-        if (blocks[i]->getGlobalBounds().contains(left(),  bot() + detectorRange)
-            ||  blocks[i]->getGlobalBounds().contains(right(), bot() + detectorRange)) {
+    for (const auto & block : blocks) {
+        if (block->getGlobalBounds().contains(left(),  bot() + feetDetectorRange)
+        ||  block->getGlobalBounds().contains(right(), bot() + feetDetectorRange)) {
             return true;
         }
     }
@@ -73,8 +59,7 @@ void Player::kill(LivesHUD& livesHUD) {
     livesHUD.decreaseLife();
     setToStartingPosition();
     movingState = MovingState::standing;
-    jumpingState = JumpingState::onGround;
-    this->restartJumpTime();
+    this->landOnGroundUpdate();
 }
 
 sf::Vector2f Player::getStartingPosition() const {
@@ -87,4 +72,20 @@ void Player::setToStartingPosition() {
 
 void Player::setStartingPosition() {
     startingPosition = this->sprite.getPosition();
+}
+
+float Player::getVelocityX() const {
+    return velocityX;
+}
+
+[[maybe_unused]] float Player::getJumpVelocity() const {
+    return jumpVelocity;
+}
+
+[[maybe_unused]] float Player::getGravVelocity() const {
+    return gravVelocity;
+}
+
+void Player::setJumpVelocity(float newVal) {
+    this->jumpVelocity = newVal;
 }

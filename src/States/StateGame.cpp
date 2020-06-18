@@ -12,11 +12,11 @@ StateGame::StateGame(StateMachine &stateMachine,
         , window{window}
         , resources{resources}
         , mapLoader{mapLoader}
+        , background(resources.getTextures()[res::Texture::BgGame])
         , camera{sf::View{{window.getWidth() / 2.0f, window.getHeight() / 2.0f},
                           {static_cast<float>(window.getWidth()),
                            static_cast<float>(window.getHeight())}}}
         , livesHUD(window.getWindow(), resources.getTextures())
-        , background(resources.getTextures()[res::Texture::BgGame])
         , collectSound(resources.getSounds()[res::Sound::Bullet])
         , deathSound(resources.getSounds()[res::Sound::Death])
 {
@@ -95,12 +95,10 @@ void StateGame::onDestroy() {
     music.stop();
 }
 
-
 void StateGame::restartGameLevel() {
     player.setPosition(player.getStartingPosition());
-    player.jumpingState = JumpingState::onGround;
     player.movingState  = MovingState::standing;
-    player.restartJumpTime();
+    player.landOnGroundUpdate();
 
     livesHUD.refillLives();
 
