@@ -16,7 +16,7 @@ StateGame::StateGame(StateMachine &stateMachine,
         , camera{sf::View{{window.getWidth() / 2.0f, window.getHeight() / 2.0f},
                           {static_cast<float>(window.getWidth()),
                            static_cast<float>(window.getHeight())}}}
-        , livesHUD(window.getWindow(), resources.getTextures())
+        , lives(window.getWindow(), resources.getTextures())
         , collectSound(resources.getSounds()[res::Sound::Bullet])
         , deathSound(resources.getSounds()[res::Sound::Death])
 {
@@ -100,7 +100,7 @@ void StateGame::restartGameLevel() {
     player.movingState  = MovingState::standing;
     player.landOnGroundUpdate();
 
-    livesHUD.refillLives();
+    lives.refillLives();
 
     /** Respawn collectibles */
     for (const auto& heart : hearts) {
@@ -122,7 +122,7 @@ void StateGame::update(float dt) {
     updatePhysics(dt);
 
     window.updateView(camera.getCameraView());
-    fpsHUD.update(dt);
+    fps.update(dt);
 
     updatePlayerLife();
     updateGameStatus();
@@ -145,13 +145,13 @@ void StateGame::updatePlayerLife() {
 
 void StateGame::updateLoseLifeLogic() {
     if (playerFellToDeath()) {
-        player.kill(livesHUD);
+        player.kill(lives);
         deathSound.play();
     }
 
     for (const auto& spike : spikes) {
         if (player.isIntersecting(*spike)) {
-            player.kill(livesHUD);
+            player.kill(lives);
             deathSound.play();
         }
     }
@@ -164,7 +164,7 @@ bool StateGame::playerFellToDeath() const {
 void StateGame::updateGainLifeLogic() {
     for (const auto& heart : hearts) {
         if (canCollect(*heart)) {
-            livesHUD.increaseLife();
+            lives.increaseLife();
             heart->setCollected(true);
             collectSound.play();
         }
@@ -172,7 +172,7 @@ void StateGame::updateGainLifeLogic() {
 }
 
 bool StateGame::canCollect(const HeartCollectible& heart) {
-    return !heart.wasCollected() and player.isIntersecting(heart) and !livesHUD.hasAllLives();
+    return !heart.wasCollected() and player.isIntersecting(heart) and !lives.hasAllLives();
 }
 
 void StateGame::updateGameStatus() {
@@ -188,7 +188,7 @@ void StateGame::checkWinCondition() {
 }
 
 void StateGame::checkLoseCondition() {
-    if (livesHUD.isDead()) {
+    if (lives.isDead()) {
         consts::playerWon = false;
         stateMachine = state::restartID;
     }
@@ -214,10 +214,10 @@ void StateGame::draw(Window& window) {
     }
     window.draw(objective);
     window.draw(player);
-    window.draw(livesHUD);
+    window.draw(lives);
 
     if (audioConfig.isFpsEnabled) {
-        window.draw(fpsHUD);
+        window.draw(fps);
     }
 }
 

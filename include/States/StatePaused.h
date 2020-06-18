@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Audio/Sound.hpp>
-#include "PausedGUI.h"
+#include "PausedView.h"
 #include "ResourceManager.h"
 #include "StateMachine.h"
 #include "StateID.h"
@@ -27,7 +27,7 @@ private:
     sf::Sprite background;
     sf::View pausedView;
 
-    PausedGUI gui;
+    PausedView gui;
 
     sf::Sound onHoverBtnSound;
 };

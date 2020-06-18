@@ -2,7 +2,7 @@
 
 #include <SFML/Audio/Sound.hpp>
 #include "ResourceManager.h"
-#include "KeybindsGUI.h"
+#include "KeybindsView.h"
 #include "Action.h"
 #include "ActionMap.h"
 #include "StateMachine.h"
@@ -28,7 +28,7 @@ private:
 
     ActionMap& actionMap = ActionMap::Instance();
 
-    KeybindsGUI gui;
+    KeybindsView gui;
 
     sf::Sound onHoverBtnSound;
     void updateHoverSoundVolume();

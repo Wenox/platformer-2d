@@ -1,7 +1,7 @@
 #pragma once
 
 #include "StateGame.h"
-#include "MenuGUI.h"
+#include "MenuView.h"
 
 
 class StateMenu : public State {
@@ -21,7 +21,7 @@ private:
     Window& window;
     ResourceManager& resources;
 
-    MenuGUI gui;
+    MenuView gui;
     sf::Sound onHoverBtnSound;
 
     std::optional<std::variant<MapLoader<Bmp>, MapLoader<Txt>>> mapLoader;

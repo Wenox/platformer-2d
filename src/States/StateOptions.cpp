@@ -1,5 +1,6 @@
 #include "StateOptions.h"
 #include "StateID.h"
+#include "Settings.h"
 
 
 StateOptions::StateOptions(StateMachine& stateMachine, Window& window, ResourceManager& resources)
@@ -31,17 +32,17 @@ void StateOptions::onCreate() {
         stateMachine.switchToPreviousState();
     });
 
-    gui.getGui().get("fpsCheckBox")->connect("Changed", [&]() {
+    gui.getView().get("fpsCheckBox")->connect("Changed", [&]() {
         audioConfig.isFpsEnabled = gui.isFpsChecked();
     });
 
-    gui.getGui().get("soundCheckBox")->connect("Changed", [&]() {
+    gui.getView().get("soundCheckBox")->connect("Changed", [&]() {
         saveOptions();
         updateHoverSoundVolume();
         updateSlider();
     });
 
-    gui.getGui().get("soundVolume")->connect("ValueChanged", [&]() {
+    gui.getView().get("soundVolume")->connect("ValueChanged", [&]() {
         audioConfig.volume = gui.getVolume();
         updateHoverSoundVolume();
     });
@@ -54,7 +55,7 @@ void StateOptions::onCreate() {
 }
 
 void StateOptions::updateSlider() {
-    const auto& slider = gui.getGui().get("soundVolume");
+    const auto& slider = gui.getView().get("soundVolume");
     if (slider->isEnabled()) {
         slider->setEnabled(false);
         slider->setInheritedOpacity(0.5);

@@ -1,7 +1,7 @@
-#include "GUI/HUD/LivesHUD.h"
+#include "Entities/Overlay/LivesOverlay.h"
 
 
-LivesHUD::LivesHUD(sf::RenderWindow& renderWindow, ResourceHolder<res::Texture, sf::Texture>& textures)
+LivesOverlay::LivesOverlay(sf::RenderWindow& renderWindow, ResourceHolder<res::Texture, sf::Texture>& textures)
     : renderWindow{renderWindow}
     , border{renderWindow.getDefaultView().getViewport()}
 {
@@ -16,7 +16,7 @@ LivesHUD::LivesHUD(sf::RenderWindow& renderWindow, ResourceHolder<res::Texture, 
     }
 }
 
-void LivesHUD::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+void LivesOverlay::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     renderWindow.setView(HUD);
 
     target.draw(border, states);

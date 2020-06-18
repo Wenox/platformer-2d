@@ -5,9 +5,9 @@
 #include "LivesBorder.h"
 
 
-class LivesHUD : public sf::Drawable {
+class LivesOverlay : public sf::Drawable {
 public:
-    explicit LivesHUD(sf::RenderWindow& renderWindow, ResourceHolder<res::Texture, sf::Texture>& textures);
+    explicit LivesOverlay(sf::RenderWindow& renderWindow, ResourceHolder<res::Texture, sf::Texture>& textures);
 
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 

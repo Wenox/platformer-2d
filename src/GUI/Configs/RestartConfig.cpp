@@ -1,4 +1,4 @@
-#include <GUI/MenuConfig.h>
+#include "MenuConfig.h"
 #include "RestartConfig.h"
 
 using Restart::Config;

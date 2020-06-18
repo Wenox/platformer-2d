@@ -55,8 +55,8 @@ bool Player::isIntersecting(const Entity& entity) const {
     return this->getGlobalBounds().intersects(entity.getGlobalBounds());
 }
 
-void Player::kill(LivesHUD& livesHUD) {
-    livesHUD.decreaseLife();
+void Player::kill(LivesOverlay& lives) {
+    lives.decreaseLife();
     setToStartingPosition();
     movingState = MovingState::standing;
     this->landOnGroundUpdate();

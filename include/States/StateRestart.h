@@ -1,7 +1,7 @@
 #pragma once
 
 #include "StateMachine.h"
-#include "RestartGUI.h"
+#include "RestartView.h"
 
 
 class StateRestart : public State {
@@ -20,5 +20,5 @@ private:
     StateMachine& stateMachine;
     Window& window;
 
-    RestartGUI gui;
+    RestartView gui;
 };

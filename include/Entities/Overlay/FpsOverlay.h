@@ -15,9 +15,9 @@ public:
 
 
 
-class FpsHUD : public sf::Drawable {
+class FpsOverlay : public sf::Drawable {
 public:
-    FpsHUD();
+    FpsOverlay();
 
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 

@@ -34,7 +34,7 @@ void StateMapLoader::onCreate() {
         stateMachine = state::menuID;
     });
 
-    gui.getGui().get("mapNameBox")->connect("Clicked", [&]() {
+    gui.getView().get("mapNameBox")->connect("Clicked", [&]() {
         if (gui.isPromptToEnter()) {
             gui.clearMapNameBox();
             gui.setPromptToEnter(false);

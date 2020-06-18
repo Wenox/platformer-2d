@@ -2,7 +2,7 @@
 
 #include <SFML/Audio/Sound.hpp>
 #include "ResourceManager.h"
-#include "MapLoaderGUI.h"
+#include "MapLoaderView.h"
 #include "MapLoader.h"
 #include "StateMachine.h"
 
@@ -23,7 +23,7 @@ private:
     Window& window;
     ResourceManager& resources;
 
-    MapLoaderGUI gui;
+    MapLoaderView gui;
 
     std::optional<std::variant<MapLoader<Bmp>, MapLoader<Txt>>> mapLoader;
 

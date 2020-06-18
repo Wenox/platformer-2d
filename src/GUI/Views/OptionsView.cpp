@@ -1,8 +1,20 @@
-#include "OptionsGUI.h"
+#include "OptionsView.h"
+#include "Settings.h"
 
 
-void OptionsGUI::buildGUI() {
-    gui.add(tgui::Picture::create("../resources/test8.png"));
+OptionsView::OptionsView(Window& window)
+    : View{window}
+{
+    this->init();
+}
+
+void OptionsView::init() {
+    this->buildGUI();
+}
+
+
+void OptionsView::buildGUI() {
+    view.add(tgui::Picture::create("../resources/test8.png"));
 
     auto myPanel = tgui::Panel::create({290, 150});
     myPanel->setPosition(174,40);
@@ -10,7 +22,7 @@ void OptionsGUI::buildGUI() {
     myPanel->setInheritedOpacity(0.35);
     myPanel->getRenderer()->setBorders({1, 1, 1, 1});
     myPanel->getRenderer()->setBorderColor(tgui::Color::White);
-    gui.add(myPanel, "myPanel");
+    view.add(myPanel, "myPanel");
 
     auto btnsPanel = tgui::Panel::create({270, 135});
     btnsPanel->setPosition(185,405);
@@ -18,7 +30,7 @@ void OptionsGUI::buildGUI() {
     btnsPanel->setInheritedOpacity(0.35);
     btnsPanel->getRenderer()->setBorders({1, 1, 1, 1});
     btnsPanel->getRenderer()->setBorderColor(tgui::Color::White);
-    gui.add(btnsPanel, "btnsPanel");
+    view.add(btnsPanel, "btnsPanel");
 
     for (auto i{0u}; auto btn : Options::Buttons) {
         const auto& btnName = optionsConfig.widgetsNames[btn];
@@ -34,27 +46,27 @@ void OptionsGUI::buildGUI() {
     fpsCheckBox->setPosition(184, 50);
     fpsCheckBox->setSize(30, 30);
     fpsCheckBox->setChecked(true);
-    gui.add(fpsCheckBox, "fpsCheckBox");
+    view.add(fpsCheckBox, "fpsCheckBox");
 
     auto fpsLabel = tgui::Label::create("Show FPS");
     fpsLabel->setTextSize(32);
     fpsLabel->setPosition(224, 45);
     fpsLabel->setInheritedFont(config.font);
     fpsLabel->getRenderer()->setTextColor(tgui::Color::White);
-    gui.add(fpsLabel, "fpsLabel");
+    view.add(fpsLabel, "fpsLabel");
 
     auto soundCheckBox = tgui::CheckBox::create();
     soundCheckBox->setPosition(184, 100);
     soundCheckBox->setSize(30, 30);
     soundCheckBox->setChecked(true);
-    gui.add(soundCheckBox, "soundCheckBox");
+    view.add(soundCheckBox, "soundCheckBox");
 
     auto soundLabel = tgui::Label::create("Enable sound");
     soundLabel->setTextSize(32);
     soundLabel->setPosition(224, 95);
     soundLabel->setInheritedFont(config.font);
     soundLabel->getRenderer()->setTextColor(tgui::Color::White);
-    gui.add(soundLabel, "soundLabel");
+    view.add(soundLabel, "soundLabel");
 
 
 
@@ -62,13 +74,27 @@ void OptionsGUI::buildGUI() {
     soundVolume->setPosition(184, 150);
     soundVolume->setSize(270, 20);
     soundVolume->setValue(audioConfig.volume);
-    gui.add(soundVolume, "soundVolume");
+    view.add(soundVolume, "soundVolume");
 
 }
 
-void OptionsGUI::loadWidget(tgui::Widget::Ptr& widget) {
+void OptionsView::loadWidget(tgui::Widget::Ptr& widget) {
     config.prepare(widget);
-    widget->setPosition({gui.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
-                         Options::Config::offsetY + gui.getTarget()->getSize().y / 9 * ++btnIndex});
-    gui.add(widget);
+    widget->setPosition({view.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
+                         Options::Config::offsetY + view.getTarget()->getSize().y / 9 * ++buttonsCounter});
+    view.add(widget);
+}
+
+
+
+bool OptionsView::isSoundChecked() const {
+    return this->view.getContainer()->get<tgui::CheckBox>("soundCheckBox")->isChecked();
+}
+
+bool OptionsView::isFpsChecked() const {
+    return this->view.getContainer()->get<tgui::CheckBox>("fpsCheckBox")->isChecked();
+}
+
+float OptionsView::getVolume() const  {
+    return this->view.getContainer()->get<tgui::Slider>("soundVolume")->getValue();
 }

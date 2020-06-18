@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Consts.h>
-#include <GUI/HUD/LivesHUD.h>
+#include <Entities/Overlay/LivesOverlay.h>
 #include "PlayerStates.h"
 
 
@@ -25,7 +25,7 @@ public:
     bool isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const;
     bool isIntersecting(const Entity& entity) const;
 
-    void kill(LivesHUD& livesHUD);
+    void kill(LivesOverlay& lives);
 
     void setStartingPosition();
     void setToStartingPosition();

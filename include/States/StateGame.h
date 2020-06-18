@@ -7,7 +7,7 @@
 #include "CollisionEvent.h"
 #include "MovementEvent.h"
 #include "InputEvent.h"
-#include "FpsHUD.h"
+#include "FpsOverlay.h"
 #include "Objective.h"
 #include "Spike.h"
 #include "HeartCollectible.h"
@@ -59,12 +59,12 @@ private:
     ResourceManager& resources;
 
 
-    /** Simplifiable to WorldLoader class */
+    /** todo: Simplifiable to WorldLoader class */
     std::variant<MapLoader<Bmp>, MapLoader<Txt>>& mapLoader;
     std::queue<res::Texture> blocksQueue;
 
 
-    /** Simplifiable to World class */
+    /** todo: Simplifiable to World class */
     Player player;
     Objective objective;
     std::vector<std::unique_ptr<Entity>> blocks;
@@ -76,18 +76,18 @@ private:
     Camera camera;
 
 
-    /** Simplifiable to e.g. EventsList class */
+    /** todo: Simplifiable to e.g. EventsList class */
     std::unique_ptr<MovementEvent>  moveController;
     std::unique_ptr<CollisionEvent> collider;
     std::unique_ptr<InputEvent>     inputEvent;
 
 
-    /** Simplifiable to HUD class */
-    LivesHUD livesHUD;
-    FpsHUD   fpsHUD;
+    /** todo: Simplifiable to Overlay class */
+    LivesOverlay lives;
+    FpsOverlay   fps;
 
 
-    /** Simplifiable to e.g. SoundPlayer class */
+    /** todo: Simplifiable to e.g. SoundPlayer class */
     sf::Sound collectSound;
     sf::Sound deathSound;
     sf::Music music;

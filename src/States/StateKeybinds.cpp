@@ -1,5 +1,6 @@
 #include "StateKeybinds.h"
 #include "StateID.h"
+#include "Settings.h"
 
 
 StateKeybinds::StateKeybinds(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager)
@@ -14,18 +15,18 @@ StateKeybinds::StateKeybinds(StateMachine& stateMachine, Window& window, Resourc
 void StateKeybinds::onCreate() {
     gui.widgets[to_underlying(OptionsKeys::Btn::Jump)]->connect("Pressed", [&]() {
         action = Action::Jump;
-        gui.getGui().get("gamepad")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
-        gui.getGui().get("panel")->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(150));
+        gui.getView().get("gamepad")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
+        gui.getView().get("panel")->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(150));
     });
     gui.widgets[to_underlying(OptionsKeys::Btn::RunLeft)]->connect("Pressed", [&]() {
         action = Action::GoLeft;
-        gui.getGui().get("gamepad")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
-        gui.getGui().get("panel")->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(150));
+        gui.getView().get("gamepad")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
+        gui.getView().get("panel")->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(150));
     });
     gui.widgets[to_underlying(OptionsKeys::Btn::RunRight)]->connect("Pressed", [&]() {
         action = Action::GoRight;
-        gui.getGui().get("gamepad")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
-        gui.getGui().get("panel")->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(150));
+        gui.getView().get("gamepad")->hideWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
+        gui.getView().get("panel")->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(150));
     });
 
     gui.widgets[to_underlying(OptionsKeys::Btn::GoBack)]->connect("Pressed", [&]() {
@@ -55,8 +56,8 @@ void StateKeybinds::update(float dt) {
     if (window.getEvent().front().type == sf::Event::KeyPressed
         and action != Action::NONE) {
 
-        gui.getGui().get("panel")->hideWithEffect(tgui::ShowAnimationType::SlideToRight, sf::milliseconds(150));
-        gui.getGui().get("gamepad")->showWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
+        gui.getView().get("panel")->hideWithEffect(tgui::ShowAnimationType::SlideToRight, sf::milliseconds(150));
+        gui.getView().get("gamepad")->showWithEffect(tgui::ShowAnimationType::Scale, sf::milliseconds(150));
 
         if (window.getEvent().front().key.code == sf::Keyboard::Escape) {
             action = Action::NONE;

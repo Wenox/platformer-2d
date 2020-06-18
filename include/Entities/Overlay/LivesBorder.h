@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "LivesHUDConfig.h"
+#include "LivesOverlayConfig.h"
 
 
 class LivesBorder : public sf::Drawable {

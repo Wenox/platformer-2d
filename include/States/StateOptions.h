@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Audio/Sound.hpp>
-#include "OptionsGUI.h"
+#include "OptionsView.h"
 #include "ResourceManager.h"
 #include "StateMachine.h"
 
@@ -21,7 +21,7 @@ private:
     StateMachine& stateMachine;
     Window& window;
 
-    OptionsGUI gui;
+    OptionsView gui;
 
     std::array<std::reference_wrapper<sf::Texture>, 4> cornersTextures;
     std::array<sf::Sprite, 4> corners;

@@ -1,28 +1,28 @@
-#include "FpsHUD.h"
+#include "FpsOverlay.h"
 
-FpsHUD::FpsHUD() {
+FpsOverlay::FpsOverlay() {
     this->setFont();
     this->setFps();
 }
 
-void FpsHUD::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+void FpsOverlay::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(fps, states);
 }
 
-void FpsHUD::update(float dt) {
+void FpsOverlay::update(float dt) {
     fps.setString(calcCurrentFps(dt));
 }
 
-std::string FpsHUD::calcCurrentFps(float dt) {
+std::string FpsOverlay::calcCurrentFps(float dt) {
     return std::to_string(static_cast<int>(1 / dt));
 };
 
-void FpsHUD::setFont() {
+void FpsOverlay::setFont() {
     if (!font.loadFromFile("../resources/CascadiaCode.ttf"))
-        throw MissingFont{"FpsHUD: CascadiaCode.ttf missing"};
+        throw MissingFont{"FpsOverlay: CascadiaCode.ttf missing"};
 }
 
-void FpsHUD::setFps() {
+void FpsOverlay::setFps() {
     fps.setFont(font);
     fps.setCharacterSize(36);
     fps.setPosition(0, 960);

@@ -1,21 +1,22 @@
-#include "MapLoaderGUI.h"
+#include "MapLoaderView.h"
 
-MapLoaderGUI::MapLoaderGUI(Window& window)
-    : GUI{window}
+
+MapLoaderView::MapLoaderView(Window& window)
+    : View{window}
 {
     this->init();
 }
 
 
-void MapLoaderGUI::init() {
+void MapLoaderView::init() {
     this->buildGUI();
     clearMapNameBoxWithPrompt();
 }
 
 
-void MapLoaderGUI::buildGUI() {
+void MapLoaderView::buildGUI() {
     /** background */
-    gui.add(tgui::Picture::create("../resources/mapLoader.jpg"));
+    view.add(tgui::Picture::create("../resources/mapLoader.jpg"));
 
     auto panelBorder = tgui::Panel::create({config.width + 22, 375});
     panelBorder->setPosition(184,
@@ -24,7 +25,7 @@ void MapLoaderGUI::buildGUI() {
     panelBorder->setInheritedOpacity(0.3);
     panelBorder->getRenderer()->setBorders({1, 1, 1, 1});
     panelBorder->getRenderer()->setBorderColor(tgui::Color::White);
-    gui.add(panelBorder);
+    view.add(panelBorder);
 
     /** buttons */
     for (auto i{0u}; auto btn : Loader::Buttons) {
@@ -44,7 +45,7 @@ void MapLoaderGUI::buildGUI() {
     mapNameBox->setPosition(tgui::bindLeft(widgets[to_underlying(Loader::Btn::loadMap)]),
                             tgui::bindTop (widgets[to_underlying(Loader::Btn::loadMap)]) - 10 - config.height);
     mapNameBox->setInheritedFont(config.font);
-    gui.add(mapNameBox, "mapNameBox");
+    view.add(mapNameBox, "mapNameBox");
 
 
     /** label when entering bad map's name */
@@ -55,16 +56,47 @@ void MapLoaderGUI::buildGUI() {
     badMapLabel->setVisible(false);
     badMapLabel->setInheritedFont(config.font);
 
-    gui.add(badMapLabel, "badMapLabel");
+    view.add(badMapLabel, "badMapLabel");
 }
 
 
-void MapLoaderGUI::loadWidget(tgui::Widget::Ptr& widget) {
-    if (btnIndex == 1) btnIndex += 2;
+void MapLoaderView::loadWidget(tgui::Widget::Ptr& widget) {
+    if (buttonsCounter == 1) buttonsCounter += 2;
 
     config.prepare(widget);
-    widget->setPosition(gui.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
-                        180 + 60 * btnIndex);
-    btnIndex++;
-    gui.add(widget);
+    widget->setPosition(view.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
+                        180 + 60 * buttonsCounter);
+    buttonsCounter++;
+    view.add(widget);
+}
+
+void MapLoaderView::clearMapNameBoxWithPrompt() {
+    this->promptToEnter = true;
+    const auto& mapNameBox = this->getView().getContainer()->get<tgui::EditBox>("mapNameBox");
+    mapNameBox->setText({"Enter map name..."});
+}
+
+void MapLoaderView::clearMapNameBox() {
+    this->getView().getContainer()->get<tgui::EditBox>("mapNameBox")->setText({});
+}
+
+void MapLoaderView::setBadMapLabelVisible(bool visibilityStatus) {
+    this->getView().getContainer()->get<tgui::Label>("badMapLabel")->setVisible(visibilityStatus);
+}
+
+void MapLoaderView::animateBadMapLabel() {
+    const auto& badMapLabel = this->getView().getContainer()->get<tgui::Label>("badMapLabel");
+    badMapLabel->showWithEffect(tgui::ShowAnimationType::SlideFromLeft, sf::milliseconds(300));
+}
+
+std::string MapLoaderView::getMapName() const {
+    return this->getView().getContainer()->get<tgui::EditBox>("mapNameBox")->getText().toAnsiString();
+}
+
+void MapLoaderView::setPromptToEnter(bool status) {
+    promptToEnter = status;
+}
+
+bool MapLoaderView::isPromptToEnter() const {
+    return promptToEnter;
 }

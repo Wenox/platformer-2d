@@ -19,12 +19,15 @@ include_directories(include
         include/States/Core
         include/GUI
         include/GUI/Core
+        include/GUI/Views/
+        include/GUI/Configs/
         include/ResourceManager
         include/Encoder
         include/Encoder/Utility
         include/Events
         include/Entities
         include/Entities/Player
+        include/Entities/Overlay
         include/GUI/HUD
         googletest/googletest/include
         googletest/googlemock/include)
@@ -39,11 +42,11 @@ set(SOURCE_FILES
         src/States/Core/StateID.cpp
         src/ResourceManager/ResourceHolder.cpp
         src/ResourceManager/ResourceManager.cpp
-        src/GUI/MenuConfig.cpp
-        src/GUI/MenuGUI.cpp
+        src/GUI/Configs/MenuConfig.cpp
+        src/GUI/Views/MenuView.cpp
         src/States/StateMapLoader.cpp
-        src/GUI/MapLoaderGUI.cpp
-        src/GUI/MapLoaderConfig.cpp
+        src/GUI/Views/MapLoaderView.cpp
+        src/GUI/Configs/MapLoaderConfig.cpp
         src/Encoder/FileReader.cpp
         src/Encoder/BmpReader.cpp
         src/Encoder/TxtReader.cpp
@@ -60,23 +63,23 @@ set(SOURCE_FILES
         src/Events/InputEvent.cpp
         src/Core/Settings.cpp
         src/States/StateOptions.cpp
-        src/GUI/OptionsGUI.cpp
-        src/GUI/HUD/LivesHUD.cpp
+        src/GUI/Views/OptionsView.cpp
+        src/Entities/Overlay/LivesOverlay.cpp
         src/Entities/Life.cpp
-        src/GUI/HUD/LivesBorder.cpp
+        src/Entities/Overlay/LivesBorder.cpp
         src/Entities/Spike.cpp
         src/Entities/HeartCollectible.cpp
         src/States/StatePaused.cpp
-        src/GUI/PausedGUI.cpp
-        src/GUI/PausedConfig.cpp
+        src/GUI/Views/PausedView.cpp
+        src/GUI/Configs/PausedConfig.cpp
         src/Core/ActionMap.cpp
-        src/GUI/OptionsConfig.cpp
+        src/GUI/Configs/OptionsConfig.cpp
         src/States/StateKeybinds.cpp
         src/States/StateRestart.cpp
-        src/GUI/RestartGUI.cpp
-        src/GUI/RestartConfig.cpp
-        src/GUI/HUD/FpsHUD.cpp
-        src/States/StateAbout.cpp)
+        src/GUI/Views/RestartView.cpp
+        src/GUI/Configs/RestartConfig.cpp
+        src/Entities/Overlay/FpsOverlay.cpp
+        src/States/StateAbout.cpp src/GUI/Views/KeybindsView.cpp)
 
 
 find_package(SFML 2.5.1 COMPONENTS graphics network audio REQUIRED)

@@ -1,20 +1,17 @@
 #pragma once
 
-#include "Window.h"
-#include "MenuConfig.h"
-#include "GUI.h"
+#include "View.h"
 #include "Config.h"
+#include "MenuConfig.h"
 
 
-class MenuGUI : public GUI<> {
+class MenuView : public View<> {
 public:
-    explicit MenuGUI(Window& window);
+    explicit MenuView(Window& window);
 
 private:
     Gui::Config<> config;
     Menu::Config  menuConfig;
-    int btnIndex{0};
-
 
     void init();
     void buildGUI() override;
