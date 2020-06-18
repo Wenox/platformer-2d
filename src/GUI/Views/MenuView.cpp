@@ -1,3 +1,4 @@
+#include "Consts.h"
 #include "MenuView.h"
 
 
@@ -12,7 +13,7 @@ void MenuView::init() {
 }
 
 void MenuView::buildGUI() {
-    createBackgroundImage();
+    createBackgroundFrom(consts::bg::menu);
     createBackgroundPanel();
 
     for (auto i{0u}; auto btn : Menu::Buttons) {
@@ -30,10 +31,6 @@ void MenuView::loadWidget(tgui::Widget::Ptr& widget) {
     widget->setPosition({view.getTarget()->getSize().x / 2 - Gui::Config<>::width / 2,
                          Menu::Config::offsetY + view.getTarget()->getSize().y / 9 * ++buttonsCounter});
     view.add(widget);
-}
-
-void MenuView::createBackgroundImage() {
-    view.add(tgui::Picture::create("../resources/background.jpg"));
 }
 
 void MenuView::createBackgroundPanel() {

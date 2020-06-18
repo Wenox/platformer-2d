@@ -2,6 +2,7 @@
 
 #include <TGUI/TGUI.hpp>
 #include "Window.h"
+#include <iostream>
 
 
 template <typename TWidgetPtr = tgui::Widget::Ptr>
@@ -30,8 +31,14 @@ public:
         view.draw();
     }
 
-    void createBackground(std::string_view backgroundName) {
-        view.add(tgui::Picture::create(backgroundName.data()));
+    void createBackgroundFrom(std::string_view backgroundName) {
+        try {
+            view.add(tgui::Picture::create(backgroundName.data()));
+        } catch(std::exception& e) {
+            std::cerr << "No such background: " << backgroundName << '\t'
+                      << "Using default background instead'"      << '\n';
+            std::cerr << e.what() << std::endl;
+        }
     }
 
     auto& getView() const {

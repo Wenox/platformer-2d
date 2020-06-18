@@ -13,7 +13,7 @@ void OptionsView::init() {
 }
 
 void OptionsView::buildGUI() {
-    createBackground(consts::bg::options);
+    createBackgroundFrom(consts::bg::options);
     createPanels();
     createButtons();
     createLabels();

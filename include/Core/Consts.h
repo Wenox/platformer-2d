@@ -19,6 +19,7 @@ namespace consts {
         constexpr static string_view keybinds  = "../resources/bindingsBg.png";
         constexpr static string_view rebinding = "../resources/registerBg.png";
         constexpr static string_view loader    = "../resources/mapLoader.jpg";
+        constexpr static string_view menu      = "../resources/background.jpg";
     }
 
     constexpr static string_view largeBgIcon  = "../resources/gamepad6.png";

@@ -14,7 +14,7 @@ void KeybindsView::init() {
 }
 
 void KeybindsView::buildGUI() {
-    createBackground(consts::bg::keybinds);
+    createBackgroundFrom(consts::bg::keybinds);
     createPanels();
     createButtons();
     createIcons();

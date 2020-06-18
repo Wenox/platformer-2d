@@ -17,7 +17,6 @@ private:
     void buildGUI() override;
     void loadWidget(tgui::Widget::Ptr& widget);
 
-    void createBackgroundImage();
     void createBackgroundPanel();
 };
 
