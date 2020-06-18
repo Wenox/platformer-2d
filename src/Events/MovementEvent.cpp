@@ -3,7 +3,8 @@
 
 MovementEvent::MovementEvent(Player& player, std::vector<std::unique_ptr<Entity>>& blocks)
         :player{player},
-         blocks{blocks}
+         blocks{blocks},
+         velX{player.getVelocityX()}
 {
 }
 
@@ -12,11 +13,10 @@ void MovementEvent::updateAxisX(float dt) {
         case MovingState::standing:
             break;
         case MovingState::movingLeft:
-            player.move({- player.getVelocityX() * dt, 0});
+            player.move({-velX * dt, 0});
             break;
         case MovingState::movingRight:
-            player.getSprite().setScale(1.0, 1.0);
-            player.move({player.getVelocityX() * dt, 0}); /** todo: dont use getter, just bind velocity to const */
+            player.move({velX * dt, 0});
             break;
         default:
             break;
@@ -36,9 +36,5 @@ void MovementEvent::updateAxisY(float dt) {
         case JumpingState::gravity:
             player.gravityFrame(dt);
             break;
-    }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-        player.move({0, player.getVelocityX() * dt});
     }
 }

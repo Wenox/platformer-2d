@@ -18,5 +18,7 @@ public:
 private:
     Player& player;
     std::vector<std::unique_ptr<Entity>>& blocks;
+
+    const float velX;
 };
 
