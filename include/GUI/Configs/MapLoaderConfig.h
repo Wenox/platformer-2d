@@ -36,6 +36,6 @@ namespace Loader {
 #endif
         void encode() override;
     };
-};
+}
 
 

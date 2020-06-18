@@ -55,8 +55,8 @@ void BmpReader::debugPrint() const {
 
     for (int i = 0; i < pixelsCount; i++) {
         std::cout << "Pixel " << i << ": "
-                  << (uint16_t) data[i].blue << " "
-                  << (uint16_t) data[i].green << " "
-                  << (uint16_t) data[i].red << std::endl;
+                  << static_cast<uint16_t>(data[i].blue)  << " "
+                  << static_cast<uint16_t>(data[i].green) << " "
+                  << static_cast<uint16_t>(data[i].red)   << std::endl;
     }
 }

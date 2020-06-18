@@ -111,9 +111,9 @@ private:
         for (auto it = encodedObjects.begin(); it != encodedObjects.end(); it++) {
             int index = std::distance(encodedObjects.begin(), it);
             std::cout << "Encoded color: " << index + 1 << ": "
-                      << (uint16_t) it->first.blue << " "
-                      << (uint16_t) it->first.green << " "
-                      << (uint16_t) it->first.red
+                      << static_cast<uint16_t>(it->first.blue)  << " "
+                      << static_cast<uint16_t>(it->first.green) << " "
+                      << static_cast<uint16_t>(it->first.red)    << " "
                       << " encoded to Object::Type: " << it->second << std::endl;
         }
     }

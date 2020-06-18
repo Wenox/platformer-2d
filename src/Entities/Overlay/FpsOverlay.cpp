@@ -15,7 +15,7 @@ void FpsOverlay::update(float dt) {
 
 std::string FpsOverlay::calcCurrentFps(float dt) {
     return std::to_string(static_cast<int>(1 / dt));
-};
+}
 
 void FpsOverlay::setFont() {
     if (!font.loadFromFile("../resources/CascadiaCode.ttf"))

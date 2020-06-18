@@ -16,7 +16,7 @@ void Camera::updateX() noexcept {
             [&](Bot&)   { cameraView.setCenter(xCoord, bottomBorderBoundary); },
             [&](Top&)   { cameraView.setCenter(xCoord, topBorderBoundary); },
             [&](None&)  { cameraView.setCenter(xCoord, controller->getPosition().y + halvedSpriteHeight); },
-            [&](auto)   { }
+            [&](auto) noexcept { }
     }, collider);
 
     updateColliderState(nextCollision);
@@ -28,7 +28,7 @@ void Camera::updateY() noexcept {
     std::visit(overload{
             [&](Left&)  {cameraView.setCenter(leftBorderBoundary,  yCoord); },
             [&](Right&) {cameraView.setCenter(rightBorderBoundary, yCoord); },
-            [&](auto)   { }
+            [&](auto) noexcept { }
     }, collider);
 
     updateColliderState(nextCollision);

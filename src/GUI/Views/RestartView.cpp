@@ -1,5 +1,5 @@
 #include "RestartView.h"
-#include "Consts.h""
+#include "Consts.h"
 
 
 RestartView::RestartView(Window& window, ResourceManager& resourceManager)

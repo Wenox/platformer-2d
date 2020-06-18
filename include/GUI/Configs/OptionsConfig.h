@@ -35,6 +35,6 @@ namespace Options {
 #endif
         void encode() override;
     };
-};
+}
 
 

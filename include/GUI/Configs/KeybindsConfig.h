@@ -38,6 +38,6 @@ namespace Keybinds {
 #endif
         void encode() override;
     };
-};
+}
 
 
