@@ -20,6 +20,21 @@ private:
     void init();
     void buildGUI() override;
     void loadWidget(tgui::Widget::Ptr& widget);
+
+    void createPanels();
+    void createButtons();
+    void createLabels();
+    void createCheckBoxes();
+    void createSoundVolumeSlider();
+
+    void createMainPanel();
+    void createButtonsPanel();
+
+    void createFpsCheckBox();
+    void createSoundCheckBox();
+
+    void createFpsLabel();
+    void createSoundLabel();
 };
 
 

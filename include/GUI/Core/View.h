@@ -30,6 +30,10 @@ public:
         view.draw();
     }
 
+    void createBackground(std::string_view backgroundName) {
+        view.add(tgui::Picture::create(backgroundName.data()));
+    }
+
     auto& getView() const {
         return view;
     }
