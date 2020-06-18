@@ -45,7 +45,7 @@ public:
         std::visit(overload{
             [&](BmpReader&) { analyzeBmpMapData(); },
             [&](TxtReader&) { analyzeTxtMapData(); },
-            [&](std::monostate&) { std::cerr << "Monostate\n"; }
+            [&](std::monostate&) { }
         }, mapReader);
 
     }

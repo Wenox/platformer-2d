@@ -16,5 +16,5 @@ public:
 
     virtual void processInput() = 0;
     virtual void update(float) {};
-    virtual void draw(Window& window) = 0;
+    virtual void draw(Window&) = 0;
 };

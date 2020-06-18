@@ -58,7 +58,7 @@ void KeybindsView::createRebindingPanelGroup() {
     const auto& parent = createRebindingPanel();
     try {
         addBackgroundInto(parent);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         std::cerr << "Add keybinds background failed, using empty background instead." << std::endl;
         std::cerr << e.what() << std::endl;
     }
@@ -66,7 +66,7 @@ void KeybindsView::createRebindingPanelGroup() {
     try {
         addPressKeyLabelInto(parent);
         addCancelLabelInto(parent);
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         std::cerr << "Add keybinds register labels failed. No such font: " << config::keybindsFontName << std::endl;
         std::cerr << e.what() << std::endl;
     }
@@ -141,7 +141,7 @@ void KeybindsView::createIcons() {
         createRunLeftIcon();
         createRunRightIcon();
     }
-    catch(std::exception& e) {
+    catch (const std::exception& e) {
         std::cout << "Could not load an icon for Keybinds menu" << std::endl;
         std::cerr << e.what() << std::endl;
     }
@@ -201,7 +201,7 @@ void KeybindsView::createBorders() {
         createLeftBorder();
         createRightBorder();
     }
-    catch (std::exception& e) {
+    catch (const std::exception& e) {
         std::cerr << "No such border texture: " << config::sideBorder.data() << std::endl;
         std::cerr << e.what() << std::endl;
     }

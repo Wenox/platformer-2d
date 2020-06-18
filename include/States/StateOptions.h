@@ -14,7 +14,7 @@ public:
     void onActivate() override;
 
     void processInput() override;
-    void draw(Window& window) override;
+    void draw(Window&) override;
 
 private:
     StateMachine& stateMachine;
