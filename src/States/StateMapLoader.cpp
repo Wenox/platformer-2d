@@ -96,8 +96,8 @@ void StateMapLoader::createGameFrom(std::string_view mapName) {
 }
 
 void StateMapLoader::updateHoverSoundVolume() {
-    if (mySettings.isSoundEnabled) {
-        onHoverBtnSound.setVolume(mySettings.volume);
+    if (audioConfig.isSoundEnabled) {
+        onHoverBtnSound.setVolume(audioConfig.volume);
     } else {
         onHoverBtnSound.setVolume(0.0f);
     }

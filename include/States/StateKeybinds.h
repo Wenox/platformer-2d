@@ -2,7 +2,7 @@
 
 #include <SFML/Audio/Sound.hpp>
 #include "ResourceManager.h"
-#include "KeybindsGUI.h""
+#include "KeybindsGUI.h"
 #include "Action.h"
 #include "ActionMap.h"
 #include "StateMachine.h"

@@ -3,13 +3,13 @@
 #include "Consts.h"
 
 
-class Settings {
+class AudioCfg {
 public:
     bool isSoundEnabled = true;
     bool isFpsEnabled = true;
     float volume = consts::initSoundVolume;
 };
 
-extern Settings mySettings;
+extern AudioCfg audioConfig;
 
 

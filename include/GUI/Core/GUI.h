@@ -33,5 +33,8 @@ public:
     }
 
     virtual ~GUI() = default;
-    ///* todo: consider Ro5 */
+    GUI(const GUI&) = default;
+    GUI(GUI&&) noexcept = default;
+    GUI& operator=(const GUI&) = default;
+    GUI& operator=(GUI&&) noexcept = default;
 };

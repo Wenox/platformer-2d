@@ -64,5 +64,6 @@ void CollisionEvent::resolveCollisionAxisY(const Entity &block) {
         player.hitCeilingUpdate();
     } else {
         std::cerr << "Velocity on vertical axis was too high\n";
+        player.setToStartingPosition();
     }
 }

@@ -11,11 +11,8 @@ public:
 
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-    bool wasCollected() const { return collected; }
-
-    void setCollected(bool status) {
-        collected = status;
-    }
+    bool wasCollected() const;
+    void setCollected(bool status);
 };
 
 

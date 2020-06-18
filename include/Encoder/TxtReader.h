@@ -13,8 +13,8 @@ public:
     void readFile() override;
 
     ~TxtReader() override = default;
-    TxtReader(TxtReader&&) = default;
-    TxtReader& operator=(TxtReader&&) = default;
+    TxtReader(TxtReader&&) noexcept = default;
+    TxtReader& operator=(TxtReader&&) noexcept = default;
 
     void debugPrint() const;
 

@@ -1,10 +1,12 @@
 #include "ActionMap.h"
+#include <stdexcept>
+#include "Consts.h"
 
 
 ActionMap::ActionMap() {
-    this->insert("GoLeft",  sf::Keyboard::A);
-    this->insert("GoRight", sf::Keyboard::D);
-    this->insert("Jump" ,   sf::Keyboard::W);
+    this->insert("GoLeft",  consts::defaultRunLeftKey);
+    this->insert("GoRight", consts::defaultRunRightKey);
+    this->insert("Jump" ,   consts::defaultJumpKey);
 }
 
 void ActionMap::insert(const std::string& action, sf::Keyboard::Key key) {

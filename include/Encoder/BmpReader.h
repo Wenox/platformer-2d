@@ -15,8 +15,8 @@ public:
     int getPixelsCount() const;
 
     ~BmpReader() override = default;
-    BmpReader(BmpReader&&) = default;
-    BmpReader& operator=(BmpReader&&) = default;
+    BmpReader(BmpReader&&) noexcept = default;
+    BmpReader& operator=(BmpReader&&) noexcept = default;
 
     void debugPrint() const;
 

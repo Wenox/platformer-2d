@@ -43,7 +43,7 @@ public:
 
     void kill(LivesHUD& livesHUD) {
         livesHUD.decreaseLife();
-        setPosition(startingPosition);
+        setToStartingPosition();
         movingState = MovingState::standing;
         jumpingState = JumpingState::onGround;
         this->restartJumpTime();
@@ -51,6 +51,10 @@ public:
 
     auto getStartingPosition() const {
         return startingPosition;
+    }
+
+    void setToStartingPosition() {
+        setPosition(startingPosition);
     }
 
     void setStartingPosition() {

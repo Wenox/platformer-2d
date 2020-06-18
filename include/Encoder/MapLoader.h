@@ -17,9 +17,9 @@ public:
     virtual ~ILoader() = default;
     ILoader() = default;
     ILoader(const ILoader&) = default;
-    ILoader(ILoader&&) = default;
+    ILoader(ILoader&&) noexcept = default;
     ILoader& operator=(const ILoader&) = default;
-    ILoader& operator=(ILoader&&) = default;
+    ILoader& operator=(ILoader&&) noexcept = default;
 };
 
 struct Bmp{};
@@ -52,9 +52,9 @@ public:
 
     virtual ~MapLoader() = default;
     MapLoader(const MapLoader&) = default;
-    MapLoader(MapLoader&&) = default;
+    MapLoader(MapLoader&&) noexcept = default;
     MapLoader& operator=(const MapLoader&) = default;
-    MapLoader& operator=(MapLoader&&) = default;
+    MapLoader& operator=(MapLoader&&) noexcept = default;
 
     auto getBlocksNum() const {
         return blocksNum;
@@ -133,6 +133,8 @@ private:
                     queue.push(res::Texture::Sign2);
                     ++blocksNum;
                     break;
+                default:
+                    break;
             }
         }
     }
@@ -190,6 +192,8 @@ private:
                 case Obj::Entity::Sign2:
                     queue.push(res::Texture::Sign2);
                     ++blocksNum;
+                    break;
+                default:
                     break;
             }
         }

@@ -82,8 +82,8 @@ void StateGame::onActivate() {
     }
 
     music.play();
-    deathSound.setVolume(mySettings.volume);
-    collectSound.setVolume(mySettings.volume);
+    deathSound.setVolume(audioConfig.volume);
+    collectSound.setVolume(audioConfig.volume);
 }
 
 void StateGame::onDeactivate() {
@@ -218,7 +218,7 @@ void StateGame::draw(Window& window) {
     window.draw(player);
     window.draw(livesHUD);
 
-    if (mySettings.isFpsEnabled) {
+    if (audioConfig.isFpsEnabled) {
         window.draw(fpsHUD);
     }
 }

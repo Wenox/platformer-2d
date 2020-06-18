@@ -13,7 +13,7 @@ StateOptions::StateOptions(StateMachine& stateMachine, Window& window, ResourceM
 {
     onHoverBtnSound.setBuffer(resources.getSounds()[res::Sound::Bing]);
 
-    for (int i = 0; i < cornersTextures.size(); ++i) {
+    for (std::size_t i{0u}; i < cornersTextures.size(); ++i) {
         corners.at(i).setTexture(cornersTextures.at(i).get());
     }
     corners.at(0).setPosition(0, 0);
@@ -32,7 +32,7 @@ void StateOptions::onCreate() {
     });
 
     gui.getGui().get("fpsCheckBox")->connect("Changed", [&]() {
-        mySettings.isFpsEnabled = gui.isFpsChecked();
+        audioConfig.isFpsEnabled = gui.isFpsChecked();
     });
 
     gui.getGui().get("soundCheckBox")->connect("Changed", [&]() {
@@ -42,7 +42,7 @@ void StateOptions::onCreate() {
     });
 
     gui.getGui().get("soundVolume")->connect("ValueChanged", [&]() {
-        mySettings.volume = gui.getVolume();
+        audioConfig.volume = gui.getVolume();
         updateHoverSoundVolume();
     });
 
@@ -87,14 +87,14 @@ void StateOptions::draw(Window&) {
 }
 
 void StateOptions::saveOptions() {
-    mySettings.isSoundEnabled = gui.isSoundChecked();
-    mySettings.isFpsEnabled = gui.isFpsChecked();
-    mySettings.volume = gui.getVolume();
+    audioConfig.isSoundEnabled = gui.isSoundChecked();
+    audioConfig.isFpsEnabled = gui.isFpsChecked();
+    audioConfig.volume = gui.getVolume();
 }
 
 void StateOptions::updateHoverSoundVolume() {
-    if (mySettings.isSoundEnabled) {
-        onHoverBtnSound.setVolume(mySettings.volume);
+    if (audioConfig.isSoundEnabled) {
+        onHoverBtnSound.setVolume(audioConfig.volume);
     } else {
         onHoverBtnSound.setVolume(0.0f);
     }

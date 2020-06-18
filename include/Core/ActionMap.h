@@ -3,8 +3,6 @@
 #include <SFML/Window/Keyboard.hpp>
 #include <unordered_map>
 #include <string>
-#include <stdexcept>
-#include <mutex>
 
 
 class ActionMap {

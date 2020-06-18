@@ -1,3 +1,3 @@
 #include "Settings.h"
 
-Settings mySettings{};
+AudioCfg audioConfig{};

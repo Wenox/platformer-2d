@@ -3,8 +3,8 @@
 #include <Core/Consts.h>
 
 
-Window::Window(const std::string& windowName)
-        : window{sf::VideoMode{consts::windowWidth, consts::windowHeight}, windowName}
+Window::Window(std::string_view windowName)
+        : window{sf::VideoMode{consts::windowWidth, consts::windowHeight}, windowName.data()}
 {
     window.setFramerateLimit(consts::maxFps);
     setWindowIcon();
@@ -43,6 +43,14 @@ bool Window::isOpen() const {
 
 void Window::updateView(const sf::View& view) {
     window.setView(view);
+}
+
+std::queue<sf::Event>& Window::getEvent() {
+    return events;
+}
+
+sf::RenderWindow& Window::getWindow() {
+    return window;
 }
 
 void Window::setWindowIcon() {

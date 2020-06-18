@@ -6,7 +6,7 @@
 
 class Window {
 public:
-    explicit Window(const std::string& windowName);
+    explicit Window(std::string_view windowName);
 
     void update();
 
@@ -14,18 +14,13 @@ public:
     void draw(const sf::Drawable& drawable);
     void endDraw();
 
-    auto& getEvent() {
-        return events;
-    }
-
-    auto& getWindow() {
-        return window;
-    }
-
     void close();
     bool isOpen() const;
 
     void updateView(const sf::View& view);
+
+    std::queue<sf::Event>& getEvent();
+    sf::RenderWindow& getWindow();
 
     unsigned int getWidth()  const noexcept;
     unsigned int getHeight() const noexcept;

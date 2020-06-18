@@ -3,10 +3,10 @@
 
 
 StateKeybinds::StateKeybinds(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager)
-        : stateMachine{stateMachine}
+        : action{Action::NONE}
+        , stateMachine{stateMachine}
         , window{window}
         , gui{window}
-        , action{Action::NONE}
 {
     onHoverBtnSound.setBuffer(resourceManager.getSounds()[res::Sound::Bing]);
 }
@@ -86,8 +86,8 @@ void StateKeybinds::draw(Window&) {
 }
 
 void StateKeybinds::updateHoverSoundVolume() {
-    if (mySettings.isSoundEnabled) {
-        onHoverBtnSound.setVolume(mySettings.volume);
+    if (audioConfig.isSoundEnabled) {
+        onHoverBtnSound.setVolume(audioConfig.volume);
     } else {
         onHoverBtnSound.setVolume(0.0f);
     }

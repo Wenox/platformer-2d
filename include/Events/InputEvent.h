@@ -13,7 +13,6 @@ public:
 
     InputEvent(const InputEvent&) = delete;
     InputEvent& operator=(const InputEvent&) = delete;
-    /** todo: ro5 */
 
     void update();
 

@@ -61,7 +61,7 @@ void OptionsGUI::buildGUI() {
     auto soundVolume = tgui::Slider::create(0.0f, 100.0f);
     soundVolume->setPosition(184, 150);
     soundVolume->setSize(270, 20);
-    soundVolume->setValue(mySettings.volume);
+    soundVolume->setValue(audioConfig.volume);
     gui.add(soundVolume, "soundVolume");
 
 }

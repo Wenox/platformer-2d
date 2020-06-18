@@ -58,3 +58,14 @@ bool Game::isRunning() const {
 void Game::computeDeltaTime() {
     dt = clock.restart().asSeconds();
 }
+
+
+Window& Game::getWindow() {
+    return window;
+}
+ResourceManager& Game::getResources() {
+    return resources;
+}
+StateMachine& Game::getStateMachine() {
+    return stateMachine;
+}

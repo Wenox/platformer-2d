@@ -34,9 +34,9 @@ public:
 
     virtual ~Entity() = default;
     Entity(Entity const&) = default;
-    Entity(Entity&&) = default;
+    Entity(Entity&&) noexcept = default;
     Entity& operator=(Entity const&) = default;
-    Entity& operator=(Entity&&) = default;
+    Entity& operator=(Entity&&) noexcept = default;
 
 
 protected:

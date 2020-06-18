@@ -1,4 +1,4 @@
-#include "Settings.h""
+#include "Settings.h"
 #include "MapNameValidator.h"
 #include "StateID.h"
 #include "StateMenu.h"
@@ -71,8 +71,8 @@ void StateMenu::draw(Window&) {
 }
 
 void StateMenu::updateHoverSoundVolume() {
-    if (mySettings.isSoundEnabled) {
-        onHoverBtnSound.setVolume(mySettings.volume);
+    if (audioConfig.isSoundEnabled) {
+        onHoverBtnSound.setVolume(audioConfig.volume);
     } else {
         onHoverBtnSound.setVolume(0.0f);
     }

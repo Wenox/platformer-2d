@@ -19,5 +19,7 @@ void Spike::setTextureDirection() {
         case Obj::Entity::SpikeTop:
             this->rotateTop();
             break;
+        default:
+            break;
     }
 }

@@ -1,29 +1,33 @@
 #pragma once
 
 #include <string_view>
+#include <SFML/Window/Keyboard.hpp>
 
 
 namespace consts {
-    constexpr std::string_view mapEditorPath  = "index.html";
-    constexpr std::string_view defaultMapName = "map.bmp";
-    constexpr std::string_view gameMusic      = "../resources/sound/MaquinasOutpost2.ogg";
+    constexpr static std::string_view mapEditorPath  = "index.html";
+    constexpr static std::string_view defaultMapName = "map.bmp";
+    constexpr static std::string_view gameMusic      = "../resources/sound/MaquinasOutpost2.ogg";
 
-    constexpr auto initSoundVolume = 30.0f;
+    constexpr static sf::Keyboard::Key defaultJumpKey     = sf::Keyboard::W;
+    constexpr static sf::Keyboard::Key defaultRunLeftKey  = sf::Keyboard::A;
+    constexpr static sf::Keyboard::Key defaultRunRightKey = sf::Keyboard::D;
+
+    constexpr static auto initSoundVolume = 30.0f;
 
     extern int blocksCountWidth;
     extern int blocksCountHeight;
-    constexpr auto entityWidth  = 32;
-    constexpr auto entityHeight = 32;
+    constexpr static auto entityWidth  = 32;
+    constexpr static auto entityHeight = 32;
 
-    constexpr auto windowWidth  = 640;
-    constexpr auto windowHeight = 576;
-    constexpr auto maxFps       = 3000; /** Emphasize frame rate independent movement */
+    constexpr static auto windowWidth  = entityWidth  * 20;
+    constexpr static auto windowHeight = entityHeight * 18;
+    constexpr static auto maxFps       = 3000; /** Emphasize frame rate independent movement */
 
-    constexpr auto v0 = -80.0f;
-    constexpr auto horizontalVelocity  = 300;
-    constexpr auto terminalVelocity    = 40;
-    constexpr auto gravity             = 2000.0f;
-    constexpr auto initialJumpVelocity = -680.0f;
-    constexpr auto hitCeilingVelocity  = 10.0;
+    constexpr static auto horizontalVelocity  = 300;
+    constexpr static auto terminalVelocity    = 40;
+    constexpr static auto gravity             = 2000.0f;
+    constexpr static auto initialJumpVelocity = -680.0f;
+    constexpr static auto hitCeilingVelocity  = 10.0;
     extern bool playerWon;
 }

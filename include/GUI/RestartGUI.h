@@ -85,7 +85,6 @@ private:
 
     void loadWidget(tgui::Widget::Ptr& widget) {
         config.prepare(widget);
-        auto x = restartConfig.offsetX + (restartConfig.spacing + config.width) * btnIndex;
         widget->setPosition({restartConfig.offsetX + (restartConfig.spacing + config.width) * btnIndex++,
                              restartConfig.offsetY});  /** todo: use Restart::Config without instance of restartConfig */
         gui.add(widget);

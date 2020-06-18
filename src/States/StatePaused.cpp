@@ -36,8 +36,8 @@ void StatePaused::onCreate() {
 void StatePaused::onActivate() {
     window.getWindow().setView(pausedView);
 
-    if (mySettings.isSoundEnabled) {
-        onHoverBtnSound.setVolume(mySettings.volume);
+    if (audioConfig.isSoundEnabled) {
+        onHoverBtnSound.setVolume(audioConfig.volume);
     } else {
         onHoverBtnSound.setVolume(0.0f);
     }

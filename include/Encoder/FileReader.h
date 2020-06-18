@@ -50,8 +50,8 @@ protected:
         , file{name, mode}
     {}
 
-    std::string  fileName;
-    std::ifstream file;
+    std::string    fileName;
+    std::ifstream  file;
 
     std::vector<T> data{};
     unsigned       dataSize{};
