@@ -1,5 +1,6 @@
 #include "Spike.h"
 
+
 Spike::Spike(Obj::Entity spikeType, sf::Vector2f position)
         : Entity{position}, spikeType{spikeType}
 {}

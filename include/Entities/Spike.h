@@ -1,7 +1,6 @@
 #pragma once
 
-#include <Encoder/Encoder.h>
-#include <Consts.h>
+#include "Encoder.h"
 #include "Entity.h"
 
 

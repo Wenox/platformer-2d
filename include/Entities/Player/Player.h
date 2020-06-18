@@ -28,38 +28,15 @@ public:
 
     bool isDetectingGround(const std::vector<std::unique_ptr<Entity>>& blocks) const;
 
-    bool isIntersecting(const Spike& entity) const {
-        return this->getGlobalBounds().intersects(entity.getGlobalBounds());
-    }
+    bool isIntersecting(const Spike& entity) const;
+    bool isIntersecting(const HeartCollectible& entity) const;
+    bool isIntersecting(const Objective& entity) const;
 
-    /** todo: use one interface */
-    bool isIntersecting(const HeartCollectible& entity) const {
-        return this->getGlobalBounds().intersects(entity.getGlobalBounds());
-    }
+    void kill(LivesHUD& livesHUD);
 
-    bool isIntersecting(const Objective& entity) const {
-        return this->getGlobalBounds().intersects(entity.getGlobalBounds());
-    }
-
-    void kill(LivesHUD& livesHUD) {
-        livesHUD.decreaseLife();
-        setToStartingPosition();
-        movingState = MovingState::standing;
-        jumpingState = JumpingState::onGround;
-        this->restartJumpTime();
-    }
-
-    auto getStartingPosition() const {
-        return startingPosition;
-    }
-
-    void setToStartingPosition() {
-        setPosition(startingPosition);
-    }
-
-    void setStartingPosition() {
-        startingPosition = this->sprite.getPosition();
-    }
+    void setStartingPosition();
+    void setToStartingPosition();
+    sf::Vector2f getStartingPosition() const;
 
     float getVelocityX() const;
     float getVelocityY() const;
@@ -78,8 +55,6 @@ private:
 
     constexpr static auto detectorRange = 5.0f;
     float position;
-
-
 };
 
 

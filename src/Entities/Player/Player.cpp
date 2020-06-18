@@ -64,3 +64,35 @@ bool Player::isDetectingGround(const std::vector<std::unique_ptr<Entity>>& block
     }
     return false;
 }
+
+bool Player::isIntersecting(const Spike& entity) const {
+    return this->getGlobalBounds().intersects(entity.getGlobalBounds());
+}
+
+bool Player::isIntersecting(const HeartCollectible& entity) const {
+    return this->getGlobalBounds().intersects(entity.getGlobalBounds());
+}
+
+bool Player::isIntersecting(const Objective& entity) const {
+    return this->getGlobalBounds().intersects(entity.getGlobalBounds());
+}
+
+void Player::kill(LivesHUD& livesHUD) {
+    livesHUD.decreaseLife();
+    setToStartingPosition();
+    movingState = MovingState::standing;
+    jumpingState = JumpingState::onGround;
+    this->restartJumpTime();
+}
+
+sf::Vector2f Player::getStartingPosition() const {
+    return startingPosition;
+}
+
+void Player::setToStartingPosition() {
+    setPosition(startingPosition);
+}
+
+void Player::setStartingPosition() {
+    startingPosition = this->sprite.getPosition();
+}
