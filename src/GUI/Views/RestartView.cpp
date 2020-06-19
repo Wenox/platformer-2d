@@ -1,5 +1,3 @@
-/** @file */
-
 #include "RestartView.h"
 #include "Configuration.h"
 

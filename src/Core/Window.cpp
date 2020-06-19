@@ -1,8 +1,6 @@
-/** @file */
-
 #include "Window.h"
 #include <SFML/Window/Event.hpp>
-#include <Core/Configuration.h>
+#include "Configuration.h"
 #include <iostream>
 
 
@@ -14,10 +12,11 @@ Window::Window(std::string_view windowName)
     try {
         setWindowIcon();
     } catch (const std::exception& e) {
-        std::cerr << "Using default icon\n";
+        std::cerr << "Using default game icon\n";
         std::cerr << e.what() << std::endl;
     }
 }
+
 
 void Window::update() {
     sf::Event e{};

@@ -1,21 +1,6 @@
-/** @file */
 #pragma once
 
-/** \namespace res
- *
- * \ingroup myresourcez
- *
- * \brief Namespace wrapper over Resources enum IDs.
- *
- * */
 namespace res {
-
-    /** \enum Texture
-     *
-     * \ingroup myresourcez
-     *
-     * \brief Available Texture IDs.
-     * */
     enum class Texture {
         BlockRed,
         BlockBlue,
@@ -53,12 +38,6 @@ namespace res {
         GameWon
     };
 
-    /** \enum Sound
-     *
-     * \ingroup myresourcez
-     *
-     * \brief Available Sound IDs.
-     * */
     enum class Sound {
         Collect,
         BtnHover,
@@ -66,12 +45,6 @@ namespace res {
         WinGame
     };
 
-    /** \enum Music
-     *
-     * \ingroup myresourcez
-     *
-     * \brief Available Music IDs.
-     * */
     enum class Music {
         Background
     };

@@ -1,5 +1,3 @@
-/** \file */
-
 #include <iostream>
 #include "StateMachine.h"
 

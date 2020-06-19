@@ -1,3 +1,2 @@
-/** @file */
 #include "Encoder.h"
 

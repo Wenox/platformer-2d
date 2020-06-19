@@ -1,7 +1,5 @@
-/** @file */
-
-#include <Core/Configuration.h>
 #include "MapLoaderView.h"
+#include "Configuration.h"
 
 
 MapLoaderView::MapLoaderView(Window& window)

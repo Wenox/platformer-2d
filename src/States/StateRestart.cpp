@@ -1,7 +1,6 @@
-/** @file */
+#include "StateRestart.h"
 #include "StateID.h"
 #include "Configuration.h"
-#include "StateRestart.h"
 
 
 StateRestart::StateRestart(StateMachine& stateMachine, Window& window, ResourceManager& resourceManager)

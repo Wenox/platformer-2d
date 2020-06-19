@@ -1,4 +1,3 @@
-/** @file */
 #include "Player.h"
 
 

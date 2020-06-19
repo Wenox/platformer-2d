@@ -1,5 +1,3 @@
-/** @file */
-
 #include "MenuConfig.h"
 
 using Menu::Config;

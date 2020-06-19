@@ -1,6 +1,4 @@
-/** @file */
-
-#include <Configuration.h>
+#include "Configuration.h"
 #include "Camera.h"
 
 
@@ -10,108 +8,101 @@ Camera::Camera(const sf::View& view) noexcept
     this->setCameraConstants();
 }
 
-
+/** Updating one axis at a time simplifies everything.
+ *
+ *  Upon entering updateX(), we know if in previous frame within updateY()
+ *  method there was a Top, Bot or None collision, because we started it in previouslySolvedOnOtherAxis
+ *  container.
+ *
+ *  Similiarly, upon exiting updateX(), we store Left, Right or None inside previouslySolvedOnOtherAxis,
+ *  depending on collision type. */
 void Camera::updateX() noexcept {
-    /** Detect Left, Right or None collision. Store it in #solvedNow and return correct #solvedX position. */
     float solvedX = detectCollisionX();
 
-    /** Based on #previouslySolvedOtherAxis computed in updateY(), which is either Bot, Top or None - we can respond correctly to the corners and set correct Camera position. */
     std::visit(overload{
             [&](Bot&)   { cameraView.setCenter(solvedX, bottomBorderBoundary); },
             [&](Top&)   { cameraView.setCenter(solvedX, topBorderBoundary); },
             [&](None&)  { cameraView.setCenter(solvedX, controller->getPosition().y + halvedSpriteHeight); },
             [&](auto) noexcept { }
-    }, previouslySolvedOtherAxis);
+    }, previouslySolvedOnOtherAxis);
 
-    /** Upon exit, ypdate #previouslySolvedOtherAxis with what we just #solvedNow: either Top, Bot or None. */
     storeJustSolvedForOtherAxis(solvedNow);
 }
 
 void Camera::updateY() noexcept {
-    /** Detect Top, Bot or None collision. Store it in #solvedNow and return correct #solvedY position. */
     float solvedY = detectCollisionY();
 
-    /** Based on #previouslySolvedOtherAxis computed in updateX(), which is either Left, Right or None - we can respond correctly to the corners and set correct Camera position.*/
     std::visit(overload{
-            [&](Left&)  {cameraView.setCenter(leftBorderBoundary, solvedY); },
+            [&](Left&)  {cameraView.setCenter(leftBorderBoundary,  solvedY); },
             [&](Right&) {cameraView.setCenter(rightBorderBoundary, solvedY); },
             [&](auto) noexcept { }
-    }, previouslySolvedOtherAxis);
+    }, previouslySolvedOnOtherAxis);
 
-    /** Upon exit, update #previouslySolvedOtherAxis with what we just #solvedNow: either Top, Bot or None. */
     storeJustSolvedForOtherAxis(solvedNow);
 }
 
 float Camera::detectCollisionX() noexcept {
-    /** Check X position after sprite was moved on X axis. */
     const auto cameraX = controller->getPosition().x + halvedSpriteWidth;
 
-    /** Calculate correct resolved non-colliding X position. */
     float xCoord{};
-
     if (cameraX > rightBorderBoundary) {
         xCoord = rightBorderBoundary;
-        solvedNow = CurrentCollision::Right; ///< There was a Right collision, so store that fact for possible corner-collision response.
+        solvedNow = CurrentCollision::Right;
     } else if (cameraX < leftBorderBoundary) {
         xCoord = leftBorderBoundary;
-        solvedNow = CurrentCollision::Left; ///< There was a Left collision, so store that fact for possible corner-collision response.
+        solvedNow = CurrentCollision::Left;
     } else {
         xCoord = cameraX;
-        solvedNow = CurrentCollision::None; ///< There was None collision. For sure not a corner collision.
+        solvedNow = CurrentCollision::None;
     }
 
     return xCoord;
 }
 
 float Camera::detectCollisionY() noexcept {
-    /** \example
-     * Check Y position after sprite was moved on Y axis. */
     const auto cameraY = controller->getPosition().y + halvedSpriteHeight;
 
-    /** \example Calculate correct resolved non-colliding Y position. */
     float yCoord{};
 
     if (cameraY > bottomBorderBoundary) {
         yCoord = bottomBorderBoundary;
-        solvedNow = CurrentCollision::Bot; ///< There was a Bot collision, so store that fact for possible corner-collision response.
+        solvedNow = CurrentCollision::Bot;
     } else if (cameraY < topBorderBoundary) {
         yCoord = topBorderBoundary;
-        solvedNow = CurrentCollision::Top; ///< There was a Top collision, so store that fact for possible corner-collision response.
+        solvedNow = CurrentCollision::Top;
     } else {
         yCoord = cameraY;
-        solvedNow = CurrentCollision::None; ///< There was None collision. For sure not a corner collision.
+        solvedNow = CurrentCollision::None;
     }
 
     return yCoord;
 }
 
-
 sf::View& Camera::getCameraView() noexcept {
     return cameraView;
 }
-
 
 void Camera::setController(Entity& controllingEntity) noexcept {
     this->controller = &controllingEntity.getSprite();
     this->setControllerConstants();
 }
 
-void Camera::storeJustSolvedForOtherAxis(CurrentCollision wasCollision) noexcept {
-    switch (wasCollision) {
+void Camera::storeJustSolvedForOtherAxis(CurrentCollision nextCollision) noexcept {
+    switch (nextCollision) {
         case CurrentCollision::Left:
-            previouslySolvedOtherAxis = Left{};
+            previouslySolvedOnOtherAxis = Left{};
             break;
         case CurrentCollision::Right:
-            previouslySolvedOtherAxis = Right{};
+            previouslySolvedOnOtherAxis = Right{};
             break;
         case CurrentCollision::None:
-            previouslySolvedOtherAxis = None{};
+            previouslySolvedOnOtherAxis = None{};
             break;
         case CurrentCollision::Top:
-            previouslySolvedOtherAxis = Top{};
+            previouslySolvedOnOtherAxis = Top{};
             break;
         case CurrentCollision::Bot:
-            previouslySolvedOtherAxis = Bot{};
+            previouslySolvedOnOtherAxis = Bot{};
             break;
     }
 }
@@ -123,7 +114,7 @@ void Camera::setCameraConstants() noexcept {
     halvedCameraWidth  = cameraWidth  / 2.0;
     halvedCameraHeight = cameraHeight / 2.0;
 
-    mapWidth = config::blocksCountWidth * 32;
+    mapWidth  = config::blocksCountWidth * 32;
     mapHeight = config::blocksCountHeight * 32;
 
     leftBorderBoundary   = halvedCameraWidth;

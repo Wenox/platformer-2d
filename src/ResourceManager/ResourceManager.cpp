@@ -1,4 +1,3 @@
-/** @file */
 #include "ResourceManager.h"
 
 

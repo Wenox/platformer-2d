@@ -1,6 +1,4 @@
-/** @file */
-
-#include <Configuration.h>
+#include "Configuration.h"
 #include "CollisionEvent.h"
 
 

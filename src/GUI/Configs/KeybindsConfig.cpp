@@ -1,5 +1,3 @@
-/** @file */
-
 #include "KeybindsConfig.h"
 
 using Keybinds::Config;

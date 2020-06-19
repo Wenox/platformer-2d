@@ -1,8 +1,6 @@
-/** @file */
-
-
-#include <Configuration.h>
 #include "Entity.h"
+#include "Configuration.h"
+
 
 Entity::Entity(sf::Vector2f position)
     : position{position}
@@ -52,6 +50,13 @@ sf::Sprite& Entity::getSprite() {
     return sprite;
 }
 
+float Entity::x() const {
+    return sprite.getPosition().x;
+}
+
+float Entity::y() const {
+    return sprite.getPosition().y;
+}
 
 float Entity::width() const {
     return sprite.getGlobalBounds().width;

@@ -1,6 +1,3 @@
-
-/** @file */
-
 #include "StateKeybinds.h"
 #include "StateID.h"
 #include "Settings.h"

@@ -1,4 +1,3 @@
-/** @file */
 #include "StateGame.h"
 #include "StateID.h"
 #include "Settings.h"

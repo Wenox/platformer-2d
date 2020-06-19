@@ -1,5 +1,3 @@
-/** @file */
-
 #include "PausedConfig.h"
 
 using Paused::Config;

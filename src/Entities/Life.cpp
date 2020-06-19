@@ -1,5 +1,3 @@
-/** @file */
-
 #include "Life.h"
 
 Life::Life(sf::Vector2f position)

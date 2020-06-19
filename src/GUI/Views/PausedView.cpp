@@ -1,5 +1,3 @@
-/** @file */
-
 #include "PausedView.h"
 #include "Configuration.h"
 

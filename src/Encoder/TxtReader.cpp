@@ -1,6 +1,5 @@
-/** @file */
-#include <Configuration.h>
 #include "TxtReader.h"
+#include "Configuration.h"
 
 
 TxtReader::TxtReader(const std::string& name,

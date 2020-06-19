@@ -1,7 +1,6 @@
-/** @file */
-
-#include <Core/Configuration.h>
 #include "FpsOverlay.h"
+#include "Configuration.h"
+
 
 FpsOverlay::FpsOverlay() {
     this->setFont();

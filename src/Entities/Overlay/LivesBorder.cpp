@@ -1,5 +1,3 @@
-/** @file */
-
 #include "LivesBorder.h"
 
 

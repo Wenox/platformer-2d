@@ -1,5 +1,3 @@
-/** @file */
-
 #pragma once
 
 #include <string_view>
@@ -11,14 +9,6 @@ using std::string_view;
 using sf::Keyboard;
 
 
-/** \namespace config
-*
-*  \ingroup Core
-*
-*  \brief Compile time customizable settings.
-*
-*
-*  */
 namespace config {
 
     constexpr static Keyboard::Key defaultJumpKey     = Keyboard::W;

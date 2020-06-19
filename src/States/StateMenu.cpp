@@ -1,5 +1,3 @@
-/** @file */
-
 #include "Settings.h"
 #include "MapNameValidator.h"
 #include "StateID.h"

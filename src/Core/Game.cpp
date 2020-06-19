@@ -1,23 +1,21 @@
-/** @file */
-
-#include <StateGame.h>
-#include <StateMenu.h>
-#include <StateMapLoader.h>
-#include <StateOptions.h>
-#include <StatePaused.h>
-#include <StateKeybinds.h>
-#include <StateRestart.h>
-#include <States/StateAbout.h>
+#include "StateGame.h"
+#include "StateMenu.h"
+#include "StateMapLoader.h"
+#include "StateOptions.h"
+#include "StatePaused.h"
+#include "StateKeybinds.h"
+#include "StateRestart.h"
+#include "StateAbout.h"
 #include "Game.h"
 
 
 Game::Game()
         : window{"Platformer"}
 {
-    this->createStates();
+    this->init();
 }
 
-void Game::createStates() {
+void Game::init() {
     state::menuID     = stateMachine.insert(std::make_shared<StateMenu>     (stateMachine, window, resources));
     state::loaderID   = stateMachine.insert(std::make_shared<StateMapLoader>(stateMachine, window, resources));
     state::optionsID  = stateMachine.insert(std::make_shared<StateOptions>  (stateMachine, window, resources));
@@ -65,9 +63,11 @@ void Game::computeDeltaTime() {
 Window& Game::getWindow() {
     return window;
 }
+
 ResourceManager& Game::getResources() {
     return resources;
 }
+
 StateMachine& Game::getStateMachine() {
     return stateMachine;
 }

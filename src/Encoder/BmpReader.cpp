@@ -1,7 +1,5 @@
-
-/** @file */
-#include <Configuration.h>
 #include "BmpReader.h"
+#include "Configuration.h"
 
 
 BmpReader::BmpReader(const std::string& name,
@@ -46,6 +44,9 @@ void BmpReader::readPixels() {
     config::blocksCountHeight = this->height;
 }
 
+int BmpReader::getPixelsCount() const {
+    return pixelsCount;
+}
 
 void BmpReader::debugPrint() const {
     std::cout << "BMP width: " <<  width << std::endl;

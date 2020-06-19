@@ -1,5 +1,3 @@
-/** @file */
-
 #include "MenuConfig.h"
 #include "RestartConfig.h"
 

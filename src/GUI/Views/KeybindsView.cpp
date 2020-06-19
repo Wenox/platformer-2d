@@ -1,5 +1,3 @@
-/** @file */
-
 #include "Configuration.h"
 #include "KeybindsView.h"
 #include <iostream>
