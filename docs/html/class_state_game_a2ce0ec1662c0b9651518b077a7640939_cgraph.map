@@ -1,0 +1,4 @@
+<map id="StateGame::setSpikesTextures" name="StateGame::setSpikesTextures">
+<area shape="rect" id="node1" title="Set the spike texture facing correct direction to each Spike entity." alt="" coords="5,5,209,32"/>
+<area shape="rect" id="node2" href="$class_resource_manager.html#af2fa6772d3b3660049cd5182172864fa" title=" " alt="" coords="257,5,460,32"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="PausedView" name="PausedView">
+<area shape="rect" id="node1" title="View class used to draw gui within StatePaused." alt="" coords="5,624,184,804"/>
+<area shape="rect" id="node2" href="$class_view.html" title=" " alt="" coords="6,321,183,575"/>
+<area shape="rect" id="node3" href="$class_view.html" title=" " alt="" coords="6,5,183,259"/>
+</map>

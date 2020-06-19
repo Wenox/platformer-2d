@@ -1,0 +1,4 @@
+<map id="PausedView::createButtons" name="PausedView::createButtons">
+<area shape="rect" id="node1" title="Creates all buttons and adds them to the #gui." alt="" coords="5,5,188,32"/>
+<area shape="rect" id="node2" href="$class_paused_view.html#adc9c0eab117817295a51ffdbcd8dd65e" title="Loads a given widget (likely: a button) onto the correct settings and position. @widget to be loaded." alt="" coords="236,5,403,32"/>
+</map>

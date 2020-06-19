@@ -1,0 +1,8 @@
+<map id="StateGame::updatePhysics" name="StateGame::updatePhysics">
+<area shape="rect" id="node1" title="Update: MovementEvent, CollisionEvent and Camera on axis X, then on axis Y." alt="" coords="5,64,188,91"/>
+<area shape="rect" id="node2" href="$class_camera.html#a22b035a8d21647b26011a908f8205fa8" title="Updates the camera on horizontal X axis. Moves the camera and resolves the collision if needed." alt="" coords="237,39,358,65"/>
+<area shape="rect" id="node5" href="$class_camera.html#a1acdd2310dbd708863ab595c6f28ca13" title="Updates the camera on vertical Y axis. Moves the camera and resolves the collision if needed." alt="" coords="236,89,359,116"/>
+<area shape="rect" id="node3" href="$class_camera.html#ae55b93cca5d7920948b2d2b0467a465c" title="Detects if there is a collision on X axis as of right now." alt="" coords="416,5,583,32"/>
+<area shape="rect" id="node4" href="$class_camera.html#af196a3b30a14864ca74a7dbacae2bcdc" title="Update the previouslySolvedOtherAxis variant state with whatever was just solved collision." alt="" coords="407,57,592,98"/>
+<area shape="rect" id="node6" href="$class_camera.html#ad7ba1af7b638baca1d550adead5e0510" title="Detects if there is a collision on Y axis as of right now." alt="" coords="415,123,584,149"/>
+</map>

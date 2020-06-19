@@ -1,0 +1,17 @@
+<map id="Entity::setPosition" name="Entity::setPosition">
+<area shape="rect" id="node1" title="Sets sprite position." alt="" coords="1155,107,1284,134"/>
+<area shape="rect" id="node2" href="$class_state_game.html#a830efa737140d4fd6720603de203370c" title="Generate world from a Bmp. Allocate blocks and set them to proper position." alt="" coords="918,5,1098,47"/>
+<area shape="rect" id="node4" href="$class_state_game.html#a5f70d99fe2910fce5ecaff41a3029d78" title="Generate world from a Txt. Allocate blocks and set them to proper position." alt="" coords="918,71,1098,112"/>
+<area shape="rect" id="node5" href="$class_state_game.html#ab185abcb508c1667a7591c9ea9638ab2" title=" " alt="" coords="909,137,1107,163"/>
+<area shape="rect" id="node7" href="$class_player.html#afded7d43103d814ba606d57ff465fbd6" title="Set Player to his startingPosition." alt="" coords="913,217,1103,243"/>
+<area shape="rect" id="node3" href="$class_state_game.html#af534509660098805f313c571217ae395" title="Called when the State is created. Generates the World by visiting a variant." alt="" coords="687,34,835,61"/>
+<area shape="rect" id="node6" href="$class_state_game.html#ad4629af78fc2b79ac0b028b76b5b9011" title="Called when StateMenu is activated. Updates activation StateGame logic." alt="" coords="683,122,839,149"/>
+<area shape="rect" id="node8" href="$class_player.html#a43e78cde60cb0a7ec6a21c5d679196c1" title=" " alt="" coords="720,173,803,199"/>
+<area shape="rect" id="node12" href="$class_collision_event.html#a3fe30dec4dff1de9bb27ce932f45955b" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="661,224,861,265"/>
+<area shape="rect" id="node14" href="$class_collision_event.html#a2eb311d808d64324ef9d0f5d025e747c" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="661,289,861,331"/>
+<area shape="rect" id="node9" href="$class_state_game.html#a9da9c05a7a1529a8c8c70852ccb51b89" title="Player loses life if he touches the Spike." alt="" coords="429,165,612,207"/>
+<area shape="rect" id="node10" href="$class_state_game.html#a3405af8ebfcccfe1af10ed5e5b8a12d6" title="Update the status of player life (lose or gain life)." alt="" coords="188,173,380,199"/>
+<area shape="rect" id="node11" href="$class_state_game.html#ad0e29d5b2e41498206d19d476901b6e9" title="Performs a frame cycle of a main game loop." alt="" coords="5,173,140,199"/>
+<area shape="rect" id="node13" href="$class_collision_event.html#a25777dda57e7d7803b21fd612c36cf58" title="Handle horizontal collisions." alt="" coords="429,231,612,258"/>
+<area shape="rect" id="node15" href="$class_collision_event.html#a526a4279c50ae90f2298bf80188b07ee" title="Handle vertical collisions." alt="" coords="428,297,613,323"/>
+</map>

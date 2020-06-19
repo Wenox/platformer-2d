@@ -1,0 +1,13 @@
+<map id="StateRestart" name="StateRestart">
+<area shape="rect" id="node1" title="Encapsulates the logic of restart menu within one StateRestart class." alt="" coords="363,1123,479,1273"/>
+<area shape="rect" id="node2" href="$class_state.html" title="&lt; Pass&#45;through" alt="" coords="28,829,144,1009"/>
+<area shape="rect" id="node3" href="$class_restart_view.html" title="View class used to draw gui within StateRestart." alt="" coords="168,792,361,1045"/>
+<area shape="rect" id="node4" href="$class_view.html" title=" " alt="" coords="7,461,184,715"/>
+<area shape="rect" id="node5" href="$class_view.html" title=" " alt="" coords="5,145,183,399"/>
+<area shape="rect" id="node6" href="$struct_restart_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to RestartView." alt="" coords="211,520,319,656"/>
+<area shape="rect" id="node7" href="$struct_i_config.html" title=" " alt="" coords="207,233,325,311"/>
+<area shape="rect" id="node8" href="$struct_i_config.html" title="Every specific Config inherits from this struct." alt="" coords="207,5,325,83"/>
+<area shape="rect" id="node9" href="$struct_gui_1_1_config.html" title="A shared gui config. Contains common settings." alt="" coords="343,505,493,671"/>
+<area shape="rect" id="node10" href="$class_state_machine.html" title="Container for all game States and holds current state pointer. Updates State logic every frame." alt="" coords="386,777,559,1060"/>
+<area shape="rect" id="node11" href="$class_window.html" title="Responsible for drawing onto the screen." alt="" coords="584,785,711,1053"/>
+</map>

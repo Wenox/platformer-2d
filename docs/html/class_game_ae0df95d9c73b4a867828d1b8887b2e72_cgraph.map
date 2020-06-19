@@ -1,0 +1,5 @@
+<map id="Game::createStates" name="Game::createStates">
+<area shape="rect" id="node1" title="Creates all game states but StateGame during Game construction time." alt="" coords="5,31,144,57"/>
+<area shape="rect" id="node2" href="$class_state_machine.html#a9b35c9359afe0bab8d7b378c9c047812" title=" " alt="" coords="201,5,344,32"/>
+<area shape="rect" id="node3" href="$class_state_machine.html#a7990c8bd99340527b566905013ac26a9" title=" " alt="" coords="192,56,353,83"/>
+</map>

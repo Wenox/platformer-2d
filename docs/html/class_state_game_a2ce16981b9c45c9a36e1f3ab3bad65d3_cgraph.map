@@ -1,0 +1,7 @@
+<map id="StateGame::draw" name="StateGame::draw">
+<area shape="rect" id="node1" title="Draws the game onto the screen." alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node2" href="$class_window.html#adfb2d5826942693e289d13f314a341f7" title="Draws the drawable objects onto the screen." alt="" coords="216,5,319,32"/>
+<area shape="rect" id="node3" href="$class_state_game.html#a772453b6fdd1036fad4f40da61cceba0" title=" " alt="" coords="176,56,359,83"/>
+<area shape="rect" id="node4" href="$class_entity.html#a03c9e078a384632824a9033a5c0de38a" title="Retrieve sprite x coordinate." alt="" coords="407,31,489,57"/>
+<area shape="rect" id="node5" href="$class_entity.html#a898891ec396e4754c2c84b6c08c89c45" title="Retrieve sprite y coordinate." alt="" coords="407,81,489,108"/>
+</map>

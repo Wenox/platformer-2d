@@ -1,0 +1,4 @@
+<map id="ResourceManager::loadTextures" name="ResourceManager::loadTextures">
+<area shape="rect" id="node1" title="Loads all texture resources. May throw." alt="" coords="5,5,215,32"/>
+<area shape="rect" id="node2" href="$class_resource_holder.html#a05ca2f840e6b988ff6bb51ac477dcb99" title="Insert a resource of type Resource to a map." alt="" coords="263,5,417,32"/>
+</map>

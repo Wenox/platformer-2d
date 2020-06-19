@@ -1,0 +1,13 @@
+<map id="Entity::left" name="Entity::left">
+<area shape="rect" id="node1" title="Retrieve sprite x coordinate." alt="" coords="727,93,808,119"/>
+<area shape="rect" id="node2" href="$class_player.html#a0a2bdc670d16238d22f27e5f8941a59d" title=" " alt="" coords="261,13,435,39"/>
+<area shape="rect" id="node4" href="$class_state_game.html#a772453b6fdd1036fad4f40da61cceba0" title=" " alt="" coords="496,210,679,237"/>
+<area shape="rect" id="node6" href="$class_collision_event.html#a381c4538655be02e16b632139e87f4bc" title="Checks if Player is in range of a given entity." alt="" coords="509,144,665,185"/>
+<area shape="rect" id="node10" href="$class_collision_event.html#a3fe30dec4dff1de9bb27ce932f45955b" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="248,85,448,127"/>
+<area shape="rect" id="node11" href="$class_entity.html#afac0896ace71d7898d45c2bbe105f6b1" title="Retrieve sprite right side x coordinate." alt="" coords="543,42,632,69"/>
+<area shape="rect" id="node3" href="$class_movement_event.html#ad355ecd7e80a497cada03c82911e1bf2" title="Handles all vertical movements on Y axis based on JumpingState." alt="" coords="5,13,200,39"/>
+<area shape="rect" id="node5" href="$class_state_game.html#a2ce16981b9c45c9a36e1f3ab3bad65d3" title="Draws the game onto the screen." alt="" coords="287,210,409,237"/>
+<area shape="rect" id="node7" href="$class_collision_event.html#af6072bfe4c444993f24d3af1b09d3417" title="Axis&#45;independent collision handler, invokes collision resolver." alt="" coords="249,151,447,178"/>
+<area shape="rect" id="node8" href="$class_collision_event.html#a25777dda57e7d7803b21fd612c36cf58" title="Handle horizontal collisions." alt="" coords="11,97,194,123"/>
+<area shape="rect" id="node9" href="$class_collision_event.html#a526a4279c50ae90f2298bf80188b07ee" title="Handle vertical collisions." alt="" coords="10,151,195,178"/>
+</map>

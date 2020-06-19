@@ -1,0 +1,8 @@
+<map id="Entity::move" name="Entity::move">
+<area shape="rect" id="node1" title="Move the entity sprite by a float vector." alt="" coords="487,78,581,105"/>
+<area shape="rect" id="node2" href="$class_collision_event.html#a3fe30dec4dff1de9bb27ce932f45955b" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="239,5,439,47"/>
+<area shape="rect" id="node4" href="$class_collision_event.html#a2eb311d808d64324ef9d0f5d025e747c" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="239,71,439,112"/>
+<area shape="rect" id="node6" href="$class_movement_event.html#a6d7d70f1246a5bed1b897b43648db043" title="Handles horizontal movements on X axis based on MovingState." alt="" coords="242,137,435,163"/>
+<area shape="rect" id="node3" href="$class_collision_event.html#a25777dda57e7d7803b21fd612c36cf58" title="Handle horizontal collisions." alt="" coords="7,13,189,39"/>
+<area shape="rect" id="node5" href="$class_collision_event.html#a526a4279c50ae90f2298bf80188b07ee" title="Handle vertical collisions." alt="" coords="5,78,191,105"/>
+</map>

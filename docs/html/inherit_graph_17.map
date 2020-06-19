@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$struct_i_config.html" title=" " alt="" coords="5,132,111,159"/>
+<area shape="rect" id="node2" href="$struct_keybinds_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to KeybindsView." alt="" coords="159,5,279,32"/>
+<area shape="rect" id="node3" href="$struct_loader_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to MapLoaderView." alt="" coords="166,56,271,83"/>
+<area shape="rect" id="node4" href="$struct_menu_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to MenuView." alt="" coords="169,107,268,133"/>
+<area shape="rect" id="node5" href="$struct_options_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to OptionsView." alt="" coords="163,157,274,184"/>
+<area shape="rect" id="node6" href="$struct_paused_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to PausedView." alt="" coords="163,208,274,235"/>
+<area shape="rect" id="node7" href="$struct_restart_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to RestartView." alt="" coords="165,259,273,285"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="Life::revive" name="Life::revive">
+<area shape="rect" id="node1" title="Regain the life." alt="" coords="5,5,87,32"/>
+<area shape="rect" id="node2" href="$class_entity.html#a2f33265575ef9bb7c4dcc09fb0bb997f" title="Retrieve sprite itself." alt="" coords="135,5,251,32"/>
+</map>

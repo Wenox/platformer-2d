@@ -1,0 +1,8 @@
+<map id="Entity::height" name="Entity::height">
+<area shape="rect" id="node1" title=" " alt="" coords="627,35,725,61"/>
+<area shape="rect" id="node2" href="$class_entity.html#a623eaf5b3162b2c7a09f7a37d008b9f7" title="Retrieve sprite bottom side y coordinate." alt="" coords="496,35,579,61"/>
+<area shape="rect" id="node3" href="$class_player.html#a0a2bdc670d16238d22f27e5f8941a59d" title=" " alt="" coords="261,5,435,32"/>
+<area shape="rect" id="node5" href="$class_collision_event.html#a2eb311d808d64324ef9d0f5d025e747c" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="248,57,448,98"/>
+<area shape="rect" id="node4" href="$class_movement_event.html#ad355ecd7e80a497cada03c82911e1bf2" title="Handles all vertical movements on Y axis based on JumpingState." alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node6" href="$class_collision_event.html#a526a4279c50ae90f2298bf80188b07ee" title="Handle vertical collisions." alt="" coords="10,64,195,91"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="StateMenu::onDeactivate" name="StateMenu::onDeactivate">
+<area shape="rect" id="node1" title="Called when StateMenu is closed. Stores that previous state was state::menuID." alt="" coords="5,13,172,39"/>
+<area shape="rect" id="node2" href="$class_state_machine.html#aee77432bfc1066dc3a34f3e7c5950d13" title=" " alt="" coords="220,5,397,47"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="ResourceManager" name="ResourceManager">
+<area shape="rect" id="node1" title="ResourceManager is a class responsible for managing all kinds of ResourceHolders." alt="" coords="199,711,345,891"/>
+<area shape="rect" id="node2" href="$class_resource_holder.html" title=" " alt="" coords="5,365,160,648"/>
+<area shape="rect" id="node3" href="$class_resource_holder.html" title="A generic ResourceHolder storing resources of type Resource, accessed by Key." alt="" coords="161,5,314,288"/>
+<area shape="rect" id="node4" href="$class_resource_holder.html" title=" " alt="" coords="185,365,359,648"/>
+<area shape="rect" id="node5" href="$class_resource_holder.html" title=" " alt="" coords="384,365,528,648"/>
+</map>

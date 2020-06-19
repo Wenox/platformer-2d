@@ -1,0 +1,9 @@
+<map id="ResourceManager::ResourceManager" name="ResourceManager::ResourceManager">
+<area shape="rect" id="node1" title="Call loadResources() which may throw." alt="" coords="5,49,196,90"/>
+<area shape="rect" id="node2" href="$class_resource_manager.html#ae44db2ec53e1720b4e543ab08ec90a6d" title="Loads all resources, each different resource type uses different thread to handle its type." alt="" coords="244,56,465,83"/>
+<area shape="rect" id="node3" href="$class_resource_manager.html#a315a336698ba1082143d3b398f8640c6" title="Loads all music resources. May throw." alt="" coords="521,5,715,32"/>
+<area shape="rect" id="node4" href="$class_resource_manager.html#a89e0e02b28b556ba04a097c240a68ffa" title="Loads all sound resources. May throw." alt="" coords="517,56,719,83"/>
+<area shape="rect" id="node6" href="$class_resource_manager.html#a919e53911b0b9609d74a40403e89edb2" title="Loads all texture resources. May throw." alt="" coords="513,107,723,133"/>
+<area shape="rect" id="node5" href="$_resource_inserter_8h.html#a2fc13cb1c007491dafcbce8414e2b085" title="Deduction guide." alt="" coords="788,56,908,83"/>
+<area shape="rect" id="node7" href="$class_resource_holder.html#a05ca2f840e6b988ff6bb51ac477dcb99" title="Insert a resource of type Resource to a map." alt="" coords="771,107,925,133"/>
+</map>

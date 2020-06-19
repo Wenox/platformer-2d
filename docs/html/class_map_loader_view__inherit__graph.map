@@ -1,0 +1,5 @@
+<map id="MapLoaderView" name="MapLoaderView">
+<area shape="rect" id="node1" title="View class used to draw gui within StateMapLoader." alt="" coords="5,624,227,936"/>
+<area shape="rect" id="node2" href="$class_view.html" title=" " alt="" coords="27,321,205,575"/>
+<area shape="rect" id="node3" href="$class_view.html" title=" " alt="" coords="27,5,205,259"/>
+</map>

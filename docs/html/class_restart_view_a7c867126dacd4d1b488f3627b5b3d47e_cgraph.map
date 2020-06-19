@@ -1,0 +1,4 @@
+<map id="RestartView::createButtons" name="RestartView::createButtons">
+<area shape="rect" id="node1" title="Creates all buttons and adds them to the #gui." alt="" coords="5,5,187,32"/>
+<area shape="rect" id="node2" href="$class_restart_view.html#a81946a401ab61a0c7752772ed3394ffe" title="Loads a given widget (likely: a button) onto the correct settings and position. @widget to be loaded." alt="" coords="235,5,400,32"/>
+</map>

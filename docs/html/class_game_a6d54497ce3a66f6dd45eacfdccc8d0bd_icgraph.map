@@ -1,0 +1,5 @@
+<map id="Game::draw" name="Game::draw">
+<area shape="rect" id="node1" title="Calls the StateMachine.draw() method." alt="" coords="235,5,327,32"/>
+<area shape="rect" id="node2" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Runs the game: called from main, this is where the main game loop starts." alt="" coords="104,5,187,32"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#aa2ea97ae3b5138344f2832f44ba93d4c" title=" " alt="" coords="5,5,56,32"/>
+</map>

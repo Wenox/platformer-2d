@@ -1,0 +1,4 @@
+<map id="Game::isRunning" name="Game::isRunning">
+<area shape="rect" id="node1" title="Checks if a Game is still running." alt="" coords="5,5,128,32"/>
+<area shape="rect" id="node2" href="$class_window.html#a761d614931fb5a5daa70e4f580c3e78e" title=" " alt="" coords="176,5,293,32"/>
+</map>

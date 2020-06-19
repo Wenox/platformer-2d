@@ -1,0 +1,5 @@
+<map id="LivesOverlay::refillLives" name="LivesOverlay::refillLives">
+<area shape="rect" id="node1" title="Refill all player lives." alt="" coords="5,31,160,57"/>
+<area shape="rect" id="node2" href="$class_lives_overlay.html#a435e947d43c2214448053acc64848a46" title="Checks if Player has all lives remaining." alt="" coords="210,5,377,32"/>
+<area shape="rect" id="node3" href="$class_lives_overlay.html#a34c2cf7f0c5c7d4b55176ab7f5d0e3c3" title="Increase player life by one." alt="" coords="208,56,379,83"/>
+</map>

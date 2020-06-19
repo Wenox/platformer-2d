@@ -1,0 +1,10 @@
+<map id="Window::getEvent" name="Window::getEvent">
+<area shape="rect" id="node1" title="Retrieve the events queue." alt="" coords="252,157,379,184"/>
+<area shape="rect" id="node2" href="$class_state_restart.html#a190abf96d5f20f847c086e3aa8698f84" title="Processes all inputs received by gui." alt="" coords="16,5,193,32"/>
+<area shape="rect" id="node3" href="$class_state_options.html#a0f5fc474dcefcd11059e2ece94960ffb" title="Processes all inputs received by gui." alt="" coords="15,56,195,83"/>
+<area shape="rect" id="node4" href="$class_state_map_loader.html#a23cd394abcd63480de3973272e9f7be9" title="Processes all inputs received by gui." alt="" coords="5,107,204,133"/>
+<area shape="rect" id="node5" href="$class_state_keybinds.html#aa95baa0c75a2d70c2744cdc0fdac7947" title="Processes all inputs received by gui." alt="" coords="10,157,199,184"/>
+<area shape="rect" id="node6" href="$class_state_paused.html#acf3498e0e9906db2c3b1472a3567a4d9" title="Processes all inputs received by gui." alt="" coords="15,208,194,235"/>
+<area shape="rect" id="node7" href="$class_state_menu.html#ac8823ce18bf176976c7a7bcb77a7694c" title="Processes all inputs received by gui." alt="" coords="21,259,188,285"/>
+<area shape="rect" id="node8" href="$class_state_keybinds.html#ae259d5b8f22fef9bb340551565ceb755" title=" " alt="" coords="27,309,182,336"/>
+</map>

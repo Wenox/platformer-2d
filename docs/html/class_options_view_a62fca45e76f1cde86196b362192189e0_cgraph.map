@@ -1,0 +1,5 @@
+<map id="OptionsView::createCheckBoxes" name="OptionsView::createCheckBoxes">
+<area shape="rect" id="node1" title="Creates all check Boxes and adds them to the #gui." alt="" coords="5,27,181,69"/>
+<area shape="rect" id="node2" href="$class_options_view.html#a443319ca78842381d5c0c5882325144a" title="Creates FPS enable check box and adds it to the #gui." alt="" coords="229,5,451,32"/>
+<area shape="rect" id="node3" href="$class_options_view.html#a2dd6d536776727430b477b63edf3a010" title="Creates sound enable check box and adds it to the #gui." alt="" coords="252,57,428,98"/>
+</map>

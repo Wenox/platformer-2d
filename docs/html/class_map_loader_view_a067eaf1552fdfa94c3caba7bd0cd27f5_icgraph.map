@@ -1,0 +1,6 @@
+<map id="MapLoaderView::loadWidget" name="MapLoaderView::loadWidget">
+<area shape="rect" id="node1" title="Loads a given widget (likely: a button) onto the correct settings and position." alt="" coords="661,5,848,32"/>
+<area shape="rect" id="node2" href="$class_map_loader_view.html#a4d3f6d1169a43566da2224836b11e1ca" title="Creates all buttons and adds them to the #gui." alt="" coords="411,5,613,32"/>
+<area shape="rect" id="node3" href="$class_map_loader_view.html#a67ffb8896a9a93973117db8aaa27f402" title=" " alt="" coords="192,5,363,32"/>
+<area shape="rect" id="node4" href="$class_map_loader_view.html#a0b871819a2dc25ee66661f608f48c7c3" title="Initializes the MapLoaderView. Effectively: calls buildGUI()." alt="" coords="5,5,144,32"/>
+</map>

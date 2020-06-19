@@ -1,0 +1,11 @@
+<map id="State" name="State">
+<area shape="rect" id="node1" title="&lt; Pass&#45;through" alt="" coords="708,5,824,185"/>
+<area shape="rect" id="node2" href="$class_state_about.html" title="Encapsulates the logic of about menu within one StateAbout class. Displays the about texture." alt="" coords="5,483,121,604"/>
+<area shape="rect" id="node3" href="$class_state_game.html" title="Encapsulates the main game logic within one StateGame class." alt="" coords="146,233,325,853"/>
+<area shape="rect" id="node4" href="$class_state_keybinds.html" title="Encapsulates the logic of rebinding menu within one StateKeybinds class." alt="" coords="349,424,540,663"/>
+<area shape="rect" id="node5" href="$class_state_map_loader.html" title="Encapsulates the logic of map loader menu within one StateMapLoader class." alt="" coords="564,409,755,677"/>
+<area shape="rect" id="node6" href="$class_state_menu.html" title="Encapsulates the logic of main menu within one StateRestart class." alt="" coords="779,424,969,663"/>
+<area shape="rect" id="node7" href="$class_state_options.html" title="Encapsulates the logic of options menu within one StateOptions class." alt="" coords="993,424,1184,663"/>
+<area shape="rect" id="node8" href="$class_state_paused.html" title="Encapsulates the logic of paused menu within one StatePaused class." alt="" coords="1209,439,1342,648"/>
+<area shape="rect" id="node9" href="$class_state_restart.html" title="Encapsulates the logic of restart menu within one StateRestart class." alt="" coords="1367,453,1483,633"/>
+</map>

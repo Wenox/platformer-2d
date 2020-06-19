@@ -1,0 +1,4 @@
+<map id="Life::kill" name="Life::kill">
+<area shape="rect" id="node1" title="Removes the life." alt="" coords="5,5,72,32"/>
+<area shape="rect" id="node2" href="$class_entity.html#a2f33265575ef9bb7c4dcc09fb0bb997f" title="Retrieve sprite itself." alt="" coords="120,5,236,32"/>
+</map>

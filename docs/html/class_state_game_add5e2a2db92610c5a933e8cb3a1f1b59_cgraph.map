@@ -1,0 +1,4 @@
+<map id="StateGame::setCollectiblesTextures" name="StateGame::setCollectiblesTextures">
+<area shape="rect" id="node1" title="Set the collectible texture to all Collectible entities." alt="" coords="5,5,187,47"/>
+<area shape="rect" id="node2" href="$class_resource_manager.html#af2fa6772d3b3660049cd5182172864fa" title=" " alt="" coords="235,13,437,39"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="ILoader::load" name="ILoader::load">
+<area shape="rect" id="node1" title="A pure virtual method to be overriden by deriving classes." alt="" coords="212,5,308,32"/>
+<area shape="rect" id="node2" href="$class_map_loader.html#ae884c440cf6b84c482d9f14e715d3129" title="Constructs a map loader of an appropriate either Txt or Bmp type." alt="" coords="5,5,164,32"/>
+</map>

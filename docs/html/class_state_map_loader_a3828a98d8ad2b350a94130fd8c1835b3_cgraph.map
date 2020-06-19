@@ -1,0 +1,8 @@
+<map id="StateMapLoader::createGameFrom" name="StateMapLoader::createGameFrom">
+<area shape="rect" id="node1" title=" " alt="" coords="5,101,232,127"/>
+<area shape="rect" id="node2" href="$class_map_loader_view.html#aaee3ecf7a3bf75fcc8b0bd16b333a819" title=" " alt="" coords="280,5,489,47"/>
+<area shape="rect" id="node4" href="$class_state_machine.html#a9b35c9359afe0bab8d7b378c9c047812" title=" " alt="" coords="313,71,456,98"/>
+<area shape="rect" id="node5" href="$class_map_name_validator.html#a8610896f014ad9599786692511827867" title="hecks if given fileName extension is a valid format." alt="" coords="295,123,474,164"/>
+<area shape="rect" id="node6" href="$class_map_loader_view.html#a2f47ab104ed04ecb3d059cfd03411560" title=" " alt="" coords="291,188,479,229"/>
+<area shape="rect" id="node3" href="$class_view.html#a4562f58e90691480aa818b968d893c5d" title=" " alt="" coords="537,105,657,131"/>
+</map>

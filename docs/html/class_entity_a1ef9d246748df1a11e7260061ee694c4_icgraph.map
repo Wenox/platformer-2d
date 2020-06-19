@@ -1,0 +1,4 @@
+<map id="Entity::rotateRight" name="Entity::rotateRight">
+<area shape="rect" id="node1" title="Rotate the sprite Right by 90 degrees." alt="" coords="228,5,355,32"/>
+<area shape="rect" id="node2" href="$class_spike.html#a329019c6470ea15ed907ff037bd54555" title="Sets the spike sprite texture direction." alt="" coords="5,5,180,32"/>
+</map>

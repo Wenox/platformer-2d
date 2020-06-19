@@ -1,0 +1,6 @@
+<map id="Camera::detectCollisionY" name="Camera::detectCollisionY">
+<area shape="rect" id="node1" title="Detects if there is a collision on Y axis as of right now." alt="" coords="589,5,759,32"/>
+<area shape="rect" id="node2" href="$class_camera.html#a1acdd2310dbd708863ab595c6f28ca13" title="Updates the camera on vertical Y axis. Moves the camera and resolves the collision if needed." alt="" coords="419,5,541,32"/>
+<area shape="rect" id="node3" href="$class_state_game.html#ac9645183e44d6f546f5a507e92ba5d69" title="Update: MovementEvent, CollisionEvent and Camera on axis X, then on axis Y." alt="" coords="188,5,371,32"/>
+<area shape="rect" id="node4" href="$class_state_game.html#ad0e29d5b2e41498206d19d476901b6e9" title="Performs a frame cycle of a main game loop." alt="" coords="5,5,140,32"/>
+</map>

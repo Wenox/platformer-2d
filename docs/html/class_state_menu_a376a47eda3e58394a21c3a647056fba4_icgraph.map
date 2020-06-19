@@ -1,0 +1,4 @@
+<map id="StateMenu::updateHoverSoundVolume" name="StateMenu::updateHoverSoundVolume">
+<area shape="rect" id="node1" title="Updates the buttons hover volume." alt="" coords="207,5,408,47"/>
+<area shape="rect" id="node2" href="$class_state_menu.html#aa2f3ab9a735fc17ab5361b3fc5cdd0a4" title="Called when StateMenu is activated. Updates the sound volume." alt="" coords="5,13,159,39"/>
+</map>

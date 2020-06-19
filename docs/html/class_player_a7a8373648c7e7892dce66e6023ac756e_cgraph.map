@@ -1,0 +1,4 @@
+<map id="Player::gravityFrame" name="Player::gravityFrame">
+<area shape="rect" id="node1" title="Performs one tick of a passive gravity logic." alt="" coords="5,5,147,32"/>
+<area shape="rect" id="node2" href="$class_player.html#a9e5ce359cacd9ea84a7ecef8889f1aa4" title="Common method for jumpFrame() and gravityFrame(). Updates the velocity based on dt." alt="" coords="195,5,348,32"/>
+</map>

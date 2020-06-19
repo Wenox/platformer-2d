@@ -1,0 +1,6 @@
+<map id="Player::updateVelocity" name="Player::updateVelocity">
+<area shape="rect" id="node1" title="Common method for jumpFrame() and gravityFrame(). Updates the velocity based on dt." alt="" coords="437,31,591,57"/>
+<area shape="rect" id="node2" href="$class_player.html#a7a8373648c7e7892dce66e6023ac756e" title="Performs one tick of a passive gravity logic." alt="" coords="248,5,389,32"/>
+<area shape="rect" id="node4" href="$class_player.html#a53357a05f295942914e483b9c31548e1" title="Performs one tick of a jumping logic." alt="" coords="253,56,385,83"/>
+<area shape="rect" id="node3" href="$class_movement_event.html#ad355ecd7e80a497cada03c82911e1bf2" title="Handles all vertical movements on Y axis based on JumpingState." alt="" coords="5,31,200,57"/>
+</map>

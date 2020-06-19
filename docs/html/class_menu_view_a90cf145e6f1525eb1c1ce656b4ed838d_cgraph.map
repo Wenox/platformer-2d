@@ -1,0 +1,4 @@
+<map id="MenuView::createButtons" name="MenuView::createButtons">
+<area shape="rect" id="node1" title="Creates all buttons and adds them to the #gui." alt="" coords="5,5,176,32"/>
+<area shape="rect" id="node2" href="$class_menu_view.html#a630f971b2b56c028dcf7fe1fb388ab91" title="Loads a given widget (likely: a button) onto the correct settings and position." alt="" coords="224,5,379,32"/>
+</map>

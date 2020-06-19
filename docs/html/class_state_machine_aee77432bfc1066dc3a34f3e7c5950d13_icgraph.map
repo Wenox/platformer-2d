@@ -1,0 +1,7 @@
+<map id="StateMachine::setPreviousStateID" name="StateMachine::setPreviousStateID">
+<area shape="rect" id="node1" title=" " alt="" coords="232,74,409,115"/>
+<area shape="rect" id="node2" href="$class_state_restart.html#a4074117024a002d7c02ad2ae884322ab" title="Stores the state::restartID as #previousStateID." alt="" coords="6,5,183,32"/>
+<area shape="rect" id="node3" href="$class_state_paused.html#acc9aff1458674f6c656cefeba3e122b1" title="Called when StatePaused is closed. Stores that previous state was state::pausedID." alt="" coords="5,56,184,83"/>
+<area shape="rect" id="node4" href="$class_state_menu.html#a7a4f79d54b1327851206e710ba546b3d" title="Called when StateMenu is closed. Stores that previous state was state::menuID." alt="" coords="11,107,178,133"/>
+<area shape="rect" id="node5" href="$class_state_game.html#a799e8c2d1de7d167eec0074c6aad7220" title="Called when StateMenu is left. Pause the music and store previous state as state::gameID." alt="" coords="9,157,180,184"/>
+</map>

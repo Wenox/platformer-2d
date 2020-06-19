@@ -1,0 +1,4 @@
+<map id="ActionMap::insert" name="ActionMap::insert">
+<area shape="rect" id="node1" title="Insert {key, value} = {action, key} pair onto the map." alt="" coords="208,5,332,32"/>
+<area shape="rect" id="node2" href="$class_action_map.html#a7f8755d9865b2a6285b8ed894dec6469" title=" " alt="" coords="5,5,160,32"/>
+</map>

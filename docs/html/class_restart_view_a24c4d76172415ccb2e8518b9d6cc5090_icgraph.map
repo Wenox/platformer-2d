@@ -1,0 +1,5 @@
+<map id="RestartView::createGameFinishedImage" name="RestartView::createGameFinishedImage">
+<area shape="rect" id="node1" title="Creates the gameFinishedImage which is either a lostTexture or wonTexture." alt="" coords="368,5,588,47"/>
+<area shape="rect" id="node2" href="$class_restart_view.html#a93460831b484779c404fb23a6a50e6b5" title="Creates all necessary GUI widgets, sets them correct settings, and add them to #gui." alt="" coords="171,13,320,39"/>
+<area shape="rect" id="node3" href="$class_restart_view.html#aaf494c9da160eca0c549825fa3ea13b0" title="Initializes the RestartView. Effectively: calls buildGUI()." alt="" coords="5,13,123,39"/>
+</map>

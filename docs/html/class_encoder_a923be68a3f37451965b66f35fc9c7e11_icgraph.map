@@ -1,0 +1,5 @@
+<map id="Encoder::encode" name="Encoder::encode">
+<area shape="rect" id="node1" title="Encodes a single Readerkey onto Obj::Entity entity." alt="" coords="363,5,483,32"/>
+<area shape="rect" id="node2" href="$class_encoder.html#ab5f13ff9ea6434643162cb3fd250bedd" title="Encodes all PixelColor or int into Obj::Entity entities." alt="" coords="180,5,315,32"/>
+<area shape="rect" id="node3" href="$class_encoder.html#a2a530cff21882e22168825b436d2a471" title="Validates ReaderKey type and creates an Encoder of that type." alt="" coords="5,5,132,32"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="InputEvent::update" name="InputEvent::update">
+<area shape="rect" id="node1" title="Updates horizontal and vertical input events." alt="" coords="5,56,135,83"/>
+<area shape="rect" id="node2" href="$class_input_event.html#a448194e3dc2c0a79bd610346b431aa9c" title="Updates Horizontal events." alt="" coords="183,81,369,108"/>
+<area shape="rect" id="node7" href="$class_input_event.html#a1bd6483ed5d0759804ddf841f73e5a8a" title="Update Vertical events." alt="" coords="189,31,363,57"/>
+<area shape="rect" id="node3" href="$class_action_map.html#a7dd65fedd9023b37e84f7418c202fb8f" title="Retrieve the actionMap keybinds container." alt="" coords="433,5,605,32"/>
+<area shape="rect" id="node4" href="$class_entity.html#a2f33265575ef9bb7c4dcc09fb0bb997f" title="Retrieve sprite itself." alt="" coords="461,107,577,133"/>
+<area shape="rect" id="node5" href="$class_resource_manager.html#af2fa6772d3b3660049cd5182172864fa" title=" " alt="" coords="417,157,620,184"/>
+<area shape="rect" id="node6" href="$class_input_event.html#a97de517c641cbd5ac991d440f3089902" title=" " alt="" coords="445,56,593,83"/>
+</map>

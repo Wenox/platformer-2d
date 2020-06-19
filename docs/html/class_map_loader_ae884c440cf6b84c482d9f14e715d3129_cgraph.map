@@ -1,0 +1,4 @@
+<map id="MapLoader::MapLoader" name="MapLoader::MapLoader">
+<area shape="rect" id="node1" title="Constructs a map loader of an appropriate either Txt or Bmp type." alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node2" href="$class_i_loader.html#acf9f7d937b3157409e09a0ab81775169" title="A pure virtual method to be overriden by deriving classes." alt="" coords="212,5,308,32"/>
+</map>

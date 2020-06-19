@@ -1,0 +1,5 @@
+<map id="RestartView::createPanels" name="RestartView::createPanels">
+<area shape="rect" id="node1" title="Creates all panels and adds them to the #gui." alt="" coords="5,42,181,69"/>
+<area shape="rect" id="node2" href="$class_restart_view.html#aed605f62e9a3bf0f436bbe26bb8e0d84" title="Creates the buttons panel and adds it to the #gui." alt="" coords="237,5,419,47"/>
+<area shape="rect" id="node3" href="$class_restart_view.html#a516533abf6cfabddc0a2e7704f66d4e6" title="Creates the main panel and adds it to the #gui." alt="" coords="229,71,427,98"/>
+</map>

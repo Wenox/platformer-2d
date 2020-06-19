@@ -1,0 +1,4 @@
+<map id="StateMenu::draw" name="StateMenu::draw">
+<area shape="rect" id="node1" title="Draws the gui onto the screen." alt="" coords="5,5,125,32"/>
+<area shape="rect" id="node2" href="$class_view.html#a91d1228d7441118bab45325434c8eac1" title=" " alt="" coords="173,5,259,32"/>
+</map>

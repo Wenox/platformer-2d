@@ -1,0 +1,3 @@
+<map id="Camera" name="Camera">
+<area shape="rect" id="node1" title="Responsible for viewing only a sensible, displayable part of the World to the screen...." alt="" coords="5,5,216,435"/>
+</map>

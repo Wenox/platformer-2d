@@ -1,0 +1,5 @@
+<map id="StateGame::checkWinCondition" name="StateGame::checkWinCondition">
+<area shape="rect" id="node1" title="Check if current frame was a winning frame. Win condition: reach objective." alt="" coords="5,5,213,32"/>
+<area shape="rect" id="node2" href="$class_player.html#ade3c432a18d37e0882adc3e1ad62b3f7" title=" " alt="" coords="261,5,405,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#ac2f144301ca57dd8c4410bd1cd1c259e" title="Retrieve global bounds of the sprite." alt="" coords="453,5,616,32"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="StatePaused" name="StatePaused">
+<area shape="rect" id="node1" title="Encapsulates the logic of paused menu within one StatePaused class." alt="" coords="245,1123,378,1288"/>
+<area shape="rect" id="node2" href="$class_state.html" title="&lt; Pass&#45;through" alt="" coords="5,829,121,1009"/>
+<area shape="rect" id="node3" href="$class_state_machine.html" title="Container for all game States and holds current state pointer. Updates State logic every frame." alt="" coords="146,777,319,1060"/>
+<area shape="rect" id="node4" href="$class_paused_view.html" title="View class used to draw gui within StatePaused." alt="" coords="343,836,522,1001"/>
+<area shape="rect" id="node5" href="$class_view.html" title=" " alt="" coords="156,461,333,715"/>
+<area shape="rect" id="node6" href="$class_view.html" title=" " alt="" coords="156,145,333,399"/>
+<area shape="rect" id="node7" href="$struct_gui_1_1_config.html" title="A shared gui config. Contains common settings." alt="" coords="357,505,508,671"/>
+<area shape="rect" id="node8" href="$struct_paused_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to PausedView." alt="" coords="532,535,643,641"/>
+<area shape="rect" id="node9" href="$struct_i_config.html" title=" " alt="" coords="528,233,647,311"/>
+<area shape="rect" id="node10" href="$struct_i_config.html" title="Every specific Config inherits from this struct." alt="" coords="528,5,647,83"/>
+<area shape="rect" id="node11" href="$class_window.html" title="Responsible for drawing onto the screen." alt="" coords="547,785,673,1053"/>
+</map>

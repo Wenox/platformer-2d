@@ -1,0 +1,5 @@
+<map id="CollisionEvent::playerInRangeOf" name="CollisionEvent::playerInRangeOf">
+<area shape="rect" id="node1" title="Checks if Player is in range of a given entity." alt="" coords="5,23,161,65"/>
+<area shape="rect" id="node2" href="$class_entity.html#a03c9e078a384632824a9033a5c0de38a" title="Retrieve sprite x coordinate." alt="" coords="210,5,291,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#a898891ec396e4754c2c84b6c08c89c45" title="Retrieve sprite y coordinate." alt="" coords="209,56,292,83"/>
+</map>

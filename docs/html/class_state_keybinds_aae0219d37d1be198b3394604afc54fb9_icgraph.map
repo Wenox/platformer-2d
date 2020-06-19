@@ -1,0 +1,4 @@
+<map id="StateKeybinds::updateHoverSoundVolume" name="StateKeybinds::updateHoverSoundVolume">
+<area shape="rect" id="node1" title="Updates the buttons hover volume." alt="" coords="228,5,415,47"/>
+<area shape="rect" id="node2" href="$class_state_keybinds.html#a8f1d0326c5a50403dccb72e16726e311" title="Called when StateKeybinds is activated. Updates the sound volume." alt="" coords="5,13,180,39"/>
+</map>

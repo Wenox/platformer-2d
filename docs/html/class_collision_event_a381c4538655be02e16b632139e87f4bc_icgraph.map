@@ -1,0 +1,6 @@
+<map id="CollisionEvent::playerInRangeOf" name="CollisionEvent::playerInRangeOf">
+<area shape="rect" id="node1" title="Checks if Player is in range of a given entity." alt="" coords="485,23,641,65"/>
+<area shape="rect" id="node2" href="$class_collision_event.html#af6072bfe4c444993f24d3af1b09d3417" title="Axis&#45;independent collision handler, invokes collision resolver." alt="" coords="239,31,437,57"/>
+<area shape="rect" id="node3" href="$class_collision_event.html#a25777dda57e7d7803b21fd612c36cf58" title="Handle horizontal collisions." alt="" coords="7,5,189,32"/>
+<area shape="rect" id="node4" href="$class_collision_event.html#a526a4279c50ae90f2298bf80188b07ee" title="Handle vertical collisions." alt="" coords="5,56,191,83"/>
+</map>

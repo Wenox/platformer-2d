@@ -1,0 +1,15 @@
+<map id="CollisionEvent::updateAxisX" name="CollisionEvent::updateAxisX">
+<area shape="rect" id="node1" title="Handle horizontal collisions." alt="" coords="5,119,188,145"/>
+<area shape="rect" id="node2" href="$class_collision_event.html#af6072bfe4c444993f24d3af1b09d3417" title="Axis&#45;independent collision handler, invokes collision resolver." alt="" coords="237,64,435,91"/>
+<area shape="rect" id="node8" href="$class_collision_event.html#a3fe30dec4dff1de9bb27ce932f45955b" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="236,166,436,207"/>
+<area shape="rect" id="node3" href="$class_collision_event.html#a381c4538655be02e16b632139e87f4bc" title="Checks if Player is in range of a given entity." alt="" coords="507,57,663,98"/>
+<area shape="rect" id="node6" href="$class_collision_event.html#af26e6f42717add6092c5298bc07f3451" title="Checks if Player intersects a given entity." alt="" coords="484,5,687,32"/>
+<area shape="rect" id="node4" href="$class_entity.html#a03c9e078a384632824a9033a5c0de38a" title="Retrieve sprite x coordinate." alt="" coords="775,123,857,149"/>
+<area shape="rect" id="node5" href="$class_entity.html#a898891ec396e4754c2c84b6c08c89c45" title="Retrieve sprite y coordinate." alt="" coords="775,64,857,91"/>
+<area shape="rect" id="node7" href="$class_entity.html#ac2f144301ca57dd8c4410bd1cd1c259e" title="Retrieve global bounds of the sprite." alt="" coords="735,5,897,32"/>
+<area shape="rect" id="node9" href="$class_entity.html#a0d622f117afa9fbdfbc59cabccf8a80d" title="Move the entity sprite by a float vector." alt="" coords="538,275,633,301"/>
+<area shape="rect" id="node10" href="$class_entity.html#afac0896ace71d7898d45c2bbe105f6b1" title="Retrieve sprite right side x coordinate." alt="" coords="541,173,630,200"/>
+<area shape="rect" id="node12" href="$class_player.html#afded7d43103d814ba606d57ff465fbd6" title="Set Player to his startingPosition." alt="" coords="490,224,681,251"/>
+<area shape="rect" id="node11" href="$class_entity.html#a7a479a735aba7b5d0946129fe9a32f3c" title=" " alt="" coords="769,173,863,200"/>
+<area shape="rect" id="node13" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="751,224,881,251"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Player::landOnGroundUpdate" name="Player::landOnGroundUpdate">
+<area shape="rect" id="node1" title="Update the variables when Player lands on ground." alt="" coords="5,31,196,57"/>
+<area shape="rect" id="node2" href="$class_player.html#ab007a4d8583b47d049fd933850f6ba2a" title="Nullify the gravVelocity when Player lands on ground." alt="" coords="244,5,413,32"/>
+<area shape="rect" id="node3" href="$class_player.html#a735543a4305556e90d0fec56bd3ce36b" title="Sets a jumpVelocity to a new value." alt="" coords="247,56,410,83"/>
+</map>

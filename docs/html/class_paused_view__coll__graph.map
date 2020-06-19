@@ -1,0 +1,9 @@
+<map id="PausedView" name="PausedView">
+<area shape="rect" id="node1" title="View class used to draw gui within StatePaused." alt="" coords="193,777,371,943"/>
+<area shape="rect" id="node2" href="$class_view.html" title=" " alt="" coords="5,461,183,715"/>
+<area shape="rect" id="node3" href="$class_view.html" title=" " alt="" coords="5,145,183,399"/>
+<area shape="rect" id="node4" href="$struct_gui_1_1_config.html" title="A shared gui config. Contains common settings." alt="" coords="207,505,357,671"/>
+<area shape="rect" id="node5" href="$struct_paused_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to PausedView." alt="" coords="381,535,492,641"/>
+<area shape="rect" id="node6" href="$struct_i_config.html" title=" " alt="" coords="377,233,496,311"/>
+<area shape="rect" id="node7" href="$struct_i_config.html" title="Every specific Config inherits from this struct." alt="" coords="377,5,496,83"/>
+</map>

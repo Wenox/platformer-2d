@@ -1,0 +1,7 @@
+<map id="KeybindsView::createIcons" name="KeybindsView::createIcons">
+<area shape="rect" id="node1" title=" " alt="" coords="5,93,184,120"/>
+<area shape="rect" id="node2" href="$class_keybinds_view.html#ab4f4c66a51542b480db9acaf452e7073" title="Create Jump action icon and add it to the #gui." alt="" coords="243,5,446,32"/>
+<area shape="rect" id="node3" href="$class_keybinds_view.html#a4ed0434058c5dec166f1d451090afec9" title=" " alt="" coords="255,57,435,98"/>
+<area shape="rect" id="node4" href="$class_keybinds_view.html#a6aed353fef161faf2377ecaf4238dfc7" title="Create RunLeft action icon and add it to the #gui." alt="" coords="237,123,453,149"/>
+<area shape="rect" id="node5" href="$class_keybinds_view.html#a6ae821e88618a66c37f2206818340a20" title="Create RunRight action icon and add it to the #gui." alt="" coords="232,173,457,200"/>
+</map>

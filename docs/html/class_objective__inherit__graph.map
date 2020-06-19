@@ -1,0 +1,6 @@
+<map id="Objective" name="Objective">
+<area shape="rect" id="node1" title="Used to represent the game Objective. Player intersecting Objective wins the game." alt="" coords="70,491,165,583"/>
+<area shape="rect" id="node2" href="$class_entity.html" title="A base drawable Entity class. All drawable entities (game objects) inherit from it." alt="" coords="47,131,188,443"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,99,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="123,5,245,83"/>
+</map>

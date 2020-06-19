@@ -1,0 +1,10 @@
+<map id="Game" name="Game">
+<area shape="rect" id="node1" title="Container for player actions keybinds." alt="" coords="203,1056,349,1295"/>
+<area shape="rect" id="node2" href="$class_state_machine.html" title="Container for all game States and holds current state pointer. Updates State logic every frame." alt="" coords="5,711,179,993"/>
+<area shape="rect" id="node3" href="$class_resource_manager.html" title="ResourceManager is a class responsible for managing all kinds of ResourceHolders." alt="" coords="203,762,349,942"/>
+<area shape="rect" id="node4" href="$class_resource_holder.html" title=" " alt="" coords="9,365,164,648"/>
+<area shape="rect" id="node5" href="$class_resource_holder.html" title="A generic ResourceHolder storing resources of type Resource, accessed by Key." alt="" coords="165,5,318,288"/>
+<area shape="rect" id="node6" href="$class_resource_holder.html" title=" " alt="" coords="189,365,363,648"/>
+<area shape="rect" id="node7" href="$class_resource_holder.html" title=" " alt="" coords="388,365,532,648"/>
+<area shape="rect" id="node8" href="$class_window.html" title="Responsible for drawing onto the screen." alt="" coords="374,718,501,986"/>
+</map>

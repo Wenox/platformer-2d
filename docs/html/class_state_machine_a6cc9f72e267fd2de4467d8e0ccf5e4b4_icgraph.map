@@ -1,0 +1,5 @@
+<map id="StateMachine::switchToPreviousState" name="StateMachine::switchToPreviousState">
+<area shape="rect" id="node1" title=" " alt="" coords="233,23,444,65"/>
+<area shape="rect" id="node2" href="$class_state_options.html#a7f08e9d7b4518c5d8f4733a7e2f63112" title="Called when the StateOptions is created. Connects signals to gui widgets." alt="" coords="16,5,175,32"/>
+<area shape="rect" id="node3" href="$class_state_options.html#a0f5fc474dcefcd11059e2ece94960ffb" title="Processes all inputs received by gui." alt="" coords="5,56,185,83"/>
+</map>

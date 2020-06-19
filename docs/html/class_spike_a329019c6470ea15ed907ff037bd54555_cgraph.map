@@ -1,0 +1,6 @@
+<map id="Spike::setTextureDirection" name="Spike::setTextureDirection">
+<area shape="rect" id="node1" title="Sets the spike sprite texture direction." alt="" coords="5,56,180,83"/>
+<area shape="rect" id="node2" href="$class_entity.html#ab5d925faa46442cbd5907b85b9b49d12" title="Rotate the sprite Left by 90 degrees." alt="" coords="232,5,351,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#a1ef9d246748df1a11e7260061ee694c4" title="Rotate the sprite Right by 90 degrees." alt="" coords="228,56,355,83"/>
+<area shape="rect" id="node4" href="$class_entity.html#ac9af07fc47e938092cc2cebe42a5cc3e" title="Rotate the sprite by 180 degrees." alt="" coords="232,107,351,133"/>
+</map>

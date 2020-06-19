@@ -1,0 +1,4 @@
+<map id="StateGame::updatePlayerLife" name="StateGame::updatePlayerLife">
+<area shape="rect" id="node1" title="Update the status of player life (lose or gain life)." alt="" coords="188,5,380,32"/>
+<area shape="rect" id="node2" href="$class_state_game.html#ad0e29d5b2e41498206d19d476901b6e9" title="Performs a frame cycle of a main game loop." alt="" coords="5,5,140,32"/>
+</map>

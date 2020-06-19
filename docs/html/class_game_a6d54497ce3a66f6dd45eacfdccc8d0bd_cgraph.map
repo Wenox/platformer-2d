@@ -1,0 +1,6 @@
+<map id="Game::draw" name="Game::draw">
+<area shape="rect" id="node1" title="Calls the StateMachine.draw() method." alt="" coords="5,56,97,83"/>
+<area shape="rect" id="node2" href="$class_window.html#a8437dfbdebbf1f04d20bfc6cbc0d3ca0" title="Starts the drawing procedure." alt="" coords="146,5,282,32"/>
+<area shape="rect" id="node3" href="$class_state_machine.html#a9af46a50f3795794654ce67e9372cac5" title=" " alt="" coords="145,56,283,83"/>
+<area shape="rect" id="node4" href="$class_window.html#aff7bd2b01e39f2bb791131a37ef710a9" title="Ends the drawing procedure." alt="" coords="151,107,277,133"/>
+</map>

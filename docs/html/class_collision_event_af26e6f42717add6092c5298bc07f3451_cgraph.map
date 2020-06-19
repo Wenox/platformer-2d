@@ -1,0 +1,4 @@
+<map id="CollisionEvent::playerIntersects" name="CollisionEvent::playerIntersects">
+<area shape="rect" id="node1" title="Checks if Player intersects a given entity." alt="" coords="5,5,208,32"/>
+<area shape="rect" id="node2" href="$class_entity.html#ac2f144301ca57dd8c4410bd1cd1c259e" title="Retrieve global bounds of the sprite." alt="" coords="256,5,419,32"/>
+</map>

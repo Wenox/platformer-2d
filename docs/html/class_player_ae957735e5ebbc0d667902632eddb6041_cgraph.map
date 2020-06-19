@@ -1,0 +1,4 @@
+<map id="Player::hitCeilingUpdate" name="Player::hitCeilingUpdate">
+<area shape="rect" id="node1" title="Update the variables when Player hits the ceiling." alt="" coords="5,5,167,32"/>
+<area shape="rect" id="node2" href="$class_player.html#a735543a4305556e90d0fec56bd3ce36b" title="Sets a jumpVelocity to a new value." alt="" coords="215,5,377,32"/>
+</map>

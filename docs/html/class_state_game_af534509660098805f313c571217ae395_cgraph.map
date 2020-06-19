@@ -1,0 +1,14 @@
+<map id="StateGame::onCreate" name="StateGame::onCreate">
+<area shape="rect" id="node1" title="Called when the State is created. Generates the World by visiting a variant." alt="" coords="5,107,153,134"/>
+<area shape="rect" id="node2" href="$class_state_game.html#a830efa737140d4fd6720603de203370c" title="Generate world from a Bmp. Allocate blocks and set them to proper position." alt="" coords="215,5,395,47"/>
+<area shape="rect" id="node5" href="$class_state_game.html#a5f70d99fe2910fce5ecaff41a3029d78" title="Generate world from a Txt. Allocate blocks and set them to proper position." alt="" coords="215,71,395,112"/>
+<area shape="rect" id="node6" href="$class_camera.html#a18b0a38f38db96b08f57547aca2b4646" title="Set the Entity that is controlling the Camera." alt="" coords="231,137,379,163"/>
+<area shape="rect" id="node7" href="$class_state_game.html#af291cf684454f40a61e56d08dd551fcc" title="Sets the textures of all Entity objects." alt="" coords="201,210,409,237"/>
+<area shape="rect" id="node3" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="495,63,624,90"/>
+<area shape="rect" id="node4" href="$class_player.html#a7e9ddf7bcf4a709830999f46a9afae3b" title="Sets startingPosition to wherever the Player currently stands." alt="" coords="471,13,648,39"/>
+<area shape="rect" id="node8" href="$class_entity.html#a2f33265575ef9bb7c4dcc09fb0bb997f" title="Retrieve sprite itself." alt="" coords="501,181,617,207"/>
+<area shape="rect" id="node9" href="$class_resource_manager.html#af2fa6772d3b3660049cd5182172864fa" title=" " alt="" coords="709,257,912,283"/>
+<area shape="rect" id="node10" href="$class_state_game.html#a63435d814f4e5d1a76026d3562a43bca" title="Set the textures of Block entities." alt="" coords="457,333,661,359"/>
+<area shape="rect" id="node11" href="$class_state_game.html#add5e2a2db92610c5a933e8cb3a1f1b59" title="Set the collectible texture to all Collectible entities." alt="" coords="469,115,650,156"/>
+<area shape="rect" id="node12" href="$class_state_game.html#a2ce0ec1662c0b9651518b077a7640939" title="Set the spike texture facing correct direction to each Spike entity." alt="" coords="457,231,661,258"/>
+</map>

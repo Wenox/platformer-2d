@@ -1,0 +1,5 @@
+<map id="FpsOverlay::FpsOverlay" name="FpsOverlay::FpsOverlay">
+<area shape="rect" id="node1" title="Constructs an FpsOverlay. Calls setFont() and setFps()." alt="" coords="5,31,165,57"/>
+<area shape="rect" id="node2" href="$class_fps_overlay.html#ac2f15a7df1c331754e73afc5a99549d6" title="Sets font to customizable config::widgetsFontName." alt="" coords="213,5,352,32"/>
+<area shape="rect" id="node3" href="$class_fps_overlay.html#a2308b6c8d0a6f9d7c675716e662b28f6" title="Sets the fps using the font and text configurations." alt="" coords="215,56,350,83"/>
+</map>

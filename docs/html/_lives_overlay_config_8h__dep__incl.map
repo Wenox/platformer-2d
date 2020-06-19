@@ -1,0 +1,21 @@
+<map id="LivesOverlayConfig.h" name="LivesOverlayConfig.h">
+<area shape="rect" id="node1" title=" " alt="" coords="392,5,533,32"/>
+<area shape="rect" id="node2" href="$_lives_border_8h.html" title=" " alt="" coords="413,80,513,107"/>
+<area shape="rect" id="node3" href="$_lives_overlay_8h.html" title=" " alt="" coords="343,155,449,181"/>
+<area shape="rect" id="node19" href="$_lives_border_8cpp.html" title=" " alt="" coords="473,155,588,181"/>
+<area shape="rect" id="node4" href="$_player_8h.html" title=" " alt="" coords="302,229,373,256"/>
+<area shape="rect" id="node18" href="$_lives_overlay_8cpp.html" title=" " alt="" coords="397,229,515,256"/>
+<area shape="rect" id="node5" href="$_collision_event_8h.html" title=" " alt="" coords="352,304,467,331"/>
+<area shape="rect" id="node13" href="$_input_event_8h.html" title=" " alt="" coords="85,304,179,331"/>
+<area shape="rect" id="node15" href="$_movement_event_8h.html" title=" " alt="" coords="203,304,327,331"/>
+<area shape="rect" id="node17" href="$_player_8cpp.html" title=" " alt="" coords="491,304,575,331"/>
+<area shape="rect" id="node6" href="$_state_game_8h.html" title=" " alt="" coords="147,379,245,405"/>
+<area shape="rect" id="node12" href="$_collision_event_8cpp.html" title=" " alt="" coords="432,379,560,405"/>
+<area shape="rect" id="node7" href="$_state_menu_8h.html" title=" " alt="" coords="84,453,180,480"/>
+<area shape="rect" id="node8" href="$_game_8cpp.html" title=" " alt="" coords="5,528,88,555"/>
+<area shape="rect" id="node10" href="$_state_game_8cpp.html" title=" " alt="" coords="205,453,318,480"/>
+<area shape="rect" id="node11" href="$_state_map_loader_8cpp.html" title=" " alt="" coords="342,453,485,480"/>
+<area shape="rect" id="node9" href="$_state_menu_8cpp.html" title=" " alt="" coords="113,528,223,555"/>
+<area shape="rect" id="node14" href="$_input_event_8cpp.html" title=" " alt="" coords="16,379,123,405"/>
+<area shape="rect" id="node16" href="$_movement_event_8cpp.html" title=" " alt="" coords="269,379,408,405"/>
+</map>

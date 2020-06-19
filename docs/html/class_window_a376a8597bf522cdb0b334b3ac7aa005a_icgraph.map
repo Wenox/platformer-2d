@@ -1,0 +1,5 @@
+<map id="Window::getWindow" name="Window::getWindow">
+<area shape="rect" id="node1" title=" " alt="" coords="219,31,359,57"/>
+<area shape="rect" id="node2" href="$class_state_paused.html#a149db5ec40a32933ab0b598b1020e65d" title="Called when StatePaused is activated. Updates the view and the sound volume." alt="" coords="5,5,171,32"/>
+<area shape="rect" id="node3" href="$class_view.html#a873c1fa13f053cf0b7b11cb2da6f7031" title=" " alt="" coords="37,56,139,83"/>
+</map>

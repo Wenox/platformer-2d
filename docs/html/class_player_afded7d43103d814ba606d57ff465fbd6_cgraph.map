@@ -1,0 +1,4 @@
+<map id="Player::setToStartingPosition" name="Player::setToStartingPosition">
+<area shape="rect" id="node1" title="Set Player to his startingPosition." alt="" coords="5,5,196,32"/>
+<area shape="rect" id="node2" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="244,5,373,32"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="StateAbout" name="StateAbout">
+<area shape="rect" id="node1" title="Encapsulates the logic of about menu within one StateAbout class. Displays the about texture." alt="" coords="89,351,205,457"/>
+<area shape="rect" id="node2" href="$class_state.html" title="&lt; Pass&#45;through" alt="" coords="5,57,121,237"/>
+<area shape="rect" id="node3" href="$class_state_machine.html" title="Container for all game States and holds current state pointer. Updates State logic every frame." alt="" coords="146,5,319,288"/>
+</map>

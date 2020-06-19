@@ -1,0 +1,4 @@
+<map id="StateGame::isInDrawRange" name="StateGame::isInDrawRange">
+<area shape="rect" id="node1" title=" " alt="" coords="176,5,359,32"/>
+<area shape="rect" id="node2" href="$class_state_game.html#a2ce16981b9c45c9a36e1f3ab3bad65d3" title="Draws the game onto the screen." alt="" coords="5,5,128,32"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="StateGame::playerFellToDeath" name="StateGame::playerFellToDeath">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,205,32"/>
+<area shape="rect" id="node2" href="$class_entity.html#a898891ec396e4754c2c84b6c08c89c45" title="Retrieve sprite y coordinate." alt="" coords="253,5,336,32"/>
+</map>

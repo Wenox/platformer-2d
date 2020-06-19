@@ -1,0 +1,18 @@
+<map id="StateMenu" name="StateMenu">
+<area shape="rect" id="node1" title="Encapsulates the logic of main menu within one StateRestart class." alt="" coords="317,1196,508,1376"/>
+<area shape="rect" id="node2" href="$class_state.html" title="&lt; Pass&#45;through" alt="" coords="7,902,123,1082"/>
+<area shape="rect" id="node3" href="$class_state_machine.html" title="Container for all game States and holds current state pointer. Updates State logic every frame." alt="" coords="147,851,321,1133"/>
+<area shape="rect" id="node4" href="$class_menu_view.html" title="View class used to draw gui within StateMenu." alt="" coords="345,917,480,1067"/>
+<area shape="rect" id="node5" href="$class_view.html" title=" " alt="" coords="8,520,185,773"/>
+<area shape="rect" id="node6" href="$class_view.html" title=" " alt="" coords="5,160,183,413"/>
+<area shape="rect" id="node7" href="$struct_menu_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to MenuView." alt="" coords="214,593,313,700"/>
+<area shape="rect" id="node8" href="$struct_i_config.html" title=" " alt="" coords="207,248,325,325"/>
+<area shape="rect" id="node9" href="$struct_i_config.html" title="Every specific Config inherits from this struct." alt="" coords="207,5,325,83"/>
+<area shape="rect" id="node10" href="$struct_gui_1_1_config.html" title="A shared gui config. Contains common settings." alt="" coords="337,564,488,729"/>
+<area shape="rect" id="node11" href="$class_resource_manager.html" title="ResourceManager is a class responsible for managing all kinds of ResourceHolders." alt="" coords="517,902,663,1082"/>
+<area shape="rect" id="node12" href="$class_resource_holder.html" title=" " alt="" coords="513,505,667,788"/>
+<area shape="rect" id="node13" href="$class_resource_holder.html" title="A generic ResourceHolder storing resources of type Resource, accessed by Key." alt="" coords="668,145,821,428"/>
+<area shape="rect" id="node14" href="$class_resource_holder.html" title=" " alt="" coords="692,505,867,788"/>
+<area shape="rect" id="node15" href="$class_resource_holder.html" title=" " alt="" coords="891,505,1035,788"/>
+<area shape="rect" id="node16" href="$class_window.html" title="Responsible for drawing onto the screen." alt="" coords="688,858,815,1126"/>
+</map>

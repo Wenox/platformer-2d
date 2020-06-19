@@ -1,0 +1,5 @@
+<map id="Camera::updateX" name="Camera::updateX">
+<area shape="rect" id="node1" title="Updates the camera on horizontal X axis. Moves the camera and resolves the collision if needed." alt="" coords="5,35,127,61"/>
+<area shape="rect" id="node2" href="$class_camera.html#ae55b93cca5d7920948b2d2b0467a465c" title="Detects if there is a collision on X axis as of right now." alt="" coords="184,5,351,32"/>
+<area shape="rect" id="node3" href="$class_camera.html#af196a3b30a14864ca74a7dbacae2bcdc" title="Update the previouslySolvedOtherAxis variant state with whatever was just solved collision." alt="" coords="175,57,360,98"/>
+</map>

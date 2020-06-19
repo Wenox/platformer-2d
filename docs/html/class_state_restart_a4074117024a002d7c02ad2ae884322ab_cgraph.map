@@ -1,0 +1,4 @@
+<map id="StateRestart::onDeactivate" name="StateRestart::onDeactivate">
+<area shape="rect" id="node1" title="Stores the state::restartID as #previousStateID." alt="" coords="5,13,183,39"/>
+<area shape="rect" id="node2" href="$class_state_machine.html#aee77432bfc1066dc3a34f3e7c5950d13" title=" " alt="" coords="231,5,408,47"/>
+</map>

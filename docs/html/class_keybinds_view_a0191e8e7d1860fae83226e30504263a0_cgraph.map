@@ -1,0 +1,10 @@
+<map id="KeybindsView::createPanels" name="KeybindsView::createPanels">
+<area shape="rect" id="node1" title="Creates all panels and adds them to the #gui." alt="" coords="5,85,193,112"/>
+<area shape="rect" id="node2" href="$class_keybinds_view.html#a5363679f20aaa5ce649c2d8ebc9b720a" title=" " alt="" coords="247,13,441,54"/>
+<area shape="rect" id="node3" href="$class_keybinds_view.html#a964dccb0d6a4616831fc927db113e97f" title=" " alt="" coords="241,78,447,119"/>
+<area shape="rect" id="node8" href="$class_keybinds_view.html#a32df2b539bb1197c48bfd2e78706d625" title="Creates the title panel and adds it to the #gui." alt="" coords="258,143,430,185"/>
+<area shape="rect" id="node4" href="$class_keybinds_view.html#afcdc2655d9a2890e7115899a3128ce99" title=" " alt="" coords="496,5,719,32"/>
+<area shape="rect" id="node5" href="$class_keybinds_view.html#af454f7fd0dd566364996569105e70745" title=" " alt="" coords="495,56,720,83"/>
+<area shape="rect" id="node6" href="$class_keybinds_view.html#adf5ca784523b4976da1b4f8e56cf0ef1" title=" " alt="" coords="512,107,703,149"/>
+<area shape="rect" id="node7" href="$class_keybinds_view.html#aade173571827bb54bf0fd6782d248628" title="Create Rebinding Panel parent widgets holder." alt="" coords="505,173,710,214"/>
+</map>

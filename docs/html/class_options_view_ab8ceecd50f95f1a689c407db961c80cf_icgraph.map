@@ -1,0 +1,5 @@
+<map id="OptionsView::getVolume" name="OptionsView::getVolume">
+<area shape="rect" id="node1" title=" " alt="" coords="437,5,603,32"/>
+<area shape="rect" id="node2" href="$class_state_options.html#a7f08e9d7b4518c5d8f4733a7e2f63112" title="Called when the StateOptions is created. Connects signals to gui widgets." alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node3" href="$class_state_options.html#adcbb9e414bdfceba73294e7158b6d129" title=" " alt="" coords="212,31,389,57"/>
+</map>

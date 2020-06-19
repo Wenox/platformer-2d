@@ -1,0 +1,4 @@
+<map id="MenuView::buildGUI" name="MenuView::buildGUI">
+<area shape="rect" id="node1" title=" " alt="" coords="160,5,299,32"/>
+<area shape="rect" id="node2" href="$class_menu_view.html#ab40dac6f121a1f999fe7930c7d9108f9" title="Initializes the MenuView. Effectively: calls buildGUI()." alt="" coords="5,5,112,32"/>
+</map>

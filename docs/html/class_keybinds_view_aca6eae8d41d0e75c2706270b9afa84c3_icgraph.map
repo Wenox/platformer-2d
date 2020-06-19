@@ -1,0 +1,6 @@
+<map id="KeybindsView::createRightBorder" name="KeybindsView::createRightBorder">
+<area shape="rect" id="node1" title="Create right side texture border." alt="" coords="633,5,812,47"/>
+<area shape="rect" id="node2" href="$class_keybinds_view.html#ab62e6a334f5017e319ed3f1f010e1f9e" title="Creates all borders and adds them to the #gui." alt="" coords="392,13,585,39"/>
+<area shape="rect" id="node3" href="$class_keybinds_view.html#ab088e55d30858bf84a1e23e4c82b13e1" title=" " alt="" coords="183,13,344,39"/>
+<area shape="rect" id="node4" href="$class_keybinds_view.html#afbd1b8ba4d6f5d22cfaeb5273e61a7b0" title="Initializes the KeybindsView. Effectively: calls buildGUI()." alt="" coords="5,13,135,39"/>
+</map>

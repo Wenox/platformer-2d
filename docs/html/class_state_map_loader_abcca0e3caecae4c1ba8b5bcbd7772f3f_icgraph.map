@@ -1,0 +1,4 @@
+<map id="StateMapLoader::updateHoverSoundVolume" name="StateMapLoader::updateHoverSoundVolume">
+<area shape="rect" id="node1" title="Updates the buttons hover volume." alt="" coords="239,5,435,47"/>
+<area shape="rect" id="node2" href="$class_state_map_loader.html#a9f5290779e547ec97020736a26267b90" title="Called when StateMapLoader is activated. Hide badMapLabel and update the sound volume." alt="" coords="5,13,191,39"/>
+</map>

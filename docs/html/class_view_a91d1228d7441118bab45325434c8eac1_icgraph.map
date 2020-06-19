@@ -1,0 +1,9 @@
+<map id="View::draw" name="View::draw">
+<area shape="rect" id="node1" title=" " alt="" coords="205,132,291,159"/>
+<area shape="rect" id="node2" href="$class_state_restart.html#ad20b22981884790cf848701ee7c8e985" title="Draws the gui onto the screen." alt="" coords="16,5,147,32"/>
+<area shape="rect" id="node3" href="$class_state_options.html#a261cdaf65c7d4163c58e81beb3c940d0" title="Draws the gui and corners onto the screen." alt="" coords="15,56,148,83"/>
+<area shape="rect" id="node4" href="$class_state_map_loader.html#a3c0199b7108cd90057089375e616f45e" title="Draws the gui onto the screen." alt="" coords="5,107,157,133"/>
+<area shape="rect" id="node5" href="$class_state_paused.html#a02daf9c4505109014227ef4e45f445fc" title="Draws the gui onto the screen." alt="" coords="15,157,147,184"/>
+<area shape="rect" id="node6" href="$class_state_keybinds.html#a9c84a98ee5947951ecabc87617ad245a" title="Draws the gui onto the screen." alt="" coords="10,208,153,235"/>
+<area shape="rect" id="node7" href="$class_state_menu.html#a45cdd731213ce7ad4c71cea50390d419" title="Draws the gui onto the screen." alt="" coords="21,259,141,285"/>
+</map>

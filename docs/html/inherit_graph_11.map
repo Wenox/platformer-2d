@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_event.html" title="Event class with update() pure virtual method handling trivial events." alt="" coords="5,5,60,32"/>
+<area shape="rect" id="node2" href="$class_input_event.html" title="Handles the user input within StateGame class. Uses ActionMap." alt="" coords="108,5,191,32"/>
+</map>

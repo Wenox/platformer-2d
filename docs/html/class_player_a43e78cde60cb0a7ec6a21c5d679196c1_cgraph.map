@@ -1,0 +1,8 @@
+<map id="Player::kill" name="Player::kill">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,88,108"/>
+<area shape="rect" id="node2" href="$class_player.html#a73e0f84c58ad1de76c34d21cae09589f" title="Update the variables when Player lands on ground." alt="" coords="136,56,327,83"/>
+<area shape="rect" id="node5" href="$class_player.html#afded7d43103d814ba606d57ff465fbd6" title="Set Player to his startingPosition." alt="" coords="136,107,327,133"/>
+<area shape="rect" id="node3" href="$class_player.html#ab007a4d8583b47d049fd933850f6ba2a" title="Nullify the gravVelocity when Player lands on ground." alt="" coords="375,5,544,32"/>
+<area shape="rect" id="node4" href="$class_player.html#a735543a4305556e90d0fec56bd3ce36b" title="Sets a jumpVelocity to a new value." alt="" coords="378,56,541,83"/>
+<area shape="rect" id="node6" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="395,107,524,133"/>
+</map>

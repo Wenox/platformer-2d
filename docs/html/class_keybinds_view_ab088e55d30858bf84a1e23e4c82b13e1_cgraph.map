@@ -1,0 +1,23 @@
+<map id="KeybindsView::buildGUI" name="KeybindsView::buildGUI">
+<area shape="rect" id="node1" title=" " alt="" coords="5,206,167,233"/>
+<area shape="rect" id="node2" href="$class_view.html#af4d6f76e6a266cf175d1f8147ebb4c48" title=" " alt="" coords="215,46,424,73"/>
+<area shape="rect" id="node3" href="$class_keybinds_view.html#ab62e6a334f5017e319ed3f1f010e1f9e" title="Creates all borders and adds them to the #gui." alt="" coords="223,97,416,123"/>
+<area shape="rect" id="node6" href="$class_keybinds_view.html#af6d976eacc59c1940abfb452bc82cea4" title="Creates all buttons and adds them to the #gui." alt="" coords="223,166,416,193"/>
+<area shape="rect" id="node8" href="$class_keybinds_view.html#a7a0a3939a67ea2235a5f67b76e30c92c" title=" " alt="" coords="230,246,409,273"/>
+<area shape="rect" id="node13" href="$class_keybinds_view.html#a0191e8e7d1860fae83226e30504263a0" title="Creates all panels and adds them to the #gui." alt="" coords="225,414,413,441"/>
+<area shape="rect" id="node21" href="$class_keybinds_view.html#a470b1d7654a87b248f40d99c573a1730" title=" " alt="" coords="233,465,405,507"/>
+<area shape="rect" id="node4" href="$class_keybinds_view.html#a5918149f1cb425568887eedf194c53c8" title="Create left side texture border." alt="" coords="500,5,669,47"/>
+<area shape="rect" id="node5" href="$class_keybinds_view.html#aca6eae8d41d0e75c2706270b9afa84c3" title="Create right side texture border." alt="" coords="495,71,674,112"/>
+<area shape="rect" id="node7" href="$class_keybinds_view.html#a8ff71ff85489c36df451add049fb2864" title="Loads a given widget (likely: a button) onto the correct settings and position." alt="" coords="496,137,673,163"/>
+<area shape="rect" id="node9" href="$class_keybinds_view.html#ab4f4c66a51542b480db9acaf452e7073" title="Create Jump action icon and add it to the #gui." alt="" coords="483,187,686,214"/>
+<area shape="rect" id="node10" href="$class_keybinds_view.html#a4ed0434058c5dec166f1d451090afec9" title=" " alt="" coords="495,239,675,280"/>
+<area shape="rect" id="node11" href="$class_keybinds_view.html#a6aed353fef161faf2377ecaf4238dfc7" title="Create RunLeft action icon and add it to the #gui." alt="" coords="477,305,693,331"/>
+<area shape="rect" id="node12" href="$class_keybinds_view.html#a6ae821e88618a66c37f2206818340a20" title="Create RunRight action icon and add it to the #gui." alt="" coords="472,355,697,382"/>
+<area shape="rect" id="node14" href="$class_keybinds_view.html#a5363679f20aaa5ce649c2d8ebc9b720a" title=" " alt="" coords="488,407,681,448"/>
+<area shape="rect" id="node15" href="$class_keybinds_view.html#a964dccb0d6a4616831fc927db113e97f" title=" " alt="" coords="482,472,687,513"/>
+<area shape="rect" id="node20" href="$class_keybinds_view.html#a32df2b539bb1197c48bfd2e78706d625" title="Creates the title panel and adds it to the #gui." alt="" coords="499,537,671,579"/>
+<area shape="rect" id="node16" href="$class_keybinds_view.html#afcdc2655d9a2890e7115899a3128ce99" title=" " alt="" coords="747,399,969,426"/>
+<area shape="rect" id="node17" href="$class_keybinds_view.html#af454f7fd0dd566364996569105e70745" title=" " alt="" coords="745,450,971,477"/>
+<area shape="rect" id="node18" href="$class_keybinds_view.html#adf5ca784523b4976da1b4f8e56cf0ef1" title=" " alt="" coords="763,501,953,543"/>
+<area shape="rect" id="node19" href="$class_keybinds_view.html#aade173571827bb54bf0fd6782d248628" title="Create Rebinding Panel parent widgets holder." alt="" coords="755,567,961,608"/>
+</map>

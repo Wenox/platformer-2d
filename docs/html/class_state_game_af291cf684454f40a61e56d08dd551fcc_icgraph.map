@@ -1,0 +1,4 @@
+<map id="StateGame::setEntitiesTextures" name="StateGame::setEntitiesTextures">
+<area shape="rect" id="node1" title="Sets the textures of all Entity objects." alt="" coords="201,5,409,32"/>
+<area shape="rect" id="node2" href="$class_state_game.html#af534509660098805f313c571217ae395" title="Called when the State is created. Generates the World by visiting a variant." alt="" coords="5,5,153,32"/>
+</map>

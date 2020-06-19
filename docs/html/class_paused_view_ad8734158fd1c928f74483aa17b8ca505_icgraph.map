@@ -1,0 +1,4 @@
+<map id="PausedView::buildGUI" name="PausedView::buildGUI">
+<area shape="rect" id="node1" title=" " alt="" coords="172,5,323,32"/>
+<area shape="rect" id="node2" href="$class_paused_view.html#ad77fe47d4b0f0ea193c84cd1d6ff24c0" title="Initializes the PausedView. Effectively: calls buildGUI()." alt="" coords="5,5,124,32"/>
+</map>

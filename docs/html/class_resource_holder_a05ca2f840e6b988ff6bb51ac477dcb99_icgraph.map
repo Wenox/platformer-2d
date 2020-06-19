@@ -1,0 +1,7 @@
+<map id="ResourceHolder::insert" name="ResourceHolder::insert">
+<area shape="rect" id="node1" title="Insert a resource of type Resource to a map." alt="" coords="771,46,925,73"/>
+<area shape="rect" id="node2" href="$class_resource_manager.html#a919e53911b0b9609d74a40403e89edb2" title="Loads all texture resources. May throw." alt="" coords="513,13,723,39"/>
+<area shape="rect" id="node5" href="$class_resource_holder.html#a103a28eaff3cc842e46ba5832da3fbb9" title="Use operator+= alternatively to insert() method." alt="" coords="546,63,690,119"/>
+<area shape="rect" id="node3" href="$class_resource_manager.html#ae44db2ec53e1720b4e543ab08ec90a6d" title="Loads all resources, each different resource type uses different thread to handle its type." alt="" coords="244,13,465,39"/>
+<area shape="rect" id="node4" href="$class_resource_manager.html#a3b32babd2e81909bbd90d7f2d566fadb" title="Call loadResources() which may throw." alt="" coords="5,5,196,47"/>
+</map>

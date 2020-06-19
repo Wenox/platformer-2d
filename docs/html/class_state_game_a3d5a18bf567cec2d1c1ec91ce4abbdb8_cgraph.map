@@ -1,0 +1,6 @@
+<map id="StateGame::canCollect" name="StateGame::canCollect">
+<area shape="rect" id="node1" title="Checks if a given heart can be collected." alt="" coords="5,31,163,57"/>
+<area shape="rect" id="node2" href="$class_player.html#ade3c432a18d37e0882adc3e1ad62b3f7" title=" " alt="" coords="238,5,382,32"/>
+<area shape="rect" id="node4" href="$class_heart_collectible.html#a7453a3fca6cbd47fb75a47e550d8d1dc" title=" " alt="" coords="211,56,409,83"/>
+<area shape="rect" id="node3" href="$class_entity.html#ac2f144301ca57dd8c4410bd1cd1c259e" title="Retrieve global bounds of the sprite." alt="" coords="457,5,620,32"/>
+</map>

@@ -1,0 +1,18 @@
+<map id="StateMapLoader" name="StateMapLoader">
+<area shape="rect" id="node1" title="Encapsulates the logic of map loader menu within one StateMapLoader class." alt="" coords="354,1196,545,1405"/>
+<area shape="rect" id="node2" href="$class_state.html" title="&lt; Pass&#45;through" alt="" coords="38,902,154,1082"/>
+<area shape="rect" id="node3" href="$class_state_machine.html" title="Container for all game States and holds current state pointer. Updates State logic every frame." alt="" coords="179,851,352,1133"/>
+<area shape="rect" id="node4" href="$class_resource_manager.html" title="ResourceManager is a class responsible for managing all kinds of ResourceHolders." alt="" coords="376,902,523,1082"/>
+<area shape="rect" id="node5" href="$class_resource_holder.html" title=" " alt="" coords="5,505,160,788"/>
+<area shape="rect" id="node6" href="$class_resource_holder.html" title="A generic ResourceHolder storing resources of type Resource, accessed by Key." alt="" coords="161,145,314,428"/>
+<area shape="rect" id="node7" href="$class_resource_holder.html" title=" " alt="" coords="185,505,359,788"/>
+<area shape="rect" id="node8" href="$class_resource_holder.html" title=" " alt="" coords="384,505,528,788"/>
+<area shape="rect" id="node9" href="$class_map_loader_view.html" title="View class used to draw gui within StateMapLoader." alt="" coords="547,851,768,1133"/>
+<area shape="rect" id="node10" href="$class_view.html" title=" " alt="" coords="553,520,730,773"/>
+<area shape="rect" id="node11" href="$class_view.html" title=" " alt="" coords="553,160,730,413"/>
+<area shape="rect" id="node12" href="$struct_gui_1_1_config.html" title="A shared gui config. Contains common settings." alt="" coords="754,564,905,729"/>
+<area shape="rect" id="node13" href="$struct_loader_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to MapLoaderView." alt="" coords="929,593,1052,700"/>
+<area shape="rect" id="node14" href="$struct_i_config.html" title=" " alt="" coords="931,248,1050,325"/>
+<area shape="rect" id="node15" href="$struct_i_config.html" title="Every specific Config inherits from this struct." alt="" coords="931,5,1050,83"/>
+<area shape="rect" id="node16" href="$class_window.html" title="Responsible for drawing onto the screen." alt="" coords="793,858,919,1126"/>
+</map>

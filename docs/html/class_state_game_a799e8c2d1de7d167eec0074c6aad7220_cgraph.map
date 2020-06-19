@@ -1,0 +1,4 @@
+<map id="StateGame::onDeactivate" name="StateGame::onDeactivate">
+<area shape="rect" id="node1" title="Called when StateMenu is left. Pause the music and store previous state as state::gameID." alt="" coords="5,13,176,39"/>
+<area shape="rect" id="node2" href="$class_state_machine.html#aee77432bfc1066dc3a34f3e7c5950d13" title=" " alt="" coords="224,5,401,47"/>
+</map>

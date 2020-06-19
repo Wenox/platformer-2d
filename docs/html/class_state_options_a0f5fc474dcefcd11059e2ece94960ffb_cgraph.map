@@ -1,0 +1,7 @@
+<map id="StateOptions::processInput" name="StateOptions::processInput">
+<area shape="rect" id="node1" title="Processes all inputs received by gui." alt="" coords="5,56,185,83"/>
+<area shape="rect" id="node2" href="$class_window.html#afe49fde33081ee7a8bedfabb4383ede8" title="Retrieve the events queue." alt="" coords="275,5,402,32"/>
+<area shape="rect" id="node3" href="$class_view.html#a119ca269af7ea04c1598377f36c3eff0" title=" " alt="" coords="275,56,403,83"/>
+<area shape="rect" id="node4" href="$class_state_machine.html#a6cc9f72e267fd2de4467d8e0ccf5e4b4" title=" " alt="" coords="233,107,444,149"/>
+<area shape="rect" id="node5" href="$class_state_machine.html#a7990c8bd99340527b566905013ac26a9" title=" " alt="" coords="492,115,653,141"/>
+</map>

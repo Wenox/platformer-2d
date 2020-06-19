@@ -1,0 +1,8 @@
+<map id="MenuView::init" name="MenuView::init">
+<area shape="rect" id="node1" title="Initializes the MenuView. Effectively: calls buildGUI()." alt="" coords="5,56,112,83"/>
+<area shape="rect" id="node2" href="$class_menu_view.html#a6a0b7fdc98d633f939f38eac921c42d9" title=" " alt="" coords="160,56,299,83"/>
+<area shape="rect" id="node3" href="$class_view.html#af4d6f76e6a266cf175d1f8147ebb4c48" title=" " alt="" coords="347,5,556,32"/>
+<area shape="rect" id="node4" href="$class_menu_view.html#a90cf145e6f1525eb1c1ce656b4ed838d" title="Creates all buttons and adds them to the #gui." alt="" coords="366,56,537,83"/>
+<area shape="rect" id="node6" href="$class_menu_view.html#a80ff1c9270c903ea82037f264348bd07" title="Creates the main panel and adds it to the #gui." alt="" coords="358,107,545,133"/>
+<area shape="rect" id="node5" href="$class_menu_view.html#a630f971b2b56c028dcf7fe1fb388ab91" title="Loads a given widget (likely: a button) onto the correct settings and position." alt="" coords="604,56,759,83"/>
+</map>

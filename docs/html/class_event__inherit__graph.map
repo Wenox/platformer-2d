@@ -1,0 +1,4 @@
+<map id="Event" name="Event">
+<area shape="rect" id="node1" title="Event class with update() pure virtual method handling trivial events." alt="" coords="31,5,114,97"/>
+<area shape="rect" id="node2" href="$class_input_event.html" title="Handles the user input within StateGame class. Uses ActionMap." alt="" coords="5,145,140,369"/>
+</map>

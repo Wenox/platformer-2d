@@ -1,0 +1,7 @@
+<map id="FileReader&lt; T &gt;" name="FileReader&lt; T &gt;">
+<area shape="rect" id="node1" title="Abstract File Reader class template." alt="" coords="122,5,237,215"/>
+<area shape="rect" id="node2" href="$class_file_reader.html" title=" " alt="" coords="5,277,172,487"/>
+<area shape="rect" id="node4" href="$class_file_reader.html" title=" " alt="" coords="197,277,319,487"/>
+<area shape="rect" id="node3" href="$class_bmp_reader.html" title="Reads the .bmp file into the vector of PixelColor." alt="" coords="29,536,148,819"/>
+<area shape="rect" id="node5" href="$class_txt_reader.html" title="Reads the .txt file into the vector of int." alt="" coords="203,595,313,760"/>
+</map>

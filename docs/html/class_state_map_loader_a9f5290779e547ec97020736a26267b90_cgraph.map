@@ -1,0 +1,6 @@
+<map id="StateMapLoader::onActivate" name="StateMapLoader::onActivate">
+<area shape="rect" id="node1" title="Called when StateMapLoader is activated. Hide badMapLabel and update the sound volume." alt="" coords="5,46,191,73"/>
+<area shape="rect" id="node2" href="$class_map_loader_view.html#a2f47ab104ed04ecb3d059cfd03411560" title=" " alt="" coords="243,5,431,47"/>
+<area shape="rect" id="node4" href="$class_state_map_loader.html#abcca0e3caecae4c1ba8b5bcbd7772f3f" title="Updates the buttons hover volume." alt="" coords="239,71,435,112"/>
+<area shape="rect" id="node3" href="$class_view.html#a4562f58e90691480aa818b968d893c5d" title=" " alt="" coords="483,13,603,39"/>
+</map>

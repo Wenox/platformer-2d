@@ -1,0 +1,12 @@
+<map id="RestartView.h" name="RestartView.h">
+<area shape="rect" id="node1" title=" " alt="" coords="519,5,621,32"/>
+<area shape="rect" id="node2" href="$_state_restart_8h.html" title=" " alt="" coords="449,80,555,107"/>
+<area shape="rect" id="node10" href="$_restart_view_8cpp.html" title=" " alt="" coords="579,80,697,107"/>
+<area shape="rect" id="node3" href="$_state_game_8h.html" title=" " alt="" coords="293,155,391,181"/>
+<area shape="rect" id="node5" href="$_game_8cpp.html" title=" " alt="" coords="410,304,493,331"/>
+<area shape="rect" id="node9" href="$_state_restart_8cpp.html" title=" " alt="" coords="539,155,659,181"/>
+<area shape="rect" id="node4" href="$_state_menu_8h.html" title=" " alt="" coords="13,229,109,256"/>
+<area shape="rect" id="node7" href="$_state_game_8cpp.html" title=" " alt="" coords="133,229,247,256"/>
+<area shape="rect" id="node8" href="$_state_map_loader_8cpp.html" title=" " alt="" coords="271,229,413,256"/>
+<area shape="rect" id="node6" href="$_state_menu_8cpp.html" title=" " alt="" coords="5,304,116,331"/>
+</map>

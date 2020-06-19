@@ -1,0 +1,7 @@
+<map id="MapLoaderView::clearMapNameBoxWithPrompt" name="MapLoaderView::clearMapNameBoxWithPrompt">
+<area shape="rect" id="node1" title=" " alt="" coords="760,31,969,72"/>
+<area shape="rect" id="node2" href="$class_state_map_loader.html#a3828a98d8ad2b350a94130fd8c1835b3" title=" " alt="" coords="485,13,712,39"/>
+<area shape="rect" id="node5" href="$class_map_loader_view.html#a0b871819a2dc25ee66661f608f48c7c3" title="Initializes the MapLoaderView. Effectively: calls buildGUI()." alt="" coords="529,63,668,90"/>
+<area shape="rect" id="node3" href="$class_state_map_loader.html#ace8cc87bac9fb495e8340fe75e8f35b7" title=" " alt="" coords="231,5,437,47"/>
+<area shape="rect" id="node4" href="$class_state_map_loader.html#af685efdae111e67626e38259b485c71a" title="Called when the StateMapLoader is created. Connects signals to gui widgets." alt="" coords="5,13,183,39"/>
+</map>

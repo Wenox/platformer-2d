@@ -1,0 +1,5 @@
+<map id="OptionsView::createLabels" name="OptionsView::createLabels">
+<area shape="rect" id="node1" title="Creates all labels and adds them to the #gui." alt="" coords="5,35,183,61"/>
+<area shape="rect" id="node2" href="$class_options_view.html#a2870068bfa60832693cd10d94ca27e06" title="Creates FPS enabled label and adds it to the #gui." alt="" coords="231,5,423,32"/>
+<area shape="rect" id="node3" href="$class_options_view.html#adfe016e32fe377fd4916b6c1735ee801" title="Creates sound enabled label box and adds it to the #gui." alt="" coords="239,57,415,98"/>
+</map>

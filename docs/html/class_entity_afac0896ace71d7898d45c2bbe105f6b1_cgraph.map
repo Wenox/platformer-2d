@@ -1,0 +1,5 @@
+<map id="Entity::right" name="Entity::right">
+<area shape="rect" id="node1" title="Retrieve sprite right side x coordinate." alt="" coords="5,31,95,57"/>
+<area shape="rect" id="node2" href="$class_entity.html#a03c9e078a384632824a9033a5c0de38a" title="Retrieve sprite x coordinate." alt="" coords="149,5,231,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#a7a479a735aba7b5d0946129fe9a32f3c" title=" " alt="" coords="143,56,237,83"/>
+</map>

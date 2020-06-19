@@ -1,0 +1,5 @@
+<map id="StateMapLoader::processInput" name="StateMapLoader::processInput">
+<area shape="rect" id="node1" title="Processes all inputs received by gui." alt="" coords="5,31,204,57"/>
+<area shape="rect" id="node2" href="$class_window.html#afe49fde33081ee7a8bedfabb4383ede8" title="Retrieve the events queue." alt="" coords="253,5,379,32"/>
+<area shape="rect" id="node3" href="$class_view.html#a119ca269af7ea04c1598377f36c3eff0" title=" " alt="" coords="252,56,380,83"/>
+</map>

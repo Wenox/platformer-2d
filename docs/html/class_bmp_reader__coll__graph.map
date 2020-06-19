@@ -1,0 +1,5 @@
+<map id="BmpReader" name="BmpReader">
+<area shape="rect" id="node1" title="Reads the .bmp file into the vector of PixelColor." alt="" coords="29,536,148,819"/>
+<area shape="rect" id="node2" href="$class_file_reader.html" title=" " alt="" coords="5,277,172,487"/>
+<area shape="rect" id="node3" href="$class_file_reader.html" title="Abstract File Reader class template." alt="" coords="31,5,146,215"/>
+</map>

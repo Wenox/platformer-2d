@@ -1,0 +1,4 @@
+<map id="MapLoaderView::createButtons" name="MapLoaderView::createButtons">
+<area shape="rect" id="node1" title="Creates all buttons and adds them to the #gui." alt="" coords="5,5,208,32"/>
+<area shape="rect" id="node2" href="$class_map_loader_view.html#a067eaf1552fdfa94c3caba7bd0cd27f5" title="Loads a given widget (likely: a button) onto the correct settings and position." alt="" coords="256,5,443,32"/>
+</map>

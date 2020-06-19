@@ -1,0 +1,5 @@
+<map id="CollisionEvent::handleCollision" name="CollisionEvent::handleCollision">
+<area shape="rect" id="node1" title="Axis&#45;independent collision handler, invokes collision resolver." alt="" coords="239,31,437,57"/>
+<area shape="rect" id="node2" href="$class_collision_event.html#a25777dda57e7d7803b21fd612c36cf58" title="Handle horizontal collisions." alt="" coords="7,5,189,32"/>
+<area shape="rect" id="node3" href="$class_collision_event.html#a526a4279c50ae90f2298bf80188b07ee" title="Handle vertical collisions." alt="" coords="5,56,191,83"/>
+</map>

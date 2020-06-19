@@ -1,0 +1,17 @@
+<map id="StateGame::updatePlayerLife" name="StateGame::updatePlayerLife">
+<area shape="rect" id="node1" title="Update the status of player life (lose or gain life)." alt="" coords="5,88,197,115"/>
+<area shape="rect" id="node2" href="$class_state_game.html#a7acb365c365ad17cc0139ce61b2ab8da" title="Player collects heart if he touches a visible heart and Player is missing lives." alt="" coords="245,39,428,81"/>
+<area shape="rect" id="node7" href="$class_state_game.html#a9da9c05a7a1529a8c8c70852ccb51b89" title="Player loses life if he touches the Spike." alt="" coords="245,122,428,163"/>
+<area shape="rect" id="node3" href="$class_state_game.html#a3d5a18bf567cec2d1c1ec91ce4abbdb8" title="Checks if a given heart can be collected." alt="" coords="497,37,655,64"/>
+<area shape="rect" id="node4" href="$class_player.html#ade3c432a18d37e0882adc3e1ad62b3f7" title=" " alt="" coords="751,56,895,83"/>
+<area shape="rect" id="node6" href="$class_heart_collectible.html#a7453a3fca6cbd47fb75a47e550d8d1dc" title=" " alt="" coords="724,5,923,32"/>
+<area shape="rect" id="node5" href="$class_entity.html#ac2f144301ca57dd8c4410bd1cd1c259e" title="Retrieve global bounds of the sprite." alt="" coords="974,40,1137,67"/>
+<area shape="rect" id="node8" href="$class_player.html#a43e78cde60cb0a7ec6a21c5d679196c1" title=" " alt="" coords="535,139,617,165"/>
+<area shape="rect" id="node14" href="$class_state_game.html#a76b54e217d34f4110f11f0aac0da6ff9" title=" " alt="" coords="476,201,676,228"/>
+<area shape="rect" id="node9" href="$class_player.html#a73e0f84c58ad1de76c34d21cae09589f" title="Update the variables when Player lands on ground." alt="" coords="728,125,919,152"/>
+<area shape="rect" id="node12" href="$class_player.html#afded7d43103d814ba606d57ff465fbd6" title="Set Player to his startingPosition." alt="" coords="728,176,919,203"/>
+<area shape="rect" id="node10" href="$class_player.html#ab007a4d8583b47d049fd933850f6ba2a" title="Nullify the gravVelocity when Player lands on ground." alt="" coords="971,91,1140,117"/>
+<area shape="rect" id="node11" href="$class_player.html#a735543a4305556e90d0fec56bd3ce36b" title="Sets a jumpVelocity to a new value." alt="" coords="974,141,1137,168"/>
+<area shape="rect" id="node13" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="991,192,1120,219"/>
+<area shape="rect" id="node15" href="$class_entity.html#a898891ec396e4754c2c84b6c08c89c45" title="Retrieve sprite y coordinate." alt="" coords="782,227,865,253"/>
+</map>

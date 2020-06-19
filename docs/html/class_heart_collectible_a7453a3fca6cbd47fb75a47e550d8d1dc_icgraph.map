@@ -1,0 +1,7 @@
+<map id="HeartCollectible::wasCollected" name="HeartCollectible::wasCollected">
+<area shape="rect" id="node1" title=" " alt="" coords="864,13,1063,39"/>
+<area shape="rect" id="node2" href="$class_state_game.html#a3d5a18bf567cec2d1c1ec91ce4abbdb8" title="Checks if a given heart can be collected." alt="" coords="659,13,816,39"/>
+<area shape="rect" id="node3" href="$class_state_game.html#a7acb365c365ad17cc0139ce61b2ab8da" title="Player collects heart if he touches a visible heart and Player is missing lives." alt="" coords="428,5,611,47"/>
+<area shape="rect" id="node4" href="$class_state_game.html#a3405af8ebfcccfe1af10ed5e5b8a12d6" title="Update the status of player life (lose or gain life)." alt="" coords="188,13,380,39"/>
+<area shape="rect" id="node5" href="$class_state_game.html#ad0e29d5b2e41498206d19d476901b6e9" title="Performs a frame cycle of a main game loop." alt="" coords="5,13,140,39"/>
+</map>

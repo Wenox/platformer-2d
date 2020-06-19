@@ -1,0 +1,8 @@
+<map id="StateGame::setEntitiesTextures" name="StateGame::setEntitiesTextures">
+<area shape="rect" id="node1" title="Sets the textures of all Entity objects." alt="" coords="5,107,213,133"/>
+<area shape="rect" id="node2" href="$class_entity.html#a2f33265575ef9bb7c4dcc09fb0bb997f" title="Retrieve sprite itself." alt="" coords="305,5,421,32"/>
+<area shape="rect" id="node3" href="$class_resource_manager.html#af2fa6772d3b3660049cd5182172864fa" title=" " alt="" coords="513,136,716,163"/>
+<area shape="rect" id="node4" href="$class_state_game.html#a63435d814f4e5d1a76026d3562a43bca" title="Set the textures of Block entities." alt="" coords="261,107,465,133"/>
+<area shape="rect" id="node5" href="$class_state_game.html#add5e2a2db92610c5a933e8cb3a1f1b59" title="Set the collectible texture to all Collectible entities." alt="" coords="273,158,454,199"/>
+<area shape="rect" id="node6" href="$class_state_game.html#a2ce0ec1662c0b9651518b077a7640939" title="Set the spike texture facing correct direction to each Spike entity." alt="" coords="261,224,465,251"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="Player::isIntersecting" name="Player::isIntersecting">
+<area shape="rect" id="node1" title=" " alt="" coords="931,71,1075,98"/>
+<area shape="rect" id="node2" href="$class_state_game.html#a3d5a18bf567cec2d1c1ec91ce4abbdb8" title="Checks if a given heart can be collected." alt="" coords="713,71,870,98"/>
+<area shape="rect" id="node6" href="$class_state_game.html#aca808732ca4e9399a925be7a8867bdba" title="Check if current frame was a winning frame. Win condition: reach objective." alt="" coords="444,130,652,157"/>
+<area shape="rect" id="node8" href="$class_state_game.html#a9da9c05a7a1529a8c8c70852ccb51b89" title="Player loses life if he touches the Spike." alt="" coords="700,5,883,47"/>
+<area shape="rect" id="node3" href="$class_state_game.html#a7acb365c365ad17cc0139ce61b2ab8da" title="Player collects heart if he touches a visible heart and Player is missing lives." alt="" coords="457,64,639,105"/>
+<area shape="rect" id="node4" href="$class_state_game.html#a3405af8ebfcccfe1af10ed5e5b8a12d6" title="Update the status of player life (lose or gain life)." alt="" coords="196,71,388,98"/>
+<area shape="rect" id="node5" href="$class_state_game.html#ad0e29d5b2e41498206d19d476901b6e9" title="Performs a frame cycle of a main game loop." alt="" coords="5,99,140,126"/>
+<area shape="rect" id="node7" href="$class_state_game.html#acbb9e21ef263e7e94f0d29dea49f4b33" title="Update the game status: checks if game was won or lost in current frame." alt="" coords="188,126,396,153"/>
+</map>

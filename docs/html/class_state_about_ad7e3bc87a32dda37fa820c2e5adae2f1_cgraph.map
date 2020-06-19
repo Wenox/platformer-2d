@@ -1,0 +1,4 @@
+<map id="StateAbout::draw" name="StateAbout::draw">
+<area shape="rect" id="node1" title="Draws the #gui onto the screen." alt="" coords="5,5,128,32"/>
+<area shape="rect" id="node2" href="$class_window.html#adfb2d5826942693e289d13f314a341f7" title="Draws the drawable objects onto the screen." alt="" coords="176,5,279,32"/>
+</map>

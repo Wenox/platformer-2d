@@ -1,0 +1,9 @@
+<map id="StateMachine::switchTo" name="StateMachine::switchTo">
+<area shape="rect" id="node1" title=" " alt="" coords="492,81,653,108"/>
+<area shape="rect" id="node2" href="$class_game.html#ae0df95d9c73b4a867828d1b8887b2e72" title="Creates all game states but StateGame during Game construction time." alt="" coords="269,5,408,32"/>
+<area shape="rect" id="node3" href="$class_state_machine.html#a98f8b43788bc3f0957e5b60948bf2f91" title=" " alt="" coords="256,56,421,83"/>
+<area shape="rect" id="node4" href="$class_state_about.html#a14941f63787c1819ca302dce3b1c2270" title="Processes all inputs received by #gui." alt="" coords="254,107,423,133"/>
+<area shape="rect" id="node5" href="$class_state_machine.html#a6cc9f72e267fd2de4467d8e0ccf5e4b4" title=" " alt="" coords="233,158,444,199"/>
+<area shape="rect" id="node6" href="$class_state_options.html#a7f08e9d7b4518c5d8f4733a7e2f63112" title="Called when the StateOptions is created. Connects signals to gui widgets." alt="" coords="16,140,175,167"/>
+<area shape="rect" id="node7" href="$class_state_options.html#a0f5fc474dcefcd11059e2ece94960ffb" title="Processes all inputs received by gui." alt="" coords="5,191,185,217"/>
+</map>

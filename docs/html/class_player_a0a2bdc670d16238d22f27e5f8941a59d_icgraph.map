@@ -1,0 +1,4 @@
+<map id="Player::isDetectingGround" name="Player::isDetectingGround">
+<area shape="rect" id="node1" title=" " alt="" coords="248,5,423,32"/>
+<area shape="rect" id="node2" href="$class_movement_event.html#ad355ecd7e80a497cada03c82911e1bf2" title="Handles all vertical movements on Y axis based on JumpingState." alt="" coords="5,5,200,32"/>
+</map>

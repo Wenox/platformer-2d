@@ -1,0 +1,4 @@
+<map id="StateMachine::getPreviousStateID" name="StateMachine::getPreviousStateID">
+<area shape="rect" id="node1" title=" " alt="" coords="209,5,387,47"/>
+<area shape="rect" id="node2" href="$class_state_game.html#ad4629af78fc2b79ac0b028b76b5b9011" title="Called when StateMenu is activated. Updates activation StateGame logic." alt="" coords="5,13,161,39"/>
+</map>

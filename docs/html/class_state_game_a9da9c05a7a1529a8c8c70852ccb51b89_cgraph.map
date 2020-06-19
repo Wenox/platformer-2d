@@ -1,0 +1,13 @@
+<map id="StateGame::updateLoseLifeLogic" name="StateGame::updateLoseLifeLogic">
+<area shape="rect" id="node1" title="Player loses life if he touches the Spike." alt="" coords="5,62,188,103"/>
+<area shape="rect" id="node2" href="$class_player.html#ade3c432a18d37e0882adc3e1ad62b3f7" title=" " alt="" coords="264,12,408,39"/>
+<area shape="rect" id="node4" href="$class_player.html#a43e78cde60cb0a7ec6a21c5d679196c1" title=" " alt="" coords="295,69,377,96"/>
+<area shape="rect" id="node10" href="$class_state_game.html#a76b54e217d34f4110f11f0aac0da6ff9" title=" " alt="" coords="236,132,436,159"/>
+<area shape="rect" id="node3" href="$class_entity.html#ac2f144301ca57dd8c4410bd1cd1c259e" title="Retrieve global bounds of the sprite." alt="" coords="498,5,661,32"/>
+<area shape="rect" id="node5" href="$class_player.html#a73e0f84c58ad1de76c34d21cae09589f" title="Update the variables when Player lands on ground." alt="" coords="484,56,675,83"/>
+<area shape="rect" id="node8" href="$class_player.html#afded7d43103d814ba606d57ff465fbd6" title="Set Player to his startingPosition." alt="" coords="484,107,675,133"/>
+<area shape="rect" id="node6" href="$class_player.html#ab007a4d8583b47d049fd933850f6ba2a" title="Nullify the gravVelocity when Player lands on ground." alt="" coords="723,5,892,32"/>
+<area shape="rect" id="node7" href="$class_player.html#a735543a4305556e90d0fec56bd3ce36b" title="Sets a jumpVelocity to a new value." alt="" coords="726,56,889,83"/>
+<area shape="rect" id="node9" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="743,107,872,133"/>
+<area shape="rect" id="node11" href="$class_entity.html#a898891ec396e4754c2c84b6c08c89c45" title="Retrieve sprite y coordinate." alt="" coords="538,157,621,184"/>
+</map>

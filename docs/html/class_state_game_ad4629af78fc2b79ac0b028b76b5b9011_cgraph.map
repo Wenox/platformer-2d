@@ -1,0 +1,10 @@
+<map id="StateGame::onActivate" name="StateGame::onActivate">
+<area shape="rect" id="node1" title="Called when StateMenu is activated. Updates activation StateGame logic." alt="" coords="5,42,161,69"/>
+<area shape="rect" id="node2" href="$class_state_machine.html#abc95d9042fae9bace20470b3881174c4" title=" " alt="" coords="219,5,397,47"/>
+<area shape="rect" id="node3" href="$class_state_game.html#ab185abcb508c1667a7591c9ea9638ab2" title=" " alt="" coords="209,71,407,98"/>
+<area shape="rect" id="node4" href="$class_player.html#ac3a2c9d7e91a7137de9a49293536877c" title="Retrieve startingPosition." alt="" coords="461,21,639,47"/>
+<area shape="rect" id="node5" href="$class_player.html#a73e0f84c58ad1de76c34d21cae09589f" title="Update the variables when Player lands on ground." alt="" coords="455,71,645,98"/>
+<area shape="rect" id="node8" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="485,122,615,149"/>
+<area shape="rect" id="node6" href="$class_player.html#ab007a4d8583b47d049fd933850f6ba2a" title="Nullify the gravVelocity when Player lands on ground." alt="" coords="693,46,863,73"/>
+<area shape="rect" id="node7" href="$class_player.html#a735543a4305556e90d0fec56bd3ce36b" title="Sets a jumpVelocity to a new value." alt="" coords="697,97,859,123"/>
+</map>

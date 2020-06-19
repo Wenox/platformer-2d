@@ -1,0 +1,4 @@
+<map id="StatePaused" name="StatePaused">
+<area shape="rect" id="node1" title="Encapsulates the logic of paused menu within one StatePaused class." alt="" coords="5,233,139,443"/>
+<area shape="rect" id="node2" href="$class_state.html" title="&lt; Pass&#45;through" alt="" coords="14,5,130,185"/>
+</map>

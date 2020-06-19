@@ -1,0 +1,4 @@
+<map id="MovementEvent" name="MovementEvent">
+<area shape="rect" id="node1" title="MovementEvent class responsible for updating the player movement in an axis&#45;independent way." alt="" coords="5,160,139,325"/>
+<area shape="rect" id="node2" href="$class_physics_event.html" title="Specified Base PhysicsEvent class handling physics&#45;related events on two separate axises." alt="" coords="7,5,137,112"/>
+</map>

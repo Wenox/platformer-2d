@@ -1,0 +1,5 @@
+<map id="StateGame::checkLoseCondition" name="StateGame::checkLoseCondition">
+<area shape="rect" id="node1" title="Check if current frame was a losing frame. Lose condition: player lost all lives." alt="" coords="444,5,657,32"/>
+<area shape="rect" id="node2" href="$class_state_game.html#acbb9e21ef263e7e94f0d29dea49f4b33" title="Update the game status: checks if game was won or lost in current frame." alt="" coords="188,5,396,32"/>
+<area shape="rect" id="node3" href="$class_state_game.html#ad0e29d5b2e41498206d19d476901b6e9" title="Performs a frame cycle of a main game loop." alt="" coords="5,5,140,32"/>
+</map>

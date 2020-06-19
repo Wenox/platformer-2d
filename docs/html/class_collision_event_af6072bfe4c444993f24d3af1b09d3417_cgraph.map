@@ -1,0 +1,8 @@
+<map id="CollisionEvent::handleCollision" name="CollisionEvent::handleCollision">
+<area shape="rect" id="node1" title="Axis&#45;independent collision handler, invokes collision resolver." alt="" coords="5,81,204,108"/>
+<area shape="rect" id="node2" href="$class_collision_event.html#a381c4538655be02e16b632139e87f4bc" title="Checks if Player is in range of a given entity." alt="" coords="275,45,431,86"/>
+<area shape="rect" id="node5" href="$class_collision_event.html#af26e6f42717add6092c5298bc07f3451" title="Checks if Player intersects a given entity." alt="" coords="252,111,455,137"/>
+<area shape="rect" id="node3" href="$class_entity.html#a03c9e078a384632824a9033a5c0de38a" title="Retrieve sprite x coordinate." alt="" coords="543,5,625,32"/>
+<area shape="rect" id="node4" href="$class_entity.html#a898891ec396e4754c2c84b6c08c89c45" title="Retrieve sprite y coordinate." alt="" coords="543,56,625,83"/>
+<area shape="rect" id="node6" href="$class_entity.html#ac2f144301ca57dd8c4410bd1cd1c259e" title="Retrieve global bounds of the sprite." alt="" coords="503,111,665,137"/>
+</map>

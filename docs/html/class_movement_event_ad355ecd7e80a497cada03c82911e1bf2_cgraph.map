@@ -1,0 +1,13 @@
+<map id="MovementEvent::updateAxisY" name="MovementEvent::updateAxisY">
+<area shape="rect" id="node1" title="Handles all vertical movements on Y axis based on JumpingState." alt="" coords="5,56,200,83"/>
+<area shape="rect" id="node2" href="$class_player.html#a7a8373648c7e7892dce66e6023ac756e" title="Performs one tick of a passive gravity logic." alt="" coords="265,5,406,32"/>
+<area shape="rect" id="node4" href="$class_player.html#a0a2bdc670d16238d22f27e5f8941a59d" title=" " alt="" coords="248,107,423,133"/>
+<area shape="rect" id="node11" href="$class_player.html#a53357a05f295942914e483b9c31548e1" title="Performs one tick of a jumping logic." alt="" coords="269,56,401,83"/>
+<area shape="rect" id="node3" href="$class_player.html#a9e5ce359cacd9ea84a7ecef8889f1aa4" title="Common method for jumpFrame() and gravityFrame(). Updates the velocity based on dt." alt="" coords="471,5,624,32"/>
+<area shape="rect" id="node5" href="$class_entity.html#a623eaf5b3162b2c7a09f7a37d008b9f7" title="Retrieve sprite bottom side y coordinate." alt="" coords="506,56,589,83"/>
+<area shape="rect" id="node8" href="$class_entity.html#a03c9e078a384632824a9033a5c0de38a" title="Retrieve sprite x coordinate." alt="" coords="681,107,762,133"/>
+<area shape="rect" id="node9" href="$class_entity.html#afac0896ace71d7898d45c2bbe105f6b1" title="Retrieve sprite right side x coordinate." alt="" coords="503,157,592,184"/>
+<area shape="rect" id="node6" href="$class_entity.html#a804e22c49ee67cabc6f9ae1477d27c75" title=" " alt="" coords="672,5,771,32"/>
+<area shape="rect" id="node7" href="$class_entity.html#a898891ec396e4754c2c84b6c08c89c45" title="Retrieve sprite y coordinate." alt="" coords="680,56,763,83"/>
+<area shape="rect" id="node10" href="$class_entity.html#a7a479a735aba7b5d0946129fe9a32f3c" title=" " alt="" coords="674,157,769,184"/>
+</map>

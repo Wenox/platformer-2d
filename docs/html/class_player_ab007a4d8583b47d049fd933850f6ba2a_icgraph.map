@@ -1,0 +1,12 @@
+<map id="Player::resetGravVelocity" name="Player::resetGravVelocity">
+<area shape="rect" id="node1" title="Nullify the gravVelocity when Player lands on ground." alt="" coords="1148,71,1317,98"/>
+<area shape="rect" id="node2" href="$class_player.html#a73e0f84c58ad1de76c34d21cae09589f" title="Update the variables when Player lands on ground." alt="" coords="909,71,1100,98"/>
+<area shape="rect" id="node3" href="$class_player.html#a43e78cde60cb0a7ec6a21c5d679196c1" title=" " alt="" coords="720,13,803,39"/>
+<area shape="rect" id="node7" href="$class_collision_event.html#a2eb311d808d64324ef9d0f5d025e747c" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="661,64,861,105"/>
+<area shape="rect" id="node9" href="$class_state_game.html#ab185abcb508c1667a7591c9ea9638ab2" title=" " alt="" coords="663,130,860,157"/>
+<area shape="rect" id="node4" href="$class_state_game.html#a9da9c05a7a1529a8c8c70852ccb51b89" title="Player loses life if he touches the Spike." alt="" coords="429,5,612,47"/>
+<area shape="rect" id="node5" href="$class_state_game.html#a3405af8ebfcccfe1af10ed5e5b8a12d6" title="Update the status of player life (lose or gain life)." alt="" coords="188,13,380,39"/>
+<area shape="rect" id="node6" href="$class_state_game.html#ad0e29d5b2e41498206d19d476901b6e9" title="Performs a frame cycle of a main game loop." alt="" coords="5,13,140,39"/>
+<area shape="rect" id="node8" href="$class_collision_event.html#a526a4279c50ae90f2298bf80188b07ee" title="Handle vertical collisions." alt="" coords="428,71,613,98"/>
+<area shape="rect" id="node10" href="$class_state_game.html#ad4629af78fc2b79ac0b028b76b5b9011" title="Called when StateMenu is activated. Updates activation StateGame logic." alt="" coords="443,130,599,157"/>
+</map>

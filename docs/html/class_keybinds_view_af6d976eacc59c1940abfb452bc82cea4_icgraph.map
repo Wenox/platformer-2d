@@ -1,0 +1,5 @@
+<map id="KeybindsView::createButtons" name="KeybindsView::createButtons">
+<area shape="rect" id="node1" title="Creates all buttons and adds them to the #gui." alt="" coords="392,5,585,32"/>
+<area shape="rect" id="node2" href="$class_keybinds_view.html#ab088e55d30858bf84a1e23e4c82b13e1" title=" " alt="" coords="183,5,344,32"/>
+<area shape="rect" id="node3" href="$class_keybinds_view.html#afbd1b8ba4d6f5d22cfaeb5273e61a7b0" title="Initializes the KeybindsView. Effectively: calls buildGUI()." alt="" coords="5,5,135,32"/>
+</map>

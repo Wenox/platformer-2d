@@ -1,0 +1,10 @@
+<map id="RestartView::buildGUI" name="RestartView::buildGUI">
+<area shape="rect" id="node1" title="Creates all necessary GUI widgets, sets them correct settings, and add them to #gui." alt="" coords="5,85,155,112"/>
+<area shape="rect" id="node2" href="$class_view.html#af4d6f76e6a266cf175d1f8147ebb4c48" title=" " alt="" coords="208,5,417,32"/>
+<area shape="rect" id="node3" href="$class_restart_view.html#a7c867126dacd4d1b488f3627b5b3d47e" title="Creates all buttons and adds them to the #gui." alt="" coords="222,56,403,83"/>
+<area shape="rect" id="node5" href="$class_restart_view.html#a24c4d76172415ccb2e8518b9d6cc5090" title="Creates the gameFinishedImage which is either a lostTexture or wonTexture." alt="" coords="203,107,423,149"/>
+<area shape="rect" id="node6" href="$class_restart_view.html#a141f713b9bc911bee2d3e2f1572f2b20" title="Creates all panels and adds them to the #gui." alt="" coords="225,173,401,200"/>
+<area shape="rect" id="node4" href="$class_restart_view.html#a81946a401ab61a0c7752772ed3394ffe" title="Loads a given widget (likely: a button) onto the correct settings and position. @widget to be loaded." alt="" coords="487,56,652,83"/>
+<area shape="rect" id="node7" href="$class_restart_view.html#aed605f62e9a3bf0f436bbe26bb8e0d84" title="Creates the buttons panel and adds it to the #gui." alt="" coords="479,137,660,178"/>
+<area shape="rect" id="node8" href="$class_restart_view.html#a516533abf6cfabddc0a2e7704f66d4e6" title="Creates the main panel and adds it to the #gui." alt="" coords="471,203,668,229"/>
+</map>

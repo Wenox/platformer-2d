@@ -1,0 +1,13 @@
+<map id="CollisionEvent::resolveCollisionAxisY" name="CollisionEvent::resolveCollisionAxisY">
+<area shape="rect" id="node1" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="5,125,205,166"/>
+<area shape="rect" id="node2" href="$class_entity.html#a623eaf5b3162b2c7a09f7a37d008b9f7" title="Retrieve sprite bottom side y coordinate." alt="" coords="307,5,390,32"/>
+<area shape="rect" id="node4" href="$class_entity.html#a898891ec396e4754c2c84b6c08c89c45" title="Retrieve sprite y coordinate." alt="" coords="535,56,618,83"/>
+<area shape="rect" id="node5" href="$class_player.html#ae957735e5ebbc0d667902632eddb6041" title="Update the variables when Player hits the ceiling." alt="" coords="268,107,429,133"/>
+<area shape="rect" id="node7" href="$class_player.html#a73e0f84c58ad1de76c34d21cae09589f" title="Update the variables when Player lands on ground." alt="" coords="253,157,444,184"/>
+<area shape="rect" id="node9" href="$class_entity.html#a0d622f117afa9fbdfbc59cabccf8a80d" title="Move the entity sprite by a float vector." alt="" coords="301,208,396,235"/>
+<area shape="rect" id="node10" href="$class_player.html#afded7d43103d814ba606d57ff465fbd6" title="Set Player to his startingPosition." alt="" coords="253,259,444,285"/>
+<area shape="rect" id="node3" href="$class_entity.html#a804e22c49ee67cabc6f9ae1477d27c75" title=" " alt="" coords="527,5,626,32"/>
+<area shape="rect" id="node6" href="$class_player.html#a735543a4305556e90d0fec56bd3ce36b" title="Sets a jumpVelocity to a new value." alt="" coords="495,107,658,133"/>
+<area shape="rect" id="node8" href="$class_player.html#ab007a4d8583b47d049fd933850f6ba2a" title="Nullify the gravVelocity when Player lands on ground." alt="" coords="492,157,661,184"/>
+<area shape="rect" id="node11" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="512,259,641,285"/>
+</map>

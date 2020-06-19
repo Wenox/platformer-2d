@@ -1,0 +1,8 @@
+<map id="Entity::width" name="Entity::width">
+<area shape="rect" id="node1" title=" " alt="" coords="633,35,728,61"/>
+<area shape="rect" id="node2" href="$class_entity.html#afac0896ace71d7898d45c2bbe105f6b1" title="Retrieve sprite right side x coordinate." alt="" coords="496,35,585,61"/>
+<area shape="rect" id="node3" href="$class_player.html#a0a2bdc670d16238d22f27e5f8941a59d" title=" " alt="" coords="261,5,435,32"/>
+<area shape="rect" id="node5" href="$class_collision_event.html#a3fe30dec4dff1de9bb27ce932f45955b" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="248,57,448,98"/>
+<area shape="rect" id="node4" href="$class_movement_event.html#ad355ecd7e80a497cada03c82911e1bf2" title="Handles all vertical movements on Y axis based on JumpingState." alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node6" href="$class_collision_event.html#a25777dda57e7d7803b21fd612c36cf58" title="Handle horizontal collisions." alt="" coords="11,64,194,91"/>
+</map>

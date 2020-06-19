@@ -1,0 +1,5 @@
+<map id="FpsOverlay::calcCurrentFps" name="FpsOverlay::calcCurrentFps">
+<area shape="rect" id="node1" title=" " alt="" coords="371,5,553,32"/>
+<area shape="rect" id="node2" href="$class_fps_overlay.html#a23e60d8b1f5a6594872f865824bc66c3" title=" " alt="" coords="188,5,323,32"/>
+<area shape="rect" id="node3" href="$class_state_game.html#ad0e29d5b2e41498206d19d476901b6e9" title="Performs a frame cycle of a main game loop." alt="" coords="5,5,140,32"/>
+</map>

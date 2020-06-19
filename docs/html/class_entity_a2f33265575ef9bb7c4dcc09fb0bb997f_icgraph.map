@@ -1,0 +1,9 @@
+<map id="Entity::getSprite" name="Entity::getSprite">
+<area shape="rect" id="node1" title="Retrieve sprite itself." alt="" coords="457,81,573,108"/>
+<area shape="rect" id="node2" href="$class_life.html#a443940639db2ef687ad01fe2494ba857" title="Removes the life." alt="" coords="272,5,339,32"/>
+<area shape="rect" id="node3" href="$class_life.html#a751b16103df63f24767eb994cb64c382" title="Regain the life." alt="" coords="265,56,346,83"/>
+<area shape="rect" id="node4" href="$class_state_game.html#af291cf684454f40a61e56d08dd551fcc" title="Sets the textures of all Entity objects." alt="" coords="201,107,409,133"/>
+<area shape="rect" id="node6" href="$class_input_event.html#a448194e3dc2c0a79bd610346b431aa9c" title="Updates Horizontal events." alt="" coords="212,157,399,184"/>
+<area shape="rect" id="node5" href="$class_state_game.html#af534509660098805f313c571217ae395" title="Called when the State is created. Generates the World by visiting a variant." alt="" coords="5,107,153,133"/>
+<area shape="rect" id="node7" href="$class_input_event.html#ab6bc3b2e100af2de23b70b855ddb250e" title="Updates horizontal and vertical input events." alt="" coords="15,157,144,184"/>
+</map>

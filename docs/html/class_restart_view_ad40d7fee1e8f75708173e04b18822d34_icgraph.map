@@ -1,0 +1,5 @@
+<map id="RestartView::setGameWonTexture" name="RestartView::setGameWonTexture">
+<area shape="rect" id="node1" title=" " alt="" coords="216,31,439,57"/>
+<area shape="rect" id="node2" href="$class_restart_view.html#aaf494c9da160eca0c549825fa3ea13b0" title="Initializes the RestartView. Effectively: calls buildGUI()." alt="" coords="28,5,145,32"/>
+<area shape="rect" id="node3" href="$class_state_restart.html#ac8e6df9388aa1c9914749efdc7396dc7" title="Sets either gameWonTexture() or gameLostTexture()." alt="" coords="5,56,168,83"/>
+</map>

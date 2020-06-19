@@ -1,0 +1,4 @@
+<map id="StatePaused::onActivate" name="StatePaused::onActivate">
+<area shape="rect" id="node1" title="Called when StatePaused is activated. Updates the view and the sound volume." alt="" coords="5,5,171,32"/>
+<area shape="rect" id="node2" href="$class_window.html#a376a8597bf522cdb0b334b3ac7aa005a" title=" " alt="" coords="219,5,359,32"/>
+</map>

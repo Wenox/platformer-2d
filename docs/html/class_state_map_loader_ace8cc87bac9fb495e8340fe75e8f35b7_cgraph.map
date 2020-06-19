@@ -1,0 +1,12 @@
+<map id="StateMapLoader::setMapLoaderButton" name="StateMapLoader::setMapLoaderButton">
+<area shape="rect" id="node1" title=" " alt="" coords="5,161,212,203"/>
+<area shape="rect" id="node2" href="$class_map_loader_view.html#aef08db2769330dfb05eb0c966fbc5d0a" title=" " alt="" coords="278,19,469,60"/>
+<area shape="rect" id="node4" href="$class_state_map_loader.html#a3828a98d8ad2b350a94130fd8c1835b3" title=" " alt="" coords="260,143,487,170"/>
+<area shape="rect" id="node9" href="$class_map_loader_view.html#ab83fecb236a396b3307aa73c33f18e4d" title=" " alt="" coords="274,194,473,221"/>
+<area shape="rect" id="node10" href="$group__gui_core.html#ga764d368cf4b8f86a96b911196f3c1b83" title="Converts an argument (Enum) to its underlying type." alt="" coords="324,245,423,271"/>
+<area shape="rect" id="node3" href="$class_view.html#a4562f58e90691480aa818b968d893c5d" title=" " alt="" coords="792,147,912,174"/>
+<area shape="rect" id="node5" href="$class_map_loader_view.html#aaee3ecf7a3bf75fcc8b0bd16b333a819" title=" " alt="" coords="535,48,744,89"/>
+<area shape="rect" id="node6" href="$class_state_machine.html#a9b35c9359afe0bab8d7b378c9c047812" title=" " alt="" coords="568,114,711,141"/>
+<area shape="rect" id="node7" href="$class_map_name_validator.html#a8610896f014ad9599786692511827867" title="hecks if given fileName extension is a valid format." alt="" coords="550,165,729,207"/>
+<area shape="rect" id="node8" href="$class_map_loader_view.html#a2f47ab104ed04ecb3d059cfd03411560" title=" " alt="" coords="545,231,733,272"/>
+</map>

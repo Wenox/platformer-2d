@@ -1,0 +1,4 @@
+<map id="StateOptions::updateHoverSoundVolume" name="StateOptions::updateHoverSoundVolume">
+<area shape="rect" id="node1" title="Updates the buttons hover volume." alt="" coords="212,5,389,47"/>
+<area shape="rect" id="node2" href="$class_state_options.html#a7f08e9d7b4518c5d8f4733a7e2f63112" title="Called when the StateOptions is created. Connects signals to gui widgets." alt="" coords="5,13,164,39"/>
+</map>

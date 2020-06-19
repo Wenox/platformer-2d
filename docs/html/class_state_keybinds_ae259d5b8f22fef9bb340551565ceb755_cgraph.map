@@ -1,0 +1,6 @@
+<map id="StateKeybinds::update" name="StateKeybinds::update">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,160,83"/>
+<area shape="rect" id="node2" href="$class_window.html#afe49fde33081ee7a8bedfabb4383ede8" title="Retrieve the events queue." alt="" coords="208,5,335,32"/>
+<area shape="rect" id="node3" href="$class_view.html#a4562f58e90691480aa818b968d893c5d" title=" " alt="" coords="219,56,323,83"/>
+<area shape="rect" id="node4" href="$class_action_map.html#afae119598a33308ea410c7e8ab013b21" title="Update a given keybind." alt="" coords="216,107,327,133"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Window::draw" name="Window::draw">
+<area shape="rect" id="node1" title="Draws the drawable objects onto the screen." alt="" coords="187,56,289,83"/>
+<area shape="rect" id="node2" href="$class_state_about.html#ad7e3bc87a32dda37fa820c2e5adae2f1" title="Draws the #gui onto the screen." alt="" coords="11,5,133,32"/>
+<area shape="rect" id="node3" href="$class_state_options.html#a261cdaf65c7d4163c58e81beb3c940d0" title="Draws the gui and corners onto the screen." alt="" coords="5,56,139,83"/>
+<area shape="rect" id="node4" href="$class_state_game.html#a2ce16981b9c45c9a36e1f3ab3bad65d3" title="Draws the game onto the screen." alt="" coords="11,107,133,133"/>
+</map>

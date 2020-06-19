@@ -1,0 +1,4 @@
+<map id="CollisionEvent::resolveCollisionAxisX" name="CollisionEvent::resolveCollisionAxisX">
+<area shape="rect" id="node1" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="236,5,436,47"/>
+<area shape="rect" id="node2" href="$class_collision_event.html#a25777dda57e7d7803b21fd612c36cf58" title="Handle horizontal collisions." alt="" coords="5,13,188,39"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="StateGame::restartGameLevel" name="StateGame::restartGameLevel">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,203,83"/>
+<area shape="rect" id="node2" href="$class_player.html#ac3a2c9d7e91a7137de9a49293536877c" title="Retrieve startingPosition." alt="" coords="257,5,435,32"/>
+<area shape="rect" id="node3" href="$class_player.html#a73e0f84c58ad1de76c34d21cae09589f" title="Update the variables when Player lands on ground." alt="" coords="251,56,441,83"/>
+<area shape="rect" id="node6" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="281,107,411,133"/>
+<area shape="rect" id="node4" href="$class_player.html#ab007a4d8583b47d049fd933850f6ba2a" title="Nullify the gravVelocity when Player lands on ground." alt="" coords="489,31,659,57"/>
+<area shape="rect" id="node5" href="$class_player.html#a735543a4305556e90d0fec56bd3ce36b" title="Sets a jumpVelocity to a new value." alt="" coords="493,81,655,108"/>
+</map>

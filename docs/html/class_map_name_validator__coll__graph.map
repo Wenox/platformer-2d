@@ -1,0 +1,3 @@
+<map id="MapNameValidator" name="MapNameValidator">
+<area shape="rect" id="node1" title="A utility class validating if a given map file name is valid." alt="" coords="5,5,157,185"/>
+</map>

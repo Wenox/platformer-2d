@@ -1,0 +1,5 @@
+<map id="StatePaused::onCreate" name="StatePaused::onCreate">
+<area shape="rect" id="node1" title="Called when the StatePaused is created. Connects signals to gui widgets." alt="" coords="5,31,163,57"/>
+<area shape="rect" id="node2" href="$class_state_machine.html#a46c86c35bd33b28473d1bdfdf265c611" title=" " alt="" coords="211,5,353,32"/>
+<area shape="rect" id="node3" href="$group__gui_core.html#ga764d368cf4b8f86a96b911196f3c1b83" title="Converts an argument (Enum) to its underlying type." alt="" coords="233,56,331,83"/>
+</map>

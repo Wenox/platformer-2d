@@ -1,0 +1,15 @@
+<map id="Game::run" name="Game::run">
+<area shape="rect" id="node1" title="Runs the game: called from main, this is where the main game loop starts." alt="" coords="5,157,88,184"/>
+<area shape="rect" id="node2" href="$class_game.html#a358376f38fe9e3f11c3609cfe201d630" title="The function computes the time elapsed since the previous frame. The result is stored as seconds insi..." alt="" coords="136,56,309,83"/>
+<area shape="rect" id="node3" href="$class_game.html#a6d54497ce3a66f6dd45eacfdccc8d0bd" title="Calls the StateMachine.draw() method." alt="" coords="177,107,269,133"/>
+<area shape="rect" id="node7" href="$class_game.html#af738a55303d14928ba0b5ae709a029d2" title="Checks if a Game is still running." alt="" coords="161,157,284,184"/>
+<area shape="rect" id="node9" href="$class_game.html#a815a3ec2787b4b1c4077d28165c380e8" title="Calls the StateMachine::processInput() method." alt="" coords="153,208,292,235"/>
+<area shape="rect" id="node11" href="$class_game.html#a79df6376b332d63c9eca0dcee30305c3" title="Calls the StateMachine::update(float dt) and Window.update() methods." alt="" coords="171,259,275,285"/>
+<area shape="rect" id="node4" href="$class_window.html#a8437dfbdebbf1f04d20bfc6cbc0d3ca0" title="Starts the drawing procedure." alt="" coords="381,5,517,32"/>
+<area shape="rect" id="node5" href="$class_state_machine.html#a9af46a50f3795794654ce67e9372cac5" title=" " alt="" coords="381,56,518,83"/>
+<area shape="rect" id="node6" href="$class_window.html#aff7bd2b01e39f2bb791131a37ef710a9" title="Ends the drawing procedure." alt="" coords="386,107,513,133"/>
+<area shape="rect" id="node8" href="$class_window.html#a761d614931fb5a5daa70e4f580c3e78e" title=" " alt="" coords="391,157,508,184"/>
+<area shape="rect" id="node10" href="$class_state_machine.html#a656df1f92e141be7c9ce86175954fccd" title=" " alt="" coords="357,208,541,235"/>
+<area shape="rect" id="node12" href="$class_window.html#a59515fc5a56e86d5a46d771595daac55" title="Updates the window events." alt="" coords="392,259,507,285"/>
+<area shape="rect" id="node13" href="$class_state_machine.html#a2d3ccf114069ce27c5f76a2b6c42cdcb" title=" " alt="" coords="375,309,524,336"/>
+</map>

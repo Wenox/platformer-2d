@@ -1,0 +1,8 @@
+<map id="PausedView::buildGUI" name="PausedView::buildGUI">
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,156,108"/>
+<area shape="rect" id="node2" href="$class_view.html#af4d6f76e6a266cf175d1f8147ebb4c48" title=" " alt="" coords="204,5,413,32"/>
+<area shape="rect" id="node3" href="$class_paused_view.html#a4e65d2e2ca5a8773b04516a73de37450" title="Creates all buttons and adds them to the #gui." alt="" coords="217,56,400,83"/>
+<area shape="rect" id="node5" href="$class_paused_view.html#a588a95dfb9a72e23f1a1111f2f9e7dac" title="Creates the main panel and adds it to the #gui." alt="" coords="209,107,408,133"/>
+<area shape="rect" id="node6" href="$class_paused_view.html#a3f784380391a75dd2e631d2701eea892" title="Create the Paused Text Image widget." alt="" coords="217,158,400,199"/>
+<area shape="rect" id="node4" href="$class_paused_view.html#adc9c0eab117817295a51ffdbcd8dd65e" title="Loads a given widget (likely: a button) onto the correct settings and position. @widget to be loaded." alt="" coords="461,56,628,83"/>
+</map>

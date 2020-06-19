@@ -1,0 +1,13 @@
+<map id="StateOptions" name="StateOptions">
+<area shape="rect" id="node1" title="Encapsulates the logic of options menu within one StateOptions class." alt="" coords="217,1167,408,1361"/>
+<area shape="rect" id="node2" href="$class_state.html" title="&lt; Pass&#45;through" alt="" coords="5,851,121,1031"/>
+<area shape="rect" id="node3" href="$class_state_machine.html" title="Container for all game States and holds current state pointer. Updates State logic every frame." alt="" coords="146,799,319,1082"/>
+<area shape="rect" id="node4" href="$class_options_view.html" title="View class used to draw gui within StateOptions." alt="" coords="344,777,532,1104"/>
+<area shape="rect" id="node5" href="$class_view.html" title=" " alt="" coords="161,461,339,715"/>
+<area shape="rect" id="node6" href="$class_view.html" title=" " alt="" coords="161,145,339,399"/>
+<area shape="rect" id="node7" href="$struct_gui_1_1_config.html" title="A shared gui config. Contains common settings." alt="" coords="363,505,513,671"/>
+<area shape="rect" id="node8" href="$struct_options_1_1_config.html" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to OptionsView." alt="" coords="537,535,648,641"/>
+<area shape="rect" id="node9" href="$struct_i_config.html" title=" " alt="" coords="533,233,652,311"/>
+<area shape="rect" id="node10" href="$struct_i_config.html" title="Every specific Config inherits from this struct." alt="" coords="533,5,652,83"/>
+<area shape="rect" id="node11" href="$class_window.html" title="Responsible for drawing onto the screen." alt="" coords="556,807,683,1075"/>
+</map>

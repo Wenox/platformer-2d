@@ -1,0 +1,10 @@
+<map id="View&lt; TWidgetPtr &gt;" name="View&lt; TWidgetPtr &gt;">
+<area shape="rect" id="node1" title=" " alt="" coords="545,5,723,259"/>
+<area shape="rect" id="node2" href="$class_view.html" title=" " alt="" coords="545,321,723,575"/>
+<area shape="rect" id="node3" href="$class_keybinds_view.html" title="View class used to draw gui within StateKeybinds." alt="" coords="5,624,204,1024"/>
+<area shape="rect" id="node4" href="$class_map_loader_view.html" title="View class used to draw gui within StateMapLoader." alt="" coords="229,668,450,980"/>
+<area shape="rect" id="node5" href="$class_menu_view.html" title="View class used to draw gui within StateMenu." alt="" coords="475,741,609,907"/>
+<area shape="rect" id="node6" href="$class_options_view.html" title="View class used to draw gui within StateOptions." alt="" coords="633,653,821,995"/>
+<area shape="rect" id="node7" href="$class_paused_view.html" title="View class used to draw gui within StatePaused." alt="" coords="846,734,1025,914"/>
+<area shape="rect" id="node8" href="$class_restart_view.html" title="View class used to draw gui within StateRestart." alt="" coords="1049,683,1243,965"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="Life.h" name="Life.h">
+<area shape="rect" id="node1" title=" " alt="" coords="424,5,477,32"/>
+<area shape="rect" id="node2" href="$_lives_overlay_8h.html" title=" " alt="" coords="343,80,449,107"/>
+<area shape="rect" id="node18" href="$_life_8cpp.html" title=" " alt="" coords="473,80,540,107"/>
+<area shape="rect" id="node3" href="$_player_8h.html" title=" " alt="" coords="302,155,373,181"/>
+<area shape="rect" id="node17" href="$_lives_overlay_8cpp.html" title=" " alt="" coords="397,155,515,181"/>
+<area shape="rect" id="node4" href="$_collision_event_8h.html" title=" " alt="" coords="352,229,467,256"/>
+<area shape="rect" id="node12" href="$_input_event_8h.html" title=" " alt="" coords="85,229,179,256"/>
+<area shape="rect" id="node14" href="$_movement_event_8h.html" title=" " alt="" coords="203,229,327,256"/>
+<area shape="rect" id="node16" href="$_player_8cpp.html" title=" " alt="" coords="491,229,575,256"/>
+<area shape="rect" id="node5" href="$_state_game_8h.html" title=" " alt="" coords="147,304,245,331"/>
+<area shape="rect" id="node11" href="$_collision_event_8cpp.html" title=" " alt="" coords="432,304,560,331"/>
+<area shape="rect" id="node6" href="$_state_menu_8h.html" title=" " alt="" coords="84,379,180,405"/>
+<area shape="rect" id="node7" href="$_game_8cpp.html" title=" " alt="" coords="5,453,88,480"/>
+<area shape="rect" id="node9" href="$_state_game_8cpp.html" title=" " alt="" coords="205,379,318,405"/>
+<area shape="rect" id="node10" href="$_state_map_loader_8cpp.html" title=" " alt="" coords="342,379,485,405"/>
+<area shape="rect" id="node8" href="$_state_menu_8cpp.html" title=" " alt="" coords="113,453,223,480"/>
+<area shape="rect" id="node13" href="$_input_event_8cpp.html" title=" " alt="" coords="16,304,123,331"/>
+<area shape="rect" id="node15" href="$_movement_event_8cpp.html" title=" " alt="" coords="269,304,408,331"/>
+</map>

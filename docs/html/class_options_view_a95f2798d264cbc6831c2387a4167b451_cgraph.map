@@ -1,0 +1,4 @@
+<map id="OptionsView::createButtons" name="OptionsView::createButtons">
+<area shape="rect" id="node1" title="Creates all buttons and adds them to the #gui." alt="" coords="5,5,189,32"/>
+<area shape="rect" id="node2" href="$class_options_view.html#af257ef9f81731d0a8b32332aa098b63d" title="Loads a given widget (likely: a button) onto the correct settings and position." alt="" coords="237,5,405,32"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="OptionsView::createPanels" name="OptionsView::createPanels">
+<area shape="rect" id="node1" title="Creates all panels and adds them to the #gui." alt="" coords="5,42,184,69"/>
+<area shape="rect" id="node2" href="$class_options_view.html#a867321d453f3d630b6710fca0305c41a" title="Creates the buttons panel and adds it to the #gui." alt="" coords="240,5,424,47"/>
+<area shape="rect" id="node3" href="$class_options_view.html#a3c77c16339453defc006960d29d1d241" title="Creates the main panel and adds it to the #gui." alt="" coords="232,71,432,98"/>
+</map>

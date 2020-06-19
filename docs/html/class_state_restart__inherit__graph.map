@@ -1,0 +1,4 @@
+<map id="StateRestart" name="StateRestart">
+<area shape="rect" id="node1" title="Encapsulates the logic of restart menu within one StateRestart class." alt="" coords="5,233,121,413"/>
+<area shape="rect" id="node2" href="$class_state.html" title="&lt; Pass&#45;through" alt="" coords="5,5,121,185"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Paused::Config" name="Paused::Config">
+<area shape="rect" id="node1" title="Deriving from IConfig&lt;Btn&gt;, holds meaningful view configurations specific to PausedView." alt="" coords="9,272,120,379"/>
+<area shape="rect" id="node2" href="$struct_i_config.html" title=" " alt="" coords="5,145,124,223"/>
+<area shape="rect" id="node3" href="$struct_i_config.html" title="Every specific Config inherits from this struct." alt="" coords="5,5,124,83"/>
+</map>

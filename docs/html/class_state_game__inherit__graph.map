@@ -1,0 +1,4 @@
+<map id="StateGame" name="StateGame">
+<area shape="rect" id="node1" title="Encapsulates the main game logic within one StateGame class." alt="" coords="5,233,184,853"/>
+<area shape="rect" id="node2" href="$class_state.html" title="&lt; Pass&#45;through" alt="" coords="37,5,153,185"/>
+</map>

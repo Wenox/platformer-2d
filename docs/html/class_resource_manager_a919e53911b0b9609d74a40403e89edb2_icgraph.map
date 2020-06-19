@@ -1,0 +1,5 @@
+<map id="ResourceManager::loadTextures" name="ResourceManager::loadTextures">
+<area shape="rect" id="node1" title="Loads all texture resources. May throw." alt="" coords="513,13,723,39"/>
+<area shape="rect" id="node2" href="$class_resource_manager.html#ae44db2ec53e1720b4e543ab08ec90a6d" title="Loads all resources, each different resource type uses different thread to handle its type." alt="" coords="244,13,465,39"/>
+<area shape="rect" id="node3" href="$class_resource_manager.html#a3b32babd2e81909bbd90d7f2d566fadb" title="Call loadResources() which may throw." alt="" coords="5,5,196,47"/>
+</map>

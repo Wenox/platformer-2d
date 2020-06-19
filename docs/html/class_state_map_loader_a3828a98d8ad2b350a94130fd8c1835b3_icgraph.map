@@ -1,0 +1,5 @@
+<map id="StateMapLoader::createGameFrom" name="StateMapLoader::createGameFrom">
+<area shape="rect" id="node1" title=" " alt="" coords="485,13,712,39"/>
+<area shape="rect" id="node2" href="$class_state_map_loader.html#ace8cc87bac9fb495e8340fe75e8f35b7" title=" " alt="" coords="231,5,437,47"/>
+<area shape="rect" id="node3" href="$class_state_map_loader.html#af685efdae111e67626e38259b485c71a" title="Called when the StateMapLoader is created. Connects signals to gui widgets." alt="" coords="5,13,183,39"/>
+</map>

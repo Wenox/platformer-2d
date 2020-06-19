@@ -1,0 +1,5 @@
+<map id="Entity::bot" name="Entity::bot">
+<area shape="rect" id="node1" title="Retrieve sprite bottom side y coordinate." alt="" coords="5,31,88,57"/>
+<area shape="rect" id="node2" href="$class_entity.html#a804e22c49ee67cabc6f9ae1477d27c75" title=" " alt="" coords="136,5,235,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#a898891ec396e4754c2c84b6c08c89c45" title="Retrieve sprite y coordinate." alt="" coords="144,56,227,83"/>
+</map>

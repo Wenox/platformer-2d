@@ -1,0 +1,4 @@
+<map id="Player::jumpFrame" name="Player::jumpFrame">
+<area shape="rect" id="node1" title="Performs one tick of a jumping logic." alt="" coords="248,5,380,32"/>
+<area shape="rect" id="node2" href="$class_movement_event.html#ad355ecd7e80a497cada03c82911e1bf2" title="Handles all vertical movements on Y axis based on JumpingState." alt="" coords="5,5,200,32"/>
+</map>

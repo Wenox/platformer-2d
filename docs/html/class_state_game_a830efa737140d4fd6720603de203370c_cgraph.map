@@ -1,0 +1,5 @@
+<map id="StateGame::generateWorldFromBmp" name="StateGame::generateWorldFromBmp">
+<area shape="rect" id="node1" title="Generate world from a Bmp. Allocate blocks and set them to proper position." alt="" coords="5,23,185,65"/>
+<area shape="rect" id="node2" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="257,5,387,32"/>
+<area shape="rect" id="node3" href="$class_player.html#a7e9ddf7bcf4a709830999f46a9afae3b" title="Sets startingPosition to wherever the Player currently stands." alt="" coords="233,56,411,83"/>
+</map>

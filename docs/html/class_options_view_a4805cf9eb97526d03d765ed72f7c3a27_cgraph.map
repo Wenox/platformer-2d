@@ -1,0 +1,16 @@
+<map id="OptionsView::buildGUI" name="OptionsView::buildGUI">
+<area shape="rect" id="node1" title=" " alt="" coords="5,144,157,171"/>
+<area shape="rect" id="node2" href="$class_view.html#af4d6f76e6a266cf175d1f8147ebb4c48" title=" " alt="" coords="205,5,415,32"/>
+<area shape="rect" id="node3" href="$class_options_view.html#a95f2798d264cbc6831c2387a4167b451" title="Creates all buttons and adds them to the #gui." alt="" coords="218,56,402,83"/>
+<area shape="rect" id="node5" href="$class_options_view.html#a62fca45e76f1cde86196b362192189e0" title="Creates all check Boxes and adds them to the #gui." alt="" coords="222,107,398,149"/>
+<area shape="rect" id="node8" href="$class_options_view.html#a834a8b7464738fe77ea6cd7072922162" title="Creates all labels and adds them to the #gui." alt="" coords="221,173,399,200"/>
+<area shape="rect" id="node11" href="$class_options_view.html#a7f24019c0b5dbb6b399551f2ef0f2fb4" title="Creates all panels and adds them to the #gui." alt="" coords="221,260,399,287"/>
+<area shape="rect" id="node14" href="$class_options_view.html#a8318ed76b85ee923641d9659d577d8de" title="Creates a sound volume slider and adds it to the #gui." alt="" coords="222,311,398,353"/>
+<area shape="rect" id="node4" href="$class_options_view.html#af257ef9f81731d0a8b32332aa098b63d" title="Loads a given widget (likely: a button) onto the correct settings and position." alt="" coords="489,5,657,32"/>
+<area shape="rect" id="node6" href="$class_options_view.html#a443319ca78842381d5c0c5882325144a" title="Creates FPS enable check box and adds it to the #gui." alt="" coords="463,56,684,83"/>
+<area shape="rect" id="node7" href="$class_options_view.html#a2dd6d536776727430b477b63edf3a010" title="Creates sound enable check box and adds it to the #gui." alt="" coords="485,107,661,149"/>
+<area shape="rect" id="node9" href="$class_options_view.html#a2870068bfa60832693cd10d94ca27e06" title="Creates FPS enabled label and adds it to the #gui." alt="" coords="477,173,669,200"/>
+<area shape="rect" id="node10" href="$class_options_view.html#adfe016e32fe377fd4916b6c1735ee801" title="Creates sound enabled label box and adds it to the #gui." alt="" coords="485,225,661,266"/>
+<area shape="rect" id="node12" href="$class_options_view.html#a867321d453f3d630b6710fca0305c41a" title="Creates the buttons panel and adds it to the #gui." alt="" coords="481,290,665,331"/>
+<area shape="rect" id="node13" href="$class_options_view.html#a3c77c16339453defc006960d29d1d241" title="Creates the main panel and adds it to the #gui." alt="" coords="473,356,673,383"/>
+</map>

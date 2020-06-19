@@ -1,0 +1,9 @@
+<map id="CollisionEvent::resolveCollisionAxisX" name="CollisionEvent::resolveCollisionAxisX">
+<area shape="rect" id="node1" title="Solve the collision on X axis. Passed as an argument to std::function." alt="" coords="5,49,205,90"/>
+<area shape="rect" id="node2" href="$class_entity.html#a03c9e078a384632824a9033a5c0de38a" title="Retrieve sprite x coordinate." alt="" coords="516,5,597,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#a0d622f117afa9fbdfbc59cabccf8a80d" title="Move the entity sprite by a float vector." alt="" coords="301,31,396,57"/>
+<area shape="rect" id="node4" href="$class_entity.html#afac0896ace71d7898d45c2bbe105f6b1" title="Retrieve sprite right side x coordinate." alt="" coords="304,81,393,108"/>
+<area shape="rect" id="node6" href="$class_player.html#afded7d43103d814ba606d57ff465fbd6" title="Set Player to his startingPosition." alt="" coords="253,132,444,159"/>
+<area shape="rect" id="node5" href="$class_entity.html#a7a479a735aba7b5d0946129fe9a32f3c" title=" " alt="" coords="509,81,604,108"/>
+<area shape="rect" id="node7" href="$class_entity.html#a0c5d8973ff0ee54ea798b2826c36e830" title="Sets sprite position." alt="" coords="492,132,621,159"/>
+</map>
