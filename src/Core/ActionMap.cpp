@@ -1,6 +1,8 @@
+/** @file */
+
 #include "ActionMap.h"
 #include <stdexcept>
-#include "Consts.h"
+#include "Configuration.h"
 
 
 ActionMap::ActionMap() {
@@ -24,6 +26,6 @@ void ActionMap::set(const std::string& action, sf::Keyboard::Key key) {
 
 
 ActionMap& ActionMap::Instance() {
-    static ActionMap instance;
-    return instance;
+    static ActionMap instance; ///< Guaranteed to be destroyed.
+    return instance;           ///< Instantiated on the first use.
 }

@@ -1,8 +1,26 @@
+/** @file */
+
 #pragma once
 
 #include <utility>
 
-/** There are two ways to insert new resources into:
+
+#if (__cplusplus == 202002L)
+    template <typename Key>
+    concept Mappable = std::strict_weak_order<std::less<Key>, Key, Key>;
+#endif
+
+
+/** \class ResourceInserter
+ *
+ *  \ingroup myresourcez
+ *
+ * \brief A proxy class used to handle 2+ arguments in operator+=, which takes only 1 argument.
+ *
+ * Uses Mappable custom concept (C++20).
+ *
+ * \note
+ * There are two ways to insert new resources into:
  *  ResourceHolder<Key, Resource> resources;
  *
  *  1:
@@ -14,14 +32,6 @@
  *  which is an alternative way of inserting resources
  *
  *  */
-
-
-#if (__cplusplus == 202002L)
-    template <typename Key>
-    concept Mappable = std::strict_weak_order<std::less<Key>, Key, Key>;
-#endif
-
-
 template <typename Key, typename... Args>
 #if (__cplusplus == 202002L)
     requires Mappable<Key>
@@ -39,5 +49,6 @@ public:
     std::tuple<Args...> args;
 };
 
+/** \brief Deduction guide */
 template <typename T, typename... Args>
 ResourceInserter(T, std::string_view, Args... args) -> ResourceInserter<T, Args...>;

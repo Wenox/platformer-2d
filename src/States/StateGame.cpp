@@ -1,3 +1,4 @@
+/** @file */
 #include "StateGame.h"
 #include "StateID.h"
 #include "Settings.h"
@@ -43,8 +44,8 @@ void StateGame::onCreate() {
 
     camera.setController(player);
 
-    moveController = std::make_unique<MovementEvent>(player, blocks);
-    collider       = std::make_unique<CollisionEvent>(player, blocks);
+    movementsEvent = std::make_unique<MovementEvent>(player, blocks);
+    collisionEvent       = std::make_unique<CollisionEvent>(player, blocks);
     inputEvent     = std::make_unique<InputEvent>(player, resources, window);
 }
 
@@ -134,12 +135,12 @@ void StateGame::update(float dt) {
 }
 
 void StateGame::updatePhysics(float dt) {
-    moveController->updateAxisX(dt);
-    collider->updateAxisX(dt);
+    movementsEvent->updateAxisX(dt);
+    collisionEvent->updateAxisX(dt);
     camera.updateX();
 
-    moveController->updateAxisY(dt);
-    collider->updateAxisY(dt);
+    movementsEvent->updateAxisY(dt);
+    collisionEvent->updateAxisY(dt);
     camera.updateY();
 }
 

@@ -1,3 +1,5 @@
+/** @file */
+
 #include "Entities/Overlay/LivesOverlay.h"
 
 

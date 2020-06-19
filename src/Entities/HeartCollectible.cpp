@@ -1,3 +1,5 @@
+/** @file */
+
 #include "HeartCollectible.h"
 
 

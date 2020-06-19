@@ -1,9 +1,40 @@
+/** @file */
+
+/** @defgroup guiCore GUI
+ *  Classes responsible for View layer inside varying Menus.
+ *  @{
+ */
+
+/** @} */ // end of group1
+
+
 #pragma once
 
-#include "Consts.h"
+#include "Configuration.h"
 
 
+/** \namespace Gui
+ *  \ingroup guiCore
+ *  \brief Encapsulate common global View Config within an additional namespace.
+ * */
 namespace Gui {
+
+    /** \struct Config
+ *  \ingroup guiCore
+ *  \brief A shared gui config. Contains common settings.
+     *
+     *  Exemplary  constexpr Config settings commonto all View classes:
+     *
+     *  - Buttonwidth: #width = 250
+     *  - ButtonHeight: #height = 50
+     *  - #testSize = 24
+     *  - #opacity = 0.95
+     *  - #font
+     *  - #borderColor
+     *  - #backgroundColor
+     *
+     *
+ * */
     template <typename Widget = tgui::Widget::Ptr>
     struct Config {
         constexpr static auto width       = 250;
@@ -19,6 +50,11 @@ namespace Gui {
         const tgui::Color backgroundColor = {255, 50, 245};
 
 
+        /** \brief Prepares a given widget to be ready to be displayed.
+         *
+         * An extra 'if constexpr' branch is executed for Buttons that sets the #borderColor and #backgroundColor.
+         *
+         * */
         void prepare(Widget widget) {
             widget->setSize(tgui::Layout2d{width, height});
             widget->setInheritedOpacity(opacity);

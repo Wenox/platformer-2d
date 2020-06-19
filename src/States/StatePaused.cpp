@@ -1,3 +1,4 @@
+/** @file */
 #include "Settings.h"
 #include "StatePaused.h"
 
@@ -51,7 +52,7 @@ void StatePaused::processInput() {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
         stateMachine = state::gameID;
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {
         stateMachine = state::menuID;
     }
 }

@@ -1,4 +1,5 @@
-#include <Consts.h>
+/** @file */
+#include <Configuration.h>
 #include "TxtReader.h"
 
 

@@ -1,4 +1,6 @@
-#include <Consts.h>
+/** @file */
+
+#include <Configuration.h>
 #include "Camera.h"
 
 
@@ -10,93 +12,106 @@ Camera::Camera(const sf::View& view) noexcept
 
 
 void Camera::updateX() noexcept {
-    float xCoord = determineNextCollisionX();
+    /** Detect Left, Right or None collision. Store it in #solvedNow and return correct #solvedX position. */
+    float solvedX = detectCollisionX();
 
+    /** Based on #previouslySolvedOtherAxis computed in updateY(), which is either Bot, Top or None - we can respond correctly to the corners and set correct Camera position. */
     std::visit(overload{
-            [&](Bot&)   { cameraView.setCenter(xCoord, bottomBorderBoundary); },
-            [&](Top&)   { cameraView.setCenter(xCoord, topBorderBoundary); },
-            [&](None&)  { cameraView.setCenter(xCoord, controller->getPosition().y + halvedSpriteHeight); },
+            [&](Bot&)   { cameraView.setCenter(solvedX, bottomBorderBoundary); },
+            [&](Top&)   { cameraView.setCenter(solvedX, topBorderBoundary); },
+            [&](None&)  { cameraView.setCenter(solvedX, controller->getPosition().y + halvedSpriteHeight); },
             [&](auto) noexcept { }
-    }, collider);
+    }, previouslySolvedOtherAxis);
 
-    updateColliderState(nextCollision);
+    /** Upon exit, ypdate #previouslySolvedOtherAxis with what we just #solvedNow: either Top, Bot or None. */
+    storeJustSolvedForOtherAxis(solvedNow);
 }
 
 void Camera::updateY() noexcept {
-    float yCoord = determineNextCollisionY();
+    /** Detect Top, Bot or None collision. Store it in #solvedNow and return correct #solvedY position. */
+    float solvedY = detectCollisionY();
 
+    /** Based on #previouslySolvedOtherAxis computed in updateX(), which is either Left, Right or None - we can respond correctly to the corners and set correct Camera position.*/
     std::visit(overload{
-            [&](Left&)  {cameraView.setCenter(leftBorderBoundary,  yCoord); },
-            [&](Right&) {cameraView.setCenter(rightBorderBoundary, yCoord); },
+            [&](Left&)  {cameraView.setCenter(leftBorderBoundary, solvedY); },
+            [&](Right&) {cameraView.setCenter(rightBorderBoundary, solvedY); },
             [&](auto) noexcept { }
-    }, collider);
+    }, previouslySolvedOtherAxis);
 
-    updateColliderState(nextCollision);
+    /** Upon exit, update #previouslySolvedOtherAxis with what we just #solvedNow: either Top, Bot or None. */
+    storeJustSolvedForOtherAxis(solvedNow);
 }
 
-float Camera::determineNextCollisionX() noexcept {
+float Camera::detectCollisionX() noexcept {
+    /** Check X position after sprite was moved on X axis. */
     const auto cameraX = controller->getPosition().x + halvedSpriteWidth;
 
+    /** Calculate correct resolved non-colliding X position. */
     float xCoord{};
 
     if (cameraX > rightBorderBoundary) {
         xCoord = rightBorderBoundary;
-        nextCollision = Collision::Right;
+        solvedNow = CurrentCollision::Right; ///< There was a Right collision, so store that fact for possible corner-collision response.
     } else if (cameraX < leftBorderBoundary) {
         xCoord = leftBorderBoundary;
-        nextCollision = Collision::Left;
+        solvedNow = CurrentCollision::Left; ///< There was a Left collision, so store that fact for possible corner-collision response.
     } else {
         xCoord = cameraX;
-        nextCollision = Collision::None;
+        solvedNow = CurrentCollision::None; ///< There was None collision. For sure not a corner collision.
     }
 
     return xCoord;
 }
 
-float Camera::determineNextCollisionY() noexcept {
+float Camera::detectCollisionY() noexcept {
+    /** \example
+     * Check Y position after sprite was moved on Y axis. */
     const auto cameraY = controller->getPosition().y + halvedSpriteHeight;
 
+    /** \example Calculate correct resolved non-colliding Y position. */
     float yCoord{};
 
     if (cameraY > bottomBorderBoundary) {
         yCoord = bottomBorderBoundary;
-        nextCollision = Collision::Bot;
+        solvedNow = CurrentCollision::Bot; ///< There was a Bot collision, so store that fact for possible corner-collision response.
     } else if (cameraY < topBorderBoundary) {
         yCoord = topBorderBoundary;
-        nextCollision = Collision::Top;
+        solvedNow = CurrentCollision::Top; ///< There was a Top collision, so store that fact for possible corner-collision response.
     } else {
         yCoord = cameraY;
-        nextCollision = Collision::None;
+        solvedNow = CurrentCollision::None; ///< There was None collision. For sure not a corner collision.
     }
 
     return yCoord;
 }
 
+
 sf::View& Camera::getCameraView() noexcept {
     return cameraView;
 }
+
 
 void Camera::setController(Entity& controllingEntity) noexcept {
     this->controller = &controllingEntity.getSprite();
     this->setControllerConstants();
 }
 
-void Camera::updateColliderState(Collision nextColl) noexcept {
-    switch (nextColl) {
-        case Collision::Left:
-            collider = Left{};
+void Camera::storeJustSolvedForOtherAxis(CurrentCollision wasCollision) noexcept {
+    switch (wasCollision) {
+        case CurrentCollision::Left:
+            previouslySolvedOtherAxis = Left{};
             break;
-        case Collision::Right:
-            collider = Right{};
+        case CurrentCollision::Right:
+            previouslySolvedOtherAxis = Right{};
             break;
-        case Collision::None:
-            collider = None{};
+        case CurrentCollision::None:
+            previouslySolvedOtherAxis = None{};
             break;
-        case Collision::Top:
-            collider = Top{};
+        case CurrentCollision::Top:
+            previouslySolvedOtherAxis = Top{};
             break;
-        case Collision::Bot:
-            collider = Bot{};
+        case CurrentCollision::Bot:
+            previouslySolvedOtherAxis = Bot{};
             break;
     }
 }

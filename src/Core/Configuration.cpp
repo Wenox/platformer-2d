@@ -1,4 +1,6 @@
-#include "Consts.h"
+/** file */
+
+#include "Configuration.h"
 
 namespace config {
     int blocksCountWidth = 0;

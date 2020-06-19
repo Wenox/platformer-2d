@@ -1,3 +1,5 @@
+/** @file */
+
 #pragma once
 
 #include <map>
@@ -5,11 +7,22 @@
 #include "PixelColor.h"
 
 #if (__cplusplus == 202002L)
+
+/** \brief Define a Mappable concept (C++20) for better error messages. */
 template <typename Key>
-    concept Mappable = std::strict_weak_order<std::less<Key>, Key, Key>;
+    concept Mappable = std::strict_weak_order<std::less<Key>, Key, Key>; ///< \note \warnng Define a Mappable concept (C++20) for better error messages.
 #endif
 
+/** \namespace Obj
+*
+*  \ingroup Encoder
+*
+*  \brief Available game entity objects. Used only in StateGame.
+*
+*
+*  */
 namespace Obj {
+
     enum class Entity {
         Empty,
         Player,
@@ -36,6 +49,19 @@ namespace Obj {
     };
 }
 
+
+
+/** \class Encoder
+ *
+ * \ingroup Encoder
+ *
+ * \brief Encodes PixelColor (bmp) or int (txt) into Obj::Entity entities, depending on the variant type.
+ *
+ * Uses custom Mappable concept (C++20) for validating if a ReaderKey is mappable type.
+ * In case of C++17 compiler, the Mappable concept is omitted.
+ *
+ *
+ * */
 template <typename ReaderKey>
 #if (__cplusplus == 202002L)
     requires Mappable<Key>
@@ -44,6 +70,12 @@ class Encoder {
 public:
     std::map<ReaderKey, Obj::Entity> encodedObjects;
 
+    /** \brief Validates ReaderKey type and creates an Encoder of that type.
+     *
+     * Available ReaderKey types:
+     *   - PixelColor (when map is Bmp)
+     *   - int (when map is Txt)
+     * */
     constexpr Encoder() {
         static_assert(std::is_same<ReaderKey, PixelColor>()
                    or std::is_same<ReaderKey, int>());
@@ -52,6 +84,12 @@ public:
     }
 
 private:
+
+    /** \brief Encodes all PixelColor or int into Obj::Entity entities.
+     *
+     * \note One of two branches is executed based on constexpr evaluation.
+     *
+     * */
     void encodeAll() {
         if constexpr (std::is_same<ReaderKey, PixelColor>()) {
             encode(PixelColor{0, 0, 0},       Obj::Entity::Empty);
@@ -101,11 +139,23 @@ private:
         }
     }
 
+    /** \brief Encodes a single Readerkey onto Obj::Entity entity
+     *
+     * \param key Map key of type ReaderKey which is a Mappable either PixelColor or int.
+     * \param entity Value for the key to be mapped to.
+     *
+     *
+     * */
     void encode(const ReaderKey& key, Obj::Entity entity) {
         static_assert(std::is_same<typename std::decay<decltype(key)>::type , ReaderKey>());
         encodedObjects.insert(std::make_pair(key, entity));
     }
 
+    /** \bref Prints formatted encoder debug info.
+     *
+     * \note Supports only non-trivial Bmp type.
+     *
+     * */
     void printDebug() { /** todo: add support for txt */
         std::cout << "Detected encoded colors:\n";
         for (auto it = encodedObjects.begin(); it != encodedObjects.end(); it++) {

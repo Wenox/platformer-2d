@@ -1,3 +1,4 @@
+/** @file */
 #include "StateMapLoader.h"
 #include "StateID.h"
 #include "StateGame.h"

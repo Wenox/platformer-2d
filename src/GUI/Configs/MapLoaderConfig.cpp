@@ -1,3 +1,5 @@
+/** @file */
+
 #include <iostream>
 #include "MapLoaderConfig.h"
 

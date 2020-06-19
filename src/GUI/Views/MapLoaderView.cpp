@@ -1,4 +1,6 @@
-#include <Core/Consts.h>
+/** @file */
+
+#include <Core/Configuration.h>
 #include "MapLoaderView.h"
 
 

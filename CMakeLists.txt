@@ -54,7 +54,7 @@ set(SOURCE_FILES
         src/Encoder/Encoder.cpp
         src/Encoder/MapLoader.cpp
         src/Encoder/Utility/MapNameValidator.cpp
-        src/Core/Consts.cpp src/Entities/Entity.cpp
+        src/Core/Configuration.cpp src/Entities/Entity.cpp
         src/Entities/Block.cpp
         src/Entities/Player/Player.cpp
         src/Core/Camera.cpp

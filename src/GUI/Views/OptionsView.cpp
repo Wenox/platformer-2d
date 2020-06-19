@@ -1,3 +1,5 @@
+/** @file */
+
 #include "OptionsView.h"
 #include "Settings.h"
 

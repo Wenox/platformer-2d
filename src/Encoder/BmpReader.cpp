@@ -1,4 +1,6 @@
-#include <Consts.h>
+
+/** @file */
+#include <Configuration.h>
 #include "BmpReader.h"
 
 
@@ -32,7 +34,6 @@ void BmpReader::readHeight() {
 
 void BmpReader::readPixels() {
     pixelsCount = width * height;
-    dataSize = pixelsCount * bytesPerPixel;
 
     file.seekg(dataOffset);
 
@@ -45,9 +46,6 @@ void BmpReader::readPixels() {
     config::blocksCountHeight = this->height;
 }
 
-int BmpReader::getPixelsCount() const {
-    return pixelsCount;
-}
 
 void BmpReader::debugPrint() const {
     std::cout << "BMP width: " <<  width << std::endl;

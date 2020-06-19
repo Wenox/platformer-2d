@@ -1,5 +1,7 @@
+/** @file */
+
 #include "PausedView.h"
-#include "Consts.h"
+#include "Configuration.h"
 
 
 PausedView::PausedView(Window& window)

@@ -1,5 +1,6 @@
+/** @file */
 #include "StateID.h"
-#include "Consts.h"
+#include "Configuration.h"
 #include "StateRestart.h"
 
 

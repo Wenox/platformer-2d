@@ -1,13 +1,22 @@
+/** @file */
+
 #include "Window.h"
 #include <SFML/Window/Event.hpp>
-#include <Core/Consts.h>
+#include <Core/Configuration.h>
+#include <iostream>
 
 
 Window::Window(std::string_view windowName)
         : window{sf::VideoMode{config::windowWidth, config::windowHeight}, windowName.data()}
 {
     window.setFramerateLimit(config::maxFps);
-    setWindowIcon();
+
+    try {
+        setWindowIcon();
+    } catch (const std::exception& e) {
+        std::cerr << "Using default icon\n";
+        std::cerr << e.what() << std::endl;
+    }
 }
 
 void Window::update() {

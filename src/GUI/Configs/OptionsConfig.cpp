@@ -1,3 +1,5 @@
+/** @file */
+
 #include "OptionsConfig.h"
 
 using Options::Config;

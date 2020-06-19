@@ -1,1 +1,2 @@
+/** @file */
 #include "FileReader.h"

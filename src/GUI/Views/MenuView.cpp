@@ -1,4 +1,6 @@
-#include "Consts.h"
+/** @file */
+
+#include "Configuration.h"
 #include "MenuView.h"
 
 

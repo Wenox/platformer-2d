@@ -1,3 +1,5 @@
+/** @file */
+
 #include "MapNameValidator.h"
 
 

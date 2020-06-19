@@ -1,7 +1,16 @@
+/** @file */
+
 #pragma once
 
 #include <SFML/Graphics/Color.hpp>
 
+/** \namespace lives
+*
+*  \ingroup groupEntities
+*
+*  \brief Encapsulates lives overlay variables.
+*
+*  */
 namespace lives {
     constexpr auto count = 3;
     constexpr auto boxSide = 50.0f;

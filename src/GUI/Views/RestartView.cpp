@@ -1,5 +1,7 @@
+/** @file */
+
 #include "RestartView.h"
-#include "Consts.h"
+#include "Configuration.h"
 
 
 RestartView::RestartView(Window& window, ResourceManager& resourceManager)

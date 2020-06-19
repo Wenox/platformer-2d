@@ -1,2 +1,3 @@
+/** @file */
 #include "MapLoader.h"
 

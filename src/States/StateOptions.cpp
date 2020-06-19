@@ -1,3 +1,4 @@
+/** @file */
 #include "StateOptions.h"
 #include "StateID.h"
 #include "Settings.h"
@@ -63,9 +64,6 @@ void StateOptions::updateSlider() {
         slider->setEnabled(true);
         slider->setInheritedOpacity(1.0);
     }
-}
-
-void StateOptions::onActivate() {
 }
 
 void StateOptions::processInput() {

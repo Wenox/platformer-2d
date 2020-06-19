@@ -1,45 +1,51 @@
+/** @file */
+
 #pragma once
 
 #include <fstream>
 #include <iostream>
 #include <vector>
 
-
+/** \class FileReader
+ *
+ *  \ingroup Encoder
+ *
+ *  \brief Abstract File Reader class template.
+ *
+ *  \note Inheriting classes: BmpReader and TxtReader.
+ *
+ *  */
 template <typename T>
 class FileReader {
 public:
+
+    /** \brief Pure virtual method to be overriden by deriving TxtReader and TxtReader. */
     virtual void readFile() = 0;
 
+    /** Retrieve the data contained in a file.
+     *
+     * @returns std::vector<T> Vector of data of type T. */
     auto& getData() {
         return data;
     }
 
+    /** \brief Default Virtual constructor. */
     virtual ~FileReader() = default;
+    /** \brief Enable move operations. */
     FileReader(FileReader&&) noexcept = default;
+    /** \brief Enable move operations. */
     FileReader& operator=(FileReader&&) noexcept = default;
-    /** Note: basic_ifstream has copy ctor/copy assignment explicitly deleted */
+    /** \note: basic_ifstream has copy ctor/copy assignment explicitly deleted. */
 
-
-    auto& getFile() const {
-        return file;
-    }
-
-    auto& getFileName() const {
-        return fileName;
-    }
 
     auto& getData() const {
         return data;
     }
 
-    auto& getDataRaw() const {
-        return data.get();
-    }
 
-    auto& getDataSize() const {
-        return dataSize;
-    }
-
+    /** \brief Check if a file is successfully opened.
+     *
+     * @returns Is file opened? */
     bool isOpened() const {
         return file.is_open();
     }
@@ -50,10 +56,8 @@ protected:
         , file{name, mode}
     {}
 
-    std::string    fileName;
-    std::ifstream  file;
-
-    std::vector<T> data{};
-    unsigned       dataSize{};
+    std::string    fileName;  ///< \brief File name.
+    std::ifstream  file;      ///< \brief File handle.
+    std::vector<T> data{};    ///< \brief Containre for data of type T.
 };
 
