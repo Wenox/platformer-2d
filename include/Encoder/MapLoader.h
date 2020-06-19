@@ -47,7 +47,6 @@ public:
             [&](TxtReader&) { analyzeTxtMapData(); },
             [&](std::monostate&) { }
         }, mapReader);
-
     }
 
     virtual ~MapLoader() = default;

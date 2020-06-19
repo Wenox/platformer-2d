@@ -44,7 +44,7 @@ void StateGame::onCreate() {
     camera.setController(player);
 
     movementsEvent = std::make_unique<MovementEvent>(player, blocks);
-    collisionEvent       = std::make_unique<CollisionEvent>(player, blocks);
+    collisionEvent = std::make_unique<CollisionEvent>(player, blocks);
     inputEvent     = std::make_unique<InputEvent>(player, resources, window);
 }
 

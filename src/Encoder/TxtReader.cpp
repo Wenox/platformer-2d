@@ -46,7 +46,7 @@ bool TxtReader::isValidTxt() {
 
     /** Entire file is loaded into string */
     rawTxtData.assign((std::istreambuf_iterator<char>(file)),
-                      std::istreambuf_iterator<char>());
+                       std::istreambuf_iterator<char>());
 
     /** And checked if it indeed is a valid Txt file (white-space delimited numbers-only content) */
     std::string fullMatchPattern = R"((?:[[:space:]]*[[:digit:]]+[[:space:]]*)+)";

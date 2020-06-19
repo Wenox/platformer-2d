@@ -34,7 +34,7 @@ public:
     void updateX() noexcept;
     void updateY() noexcept;
 
-    void storeJustSolvedForOtherAxis(CurrentCollision nextCollision) noexcept;
+    void storeJustSolvedForOtherAxis(CurrentCollision wasCollision) noexcept;
 
     float detectCollisionX() noexcept;
     float detectCollisionY() noexcept;

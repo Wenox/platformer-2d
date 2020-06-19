@@ -98,6 +98,9 @@ private:
             encode(15,   Obj::Entity::Sign2);
 
             encode(10, Obj::Entity::Spike);
+            encode(16, Obj::Entity::Spike);
+            encode(17, Obj::Entity::Spike);
+            encode(18, Obj::Entity::Spike);
         }
     }
 
