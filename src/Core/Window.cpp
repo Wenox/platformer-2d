@@ -5,7 +5,7 @@
 
 
 Window::Window(std::string_view windowName)
-        : window{sf::VideoMode{config::windowWidth, config::windowHeight}, windowName.data()}
+        : window{sf::VideoMode{config::windowWidth, config::windowHeight}, windowName.data(), sf::Style::None}
 {
     window.setFramerateLimit(config::maxFps);
 

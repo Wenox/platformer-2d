@@ -62,7 +62,7 @@ namespace config {
 
     constexpr static auto windowWidth  = entityWidth  * 20;
     constexpr static auto windowHeight = entityHeight * 18;
-    constexpr static auto maxFps       = 3000; /** Emphasize frame rate independent movement */
+    constexpr static auto maxFps       = 144;
 
     extern bool playerWon;
 }
