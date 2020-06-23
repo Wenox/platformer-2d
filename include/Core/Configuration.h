@@ -16,8 +16,8 @@ namespace config {
     constexpr static Keyboard::Key defaultRunRightKey = Keyboard::D;
 
     constexpr static string_view mapEditorPath        = "index.html";
-    constexpr static string_view defaultMapName       = "map.bmp";
-    constexpr static string_view gameMusic            = "../resources/music/Background.ogg";
+    constexpr static string_view defaultMapName       = "../resources/Maps/map.bmp";
+    constexpr static string_view gameMusic            = "../resources/Music/Background.ogg";
 
     constexpr static auto defaultSoundVolume          = 30.0f;
 
