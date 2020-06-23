@@ -24,11 +24,11 @@ The objective for the player is to find an exit in a possibly huge world, withou
 [![options.png](https://i.postimg.cc/65WKwwSP/options.png)](https://postimg.cc/4nSqQCXv)
 
 ### Keybindings
-[![keybindings.png](https://i.postimg.cc/Vv435rTV/keybindings.png)](https://postimg.cc/kR6jp47Q)
+[![keybinds-gif.gif](https://i.postimg.cc/PJJjNdXt/keybinds-gif.gif)](https://postimg.cc/WFBKHLqK)
 
 ### Map Loader
 
-[![map-loader.png](https://i.postimg.cc/qBXr9gmn/map-loader.png)](https://postimg.cc/Yj9TF2Bq)
+[![map-loader-gif.gif](https://i.postimg.cc/sfHzqGm1/map-loader-gif.gif)](https://postimg.cc/Z0NXyR1h)
 
 ### Exemplary `.bmp` world
 
