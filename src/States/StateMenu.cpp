@@ -27,7 +27,7 @@ void StateMenu::onCreate() {
                     std::make_shared<StateGame>(stateMachine, window, resources, mapLoader.value()));
             stateMachine.switchTo(state::gameID);
         } else {
-            throw std::runtime_error{"Such default map file does not exist: " + std::string(config::defaultMapName.data())};
+            std::cerr << "Default map file named: \"" + std::string(config::defaultMapName.data()) + "\" does not exist" << std::endl;
         }
     });
 

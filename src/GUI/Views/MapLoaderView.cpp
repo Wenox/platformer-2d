@@ -42,7 +42,7 @@ void MapLoaderView::animateBadMapLabel() {
 }
 
 std::string MapLoaderView::getMapName() const {
-    return this->getView().getContainer()->get<tgui::EditBox>("mapNameBox")->getText().toAnsiString();
+    return config::defaultMapDir + this->getView().getContainer()->get<tgui::EditBox>("mapNameBox")->getText().toAnsiString();
 }
 
 void MapLoaderView::setPromptToEnter(bool status) {
