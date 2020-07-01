@@ -1,20 +1,26 @@
+.bmp map width has to be a multiple of 4px, e.g. 44 or 200px
+.bmp pixels colors are encoded using BGR (not RGB!) e.g. {255, 0, 0} is Blue and not Red
+
+---------------------------------------------------
+<Entity> <{Blue, Green, Red}> <Value for .txt maps>
+---------------------------------------------------
 Empty {0, 0, 0} 0
-Player{201, 174, 255} 1
-Objective{255, 255, 255} 9
+Player {201, 174, 255} 1
+Objective {255, 255, 255} 9
 HeartCollectible {231, 191, 200}
-BlockRed{36, 28, 237} 2
-BlockBlue{232, 162, 0} 3
-BlockBrown{21, 0, 136} 4
-BlockGray{127, 127, 127} 5
-BlockGreen{76, 177, 34} 6
-BlockPurple{164, 73, 163} 7
-BlockYellow{0, 242, 255} 8
-BlockCrate{87, 122, 185} 11
-Water1{204, 72, 63} 12
-Water2{190, 146, 112} 13
-Sign1{39, 127, 255} 14
-Sign2{14, 201, 255} 15
-Spike{195, 195, 195} 10
-SpkeLeft{194, 195, 195} 16
-SpikeRight{195, 194, 195} 17
-SpikeTop{195, 195, 194} 18
+BlockRed {36, 28, 237} 2
+BlockBlue {232, 162, 0} 3
+BlockBrown {21, 0, 136} 4
+BlockGray {127, 127, 127} 5
+BlockGreen {76, 177, 34} 6
+BlockPurple {164, 73, 163} 7
+BlockYellow {0, 242, 255} 8
+BlockCrate {87, 122, 185} 11
+Water1 {204, 72, 63} 12
+Water2 {190, 146, 112} 13
+Sign1 {39, 127, 255} 14
+Sign2 {14, 201, 255} 15
+Spike {195, 195, 195} 10
+SpkeLeft {194, 195, 195} 16
+SpikeRight {195, 194, 195} 17
+SpikeTop {195, 195, 194} 18

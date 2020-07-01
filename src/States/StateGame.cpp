@@ -116,6 +116,12 @@ void StateGame::restartGameLevel() {
 }
 
 void StateGame::processInput() {
+    sf::Event e{};
+    while (window.getWindow().pollEvent(e)) {
+        if (e.type == sf::Event::LostFocus) {
+            stateMachine = state::pausedID;
+        }
+    }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
         stateMachine = state::pausedID;
     }
