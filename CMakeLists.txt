@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(ALL_WARNING_FLAGS "-Wall -Wextra -pedantic -Wcast-align -Wcast-qual -Wctor-dtor-privacy -Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op -Wnoexcept -Wold-style-cast -Woverloaded-virtual -Wredundant-decls -Wsign-promo -Wstrict-null-sentinel -Wstrict-overflow=5 -Wundef -Wno-unused -Wno-variadic-macros -Wno-parentheses -fdiagnostics-show-option")
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "-O3 -Wall -Wextra -pedantic -Wcast-align -Wcast-qual -Wctor-dtor-privacy")
+set(CMAKE_CXX_STANDARD_LIBRARIES "-static-libgcc -static-libstdc++ -lwsock32 -lws2_32 ${CMAKE_CXX_STANDARD_LIBRARIES}")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-Bstatic,--whole-archive -lwinpthread -Wl,--no-whole-archive")
 
 set(PROJECT_NAME "platformer-2d")
 project(${PROJECT_NAME})
@@ -92,7 +92,7 @@ find_package(TGUI 0.8 REQUIRED)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 
-set(SFML_LIBRARIES sfml-graphics sfml-audio sfml-network)
+set(SFML_LIBRARIES sfml-graphics sfml-audio)
 set(TGUI_LIBRARIES tgui)
 set(PROJECT_LIBRARIES ${SFML_LIBRARIES} ${TGUI_LIBRARIES})
 
