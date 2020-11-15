@@ -1,3 +1,6 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/wenox/platformer-2d/badge)](https://www.codefactor.io/repository/github/wenox/platformer-2d)
+[![License](https://img.shields.io/github/license/wenox/platformer-2d)](LICENSE.md)
+
 # ![icon](./resources/Screens/Icon.png) Platformer 2D
 
 Platformer 2D is a customizable C++20 tile-based game, where you can create your own worlds and alter the settings easily.
